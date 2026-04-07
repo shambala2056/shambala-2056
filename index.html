@@ -290,9 +290,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;
   animation:logoScroll 60s linear infinite;
 }
 .clients-track:hover{animation-play-state:paused}
-.client-logo{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:36px}
+.client-logo{
+  flex-shrink:0;
+  width:120px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+}
 .client-logo img,.client-logo svg{
-  height:28px;width:auto;max-width:140px;object-fit:contain;display:block;
+  width:100%;height:100%;object-fit:contain;display:block;
   filter:brightness(0) invert(1);
   opacity:0.4;
   transition:opacity 0.3s;
