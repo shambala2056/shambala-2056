@@ -293,18 +293,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;
 .client-logo{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:36px}
 .client-logo img,.client-logo svg{
   height:28px;width:auto;max-width:140px;object-fit:contain;display:block;
-  /*
-    invert(1): white bg → black, colored pixels → inverted
-    grayscale(1): remove all color
-    contrast(100): threshold — any non-black → pure white, black stays black
-    screen blend: black on dark bg = invisible (bg removed), white = visible
-  */
-  filter:invert(1) grayscale(1) contrast(100);
-  mix-blend-mode:screen;
+  filter:brightness(0) invert(1);
   opacity:0.4;
   transition:opacity 0.3s;
 }
-.clients-track:hover .client-logo img,.clients-track:hover .client-logo svg{opacity:0.8}
+.clients-track:hover .client-logo img,.clients-track:hover .client-logo svg{opacity:0.85}
 @keyframes logoScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ═══ SEQUENCE ═══ */
