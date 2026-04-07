@@ -280,22 +280,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;
 }
 .clients-track-wrap{flex:1;overflow:hidden;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)}
 .clients-track{
-  display:flex;align-items:center;gap:64px;
+  display:flex;align-items:center;gap:60px;
   width:max-content;
-  animation:logoScroll 28s linear infinite;
+  animation:logoScroll 80s linear infinite;
 }
 .clients-track:hover{animation-play-state:paused}
-.client-logo{
-  flex-shrink:0;
-  font-family:'Orbitron',sans-serif;font-size:0.75rem;font-weight:700;
-  letter-spacing:0.12em;color:rgba(232,244,255,0.25);
-  border:1px solid rgba(232,244,255,0.08);
-  padding:10px 28px;
-  transition:color 0.3s,border-color 0.3s;
-  white-space:nowrap;
-}
-.client-logo img{height:28px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.3;transition:opacity 0.3s}
-.client-logo:hover img,.clients-track:hover .client-logo img{opacity:0.7}
+.client-logo{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:38px}
+.client-logo img,.client-logo svg{height:30px;width:auto;max-width:160px;object-fit:contain;
+  filter:brightness(0) invert(1);opacity:0.28;transition:opacity 0.3s;display:block}
+.clients-track:hover .client-logo img,.clients-track:hover .client-logo svg{opacity:0.65}
 @keyframes logoScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ═══ SEQUENCE ═══ */
@@ -687,20 +680,121 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
   <div class="clients-label">TRUSTED BY</div>
   <div class="clients-track-wrap">
     <div class="clients-track">
-      <!-- placeholder logos — replace with real ones -->
-      <div class="client-logo">LOGO 01</div>
-      <div class="client-logo">LOGO 02</div>
-      <div class="client-logo">LOGO 03</div>
-      <div class="client-logo">LOGO 04</div>
-      <div class="client-logo">LOGO 05</div>
-      <div class="client-logo">LOGO 06</div>
-      <!-- duplicated for seamless scroll -->
-      <div class="client-logo">LOGO 01</div>
-      <div class="client-logo">LOGO 02</div>
-      <div class="client-logo">LOGO 03</div>
-      <div class="client-logo">LOGO 04</div>
-      <div class="client-logo">LOGO 05</div>
-      <div class="client-logo">LOGO 06</div>
+      <div class="client-logo"><img src="logos/nomin-electronics.svg" alt="Nomin Electronics"></div>
+      <div class="client-logo"><img src="logos/nomin-holding.svg" alt="Nomin Holding"></div>
+      <div class="client-logo"><img src="logos/nomin-daatgal.svg" alt="Nomin Daatgal"></div>
+      <div class="client-logo"><img src="logos/nomin-card.svg" alt="Nomin Card"></div>
+      <div class="client-logo"><img src="logos/mon-logistics.png" alt="Mon Logistics"></div>
+      <div class="client-logo"><img src="logos/gm-star.png" alt="G&M Star"></div>
+      <div class="client-logo"><img src="logos/nomin-homestay.png" alt="Nomin Homestay"></div>
+      <div class="client-logo"><img src="logos/nomin-unity.png" alt="Nomin Unity"></div>
+      <div class="client-logo"><img src="logos/ard-aktiv.png" alt="ARD Актив"></div>
+      <div class="client-logo"><img src="logos/ard-bit.png" alt="ARD Бит"></div>
+      <div class="client-logo"><img src="logos/ard-kredit.png" alt="ARD Кредит"></div>
+      <div class="client-logo"><img src="logos/ard-tatgavriyn.png" alt="ARD Тэтгэврийн"></div>
+      <div class="client-logo"><img src="logos/bu-properties.png" alt="BU Properties"></div>
+      <div class="client-logo"><img src="logos/callpro.png" alt="CallPro"></div>
+      <div class="client-logo"><img src="logos/chikherleg.png" alt="Чихэрлэг Залуус"></div>
+      <div class="client-logo"><img src="logos/unread.png" alt="UNREAD"></div>
+      <div class="client-logo"><img src="logos/crm.png" alt="CRM"></div>
+      <div class="client-logo"><img src="logos/wearnes.png" alt="Wearnes Starchase"></div>
+      <div class="client-logo"><img src="logos/efes.png" alt="Efes Group"></div>
+      <div class="client-logo"><img src="logos/ambasciata.png" alt="Ambasciata d'Italia"></div>
+      <div class="client-logo"><img src="logos/ggi.png" alt="GGI"></div>
+      <div class="client-logo"><img src="logos/green-drill.png" alt="Green Drill"></div>
+      <div class="client-logo"><img src="logos/green-solar.png" alt="Green Solar"></div>
+      <div class="client-logo"><img src="logos/jacks-coffee.png" alt="Jack's Coffee"></div>
+      <div class="client-logo"><img src="logos/landbridge.png" alt="Landbridge"></div>
+      <div class="client-logo"><img src="logos/mg-daatgal.png" alt="MG Даатгал"></div>
+      <div class="client-logo"><img src="logos/molpedia.png" alt="Molpedia"></div>
+      <div class="client-logo"><img src="logos/msm.png" alt="MSM"></div>
+      <div class="client-logo"><img src="logos/naran-shiptee.png" alt="Наран Шиптэй"></div>
+      <div class="client-logo"><img src="logos/naropa.png" alt="Naropa Institute"></div>
+      <div class="client-logo"><img src="logos/oum.png" alt="Оүм"></div>
+      <div class="client-logo"><img src="logos/pizza-hut.png" alt="Pizza Hut"></div>
+      <div class="client-logo"><img src="logos/plastic-center.png" alt="Plastic Center"></div>
+      <div class="client-logo"><img src="logos/remax.png" alt="RE/MAX Mongolia"></div>
+      <div class="client-logo"><img src="logos/rio-tinto.png" alt="Rio Tinto"></div>
+      <div class="client-logo"><img src="logos/scc.png" alt="SCC"></div>
+      <div class="client-logo"><img src="logos/storepay.png" alt="Storepay"></div>
+      <div class="client-logo"><img src="logos/tdb.png" alt="TDB"></div>
+      <div class="client-logo"><img src="logos/timberland.png" alt="Timberland"></div>
+      <div class="client-logo"><img src="logos/tod-oyms.png" alt="Тод Оймс"></div>
+      <div class="client-logo"><img src="logos/toirot.png" alt="Toirot"></div>
+      <div class="client-logo"><img src="logos/toki.png" alt="Toki"></div>
+      <div class="client-logo"><img src="logos/treelings.png" alt="Treelings"></div>
+      <div class="client-logo"><img src="logos/tsoba.png" alt="Tsoba House"></div>
+      <div class="client-logo"><img src="logos/tumen-shuvuut.png" alt="Түмэн Шувуут"></div>
+      <div class="client-logo"><img src="logos/ub-comedy.png" alt="UB Comedy"></div>
+      <div class="client-logo"><img src="logos/ub-print.png" alt="UB Print"></div>
+      <div class="client-logo"><img src="logos/ulz-finance.png" alt="УЛЗ Финанс"></div>
+      <div class="client-logo"><img src="logos/ulz-group.png" alt="УЛЗ Групп"></div>
+      <div class="client-logo"><img src="logos/ulz-gol.png" alt="УЛЗ Гол ХХК"></div>
+      <div class="client-logo"><img src="logos/ulz-drilling.png" alt="УЛЗ Дриллинг"></div>
+      <div class="client-logo"><img src="logos/onge-nemie.png" alt="Өнгө Нэмье"></div>
+      <div class="client-logo"><img src="logos/yves-rocher.png" alt="Yves Rocher"></div>
+      <div class="client-logo"><img src="logos/khoosogol.png" alt="Хөөсгөл ХХК"></div>
+      <div class="client-logo"><img src="logos/mbank.png" alt="M Bank"></div>
+      <div class="client-logo"><img src="logos/golden-hammer.png" alt="Golden Hammer"></div>
+      <div class="client-logo"><img src="logos/ach-tus.png" alt="Ач тусын тухай үлгэрүүд"></div>
+      <!-- duplicate set for seamless scroll -->
+      <div class="client-logo"><img src="logos/nomin-electronics.svg" alt="Nomin Electronics"></div>
+      <div class="client-logo"><img src="logos/nomin-holding.svg" alt="Nomin Holding"></div>
+      <div class="client-logo"><img src="logos/nomin-daatgal.svg" alt="Nomin Daatgal"></div>
+      <div class="client-logo"><img src="logos/nomin-card.svg" alt="Nomin Card"></div>
+      <div class="client-logo"><img src="logos/mon-logistics.png" alt="Mon Logistics"></div>
+      <div class="client-logo"><img src="logos/gm-star.png" alt="G&M Star"></div>
+      <div class="client-logo"><img src="logos/nomin-homestay.png" alt="Nomin Homestay"></div>
+      <div class="client-logo"><img src="logos/nomin-unity.png" alt="Nomin Unity"></div>
+      <div class="client-logo"><img src="logos/ard-aktiv.png" alt="ARD Актив"></div>
+      <div class="client-logo"><img src="logos/ard-bit.png" alt="ARD Бит"></div>
+      <div class="client-logo"><img src="logos/ard-kredit.png" alt="ARD Кредит"></div>
+      <div class="client-logo"><img src="logos/ard-tatgavriyn.png" alt="ARD Тэтгэврийн"></div>
+      <div class="client-logo"><img src="logos/bu-properties.png" alt="BU Properties"></div>
+      <div class="client-logo"><img src="logos/callpro.png" alt="CallPro"></div>
+      <div class="client-logo"><img src="logos/chikherleg.png" alt="Чихэрлэг Залуус"></div>
+      <div class="client-logo"><img src="logos/unread.png" alt="UNREAD"></div>
+      <div class="client-logo"><img src="logos/crm.png" alt="CRM"></div>
+      <div class="client-logo"><img src="logos/wearnes.png" alt="Wearnes Starchase"></div>
+      <div class="client-logo"><img src="logos/efes.png" alt="Efes Group"></div>
+      <div class="client-logo"><img src="logos/ambasciata.png" alt="Ambasciata d'Italia"></div>
+      <div class="client-logo"><img src="logos/ggi.png" alt="GGI"></div>
+      <div class="client-logo"><img src="logos/green-drill.png" alt="Green Drill"></div>
+      <div class="client-logo"><img src="logos/green-solar.png" alt="Green Solar"></div>
+      <div class="client-logo"><img src="logos/jacks-coffee.png" alt="Jack's Coffee"></div>
+      <div class="client-logo"><img src="logos/landbridge.png" alt="Landbridge"></div>
+      <div class="client-logo"><img src="logos/mg-daatgal.png" alt="MG Даатгал"></div>
+      <div class="client-logo"><img src="logos/molpedia.png" alt="Molpedia"></div>
+      <div class="client-logo"><img src="logos/msm.png" alt="MSM"></div>
+      <div class="client-logo"><img src="logos/naran-shiptee.png" alt="Наран Шиптэй"></div>
+      <div class="client-logo"><img src="logos/naropa.png" alt="Naropa Institute"></div>
+      <div class="client-logo"><img src="logos/oum.png" alt="Оүм"></div>
+      <div class="client-logo"><img src="logos/pizza-hut.png" alt="Pizza Hut"></div>
+      <div class="client-logo"><img src="logos/plastic-center.png" alt="Plastic Center"></div>
+      <div class="client-logo"><img src="logos/remax.png" alt="RE/MAX Mongolia"></div>
+      <div class="client-logo"><img src="logos/rio-tinto.png" alt="Rio Tinto"></div>
+      <div class="client-logo"><img src="logos/scc.png" alt="SCC"></div>
+      <div class="client-logo"><img src="logos/storepay.png" alt="Storepay"></div>
+      <div class="client-logo"><img src="logos/tdb.png" alt="TDB"></div>
+      <div class="client-logo"><img src="logos/timberland.png" alt="Timberland"></div>
+      <div class="client-logo"><img src="logos/tod-oyms.png" alt="Тод Оймс"></div>
+      <div class="client-logo"><img src="logos/toirot.png" alt="Toirot"></div>
+      <div class="client-logo"><img src="logos/toki.png" alt="Toki"></div>
+      <div class="client-logo"><img src="logos/treelings.png" alt="Treelings"></div>
+      <div class="client-logo"><img src="logos/tsoba.png" alt="Tsoba House"></div>
+      <div class="client-logo"><img src="logos/tumen-shuvuut.png" alt="Түмэн Шувуут"></div>
+      <div class="client-logo"><img src="logos/ub-comedy.png" alt="UB Comedy"></div>
+      <div class="client-logo"><img src="logos/ub-print.png" alt="UB Print"></div>
+      <div class="client-logo"><img src="logos/ulz-finance.png" alt="УЛЗ Финанс"></div>
+      <div class="client-logo"><img src="logos/ulz-group.png" alt="УЛЗ Групп"></div>
+      <div class="client-logo"><img src="logos/ulz-gol.png" alt="УЛЗ Гол ХХК"></div>
+      <div class="client-logo"><img src="logos/ulz-drilling.png" alt="УЛЗ Дриллинг"></div>
+      <div class="client-logo"><img src="logos/onge-nemie.png" alt="Өнгө Нэмье"></div>
+      <div class="client-logo"><img src="logos/yves-rocher.png" alt="Yves Rocher"></div>
+      <div class="client-logo"><img src="logos/khoosogol.png" alt="Хөөсгөл ХХК"></div>
+      <div class="client-logo"><img src="logos/mbank.png" alt="M Bank"></div>
+      <div class="client-logo"><img src="logos/golden-hammer.png" alt="Golden Hammer"></div>
+      <div class="client-logo"><img src="logos/ach-tus.png" alt="Ач тусын тухай үлгэрүүд"></div>
     </div>
   </div>
 </section>
