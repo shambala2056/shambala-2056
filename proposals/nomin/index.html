@@ -33,6 +33,7 @@
     overflow-x: hidden;
     line-height: 1.5;
     font-synthesis: none;
+    text-transform: uppercase;
   }
 
   /* Custom scrollbar */
@@ -1707,13 +1708,13 @@
 
   .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 18px;
+    align-items: stretch;
   }
   /* Wider 2-column layout for sections with long bullet text */
   #insured-trees .benefits-grid {
-    grid-template-columns: 1fr 1fr;
-    max-width: 1400px;
+    grid-template-columns: 1fr;
   }
   #anniversary .benefits-grid {
     grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
@@ -1737,7 +1738,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    min-height: 180px;
+    min-height: unset;
   }
   .benefit-card::before {
     content: '';
@@ -1771,8 +1772,7 @@
     text-shadow: 0 0 14px rgba(201,168,120,0.22);
   }
   .benefit-card.sand .benefit-list li::before {
-    background: var(--sand);
-    box-shadow: 0 0 4px var(--sand);
+    display: none;
   }
 
   .benefit-head {
@@ -1835,17 +1835,12 @@
     letter-spacing: 0.02em;
     color: var(--text-dim);
     line-height: 1.55;
-    text-transform: none;
+    text-transform: uppercase;
     padding-left: 14px;
     position: relative;
   }
   .benefit-list li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0.55em;
-    width: 6px; height: 1px;
-    background: var(--neon-2);
-    box-shadow: 0 0 4px var(--neon-2);
+    display: none;
   }
   .benefit-list li strong {
     font-weight: 700;
@@ -2283,7 +2278,7 @@
 
   <div class="section-tag reveal">// FRAMEWORK 01 — CSR · ESG</div>
   <h2 class="grid-title reveal">CSR · ESG</h2>
-  <p class="grid-subtitle reveal">ХАМТЫН АЖИЛЛАГААНЫ <span style="color: var(--neon);">ТОГТВОРТОЙ</span> ХҮРЭЭ</p>
+  <p class="grid-subtitle reveal">ТОГТВОРТОЙ ХАМТЫН АЖИЛЛАГАА <span style="color: var(--neon);"></span> </p>
 
   <div class="benefits-grid" style="margin-top: 40px;">
 
@@ -2293,9 +2288,7 @@
         <span class="benefit-metric">ENVIRONMENT</span>
       </div>
       <ul class="benefit-list">
-        <li>Говийн цөлжилттэй бүсэд <strong>1,800 мод</strong> тарина.</li>
-        <li>Нарны эрчим хүчэд суурилсан <strong>биет урлагийн бүтээл</strong> хийнэ.</li>
-        <li>CO₂ шингээлтийг тооцоолж <strong>жил бүрийн тайланд</strong> тусгана.</li>
+        <li>MONGOLZ#1 ЛЭНД АРТ-Д<strong> 1,800 мод</strong> ТАРИГДАНА.</li>
       </ul>
     </div>
 
@@ -2305,9 +2298,7 @@
         <span class="benefit-metric">SOCIAL</span>
       </div>
       <ul class="benefit-list">
-        <li>Монголын говьд үлдэх <strong>урлагийн байнгын бүтээл</strong>.</li>
-        <li>Залуу үеийг байгальтай холбох <strong>амьд жишээ</strong> болно.</li>
-        <li>Орон нутгийн иргэдэд <strong>ажил олгоно</strong>.</li>
+        <li>ATE ЛЭНД АРТ-Д <strong>НОМИН ХОЛДИНГ 35 ЖИЛ</strong> ИНСТАЛЯЦИ БҮТЭЭНЭ.</li>
       </ul>
     </div>
 
@@ -2317,9 +2308,7 @@
         <span class="benefit-metric">GOVERNANCE</span>
       </div>
       <ul class="benefit-list">
-        <li>Мод тус бүр <strong>GPS-ээр бүртгэгдэж</strong>, ургалтыг тогтмол хянана.</li>
-        <li>Жил бүр <strong>ESG тайлан</strong> гардуулна.</li>
-        <li>Монгол Улсын хуулийн дагуу <strong>татварын хөнгөлөлт</strong> авна.</li>
+        <li>Жил бүр <strong>ESG тайлан</strong> ГАРГАНА.</li>
       </ul>
     </div>
 
@@ -2405,13 +2394,13 @@
     </div>
     <div class="stat reveal">
       <span class="stat-index">04</span>
-      <div class="stat-label">ТАЙЛАГНАЛ</div>
+      <div class="stat-label">ТАЙЛАН</div>
       <div class="stat-value">ESG ТАЙЛАН</div>
     </div>
   </div>
 
   <div class="coord-bar reveal">
-    <span>МОНГОЛ УЛС</span>
+    <span>ДОРНОГОВЬ АЙМАГ, ЭРДЭНЭ СУМ</span>
     <span>44°04'34.69"N · 111°11'41.40"E</span>
     <span>STATUS: ACTIVE</span>
   </div>
@@ -2425,57 +2414,21 @@
   <div class="corner tl"></div>
   <div class="corner br"></div>
 
-  <div class="section-tag reveal">// PROJECT 03 — GUARANTEED FOREST</div>
-  <h2 class="grid-title reveal">ДААТГАГДСАН МОД</h2>
-  <p class="grid-subtitle reveal">МОД БҮР <span style="color: var(--neon);">АМЬДРАЛЫН БАТАЛГАА</span>-ТАЙ</p>
+  <div class="section-tag reveal">// PROJECT 03 — INSURED FOREST</div>
+  <h2 class="grid-title reveal">НОМИН ДААТГАЛ</h2>
+  <p class="grid-subtitle reveal"> <span style="color: var(--neon);">ДААТГАГДСАН</span> МОД</p>
 
   <div class="benefits-grid" style="margin-top: 40px;">
 
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">01</span>
-      </div>
-      <h4 class="benefit-title">МОД ТУС БҮРИЙН БҮРТГЭЛ</h4>
-      <ul class="benefit-list" style="margin-top: 8px;">
-        <li>Тарьсан мод бүр <strong>тоон бүртгэлд</strong> орно.</li>
-      </ul>
-    </div>
 
     <div class="benefit-card">
       <div class="benefit-head">
-        <span class="benefit-num">02</span>
-        <span class="benefit-metric">ДААТГАЛ</span>
       </div>
-      <h4 class="benefit-title">АМЬДРАЛЫН БАТАЛГАА</h4>
       <ul class="benefit-list">
-        <li>Таригдсан бүх модыг <strong>Номин Даатгал</strong>-аар даатгана.</li>
-        <li>Үхсэн мод гарвал <strong>нөхөн тарилт</strong> хийнэ.</li>
+        <li>Таригдсан мод БҮР <strong>Номин Даатгал</strong>-аар даатгана.</li>
+        <li>УРГАХ БОЛОМЖГҮЙ МОДЫГ <strong>нөхөн тарилт</strong> хийнэ.</li>
       </ul>
     </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">03</span>
-        <span class="benefit-metric">АРЧИЛГАА</span>
-      </div>
-      <h4 class="benefit-title">ТОГТМОЛ УСАЛГАА · АРЧИЛГАА</h4>
-      <ul class="benefit-list">
-        <li>Говийн нөхцөлд зориулсан <strong>дуслын усалгааны автомат систем</strong>.</li>
-        <li>Улирал тутамд <strong>арчилгаа, хогийн ургамал</strong> цэвэрлэнэ.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">04</span>
-        <span class="benefit-metric">ТАЙЛАН</span>
-      </div>
-      <h4 class="benefit-title">ИВЭЭН ТЭТГЭГЧИЙН ХЯНАЛТ</h4>
-      <ul class="benefit-list">
-        <li>Жилд нэг удаа мод бүрийн <strong>ургалтын тайлан</strong>, зурагтай хамт илгээнэ.</li>
-      </ul>
-    </div>
-
   </div>
 </section>
 
@@ -2496,7 +2449,7 @@
     </div>
     <div class="anniv-text reveal">
       <strong>"НОМИН ХОЛДИНГ" ХХК</strong>-ийн 35 жилийн ойд зориулан
-      <strong>сэргээгдэх эрчим хүчинд суурилсан</strong> биет инсталляц бүтээж,
+      <strong></strong> биет инсталляц бүтээж,
       ART'N TECH LAND ART-н <strong>төв хэсэгт байршуулна.</strong>
     </div>
   </div>
@@ -2510,9 +2463,7 @@
       </div>
       <h4 class="benefit-title">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧ</h4>
       <ul class="benefit-list">
-        <li>Нарны хавтан бүтээлийн дизайнд шингэсэн тул <strong>гадны цахилгааны шугамаас огт хамаардаггүй</strong>.</li>
-        <li>Харанхуй болмогц автоматаар асч, <strong>шөнийн говьд гийнэ</strong>.</li>
-        <li>CO₂ огт гаргадаггүй учир группын <strong>ESG тайланд</strong> "Цэвэр эрчим хүч"-ний бодит жишээ болж орно.</li>
+        <li>БҮТЭЭЛИЙН ГЭРЭЛТҮҮЛГИЙГ  <strong>СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧ АШИГЛАН ШИЙДНЭ</strong>.</li>
       </ul>
     </div>
 
@@ -2521,25 +2472,11 @@
         <span class="benefit-num">02</span>
         <span class="benefit-metric">35<sup style="font-size:0.5em">th</sup></span>
       </div>
-      <h4 class="benefit-title">35 ЖИЛИЙН БЭЛГЭДЭЛ</h4>
+      <h4 class="benefit-title">35 ЖИЛИЙН БЭЛГЭДЭЛ ДИЗАЙН, КОНСЕПТ </h4>
       <ul class="benefit-list">
-        <li><strong>35 бие даасан элемент</strong> — металл багана, гэрлэн цэг — бүтээлийг тойрч байрлана.</li>
-        <li>1992-аас хойших Номин брэндийн <strong>35 жилийн замналыг</strong> дүрслэнэ — цэг бүр нэг жилийн түүх.</li>
+        <li><strong>БАЙГАЛЬД ЭЭЛТЭЙ </strong> МАТЕРИАЛ СОНГОЛТ, АРГА БАРИЛ </li>
       </ul>
     </div>
-
-    <div class="benefit-card sand">
-      <div class="benefit-head">
-        <span class="benefit-num">03</span>
-        <span class="benefit-metric">КОНТЕНТ</span>
-      </div>
-      <h4 class="benefit-title">АГААРЫН ЗУРАГ · ВИДЕО</h4>
-      <ul class="benefit-list">
-        <li>4K Ultra-HD нягтралтай <strong>агаарын фото болон видео</strong> бичлэг.</li>
-        <li>Номин Холдинг эдгээр контентыг <strong>нэмэлт төлбөргүй, хугацааны хязгааргүйгээр</strong> маркетинг болон бизнесийн зорилгоор ашиглана.</li>
-      </ul>
-    </div>
-
   </div>
 </section>
 
@@ -2557,8 +2494,8 @@
     <div>
       <h2 class="doc-title reveal">БАРИМТАТ<br/>КИНО</h2>
       <p class="doc-text reveal">
-        <strong>Номин Холдинг</strong>-ийн 35 жилийн өв, тогтвортой хөгжлийн бодит үйл хэрэг болох
-        <strong>Шамбала говь</strong> дахь бүтээн байгуулалтыг баримтжуулан үлдээнэ.
+        <strong>Номин Холдинг</strong>-ийн 35 жилийн ОЙ, ЦӨЛЖИЛТИЙГ СААРУУЛАХ БОТИД ХУВЬ НЭМЭР болох
+        <strong>ART N TECH MONGOLZ#1</strong> ЛЭНД АРТУУД ДЭЭРХ НОМИН ХОЛДИНГИЙН ОРОЛЦООГ баримтжуулан үлдээнэ.
       </p>
       <div class="doc-meta reveal">
         <div class="doc-meta-row"><span>● REC</span><span>4K · 60FPS</span></div>
@@ -2579,126 +2516,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Subsection 1: Standards & Format -->
-  <div class="section-tag reveal" style="margin-top: 50px;">// 01 — КИНОНЫ СТАНДАРТ БА ФОРМАТ</div>
-
-  <div class="benefits-grid" style="margin-top: 24px;">
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">01</span>
-        <span class="benefit-metric">30 MIN</span>
-      </div>
-      <h4 class="benefit-title">ҮРГЭЛЖЛЭХ ХУГАЦАА</h4>
-      <ul class="benefit-list">
-        <li>Эхлэл, өрнөл, төгсгөлтэй <strong>30 минутын</strong> бүрэн баримтат кино.</li>
-        <li>Телевиз болон цахим стриминг платформд тохирсон урт.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">02</span>
-        <span class="benefit-metric">MN · EN</span>
-      </div>
-      <h4 class="benefit-title">ОЛОН УЛСЫН ХҮРТЭЭМЖ</h4>
-      <ul class="benefit-list">
-        <li>Монгол хэл дээр хийгдэж, <strong>Англи хадмал орчуулга</strong> дагалдана.</li>
-        <li>Гадаадын түнш болон <strong>олон улсын кино наадамд</strong> харуулах боломжтой.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Subsection 2: Cinematic Quality -->
-  <div class="section-tag reveal" style="margin-top: 50px;">// 02 — ДҮРС БА ДУУНЫ ТЕХНОЛОГИ · CINEMATIC QUALITY</div>
-
-  <div class="benefits-grid" style="margin-top: 24px;">
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">03</span>
-        <span class="benefit-metric">4K · 60FPS</span>
-      </div>
-      <h4 class="benefit-title">ҮЗҮҮЛЭЛТ</h4>
-      <ul class="benefit-list">
-        <li><strong>4K UHD · 60fps</strong> — гулгамтгай, тод дүрс.</li>
-        <li>Кино камер болон мэргэжлийн <strong>өнгө цэгцлэлт</strong> хийнэ.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">04</span>
-        <span class="benefit-metric">DRONE</span>
-      </div>
-      <h4 class="benefit-title">АГААРЫН ЗУРАГЛАЛ</h4>
-      <ul class="benefit-list">
-        <li>"NOMIN 35" Лэнд Артыг агаараас харуулахын тулд <strong>FPV дрон болон ердийн дрон</strong> хослуулан ашиглана.</li>
-        <li>Нарийн деталиас <strong>өргөн панорам</strong> руу шилжих зураглалууд багтана.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">05</span>
-        <span class="benefit-metric">DOLBY</span>
-      </div>
-      <h4 class="benefit-title">АУДИО</h4>
-      <ul class="benefit-list">
-        <li>Кинонд зориулж <strong>тусгайлан зохиосон хөгжим</strong> болон орчны дуугаралт.</li>
-        <li><strong>Dolby Stereo</strong> хувилбараар хүргэнэ.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Subsection 3: Release & Distribution -->
-  <div class="section-tag reveal" style="margin-top: 50px;">// 03 — ХҮРГЭХ СУВГУУД · RELEASE & DISTRIBUTION</div>
-  <p class="budget-intro reveal" style="margin-top: 14px; margin-bottom: 24px;">
-    Кино бэлэн болсны дараа дараах сувгаар түгээнэ.
-  </p>
-
-  <div class="benefits-grid">
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">06</span>
-        <span class="benefit-metric">TV</span>
-      </div>
-      <h4 class="benefit-title">ТВ НЭВТРҮҮЛЭГ</h4>
-      <ul class="benefit-list">
-        <li>Үндэсний болон хувийн <strong>телевизийн сувгуудаар</strong> орон даяар цацагдана.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">07</span>
-        <span class="benefit-metric">OTT</span>
-      </div>
-      <h4 class="benefit-title">ДИЖИТАЛ &amp; OTT</h4>
-      <ul class="benefit-list">
-        <li><strong>YouTube</strong> болон дотоодын OTT (<strong>Voo, LookTV</strong> гэх мэт) платформуудаар дамжуулан олон нийтэд нээлттэй хүрнэ.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">08</span>
-        <span class="benefit-metric">PREMIERE</span>
-      </div>
-      <h4 class="benefit-title">КИНО НААДАМ · ПРЕМЬЕР</h4>
-      <ul class="benefit-list">
-        <li>35 жилийн ойн <strong>VIP арга хэмжээн</strong> дээр албан ёсны нээлт (<strong>Premiere</strong>).</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
 
 <!-- Footer -->
 <footer>
