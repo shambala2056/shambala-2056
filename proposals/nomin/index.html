@@ -1991,6 +1991,17 @@
     border-top: 1px solid rgba(0, 255, 166, 0.4);
     background: linear-gradient(90deg, rgba(0,255,166,0.06), rgba(0,229,255,0.04));
   }
+  .budget-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-top: 1px solid rgba(0,179,101,0.35);
+    border-bottom: 1px solid rgba(0,179,101,0.35);
+    background: rgba(0,179,101,0.05);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
   .budget-total-label {
     font-family: 'Orbitron', 'Montserrat', sans-serif;
     font-size: 13px;
@@ -2257,6 +2268,12 @@
     </div>
 
   </div>
+
+  <div class="budget-total reveal" style="margin-top:48px;">
+    <div class="budget-total-label">НИЙТ ХӨРӨНГӨ ОРУУЛАЛТ</div>
+    <div class="budget-total-amount">220,000,000 ₮</div>
+  </div>
+
 </section>
 
 <div class="divider"></div>
@@ -2323,21 +2340,16 @@
   <div class="stats">
     <div class="stat reveal">
       <span class="stat-index">01</span>
-      <div class="stat-label">НИЙТ ӨРТӨГ</div>
-      <div class="stat-value accent" data-counter="128700000" data-suffix="₮" data-format="comma">0₮</div>
-    </div>
-    <div class="stat reveal">
-      <span class="stat-index">02</span>
       <div class="stat-label">МОНГОЛЫН ЦӨЛЖИЛТТЭЙ БҮСЭД ТАРИГДАХ</div>
       <div class="stat-value accent" data-counter="1800" data-suffix=" МОД" data-format="comma">0 МОД</div>
     </div>
     <div class="stat reveal">
-      <span class="stat-index">03</span>
+      <span class="stat-index">02</span>
       <div class="stat-label">МОДНЫ УСАЛГАА · АРЧИЛГАА</div>
       <div class="stat-value">БҮРТГЭЛ ХЯНАЛТ</div>
     </div>
     <div class="stat reveal">
-      <span class="stat-index">04</span>
+      <span class="stat-index">03</span>
       <div class="stat-label">ТАЙЛАН</div>
       <div class="stat-value">ESG ТАЙЛАН</div>
     </div>
