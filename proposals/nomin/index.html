@@ -69,7 +69,7 @@
     background-clip: text;
     color: transparent;
     margin-bottom: 30px;
-    animation: boot-glow 1.6s ease-in-out infinite alternate;
+    
   }
   @keyframes boot-glow {
     from { filter: drop-shadow(0 0 8px rgba(0,255,166,0.17)); }
@@ -89,8 +89,8 @@
     inset: 0;
     width: 0;
     background: linear-gradient(90deg, var(--neon), var(--neon-2));
-    box-shadow: 0 0 12px var(--neon);
-    animation: boot-fill 1.5s ease-out forwards;
+    
+    
   }
   @keyframes boot-fill {
     to { width: 100%; }
@@ -145,14 +145,14 @@
   .side-nav a:hover .dot-mark {
     background: var(--neon);
     border-color: var(--neon);
-    box-shadow: 0 0 10px var(--neon);
+    
   }
   .side-nav a:hover .label { opacity: 1; transform: translateX(0); }
   .side-nav a.active { color: var(--neon); }
   .side-nav a.active .dot-mark {
     background: var(--neon);
     border-color: var(--neon);
-    box-shadow: 0 0 12px var(--neon);
+    
   }
   .side-nav a.active .label { opacity: 1; transform: translateX(0); }
 
@@ -178,7 +178,7 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--neon), transparent);
     margin: 0 auto;
-    box-shadow: 0 0 12px rgba(0,255,166,0.28);
+    
   }
   .divider::before {
     content: '';
@@ -189,7 +189,7 @@
     width: 7px; height: 7px;
     background: var(--neon);
     border-radius: 50%;
-    box-shadow: 0 0 12px var(--neon);
+    
   }
   .divider-marker {
     display: flex;
@@ -270,7 +270,7 @@
     align-items: center;
     padding: 12px 24px;
     background: linear-gradient(180deg, rgba(5,7,13,0.9), rgba(5,7,13,0.5));
-    backdrop-filter: blur(8px);
+    
     border-bottom: 1px solid var(--line);
     font-family: 'Orbitron', 'Montserrat', sans-serif;
     font-size: 11px;
@@ -286,8 +286,8 @@
     width: 8px; height: 8px;
     background: var(--neon);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--neon);
-    animation: pulse 1.6s ease-in-out infinite;
+    
+    
   }
 
   @keyframes pulse {
@@ -309,16 +309,7 @@
     overflow: hidden;
   }
 
-  .corner {
-    position: absolute;
-    width: 40px; height: 40px;
-    border: 2px solid var(--neon);
-    opacity: 0.7;
-  }
-  .corner.tl { top: 80px; left: 4vw; border-right: none; border-bottom: none; }
-  .corner.tr { top: 80px; right: 4vw; border-left: none; border-bottom: none; }
-  .corner.bl { bottom: 40px; left: 4vw; border-right: none; border-top: none; }
-  .corner.br { bottom: 40px; right: 4vw; border-left: none; border-top: none; }
+  .corner { display: none; }
 
   .section-tag {
     font-family: 'Orbitron', 'Montserrat', sans-serif;
@@ -368,41 +359,7 @@
     overflow: hidden;
     pointer-events: none;
   }
-  .particles span {
-    position: absolute;
-    bottom: -20px;
-    width: 3px; height: 3px;
-    background: var(--neon);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--neon);
-    animation: rise linear infinite;
-    opacity: 0;
-  }
-  @keyframes rise {
-    0%   { transform: translateY(0); opacity: 0; }
-    10%  { opacity: 0.7; }
-    90%  { opacity: 0.7; }
-    100% { transform: translateY(-100vh); opacity: 0; }
-  }
-
-  /* Hero scanning beam */
-  .scan-beam {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(0,255,166,0.6) 50%,
-      transparent 100%);
-    box-shadow: 0 0 20px rgba(0,255,166,0.28);
-    animation: scan-move 6s ease-in-out infinite;
-    pointer-events: none;
-  }
-  @keyframes scan-move {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(100vh); }
-  }
+  .particles, .scan-beam { display: none; }
 
   /* × separator between Shambala 2056 and Nomin */
   .hero-x {
@@ -417,7 +374,7 @@
     height: 1px;
     width: clamp(60px, 12vw, 180px);
     background: linear-gradient(90deg, transparent, var(--neon));
-    box-shadow: 0 0 8px var(--neon);
+    
   }
   .hero-x .hero-x-line:last-child {
     background: linear-gradient(90deg, var(--neon), transparent);
@@ -427,7 +384,7 @@
     font-size: clamp(28px, 4vw, 56px);
     font-weight: 900;
     color: var(--neon);
-    text-shadow: 0 0 20px var(--neon);
+    
     line-height: 1;
     animation: x-pulse 2.4s ease-in-out infinite;
   }
@@ -461,7 +418,7 @@
     top: 50%;
     width: 80px; height: 1px;
     background: var(--neon);
-    box-shadow: 0 0 8px var(--neon);
+    
   }
   .hero-tagline::before { right: 100%; }
   .hero-tagline::after  { left: 100%; }
@@ -492,7 +449,7 @@
     letter-spacing: 0.5em;
     color: var(--neon);
     margin-bottom: 80px;
-    text-shadow: 0 0 16px var(--neon);
+    
   }
 
   .hero-pillars {
@@ -511,14 +468,14 @@
     padding: 14px 24px;
     border: 1px solid rgba(255,255,255,0.15);
     background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(6px);
+    
     position: relative;
     transition: all 0.3s;
   }
   .pillar:hover {
     border-color: var(--neon);
     color: var(--neon);
-    box-shadow: 0 0 30px rgba(0,255,166,0.11);
+    
   }
   .pillar.zero { color: var(--neon); border-color: var(--neon); }
   .pillar.zero .o {
@@ -526,7 +483,7 @@
     width: 14px; height: 14px;
     border: 2px solid var(--neon);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--neon);
+    
     margin-left: 4px;
     vertical-align: middle;
   }
@@ -543,7 +500,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 40px rgba(0,255,166,0.22);
+    
     margin-bottom: 16px;
     letter-spacing: 0.04em;
   }
@@ -570,9 +527,7 @@
     border: 1px solid var(--line);
     overflow: hidden;
     background: #d4b88a;
-    box-shadow:
-      0 0 60px rgba(0, 255, 166, 0.08),
-      inset 0 0 80px rgba(0, 0, 0, 0.25);
+    
   }
   .art-img {
     width: 100%;
@@ -629,7 +584,7 @@
     background: var(--bg-0);
     border-radius: 50%;
     z-index: 5;
-    box-shadow: 0 0 12px var(--neon);
+    
   }
   .connector-start::after {
     content: '';
@@ -658,9 +613,7 @@
     aspect-ratio: 1;
     border: 2px solid var(--neon);
     border-radius: 50%;
-    box-shadow:
-      0 0 24px var(--neon),
-      inset 0 0 24px rgba(0, 255, 166, 0.25);
+    
     background: radial-gradient(circle, transparent 55%, rgba(0,255,166,0.10) 100%);
   }
   .n-ring::before, .n-ring::after {
@@ -700,7 +653,7 @@
     border: 1px solid var(--neon);
     text-transform: uppercase;
     white-space: nowrap;
-    box-shadow: 0 0 16px rgba(0,255,166,0.17);
+    
   }
   .n-label::before {
     content: '';
@@ -709,7 +662,7 @@
     right: 100%;
     width: 14px; height: 1px;
     background: var(--neon);
-    box-shadow: 0 0 6px var(--neon);
+    
   }
 
   /* Nomin logo anchor — sits inside connector-zone, bottom-right */
@@ -734,7 +687,7 @@
     padding: clamp(10px, 1.4vw, 20px) clamp(14px, 2vw, 28px);
     border: 1px solid var(--neon-2);
     background: rgba(5, 7, 13, 0.85);
-    backdrop-filter: blur(8px);
+    
     box-shadow:
       0 8px 30px rgba(0, 0, 0, 0.4),
       0 0 30px rgba(0, 229, 255, 0.25),
@@ -778,8 +731,8 @@
     width: 6px; height: 6px;
     background: var(--neon-2);
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--neon-2);
-    animation: pulse 1.4s infinite;
+    
+    
   }
 
   /* End-point dot (on the Nomin logo side of the line) */
@@ -791,7 +744,7 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    box-shadow: 0 0 10px var(--neon-2);
+    
   }
   .conn-end-dot::after {
     content: '';
@@ -821,7 +774,7 @@
     border: 1px solid var(--line);
     background:
       linear-gradient(135deg, rgba(0,255,166,0.06), rgba(0,229,255,0.03));
-    backdrop-filter: blur(4px);
+    
     overflow: hidden;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
     display: flex;
@@ -889,7 +842,7 @@
     line-height: 1.2;
     margin-top: auto;
   }
-  .stat-value.accent { color: var(--neon); text-shadow: 0 0 20px rgba(0,255,166,0.22); }
+  .stat-value.accent { color: var(--neon);  }
 
   .coord-bar {
     margin-top: 60px;
@@ -937,7 +890,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 60px rgba(201,168,120,0.17);
+    
     position: relative;
     display: inline-block;
   }
@@ -973,7 +926,7 @@
     width: 12px; height: 12px;
     background: var(--sand);
     border-radius: 50%;
-    box-shadow: 0 0 16px var(--sand);
+    
   }
   .anniv-text strong {
     font-family: 'Montserrat', sans-serif;
@@ -997,7 +950,7 @@
   .doc-title {
     font-size: clamp(48px, 7vw, 96px);
     color: var(--text);
-    text-shadow: 0 0 30px rgba(0,229,255,0.17);
+    
     margin-bottom: 30px;
   }
 
@@ -1015,7 +968,7 @@
     font-weight: 700;
     color: var(--neon-2);
     letter-spacing: 0.02em;
-    text-shadow: 0 0 12px rgba(0,229,255,0.22);
+    
   }
 
   .doc-meta {
@@ -1059,7 +1012,7 @@
     background: #ff4040;
     border-radius: 50%;
     box-shadow: 0 0 8px #ff4040;
-    animation: pulse 1s infinite;
+    
   }
 
   .doc-visual {
@@ -1078,9 +1031,7 @@
     aspect-ratio: 1;
     overflow: hidden;
     border: 1px solid rgba(0, 229, 255, 0.4);
-    box-shadow:
-      0 0 60px rgba(0, 229, 255, 0.18),
-      inset 0 0 60px rgba(0, 0, 0, 0.45);
+    
   }
   .doc-frame img {
     width: 100%;
@@ -1133,9 +1084,7 @@
     margin-top: -40px; margin-left: -40px;
     border: 1px solid rgba(0, 229, 255, 0.7);
     border-radius: 50%;
-    box-shadow:
-      0 0 16px rgba(0, 229, 255, 0.5),
-      inset 0 0 10px rgba(0, 229, 255, 0.15);
+    
     z-index: 3;
     pointer-events: none;
     animation: scope-track 7s ease-in-out infinite;
@@ -1144,7 +1093,7 @@
     content: '';
     position: absolute;
     background: rgba(0, 229, 255, 0.8);
-    box-shadow: 0 0 6px var(--neon-2);
+    
   }
   .doc-reticle::before {
     top: 50%; left: -16px; right: -16px;
@@ -1164,8 +1113,8 @@
     background: var(--neon-2);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 10px var(--neon-2);
-    animation: pulse 1.4s ease-in-out infinite;
+    
+    
   }
 
   @keyframes scope-track {
@@ -1214,7 +1163,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 40px rgba(108,184,255,0.17);
+    
     margin-bottom: 12px;
   }
   .boot-sub {
@@ -1236,7 +1185,7 @@
     padding: 28px 24px;
     border: 1px solid rgba(0,229,255,0.2);
     background: rgba(0,229,255,0.04);
-    backdrop-filter: blur(6px);
+    
     position: relative;
     transition: all 0.3s;
   }
@@ -1246,12 +1195,12 @@
     top: -1px; left: 20px;
     width: 30px; height: 1px;
     background: var(--neon-2);
-    box-shadow: 0 0 8px var(--neon-2);
+    
   }
   .boot-card:hover {
     transform: translateY(-4px);
     border-color: var(--neon-2);
-    box-shadow: 0 0 30px rgba(0,229,255,0.11);
+    
   }
 
   .boot-card-num {
@@ -1259,7 +1208,7 @@
     font-size: 36px;
     font-weight: 900;
     color: var(--neon-2);
-    text-shadow: 0 0 12px rgba(0,229,255,0.22);
+    
     margin-bottom: 8px;
   }
   .boot-card-label {
@@ -1289,9 +1238,7 @@
       radial-gradient(ellipse at 75% 60%, rgba(0,229,255,0.10), transparent 50%),
       linear-gradient(180deg, #1a1410 0%, #0a0d18 60%, #050912 100%);
     overflow: hidden;
-    box-shadow:
-      0 0 60px rgba(0,229,255,0.15),
-      inset 0 0 80px rgba(0,0,0,0.6);
+    
   }
 
   /* Map silhouette - dust2-like terrain */
@@ -1352,7 +1299,7 @@
     padding: 8px 14px;
     background: rgba(5,8,15,0.7);
     border: 1px solid rgba(0,229,255,0.3);
-    backdrop-filter: blur(6px);
+    
     font-family: 'Orbitron', 'Montserrat', sans-serif;
   }
   .team-score {
@@ -1372,7 +1319,7 @@
   .team-num {
     font-size: 24px;
     font-weight: 900;
-    text-shadow: 0 0 12px currentColor;
+    
   }
   .round-timer {
     font-family: 'Orbitron', 'Montserrat', sans-serif;
@@ -1381,7 +1328,7 @@
     color: var(--neon);
     padding: 0 14px;
     letter-spacing: 0.1em;
-    text-shadow: 0 0 12px var(--neon);
+    
   }
 
   /* Top-left: LIVE indicator + map */
@@ -1412,7 +1359,7 @@
     background: #ff4040;
     border-radius: 50%;
     box-shadow: 0 0 8px #ff4040;
-    animation: pulse 1s infinite;
+    
   }
   .map-name {
     color: var(--text);
@@ -1443,7 +1390,7 @@
     content: '';
     position: absolute;
     background: var(--neon);
-    box-shadow: 0 0 6px var(--neon), 0 0 2px #fff;
+    
   }
   .crosshair::before {
     top: 50%; left: 0; right: 0;
@@ -1463,7 +1410,7 @@
     width: 2px; height: 2px;
     background: var(--neon);
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 6px var(--neon);
+    
   }
 
   /* Bottom HUD: health, money, weapon */
@@ -1492,9 +1439,9 @@
     font-weight: 900;
     letter-spacing: 0.05em;
   }
-  .hud-block.health .hud-block-value { color: #6fff9e; text-shadow: 0 0 10px rgba(0,255,120,0.28); }
-  .hud-block.money  .hud-block-value { color: #ffd24d; text-shadow: 0 0 10px rgba(255,210,80,0.28); }
-  .hud-block.weapon .hud-block-value { color: var(--neon-2); text-shadow: 0 0 10px rgba(0,229,255,0.28); }
+  .hud-block.health .hud-block-value { color: #6fff9e;  }
+  .hud-block.money  .hud-block-value { color: #ffd24d;  }
+  .hud-block.weapon .hud-block-value { color: var(--neon-2);  }
   .hud-block.weapon { text-align: right; }
 
   /* Health bar */
@@ -1511,7 +1458,7 @@
     inset: 0;
     width: 86%;
     background: linear-gradient(90deg, #6fff9e, #00ffa6);
-    box-shadow: 0 0 10px var(--neon);
+    
   }
 
   /* Ammo */
@@ -1571,7 +1518,7 @@
       radial-gradient(circle at 30% 60%, rgba(60, 80, 60, 0.6), transparent 50%),
       linear-gradient(135deg, #0a1118 0%, #1a2530 100%);
     overflow: hidden;
-    backdrop-filter: blur(8px);
+    
   }
   .minimap::before {
     content: 'RADAR';
@@ -1611,8 +1558,8 @@
   .minimap-dot.t  { background: #ffa64d; box-shadow: 0 0 8px #ffa64d; }
   .minimap-dot.player {
     background: var(--neon);
-    box-shadow: 0 0 10px var(--neon);
-    animation: pulse 1.4s infinite;
+    
+    
   }
   .minimap-dot.player::after {
     content: '';
@@ -1623,7 +1570,7 @@
     border: 1px solid var(--neon);
     border-radius: 50%;
     opacity: 0.5;
-    animation: pulse 1.4s infinite;
+    
   }
   .minimap-bomb {
     position: absolute;
@@ -1732,7 +1679,7 @@
     border: 1px solid rgba(0, 229, 255, 0.18);
     background:
       linear-gradient(135deg, rgba(0,229,255,0.05), rgba(0,255,166,0.02));
-    backdrop-filter: blur(4px);
+    
     overflow: hidden;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
     display: flex;
@@ -1769,7 +1716,7 @@
   .benefit-card.sand .benefit-num,
   .benefit-card.sand .benefit-metric {
     color: var(--sand);
-    text-shadow: 0 0 14px rgba(201,168,120,0.22);
+    
   }
   .benefit-card.sand .benefit-list li::before {
     display: none;
@@ -1797,7 +1744,7 @@
     font-size: clamp(22px, 2vw, 30px);
     letter-spacing: 0;
     color: var(--neon-2);
-    text-shadow: 0 0 14px rgba(0,229,255,0.25);
+    
     line-height: 1;
   }
   .benefit-title {
@@ -1965,7 +1912,7 @@
     position: relative;
     border: 1px solid rgba(0, 229, 255, 0.18);
     background: linear-gradient(135deg, rgba(0,229,255,0.04), rgba(0,255,166,0.015));
-    backdrop-filter: blur(4px);
+    
     overflow: hidden;
   }
   .budget-table-wrap::before {
@@ -2027,7 +1974,7 @@
     color: var(--neon);
     text-align: right;
     white-space: nowrap;
-    text-shadow: 0 0 12px rgba(0,255,166,0.19);
+    
     width: 22%;
     min-width: 170px;
   }
@@ -2058,7 +2005,7 @@
     font-size: clamp(20px, 2.4vw, 28px);
     color: var(--neon);
     text-align: right;
-    text-shadow: 0 0 18px rgba(0,255,166,0.3);
+    
     letter-spacing: 0.04em;
   }
   .budget-note {
@@ -2284,7 +2231,6 @@
 
     <div class="benefit-card">
       <div class="benefit-head">
-        <span class="benefit-num">E</span>
         <span class="benefit-metric">ENVIRONMENT</span>
       </div>
       <ul class="benefit-list">
@@ -2294,7 +2240,6 @@
 
     <div class="benefit-card">
       <div class="benefit-head">
-        <span class="benefit-num">S</span>
         <span class="benefit-metric">SOCIAL</span>
       </div>
       <ul class="benefit-list">
@@ -2304,7 +2249,6 @@
 
     <div class="benefit-card">
       <div class="benefit-head">
-        <span class="benefit-num">G</span>
         <span class="benefit-metric">GOVERNANCE</span>
       </div>
       <ul class="benefit-list">
