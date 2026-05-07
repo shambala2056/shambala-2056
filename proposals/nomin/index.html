@@ -10,16 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg-0: #05070d;
-    --bg-1: #0a0e1a;
-    --bg-2: #0f1424;
-    --neon: #00ffa6;
-    --neon-2: #00e5ff;
-    --neon-3: #7c5cff;
+    --bg-0: #07090f;
+    --bg-1: #0c1018;
+    --bg-2: #111520;
+    --neon: #00b365;
+    --neon-2: #0099bb;
+    --neon-3: #6a4ecc;
     --sand: #c9a878;
-    --text: #e8f1ff;
-    --text-dim: #8a96b3;
-    --line: rgba(0, 255, 166, 0.25);
+    --text: #dde8f5;
+    --text-dim: #7a8aa3;
+    --line: rgba(0, 179, 101, 0.18);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -71,8 +71,8 @@
     animation: boot-glow 1.6s ease-in-out infinite alternate;
   }
   @keyframes boot-glow {
-    from { filter: drop-shadow(0 0 8px rgba(0,255,166,0.3)); }
-    to   { filter: drop-shadow(0 0 24px rgba(0,255,166,0.7)); }
+    from { filter: drop-shadow(0 0 8px rgba(0,255,166,0.17)); }
+    to   { filter: drop-shadow(0 0 24px rgba(0,255,166,0.39)); }
   }
   .boot-bar {
     width: 280px;
@@ -177,7 +177,7 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--neon), transparent);
     margin: 0 auto;
-    box-shadow: 0 0 12px rgba(0, 255, 166, 0.5);
+    box-shadow: 0 0 12px rgba(0,255,166,0.28);
   }
   .divider::before {
     content: '';
@@ -394,7 +394,7 @@
       transparent 0%,
       rgba(0,255,166,0.6) 50%,
       transparent 100%);
-    box-shadow: 0 0 20px rgba(0,255,166,0.5);
+    box-shadow: 0 0 20px rgba(0,255,166,0.28);
     animation: scan-move 6s ease-in-out infinite;
     pointer-events: none;
   }
@@ -441,7 +441,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 40px rgba(0, 229, 255, 0.35));
+    filter: drop-shadow(0 0 40px rgba(0,229,255,0.19));
   }
 
   .hero-tagline {
@@ -473,7 +473,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 40px rgba(0,229,255,0.25));
+    filter: drop-shadow(0 0 40px rgba(0,229,255,0.14));
     margin-bottom: 8px;
     position: relative;
   }
@@ -517,7 +517,7 @@
   .pillar:hover {
     border-color: var(--neon);
     color: var(--neon);
-    box-shadow: 0 0 30px rgba(0,255,166,0.2);
+    box-shadow: 0 0 30px rgba(0,255,166,0.11);
   }
   .pillar.zero { color: var(--neon); border-color: var(--neon); }
   .pillar.zero .o {
@@ -542,7 +542,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 40px rgba(0,255,166,0.4);
+    text-shadow: 0 0 40px rgba(0,255,166,0.22);
     margin-bottom: 16px;
     letter-spacing: 0.04em;
   }
@@ -699,7 +699,7 @@
     border: 1px solid var(--neon);
     text-transform: uppercase;
     white-space: nowrap;
-    box-shadow: 0 0 16px rgba(0, 255, 166, 0.3);
+    box-shadow: 0 0 16px rgba(0,255,166,0.17);
   }
   .n-label::before {
     content: '';
@@ -726,7 +726,7 @@
     height: clamp(40px, 5vw, 70px);
     width: auto;
     display: block;
-    filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.4));
+    filter: drop-shadow(0 0 16px rgba(0,229,255,0.22));
   }
   .nomin-frame {
     position: relative;
@@ -757,7 +757,7 @@
     height: clamp(36px, 5vw, 64px);
     width: auto;
     display: block;
-    filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.4));
+    filter: drop-shadow(0 0 12px rgba(0,229,255,0.22));
   }
   .nomin-tag {
     display: flex;
@@ -830,7 +830,7 @@
   .stat:hover {
     transform: translateY(-6px);
     border-color: var(--neon);
-    box-shadow: 0 12px 40px rgba(0, 255, 166, 0.15);
+    box-shadow: 0 12px 40px rgba(0,255,166,0.08);
   }
   .stat::before {
     content: '';
@@ -888,7 +888,7 @@
     line-height: 1.2;
     margin-top: auto;
   }
-  .stat-value.accent { color: var(--neon); text-shadow: 0 0 20px rgba(0,255,166,0.4); }
+  .stat-value.accent { color: var(--neon); text-shadow: 0 0 20px rgba(0,255,166,0.22); }
 
   .coord-bar {
     margin-top: 60px;
@@ -936,7 +936,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 60px rgba(201,168,120,0.3);
+    text-shadow: 0 0 60px rgba(201,168,120,0.17);
     position: relative;
     display: inline-block;
   }
@@ -996,7 +996,7 @@
   .doc-title {
     font-size: clamp(48px, 7vw, 96px);
     color: var(--text);
-    text-shadow: 0 0 30px rgba(0,229,255,0.3);
+    text-shadow: 0 0 30px rgba(0,229,255,0.17);
     margin-bottom: 30px;
   }
 
@@ -1014,7 +1014,7 @@
     font-weight: 700;
     color: var(--neon-2);
     letter-spacing: 0.02em;
-    text-shadow: 0 0 12px rgba(0,229,255,0.4);
+    text-shadow: 0 0 12px rgba(0,229,255,0.22);
   }
 
   .doc-meta {
@@ -1213,7 +1213,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 40px rgba(108,184,255,0.3);
+    text-shadow: 0 0 40px rgba(108,184,255,0.17);
     margin-bottom: 12px;
   }
   .boot-sub {
@@ -1250,7 +1250,7 @@
   .boot-card:hover {
     transform: translateY(-4px);
     border-color: var(--neon-2);
-    box-shadow: 0 0 30px rgba(0,229,255,0.2);
+    box-shadow: 0 0 30px rgba(0,229,255,0.11);
   }
 
   .boot-card-num {
@@ -1258,7 +1258,7 @@
     font-size: 36px;
     font-weight: 900;
     color: var(--neon-2);
-    text-shadow: 0 0 12px rgba(0,229,255,0.4);
+    text-shadow: 0 0 12px rgba(0,229,255,0.22);
     margin-bottom: 8px;
   }
   .boot-card-label {
@@ -1491,9 +1491,9 @@
     font-weight: 900;
     letter-spacing: 0.05em;
   }
-  .hud-block.health .hud-block-value { color: #6fff9e; text-shadow: 0 0 10px rgba(0,255,120,0.5); }
-  .hud-block.money  .hud-block-value { color: #ffd24d; text-shadow: 0 0 10px rgba(255,210,80,0.5); }
-  .hud-block.weapon .hud-block-value { color: var(--neon-2); text-shadow: 0 0 10px rgba(0,229,255,0.5); }
+  .hud-block.health .hud-block-value { color: #6fff9e; text-shadow: 0 0 10px rgba(0,255,120,0.28); }
+  .hud-block.money  .hud-block-value { color: #ffd24d; text-shadow: 0 0 10px rgba(255,210,80,0.28); }
+  .hud-block.weapon .hud-block-value { color: var(--neon-2); text-shadow: 0 0 10px rgba(0,229,255,0.28); }
   .hud-block.weapon { text-align: right; }
 
   /* Health bar */
@@ -1749,7 +1749,7 @@
   .benefit-card:hover {
     transform: translateY(-6px);
     border-color: var(--neon-2);
-    box-shadow: 0 12px 40px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0,229,255,0.11);
   }
 
   /* Sand-themed benefit card (anniversary section) */
@@ -1763,12 +1763,12 @@
   }
   .benefit-card.sand:hover {
     border-color: var(--sand);
-    box-shadow: 0 12px 40px rgba(201, 168, 120, 0.18);
+    box-shadow: 0 12px 40px rgba(201,168,120,0.1);
   }
   .benefit-card.sand .benefit-num,
   .benefit-card.sand .benefit-metric {
     color: var(--sand);
-    text-shadow: 0 0 14px rgba(201, 168, 120, 0.4);
+    text-shadow: 0 0 14px rgba(201,168,120,0.22);
   }
   .benefit-card.sand .benefit-list li::before {
     background: var(--sand);
@@ -1797,7 +1797,7 @@
     font-size: clamp(22px, 2vw, 30px);
     letter-spacing: 0;
     color: var(--neon-2);
-    text-shadow: 0 0 14px rgba(0, 229, 255, 0.45);
+    text-shadow: 0 0 14px rgba(0,229,255,0.25);
     line-height: 1;
   }
   .benefit-title {
@@ -2032,7 +2032,7 @@
     color: var(--neon);
     text-align: right;
     white-space: nowrap;
-    text-shadow: 0 0 12px rgba(0, 255, 166, 0.35);
+    text-shadow: 0 0 12px rgba(0,255,166,0.19);
     width: 22%;
     min-width: 170px;
   }
@@ -2063,7 +2063,7 @@
     font-size: clamp(20px, 2.4vw, 28px);
     color: var(--neon);
     text-align: right;
-    text-shadow: 0 0 18px rgba(0, 255, 166, 0.55);
+    text-shadow: 0 0 18px rgba(0,255,166,0.3);
     letter-spacing: 0.04em;
   }
   .budget-note {
@@ -2293,9 +2293,9 @@
         <span class="benefit-metric">ENVIRONMENT</span>
       </div>
       <ul class="benefit-list">
-        <li><strong>1,800 мод</strong> Монголын цөлжилттэй бүсэд тарина.</li>
-        <li>Сэргээгдэх <strong>эрчим хүч</strong>-нд суурилсан биет инсталляц бүтээнэ.</li>
-        <li>Нүүрсхүчлийн хийн ялгарал бууруулах <strong>хэмжигдэхүйц нөлөө</strong> үзүүлнэ.</li>
+        <li>Говийн цөлжилттэй бүсэд <strong>1,800 мод</strong> тарина.</li>
+        <li>Нарны эрчим хүчэд суурилсан <strong>биет урлагийн бүтээл</strong> хийнэ.</li>
+        <li>CO₂ шингээлтийг тооцоолж <strong>жил бүрийн тайланд</strong> тусгана.</li>
       </ul>
     </div>
 
@@ -2305,9 +2305,9 @@
         <span class="benefit-metric">SOCIAL</span>
       </div>
       <ul class="benefit-list">
-        <li>Урлаг, соёлын <strong>биет дурсгал</strong> Монголын говьд үлдэнэ.</li>
-        <li>Залуу үе, олон нийтийг <strong>байгаль орчинтой холбох</strong> платформ болно.</li>
-        <li>Орон нутгийн <strong>эзэмшил, ажлын байр</strong>-ыг дэмжинэ.</li>
+        <li>Монголын говьд үлдэх <strong>урлагийн байнгын бүтээл</strong>.</li>
+        <li>Залуу үеийг байгальтай холбох <strong>амьд жишээ</strong> болно.</li>
+        <li>Орон нутгийн иргэдэд <strong>ажил олгоно</strong>.</li>
       </ul>
     </div>
 
@@ -2317,9 +2317,9 @@
         <span class="benefit-metric">GOVERNANCE</span>
       </div>
       <ul class="benefit-list">
-        <li>Мод тус бүр <strong>GPS бүртгэл</strong>, амьдралын мониторингтой байна.</li>
-        <li>Жил бүр <strong>ESG тайлан</strong> хүлээн авна.</li>
-        <li>ААНОАТ-ын тухай хуулийн дагуу <strong>татварын хөнгөлөлт</strong> эдэлнэ.</li>
+        <li>Мод тус бүр <strong>GPS-ээр бүртгэгдэж</strong>, ургалтыг тогтмол хянана.</li>
+        <li>Жил бүр <strong>ESG тайлан</strong> гардуулна.</li>
+        <li>Монгол Улсын хуулийн дагуу <strong>татварын хөнгөлөлт</strong> авна.</li>
       </ul>
     </div>
 
@@ -2437,7 +2437,7 @@
       </div>
       <h4 class="benefit-title">МОД ТУС БҮРИЙН БҮРТГЭЛ</h4>
       <ul class="benefit-list" style="margin-top: 8px;">
-        <li><strong>Цахим бүртгэлийн систем</strong>-д нэгтгэгдэнэ.</li>
+        <li>Тарьсан мод бүр <strong>тоон бүртгэлд</strong> орно.</li>
       </ul>
     </div>
 
@@ -2448,8 +2448,8 @@
       </div>
       <h4 class="benefit-title">АМЬДРАЛЫН БАТАЛГАА</h4>
       <ul class="benefit-list">
-        <li><strong>Art'n tech</strong> төслийн хүрээнд таригдсан бүх мод <strong>Номин даатгал</strong>-аар даатгагдана.</li>
-        <li>Унасан, үхсэн модны <strong>нөхөн тарилт</strong> хийгдэнэ.</li>
+        <li>Таригдсан бүх модыг <strong>Номин Даатгал</strong>-аар даатгана.</li>
+        <li>Үхсэн мод гарвал <strong>нөхөн тарилт</strong> хийнэ.</li>
       </ul>
     </div>
 
@@ -2460,8 +2460,8 @@
       </div>
       <h4 class="benefit-title">ТОГТМОЛ УСАЛГАА · АРЧИЛГАА</h4>
       <ul class="benefit-list">
-        <li><strong>Дуслын усалгаа</strong>-ны автомат систем — Говийн нөхцөлд тохирсон.</li>
-        <li>Улирал бүр <strong>арчилгаа, хогийн ургамал</strong> цэвэрлэгээ хийнэ.</li>
+        <li>Говийн нөхцөлд зориулсан <strong>дуслын усалгааны автомат систем</strong>.</li>
+        <li>Улирал тутамд <strong>арчилгаа, хогийн ургамал</strong> цэвэрлэнэ.</li>
       </ul>
     </div>
 
@@ -2472,7 +2472,7 @@
       </div>
       <h4 class="benefit-title">ИВЭЭН ТЭТГЭГЧИЙН ХЯНАЛТ</h4>
       <ul class="benefit-list">
-        <li>Жилд <strong>1 удаа</strong> модны ургалтын явцын тайлан — <strong>фото хэлбэрээр</strong> илгээгдэнэ.</li>
+        <li>Жилд нэг удаа мод бүрийн <strong>ургалтын тайлан</strong>, зурагтай хамт илгээнэ.</li>
       </ul>
     </div>
 
@@ -2510,9 +2510,9 @@
       </div>
       <h4 class="benefit-title">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧ</h4>
       <ul class="benefit-list">
-        <li><strong>Бие даасан систем (Off-Grid):</strong> Дизайнд шингэсэн нарны хавтангийн тусламжтайгаар төвийн эрчим хүчний шугамаас үл хамааран <strong>100% бие даан</strong> ажиллана.</li>
-        <li><strong>Ухаалаг гэрэлтүүлэг:</strong> Гэрэл мэдрэгч сенсор болон өндөр хэмнэлттэй <strong>LED гэрлийн</strong> тусламжтайгаар шөнийн говьд автоматаар гэрэлтэнэ.</li>
-        <li><strong>Нүүрсхүчлийн ялгаралгүй (Zero Carbon):</strong> Хүлэмжийн хий (CO₂) огт ялгаруулахгүй эко-шийдэл бөгөөд группын <strong>ESG тайланд</strong> багтах "Цэвэр эрчим хүчний" бодит төсөл болно.</li>
+        <li>Нарны хавтан бүтээлийн дизайнд шингэсэн тул <strong>гадны цахилгааны шугамаас огт хамаардаггүй</strong>.</li>
+        <li>Харанхуй болмогц автоматаар асч, <strong>шөнийн говьд гийнэ</strong>.</li>
+        <li>CO₂ огт гаргадаггүй учир группын <strong>ESG тайланд</strong> "Цэвэр эрчим хүч"-ний бодит жишээ болж орно.</li>
       </ul>
     </div>
 
@@ -2523,8 +2523,8 @@
       </div>
       <h4 class="benefit-title">35 ЖИЛИЙН БЭЛГЭДЭЛ</h4>
       <ul class="benefit-list">
-        <li><strong>Дизайны шийдэл:</strong> Бүтээлийн ерөнхий бүтцийг тойрсон эсвэл өөдөө тэмүүлсэн <strong>35 бие даасан элемент</strong> (металл багана, гэрлэн цэг, эсвэл геометрийн тулгуурууд) байрлана.</li>
-        <li><strong>Утга бэлгэдэл:</strong> 1992 оноос хойших <strong>"Номин"</strong> брэндийн туулж өнгөрүүлсэн 35 жилийн замнал, он жил бүрийн өсөлт хөгжил, даван туулсан сорилтуудыг төлөөлнө. Цэг бүр нэг жилийн түүхийг өгүүлэх бөгөөд <strong>35 элемент нэгдэн нийлж</strong> нэгэн цул, хүчирхэг бүтцийг бий болгоно.</li>
+        <li><strong>35 бие даасан элемент</strong> — металл багана, гэрлэн цэг — бүтээлийг тойрч байрлана.</li>
+        <li>1992-аас хойших Номин брэндийн <strong>35 жилийн замналыг</strong> дүрслэнэ — цэг бүр нэг жилийн түүх.</li>
       </ul>
     </div>
 
@@ -2535,8 +2535,8 @@
       </div>
       <h4 class="benefit-title">АГААРЫН ЗУРАГ · ВИДЕО</h4>
       <ul class="benefit-list">
-        <li><strong>Формат:</strong> 4K болон түүнээс дээш (<strong>Ultra-HD</strong>) нягтрал бүхий агаарын фото зураг болон киноны чанартай (<strong>Cinematic</strong>) видео дүрснүүд.</li>
-        <li><strong>Ашиглах эрх (Commercial Rights):</strong> "Номин Холдинг" нь эдгээр бүх визуал контентыг өөрийн бизнесийн болон маркетингийн зорилгоор <strong>хугацаагүй, нэмэлт төлбөргүйгээр, бүрэн эрхтэйгээр</strong> ашиглах эрхийг эзэмшинэ.</li>
+        <li>4K Ultra-HD нягтралтай <strong>агаарын фото болон видео</strong> бичлэг.</li>
+        <li>Номин Холдинг эдгээр контентыг <strong>нэмэлт төлбөргүй, хугацааны хязгааргүйгээр</strong> маркетинг болон бизнесийн зорилгоор ашиглана.</li>
       </ul>
     </div>
 
@@ -2592,8 +2592,8 @@
       </div>
       <h4 class="benefit-title">ҮРГЭЛЖЛЭХ ХУГАЦАА</h4>
       <ul class="benefit-list">
-        <li>Эхлэл, өрнөл, төгсгөл бүхий <strong>бүтэцтэй өгүүлэмжтэй</strong>, бүрэн форматын <strong>30 минутын</strong> баримтат кино.</li>
-        <li>Үндсэн <strong>ТВ-ийн цаг</strong> болон <strong>OTT платформ</strong>-уудад яг тохирсон урт.</li>
+        <li>Эхлэл, өрнөл, төгсгөлтэй <strong>30 минутын</strong> бүрэн баримтат кино.</li>
+        <li>Телевиз болон цахим стриминг платформд тохирсон урт.</li>
       </ul>
     </div>
 
@@ -2604,8 +2604,8 @@
       </div>
       <h4 class="benefit-title">ОЛОН УЛСЫН ХҮРТЭЭМЖ</h4>
       <ul class="benefit-list">
-        <li>Мэргэжлийн дуу оруулалт бүхий <strong>үндсэн Монгол хэл</strong>-ээр бүтээгдэх бөгөөд <strong>Англи хадмал орчуулга (Subtitle)</strong> дагалдана.</li>
-        <li>Олон улсын <strong>кино наадам</strong> болон гадаадын түншүүдэд бахархалтайгаар толилуулах боломжтой.</li>
+        <li>Монгол хэл дээр хийгдэж, <strong>Англи хадмал орчуулга</strong> дагалдана.</li>
+        <li>Гадаадын түнш болон <strong>олон улсын кино наадамд</strong> харуулах боломжтой.</li>
       </ul>
     </div>
 
@@ -2623,8 +2623,8 @@
       </div>
       <h4 class="benefit-title">ҮЗҮҮЛЭЛТ</h4>
       <ul class="benefit-list">
-        <li><strong>4K UHD (3840×2160)</strong> өндөр нягтаршил, секундэд <strong>60 кадр (60fps)</strong> — гулгамтгай, маш тод хөдөлгөөн.</li>
-        <li><strong>Cinema камер</strong> болон мэргэжлийн өнгө цэгцлэлт (<strong>Color Grading</strong>) хийгдэнэ.</li>
+        <li><strong>4K UHD · 60fps</strong> — гулгамтгай, тод дүрс.</li>
+        <li>Кино камер болон мэргэжлийн <strong>өнгө цэгцлэлт</strong> хийнэ.</li>
       </ul>
     </div>
 
@@ -2635,8 +2635,8 @@
       </div>
       <h4 class="benefit-title">АГААРЫН ЗУРАГЛАЛ</h4>
       <ul class="benefit-list">
-        <li>Говьд сүндэрлэх <strong>"NOMIN 35"</strong> Лэнд Артыг агаараас өргөн хүрээгээр харуулахын тулд энгийн болон <strong>FPV (уралдааны) дрон</strong>-уудыг хослуулан ашиглана.</li>
-        <li>Жижиг нарийн деталь хэсгүүдээс <strong>аварга том панорам</strong> руу шилжих гайхалтай зураглалууд багтана.</li>
+        <li>"NOMIN 35" Лэнд Артыг агаараас харуулахын тулд <strong>FPV дрон болон ердийн дрон</strong> хослуулан ашиглана.</li>
+        <li>Нарийн деталиас <strong>өргөн панорам</strong> руу шилжих зураглалууд багтана.</li>
       </ul>
     </div>
 
@@ -2647,8 +2647,8 @@
       </div>
       <h4 class="benefit-title">АУДИО</h4>
       <ul class="benefit-list">
-        <li>Студид тусгайлан бичсэн цэвэр дуу шүү, кинонд зориулж <strong>тусгайлан зохиосон хөгжим</strong> болон орчны бодит дуугаралт.</li>
-        <li><strong>DOLBY Stereo / 5.1 Surround</strong> хувилбараар хэрэглэгчдэд хүргэнэ.</li>
+        <li>Кинонд зориулж <strong>тусгайлан зохиосон хөгжим</strong> болон орчны дуугаралт.</li>
+        <li><strong>Dolby Stereo</strong> хувилбараар хүргэнэ.</li>
       </ul>
     </div>
 
@@ -2657,7 +2657,7 @@
   <!-- Subsection 3: Release & Distribution -->
   <div class="section-tag reveal" style="margin-top: 50px;">// 03 — ХҮРГЭХ СУВГУУД · RELEASE & DISTRIBUTION</div>
   <p class="budget-intro reveal" style="margin-top: 14px; margin-bottom: 24px;">
-    Киног бүтээгээд зогсохгүй, <strong>олон нийтэд хүргэх стратеги</strong>-г дараах байдлаар төлөвлөнө.
+    Кино бэлэн болсны дараа дараах сувгаар түгээнэ.
   </p>
 
   <div class="benefits-grid">
@@ -2669,7 +2669,7 @@
       </div>
       <h4 class="benefit-title">ТВ НЭВТРҮҮЛЭГ</h4>
       <ul class="benefit-list">
-        <li>Үндэсний болон хувийн томоохон <strong>телевизийн сувгууд</strong>-ын эфирээр орон даяар цацагдана.</li>
+        <li>Үндэсний болон хувийн <strong>телевизийн сувгуудаар</strong> орон даяар цацагдана.</li>
       </ul>
     </div>
 
