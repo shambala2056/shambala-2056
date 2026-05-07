@@ -338,10 +338,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;
 .cl:hover .cl-name{transform:translateY(0)}
 
 /* Light mode overrides */
-html[data-theme="light"] .partners-s{background:#F5F5F5;border-color:rgba(0,0,0,0.08)}
-html[data-theme="light"] .cl{background:#fff;border-color:rgba(0,0,0,0.12)}
-html[data-theme="light"] .cl:hover{background:#f9f9f9;border-color:rgba(0,122,56,0.4);box-shadow:0 8px 24px rgba(0,122,56,0.12)}
-html[data-theme="light"] .cl img{filter:brightness(0);opacity:0.7}
+html[data-theme="light"] .partners-s{background:#EDF7F1;border-color:rgba(0,107,48,0.15)}
+html[data-theme="light"] .cl{background:#fff;border-color:rgba(0,107,48,0.18);box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+html[data-theme="light"] .cl:hover{background:#fff;border-color:rgba(0,107,48,0.5);box-shadow:0 8px 24px rgba(0,107,48,0.15)}
+html[data-theme="light"] .cl img{filter:brightness(0);opacity:0.75}
 html[data-theme="light"] .cl:hover img{filter:brightness(0);opacity:1;transform:scale(1.05)}
 html[data-theme="light"] .cl-name{background:var(--green);color:#fff}
 html[data-theme="light"] .partners-count{color:var(--green)}
@@ -554,17 +554,17 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 /* ═══ LIGHT MODE ═════════════════════════════════════════════════════════ */
 html[data-theme="light"]{
   --void:#FFFFFF;
-  --deep:#F5F5F5;
+  --deep:#EDF7F1;
   --surface:#FFFFFF;
   --panel:rgba(255,255,255,0.98);
-  --green:#007A38;--green-dim:#005C2A;--green-faint:rgba(0,122,56,0.07);
-  --cyan:#0077AA;--cyan-dim:#005580;
-  --gold:#996600;--amber:#BB5500;
-  --white:#111111;
-  --muted:rgba(0,0,0,0.45);
-  --border:rgba(0,122,56,0.2);--border-c:rgba(0,119,170,0.2);
-  --glow:0 0 24px rgba(0,122,56,0.2);
-  --glow-c:0 0 24px rgba(0,119,170,0.2);
+  --green:#006B30;--green-dim:#004D22;--green-faint:rgba(0,107,48,0.08);
+  --cyan:#005F8A;--cyan-dim:#004166;
+  --gold:#8A5A00;--amber:#AA4400;
+  --white:#0E0E0E;
+  --muted:rgba(0,0,0,0.5);
+  --border:rgba(0,107,48,0.22);--border-c:rgba(0,95,138,0.22);
+  --glow:0 0 24px rgba(0,107,48,0.25);
+  --glow-c:0 0 24px rgba(0,95,138,0.25);
 }
 
 html[data-theme="light"] body{
@@ -575,14 +575,14 @@ html[data-theme="light"] body::after{
 }
 html[data-theme="light"] nav{
   background:rgba(255,255,255,0.97);
-  border-bottom:1px solid rgba(0,122,56,0.15);
+  border-bottom:2px solid rgba(0,107,48,0.2);
 }
 html[data-theme="light"] .n-live{
-  color:var(--green);border-color:rgba(0,122,56,0.25);background:rgba(0,122,56,0.07)
+  color:var(--green);border-color:rgba(0,107,48,0.3);background:rgba(0,107,48,0.08)
 }
 html[data-theme="light"] .n-links a{color:#111}
-html[data-theme="light"] .n-links a:hover{color:var(--green);background:rgba(0,122,56,0.06)}
-html[data-theme="light"] .n-cta{background:rgba(0,122,56,0.08)!important;color:var(--green)!important;border-color:rgba(0,122,56,0.4)!important}
+html[data-theme="light"] .n-links a:hover{color:var(--green);background:rgba(0,107,48,0.07)}
+html[data-theme="light"] .n-cta{background:rgba(0,107,48,0.1)!important;color:var(--green)!important;border-color:rgba(0,107,48,0.5)!important}
 
 /* Hero — keep dramatic but add light overlay */
 html[data-theme="light"] .h-vignette{
@@ -596,16 +596,16 @@ html[data-theme="light"] .h-desc{color:rgba(255,255,255,0.85)}
 html[data-theme="light"] .h-tag{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2);background:rgba(0,0,0,0.25)}
 
 /* HUD */
-html[data-theme="light"] .hud{background:#fff;border:1px solid rgba(0,122,56,0.2);box-shadow:0 4px 32px rgba(0,0,0,0.08)}
-html[data-theme="light"] .hud-bar{background:#F5F5F5;border-bottom:1px solid rgba(0,122,56,0.15)}
-html[data-theme="light"] .hud-cell{background:#fff;border-color:rgba(0,0,0,0.07)}
-html[data-theme="light"] .hud-cell:hover{background:rgba(0,122,56,0.05)!important}
-html[data-theme="light"] .hud-key{color:rgba(0,0,0,0.45)}
-html[data-theme="light"] .hud-bar2{background:rgba(0,122,56,0.08)}
+html[data-theme="light"] .hud{background:#fff;border:1px solid rgba(0,107,48,0.25);box-shadow:0 4px 32px rgba(0,107,48,0.08)}
+html[data-theme="light"] .hud-bar{background:#EDF7F1;border-bottom:1px solid rgba(0,107,48,0.2)}
+html[data-theme="light"] .hud-cell{background:#fff;border-color:rgba(0,107,48,0.12)}
+html[data-theme="light"] .hud-cell:hover{background:rgba(0,107,48,0.06)!important}
+html[data-theme="light"] .hud-key{color:rgba(0,0,0,0.5)}
+html[data-theme="light"] .hud-bar2{background:rgba(0,107,48,0.1)}
 
 /* Ticker */
-html[data-theme="light"] .tk-s{background:#F5F5F5;border-color:var(--border)}
-html[data-theme="light"] .tk-item{color:rgba(0,0,0,0.6)}
+html[data-theme="light"] .tk-s{background:#E8F4FD;border-color:rgba(0,95,138,0.2)}
+html[data-theme="light"] .tk-item{color:rgba(0,0,0,0.65)}
 
 /* Aerial */
 html[data-theme="light"] .aerial-ov{
@@ -617,25 +617,25 @@ html[data-theme="light"] .as-key{color:var(--muted)}
 html[data-theme="light"] .aerial-hud{background:rgba(255,255,255,0.88);color:var(--green);border-color:var(--border)}
 
 /* Land Arts */
-html[data-theme="light"] .la-s{background:#F5F5F5}
-html[data-theme="light"] .la-card{background:#fff;border:1px solid rgba(0,0,0,0.1)}
-html[data-theme="light"] .la-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
-html[data-theme="light"] .la-sk{color:rgba(0,0,0,0.45)}
-html[data-theme="light"] .la-prog{background:rgba(0,122,56,0.12)}
-html[data-theme="light"] .la-meta-row{border-top-color:rgba(0,0,0,0.08)}
+html[data-theme="light"] .la-s{background:#fff}
+html[data-theme="light"] .la-card{background:#fff;border:1px solid rgba(0,107,48,0.2);box-shadow:0 2px 12px rgba(0,107,48,0.06)}
+html[data-theme="light"] .la-card:hover{box-shadow:0 12px 40px rgba(0,107,48,0.15);border-color:rgba(0,107,48,0.4)}
+html[data-theme="light"] .la-sk{color:rgba(0,0,0,0.5)}
+html[data-theme="light"] .la-prog{background:rgba(0,107,48,0.15)}
+html[data-theme="light"] .la-meta-row{border-top-color:rgba(0,107,48,0.12)}
 
 /* Clients */
-html[data-theme="light"] .clients-s{background:#F5F5F5;border-color:rgba(0,122,56,0.15)}
-html[data-theme="light"] .clients-label{color:rgba(0,0,0,0.45)}
-html[data-theme="light"] .logo-item{background:#fff;border-color:rgba(0,0,0,0.1)}
+html[data-theme="light"] .clients-s{background:#EDF7F1;border-color:rgba(0,107,48,0.2)}
+html[data-theme="light"] .clients-label{color:rgba(0,0,0,0.5)}
+html[data-theme="light"] .logo-item{background:#fff;border-color:rgba(0,107,48,0.18)}
 
 /* Work Sequence */
-html[data-theme="light"] .seq-s{background:#fff;border-color:rgba(0,0,0,0.08)}
+html[data-theme="light"] .seq-s{background:#F4FBF7;border-color:rgba(0,107,48,0.15)}
 
 /* NASA charts */
-html[data-theme="light"] .nasa-s{background:#F5F5F5}
-html[data-theme="light"] .nasa-card{background:#fff;border-color:rgba(0,0,0,0.1)}
-html[data-theme="light"] .nasa-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+html[data-theme="light"] .nasa-s{background:#E8F4FD}
+html[data-theme="light"] .nasa-card{background:#fff;border-color:rgba(0,95,138,0.2);box-shadow:0 2px 12px rgba(0,95,138,0.06)}
+html[data-theme="light"] .nasa-card:hover{box-shadow:0 12px 40px rgba(0,95,138,0.15);border-color:rgba(0,95,138,0.4)}
 html[data-theme="light"] #nasa-chart-1,
 html[data-theme="light"] #nasa-chart-2,
 html[data-theme="light"] #nasa-chart-3{background:#FFFFFF!important}
@@ -643,26 +643,26 @@ html[data-theme="light"] #nasa-chart-1 rect[fill="#020810"],
 html[data-theme="light"] #nasa-chart-2 rect[fill="#020810"],
 html[data-theme="light"] #nasa-chart-3 rect[fill="#020810"]{fill:#FFFFFF!important}
 html[data-theme="light"] .nasa-label{color:rgba(13,31,53,0.6)!important}
-html[data-theme="light"] .ms-stat{background:#fff;border-color:rgba(0,0,0,0.1)}
+html[data-theme="light"] .ms-stat{background:#fff;border-color:rgba(0,95,138,0.2)}
 html[data-theme="light"] .ms-val{color:var(--green)}
 html[data-theme="light"] .ms-key{color:var(--muted)}
 
 /* Packages */
-html[data-theme="light"] .pkg-s{background:var(--void)}
-html[data-theme="light"] .pkg-card{background:var(--surface);border-color:var(--border)}
+html[data-theme="light"] .pkg-s{background:#EDF7F1}
+html[data-theme="light"] .pkg-card{background:#fff;border-color:rgba(0,107,48,0.2)}
 html[data-theme="light"] .pkg-card.featured{border-color:var(--green)}
 html[data-theme="light"] .pkg-price{color:var(--white)}
-html[data-theme="light"] .pkg-feat li{color:rgba(13,31,53,0.75)}
+html[data-theme="light"] .pkg-feat li{color:rgba(0,0,0,0.7)}
 html[data-theme="light"] .pkg-feat li::before{color:var(--green)}
 
 /* CTA / Contact */
-html[data-theme="light"] .cta-s{background:#F5F5F5}
-html[data-theme="light"] .cta-box{background:#fff;border-color:rgba(0,0,0,0.1)}
+html[data-theme="light"] .cta-s{background:#EDF7F1}
+html[data-theme="light"] .cta-box{background:#fff;border-color:rgba(0,107,48,0.2)}
 html[data-theme="light"] .cta-input{background:#F5F5F5;border-color:rgba(0,0,0,0.12);color:#111}
 html[data-theme="light"] .cta-input::placeholder{color:rgba(0,0,0,0.4)}
 
 /* Footer */
-html[data-theme="light"] footer{background:#F5F5F5;border-top-color:rgba(0,0,0,0.1)}
+html[data-theme="light"] footer{background:#EDF7F1;border-top-color:rgba(0,107,48,0.2)}
 html[data-theme="light"] .ft-copy{color:rgba(0,0,0,0.4)}
 
 /* Section labels */
@@ -711,12 +711,12 @@ body,nav,.hud,.la-card,.nasa-card,.pkg-card,.cta-box,footer{transition:backgroun
 .step-card:hover .step-title{opacity:1}
 .step-desc{position:relative;z-index:1;font-family:'Rajdhani',sans-serif;font-size:0.75rem;line-height:1.55;color:var(--muted)}
 html[data-theme="light"] .seq-tab{background:transparent}
-html[data-theme="light"] .seq-tab.active{background:rgba(0,153,80,0.03)}
-html[data-theme="light"] .step-card::before{background:radial-gradient(500px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,153,80,0.07),transparent 40%)}
-html[data-theme="light"] .step-card{background:#fff;border-color:rgba(0,0,0,0.1)}
-html[data-theme="light"] .step-card:hover{border-color:rgba(0,153,80,0.25)}
-html[data-theme="light"] .step-num{color:rgba(0,153,80,0.1)}
-html[data-theme="light"] .step-card:hover .step-num{color:rgba(0,153,80,0.3)}
+html[data-theme="light"] .seq-tab.active{background:rgba(0,107,48,0.07)}
+html[data-theme="light"] .step-card::before{background:radial-gradient(500px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,107,48,0.1),transparent 40%)}
+html[data-theme="light"] .step-card{background:#fff;border-color:rgba(0,107,48,0.18);box-shadow:0 2px 8px rgba(0,107,48,0.05)}
+html[data-theme="light"] .step-card:hover{border-color:rgba(0,107,48,0.4);box-shadow:0 8px 32px rgba(0,107,48,0.12)}
+html[data-theme="light"] .step-num{color:rgba(0,107,48,0.15)}
+html[data-theme="light"] .step-card:hover .step-num{color:rgba(0,107,48,0.35)}
 @media(max-width:900px){.step-panel.active{grid-template-columns:1fr}.nasa-grid{grid-template-columns:1fr}.nasa-grid .nasa-card:first-child{grid-column:1}}
 @media(max-width:600px){.seq-tabs{flex-wrap:wrap}.seq-tab{flex:1 1 50%;border-bottom:1px solid var(--border)}}
 </style>
