@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="mn" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Client Portal — Shambala 2056</title>
+<style>
+  :root{
+    --green:#00ff88;--gold:#ffd166;--void:#060b12;--surface:rgba(255,255,255,0.03);
+    --border:rgba(0,255,136,0.15);--muted:rgba(232,244,255,0.35);--white:#e8f4ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;cursor:none!important}
+  html,body{height:100%;background:var(--void);color:var(--white);font-family:'Share Tech Mono',monospace}
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:24px;position:relative;overflow:hidden}
+
+  /* grid bg */
+  body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,136,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+
+  /* logo */
+  .logo{font-family:'Share Tech Mono',monospace;font-size:1rem;letter-spacing:0.25em;color:var(--green);margin-bottom:8px;text-decoration:none}
+  .logo em{color:var(--white);font-style:normal}
+  .sub{font-size:0.55rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:48px}
+
+  /* card */
+  .card{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--border);padding:36px 32px;position:relative}
+  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent)}
+  .card-title{font-size:0.6rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:28px}
+
+  label{display:block;font-size:0.55rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:6px}
+  input{width:100%;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.2);color:var(--white);font-family:'Share Tech Mono',monospace;font-size:0.8rem;padding:12px 14px;outline:none;transition:border-color .2s;margin-bottom:20px}
+  input:focus{border-color:rgba(0,255,136,0.6)}
+  input::placeholder{color:var(--muted)}
+
+  button{width:100%;padding:14px;background:rgba(0,255,136,0.1);border:1px solid var(--green);color:var(--green);font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;cursor:none!important;transition:background .2s,box-shadow .2s;margin-top:4px}
+  button:hover{background:rgba(0,255,136,0.18);box-shadow:0 0 20px rgba(0,255,136,0.15)}
+
+  .err{font-size:0.6rem;letter-spacing:0.1em;color:#ff4466;margin-top:14px;min-height:18px;text-align:center}
+  .back{font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:24px;text-decoration:none;display:block;text-align:center;transition:color .2s}
+  .back:hover{color:var(--green)}
+
+  /* cursor */
+  #cur-ring{position:fixed;width:28px;height:28px;border:1.5px solid rgba(0,255,136,0.6);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .35s;mix-blend-mode:difference}
+  #cur-dot{position:fixed;width:5px;height:5px;background:var(--green);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
+  #cur-ring.hov{width:44px;height:44px;border-color:rgba(0,212,255,0.7)}
+</style>
+</head>
+<body>
+
+<div id="cur-ring"></div>
+<div id="cur-dot"></div>
+
+<a class="logo" href="/">SHAMBALA<em>2056</em></a>
+<div class="sub">// CLIENT PORTAL</div>
+
+<div class="card">
+  <div class="card-title">// НЭВТРЭХ — SIGN IN</div>
+
+  <label>USERNAME</label>
+  <input id="u" type="text" placeholder="username" autocomplete="username" autocapitalize="none"/>
+
+  <label>PASSWORD</label>
+  <input id="p" type="password" placeholder="••••••••" autocomplete="current-password"/>
+
+  <button id="btn" onclick="login()">▶ НЭВТРЭХ</button>
+  <div class="err" id="err"></div>
+</div>
+
+<a class="back" href="/">← shambala.today руу буцах</a>
+
+<script>
+  // Харилцагчийн нэвтрэх мэдээлэл — нэмэхдээ энд нэмнэ
+  var CLIENTS = {
+    "nomin": { pass: "shambala2056", url: "/proposals/nomin/" }
+  };
+
+  function login(){
+    var u = document.getElementById('u').value.trim().toLowerCase();
+    var p = document.getElementById('p').value;
+    var err = document.getElementById('err');
+    err.textContent = '';
+
+    if(!u || !p){ err.textContent='// username болон password оруулна уу'; return; }
+
+    var client = CLIENTS[u];
+    if(!client || client.pass !== p){
+      err.textContent='// нэвтрэх мэдээлэл буруу байна';
+      document.getElementById('p').value='';
+      return;
+    }
+
+    // Save session
+    sessionStorage.setItem('sp_user', u);
+    sessionStorage.setItem('sp_ok', '1');
+
+    // Redirect to proposal
+    window.location.href = client.url;
+  }
+
+  // Enter key
+  document.addEventListener('keydown', function(e){ if(e.key==='Enter') login(); });
+
+  // Cursor
+  (function(){
+    var ring=document.getElementById('cur-ring'),dot=document.getElementById('cur-dot');
+    var rx=0,ry=0,mx=0,my=0;
+    function lerp(a,b,t){return a+(b-a)*t}
+    function tick(){rx=lerp(rx,mx,.12);ry=lerp(ry,my,.12);ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick)}
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+    document.querySelectorAll('button,input,a').forEach(function(el){
+      el.addEventListener('mouseenter',function(){ring.classList.add('hov')});
+      el.addEventListener('mouseleave',function(){ring.classList.remove('hov')});
+    });
+    tick();
+  })();
+</script>
+</body>
+</html>
