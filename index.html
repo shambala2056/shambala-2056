@@ -338,9 +338,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;
 .cl:hover .cl-name{transform:translateY(0)}
 
 /* Light mode overrides */
-html[data-theme="light"] .partners-s{background:rgba(0,153,80,0.03);border-color:var(--border)}
-html[data-theme="light"] .cl{background:rgba(0,153,80,0.1);border-color:rgba(0,153,80,0.25)}
-html[data-theme="light"] .cl:hover{background:rgba(0,153,80,0.2);border-color:rgba(0,153,80,0.5);box-shadow:0 8px 24px rgba(0,153,80,0.15)}
+html[data-theme="light"] .partners-s{background:#F5F5F5;border-color:rgba(0,0,0,0.08)}
+html[data-theme="light"] .cl{background:#fff;border-color:rgba(0,0,0,0.12)}
+html[data-theme="light"] .cl:hover{background:#f9f9f9;border-color:rgba(0,122,56,0.4);box-shadow:0 8px 24px rgba(0,122,56,0.12)}
 html[data-theme="light"] .cl img{filter:none;opacity:0.85}
 html[data-theme="light"] .cl:hover img{filter:none;opacity:1;transform:scale(1.05)}
 html[data-theme="light"] .cl-name{background:var(--green);color:#fff}
@@ -553,18 +553,18 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 
 /* ═══ LIGHT MODE ═════════════════════════════════════════════════════════ */
 html[data-theme="light"]{
-  --void:#F2F6FA;
-  --deep:#E6EDF5;
+  --void:#FFFFFF;
+  --deep:#F5F5F5;
   --surface:#FFFFFF;
-  --panel:rgba(255,255,255,0.97);
-  --green:#009950;--green-dim:#007A3D;--green-faint:rgba(0,153,80,0.07);
-  --cyan:#0088BB;--cyan-dim:#006699;
-  --gold:#B87700;--amber:#CC6600;
-  --white:#0D1F35;
-  --muted:rgba(13,31,53,0.5);
-  --border:rgba(0,153,80,0.18);--border-c:rgba(0,136,187,0.18);
-  --glow:0 0 24px rgba(0,153,80,0.18);
-  --glow-c:0 0 24px rgba(0,136,187,0.18);
+  --panel:rgba(255,255,255,0.98);
+  --green:#007A38;--green-dim:#005C2A;--green-faint:rgba(0,122,56,0.07);
+  --cyan:#0077AA;--cyan-dim:#005580;
+  --gold:#996600;--amber:#BB5500;
+  --white:#111111;
+  --muted:rgba(0,0,0,0.45);
+  --border:rgba(0,122,56,0.2);--border-c:rgba(0,119,170,0.2);
+  --glow:0 0 24px rgba(0,122,56,0.2);
+  --glow-c:0 0 24px rgba(0,119,170,0.2);
 }
 
 html[data-theme="light"] body{
@@ -574,15 +574,15 @@ html[data-theme="light"] body::after{
   background:none;
 }
 html[data-theme="light"] nav{
-  background:rgba(242,246,250,0.97);
-  border-bottom:1px solid rgba(0,153,80,0.15);
+  background:rgba(255,255,255,0.97);
+  border-bottom:1px solid rgba(0,122,56,0.15);
 }
 html[data-theme="light"] .n-live{
-  color:var(--green);border-color:rgba(0,153,80,0.2);background:rgba(0,153,80,0.06)
+  color:var(--green);border-color:rgba(0,122,56,0.25);background:rgba(0,122,56,0.07)
 }
-html[data-theme="light"] .n-links a{color:var(--white)}
-html[data-theme="light"] .n-links a:hover{color:var(--green);background:rgba(0,153,80,0.06)}
-html[data-theme="light"] .n-cta{background:var(--green)!important;color:#fff!important}
+html[data-theme="light"] .n-links a{color:#111}
+html[data-theme="light"] .n-links a:hover{color:var(--green);background:rgba(0,122,56,0.06)}
+html[data-theme="light"] .n-cta{background:rgba(0,122,56,0.08)!important;color:var(--green)!important;border-color:rgba(0,122,56,0.4)!important}
 
 /* Hero — keep dramatic but add light overlay */
 html[data-theme="light"] .h-vignette{
@@ -592,20 +592,20 @@ html[data-theme="light"] .h-grid{opacity:0.08}
 html[data-theme="light"] .h-scanline{display:none}
 html[data-theme="light"] .h-title .l1,.h-title .l2,.h-title .l3{color:var(--white)}
 html[data-theme="light"] .h-sub{color:var(--muted)}
-html[data-theme="light"] .h-desc{color:rgba(13,31,53,0.7)}
-html[data-theme="light"] .h-tag{color:var(--muted);border-color:rgba(0,153,80,0.25);background:rgba(242,246,250,0.85)}
+html[data-theme="light"] .h-desc{color:rgba(255,255,255,0.85)}
+html[data-theme="light"] .h-tag{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2);background:rgba(0,0,0,0.25)}
 
 /* HUD */
-html[data-theme="light"] .hud{background:var(--surface);border:1px solid var(--border);box-shadow:0 4px 32px rgba(0,0,0,0.08)}
-html[data-theme="light"] .hud-bar{background:var(--deep);border-bottom:1px solid var(--border)}
-html[data-theme="light"] .hud-cell{background:var(--surface);border-color:var(--border)}
-html[data-theme="light"] .hud-cell:hover{background:rgba(0,153,80,0.05)!important}
-html[data-theme="light"] .hud-key{color:var(--muted)}
-html[data-theme="light"] .hud-bar2{background:rgba(0,153,80,0.1)}
+html[data-theme="light"] .hud{background:#fff;border:1px solid rgba(0,122,56,0.2);box-shadow:0 4px 32px rgba(0,0,0,0.08)}
+html[data-theme="light"] .hud-bar{background:#F5F5F5;border-bottom:1px solid rgba(0,122,56,0.15)}
+html[data-theme="light"] .hud-cell{background:#fff;border-color:rgba(0,0,0,0.07)}
+html[data-theme="light"] .hud-cell:hover{background:rgba(0,122,56,0.05)!important}
+html[data-theme="light"] .hud-key{color:rgba(0,0,0,0.45)}
+html[data-theme="light"] .hud-bar2{background:rgba(0,122,56,0.08)}
 
 /* Ticker */
-html[data-theme="light"] .tk-s{background:var(--deep);border-color:var(--border)}
-html[data-theme="light"] .tk-item{color:rgba(13,31,53,0.7)}
+html[data-theme="light"] .tk-s{background:#F5F5F5;border-color:var(--border)}
+html[data-theme="light"] .tk-item{color:rgba(0,0,0,0.6)}
 
 /* Aerial */
 html[data-theme="light"] .aerial-ov{
@@ -617,24 +617,24 @@ html[data-theme="light"] .as-key{color:var(--muted)}
 html[data-theme="light"] .aerial-hud{background:rgba(255,255,255,0.88);color:var(--green);border-color:var(--border)}
 
 /* Land Arts */
-html[data-theme="light"] .la-s{background:var(--void)}
-html[data-theme="light"] .la-card{background:var(--surface);border:1px solid var(--border)}
+html[data-theme="light"] .la-s{background:#F5F5F5}
+html[data-theme="light"] .la-card{background:#fff;border:1px solid rgba(0,0,0,0.1)}
 html[data-theme="light"] .la-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
-html[data-theme="light"] .la-sk{color:var(--muted)}
-html[data-theme="light"] .la-prog{background:rgba(0,153,80,0.12)}
-html[data-theme="light"] .la-meta-row{border-top-color:var(--border)}
+html[data-theme="light"] .la-sk{color:rgba(0,0,0,0.45)}
+html[data-theme="light"] .la-prog{background:rgba(0,122,56,0.12)}
+html[data-theme="light"] .la-meta-row{border-top-color:rgba(0,0,0,0.08)}
 
 /* Clients */
-html[data-theme="light"] .clients-s{background:var(--deep);border-color:var(--border)}
-html[data-theme="light"] .clients-label{color:var(--muted)}
-html[data-theme="light"] .logo-item{background:var(--surface);border-color:var(--border)}
+html[data-theme="light"] .clients-s{background:#F5F5F5;border-color:rgba(0,122,56,0.15)}
+html[data-theme="light"] .clients-label{color:rgba(0,0,0,0.45)}
+html[data-theme="light"] .logo-item{background:#fff;border-color:rgba(0,0,0,0.1)}
 
 /* Work Sequence */
-html[data-theme="light"] .seq-s{background:var(--void);border-color:var(--border)}
+html[data-theme="light"] .seq-s{background:#fff;border-color:rgba(0,0,0,0.08)}
 
 /* NASA charts */
-html[data-theme="light"] .nasa-s{background:var(--deep)}
-html[data-theme="light"] .nasa-card{background:var(--surface);border-color:var(--border)}
+html[data-theme="light"] .nasa-s{background:#F5F5F5}
+html[data-theme="light"] .nasa-card{background:#fff;border-color:rgba(0,0,0,0.1)}
 html[data-theme="light"] .nasa-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1)}
 html[data-theme="light"] #nasa-chart-1,
 html[data-theme="light"] #nasa-chart-2,
@@ -643,7 +643,7 @@ html[data-theme="light"] #nasa-chart-1 rect[fill="#020810"],
 html[data-theme="light"] #nasa-chart-2 rect[fill="#020810"],
 html[data-theme="light"] #nasa-chart-3 rect[fill="#020810"]{fill:#FFFFFF!important}
 html[data-theme="light"] .nasa-label{color:rgba(13,31,53,0.6)!important}
-html[data-theme="light"] .ms-stat{background:var(--surface);border-color:var(--border)}
+html[data-theme="light"] .ms-stat{background:#fff;border-color:rgba(0,0,0,0.1)}
 html[data-theme="light"] .ms-val{color:var(--green)}
 html[data-theme="light"] .ms-key{color:var(--muted)}
 
@@ -656,14 +656,14 @@ html[data-theme="light"] .pkg-feat li{color:rgba(13,31,53,0.75)}
 html[data-theme="light"] .pkg-feat li::before{color:var(--green)}
 
 /* CTA / Contact */
-html[data-theme="light"] .cta-s{background:var(--deep)}
-html[data-theme="light"] .cta-box{background:var(--surface);border-color:var(--border)}
-html[data-theme="light"] .cta-input{background:var(--deep);border-color:var(--border);color:var(--white)}
-html[data-theme="light"] .cta-input::placeholder{color:var(--muted)}
+html[data-theme="light"] .cta-s{background:#F5F5F5}
+html[data-theme="light"] .cta-box{background:#fff;border-color:rgba(0,0,0,0.1)}
+html[data-theme="light"] .cta-input{background:#F5F5F5;border-color:rgba(0,0,0,0.12);color:#111}
+html[data-theme="light"] .cta-input::placeholder{color:rgba(0,0,0,0.4)}
 
 /* Footer */
-html[data-theme="light"] footer{background:var(--deep);border-top-color:var(--border)}
-html[data-theme="light"] .ft-copy{color:var(--muted)}
+html[data-theme="light"] footer{background:#F5F5F5;border-top-color:rgba(0,0,0,0.1)}
+html[data-theme="light"] .ft-copy{color:rgba(0,0,0,0.4)}
 
 /* Section labels */
 html[data-theme="light"] .sl{color:var(--green)}
@@ -713,7 +713,7 @@ body,nav,.hud,.la-card,.nasa-card,.pkg-card,.cta-box,footer{transition:backgroun
 html[data-theme="light"] .seq-tab{background:transparent}
 html[data-theme="light"] .seq-tab.active{background:rgba(0,153,80,0.03)}
 html[data-theme="light"] .step-card::before{background:radial-gradient(500px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,153,80,0.07),transparent 40%)}
-html[data-theme="light"] .step-card{background:#fff;border-color:var(--border)}
+html[data-theme="light"] .step-card{background:#fff;border-color:rgba(0,0,0,0.1)}
 html[data-theme="light"] .step-card:hover{border-color:rgba(0,153,80,0.25)}
 html[data-theme="light"] .step-num{color:rgba(0,153,80,0.1)}
 html[data-theme="light"] .step-card:hover .step-num{color:rgba(0,153,80,0.3)}
