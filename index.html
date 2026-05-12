@@ -935,10 +935,19 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
   backdrop-filter:blur(18px)}
 .overlay-close-title{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;
   letter-spacing:0.14em;color:var(--green)}
-.overlay-close-btn{background:none;border:1px solid rgba(0,255,136,0.2);color:var(--muted);
-  font-family:'Share Tech Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;
-  padding:6px 16px;cursor:pointer;transition:all 0.2s}
-.overlay-close-btn:hover{color:var(--green);border-color:var(--green)}
+.overlay-close-right{display:flex;align-items:center;gap:12px}
+.esc-hint{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;
+  color:rgba(255,255,255,0.18);user-select:none}
+.esc-hint kbd{font-family:inherit;border:1px solid rgba(255,255,255,0.15);border-radius:3px;
+  padding:1px 5px;font-size:0.48rem;color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.04)}
+.overlay-close-btn{position:relative;width:40px;height:40px;background:none;border:none;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.35);transition:color .25s,transform .35s cubic-bezier(.4,0,.2,1)}
+.overlay-close-btn::before{content:'';position:absolute;inset:0;border-radius:50%;
+  background:rgba(0,255,136,0);transition:background .25s}
+.overlay-close-btn:hover{color:var(--green);transform:rotate(90deg)}
+.overlay-close-btn:hover::before{background:rgba(0,255,136,0.08)}
+.overlay-close-btn svg{pointer-events:none}
 @media(max-width:768px){.overlay-close{padding:12px 24px}}
 
 </style>
@@ -1794,32 +1803,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   });
 })();
 
-/* ── Sequence Tab Switching ─────────────────────────────────────────────── */
-(function(){
-  var tabs=document.querySelectorAll('.seq-tab');
-  var panels=document.querySelectorAll('.step-panel');
-  tabs.forEach(function(tab){
-    tab.addEventListener('click',function(){
-      var p=tab.dataset.phase;
-      tabs.forEach(function(t){t.classList.remove('active')});
-      panels.forEach(function(panel){panel.classList.remove('active')});
-      tab.classList.add('active');
-      var target=document.querySelector('.step-panel[data-phase="'+p+'"]');
-      if(target)target.classList.add('active');
-    });
-  });
-})();
-
-/* ── Step Card Spotlight (cursor glow follows mouse) ────────────────────── */
-(function(){
-  document.querySelectorAll('.step-card').forEach(function(card){
-    card.addEventListener('mousemove',function(e){
-      var r=card.getBoundingClientRect();
-      card.style.setProperty('--mouse-x',(e.clientX-r.left)+'px');
-      card.style.setProperty('--mouse-y',(e.clientY-r.top)+'px');
-    });
-  });
-})();
 </script>
 
 <script>
@@ -1908,7 +1891,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div id="panel-landarts" class="overlay-panel">
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">ЛЭНД АРТ</span><span class="en">LAND ART</span></span>
-  <button class="overlay-close-btn" onclick="closePanel()"><span class="mn">✕ ХААХ</span><span class="en">✕ CLOSE</span></button>
+  <div class="overlay-close-right">
+    <span class="esc-hint"><kbd>ESC</kbd></span>
+    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
 </div>
 <!-- LAND ARTS -->
 <section class="la-s reveal" id="landarts">
@@ -2177,7 +2168,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div id="panel-esg" class="overlay-panel">
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">ESG</span><span class="en">ESG</span></span>
-  <button class="overlay-close-btn" onclick="closePanel()"><span class="mn">✕ ХААХ</span><span class="en">✕ CLOSE</span></button>
+  <div class="overlay-close-right">
+    <span class="esc-hint"><kbd>ESC</kbd></span>
+    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
 </div>
 <!-- NASA DATA SECTION -->
 <section class="nasa-s reveal" id="esg">
@@ -2347,7 +2346,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div id="panel-packages" class="overlay-panel">
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">БҮТЭЭГДЭХҮҮН</span><span class="en">PRODUCTS</span></span>
-  <button class="overlay-close-btn" onclick="closePanel()"><span class="mn">✕ ХААХ</span><span class="en">✕ CLOSE</span></button>
+  <div class="overlay-close-right">
+    <span class="esc-hint"><kbd>ESC</kbd></span>
+    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
 </div>
 <!-- PACKAGES -->
 <section class="prod-s reveal" id="packages">
@@ -2536,7 +2543,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div id="panel-events" class="overlay-panel">
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">АРГА ХЭМЖЭЭ</span><span class="en">EVENTS</span></span>
-  <button class="overlay-close-btn" onclick="closePanel()"><span class="mn">✕ ХААХ</span><span class="en">✕ CLOSE</span></button>
+  <div class="overlay-close-right">
+    <span class="esc-hint"><kbd>ESC</kbd></span>
+    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
 </div>
 <!-- EVENTS -->
 <section class="tl-s reveal" id="events">
@@ -2603,7 +2618,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div id="panel-contact" class="overlay-panel">
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">ХОЛБОО БАРИХ</span><span class="en">CONTACT</span></span>
-  <button class="overlay-close-btn" onclick="closePanel()"><span class="mn">✕ ХААХ</span><span class="en">✕ CLOSE</span></button>
+  <div class="overlay-close-right">
+    <span class="esc-hint"><kbd>ESC</kbd></span>
+    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
 </div>
 <!-- CTA -->
 <section class="cta-s reveal" id="contact">
@@ -2665,6 +2688,33 @@ function closePanel(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
+
+/* ── Sequence Tab Switching ─────────────────────────────────────────────── */
+(function(){
+  var tabs=document.querySelectorAll('.seq-tab');
+  var panels=document.querySelectorAll('.step-panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var p=tab.dataset.phase;
+      tabs.forEach(function(t){t.classList.remove('active')});
+      panels.forEach(function(panel){panel.classList.remove('active')});
+      tab.classList.add('active');
+      var target=document.querySelector('.step-panel[data-phase="'+p+'"]');
+      if(target)target.classList.add('active');
+    });
+  });
+})();
+
+/* ── Step Card Spotlight (cursor glow follows mouse) ────────────────────── */
+(function(){
+  document.querySelectorAll('.step-card').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      card.style.setProperty('--mouse-x',(e.clientX-r.left)+'px');
+      card.style.setProperty('--mouse-y',(e.clientY-r.top)+'px');
+    });
+  });
+})();
 </script>
 </body>
 </html>
