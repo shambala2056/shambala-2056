@@ -2587,7 +2587,16 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 function openPanel(id){
   document.querySelectorAll('.overlay-panel').forEach(function(p){p.classList.remove('open')});
   var panel=document.getElementById('panel-'+id);
-  if(panel){panel.classList.add('open');panel.scrollTop=0;}
+  if(panel){
+    panel.classList.add('open');
+    panel.scrollTop=0;
+    setTimeout(function(){
+      panel.querySelectorAll('.reveal').forEach(function(r){r.classList.add('on')});
+      panel.querySelectorAll('.animate-bar').forEach(function(b){
+        if(!b.style.width||b.style.width==='0px'){b.style.width=b.getAttribute('data-width')+'%';}
+      });
+    },80);
+  }
   document.body.style.overflow='hidden';
 }
 function closePanel(){
