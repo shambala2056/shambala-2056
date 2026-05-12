@@ -702,29 +702,23 @@ body,nav,.hud,.la-card,.nasa-card,.pkg-card,.cta-box,footer{transition:backgroun
 .seq-tab.active .seq-tab-num{color:var(--green)}
 .seq-tab.active .seq-tab-label{opacity:1;color:var(--green)}
 .seq-tab:hover:not(.active) .seq-tab-label{opacity:0.8}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
-.seq-accordion{display:flex;flex-direction:column;gap:2px}
-.seq-phase{}
-.seq-phase-hdr{display:flex;align-items:center;justify-content:space-between;
-  padding:22px 28px;border:1px solid var(--border);cursor:pointer;
-  background:var(--deep);transition:background .25s,border-color .25s;user-select:none}
-.seq-phase-hdr:hover{background:rgba(0,255,136,0.04);border-color:rgba(0,255,136,0.25)}
-.seq-phase.open .seq-phase-hdr{border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.04)}
-.seq-phase-meta{display:flex;align-items:center;gap:24px}
-.seq-phase-nums{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;
-  letter-spacing:0.18em;color:var(--green);opacity:0.7}
-.seq-phase-name{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.75rem;
-  font-weight:700;letter-spacing:0.12em;color:var(--white)}
-.seq-phase-arrow{font-size:0.55rem;color:var(--green);opacity:0.6;
-  transition:transform .3s;display:inline-block}
-.seq-phase.open .seq-phase-arrow{transform:rotate(180deg)}
-.seq-phase-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1)}
-.seq-phase.open .seq-phase-body{grid-template-rows:1fr}
-.seq-phase-body > .steps-grid{overflow:hidden;min-height:0}
-@media(max-width:900px){.steps-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.steps-grid{grid-template-columns:1fr}}
-html[data-theme="light"] .seq-phase-hdr{background:#fff;border-color:rgba(0,107,48,0.18)}
-html[data-theme="light"] .seq-phase.open .seq-phase-hdr{background:rgba(0,107,48,0.06)}
+.seq-tabs{display:flex;border:1px solid var(--border);margin-bottom:2px;position:relative}
+.seq-tab{flex:1;padding:18px 12px 16px;background:transparent;border:none;border-right:1px solid var(--border);cursor:pointer;transition:background .25s;text-align:center;position:relative;outline:none}
+.seq-tab:last-child{border-right:none}
+.seq-tab::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--green),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .38s cubic-bezier(.4,0,.2,1)}
+.seq-tab.active::after,.seq-tab:hover::after{transform:scaleX(1)}
+.seq-tab-num{display:block;font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:5px;transition:color .25s}
+.seq-tab-label{display:block;font-family:'ChakraNums','DisplayFont',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;color:var(--white);opacity:0.5;transition:opacity .25s,color .25s}
+.seq-tab.active .seq-tab-num{color:var(--green)}
+.seq-tab.active .seq-tab-label{opacity:1;color:var(--green)}
+.seq-tab:hover:not(.active) .seq-tab-label{opacity:0.8}
+.step-panel{display:none}
+.step-panel.active{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;animation:panelIn .32s cubic-bezier(.4,0,.2,1)}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+html[data-theme="light"] .seq-tab{background:transparent}
+html[data-theme="light"] .seq-tab.active{background:rgba(0,107,48,0.07)}
+@media(max-width:900px){.step-panel.active{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.step-panel.active{grid-template-columns:1fr}.seq-tabs{flex-wrap:wrap}.seq-tab{flex:1 1 50%;border-bottom:1px solid var(--border)}}
 @keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 /* ═══ STEP CARDS — spotlight hover ═══════════════════════════════════════ */
 .step-card{position:relative;padding:0 0 22px;background:var(--surface);border:1px solid var(--border);cursor:default;overflow:hidden;transition:border-color .3s;min-height:320px}
@@ -2018,18 +2012,26 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <p style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;color:var(--muted);max-width:220px;text-align:right;line-height:1.7"><span class="mn">Усзүйн судалгаанаас хиймэл дагуулын хяналт хүртэлх бүрэн дараалал</span><span class="en">Full pipeline from water survey to satellite monitoring</span></p>
     </div>
-    <div class="seq-accordion">
-      <div class="seq-phase" data-idx="0">
-        <div class="seq-phase-hdr" onclick="togglePhase(this)">
-          <div class="seq-phase-meta">
-            <span class="seq-phase-nums">01 — 04</span>
-            <span class="seq-phase-name"><span class="mn">СУДАЛГАА</span><span class="en">SURVEY</span></span>
-          </div>
-          <span class="seq-phase-arrow">▼</span>
-        </div>
-        <div class="seq-phase-body">
-          <div class="steps-grid">
-        <div class="step-card">
+    <div class="seq-tabs" id="seq-tabs">
+      <button class="seq-tab active" data-phase="0">
+        <span class="seq-tab-num">01 — 04</span>
+        <span class="seq-tab-label"><span class="mn">СУДАЛГАА</span><span class="en">SURVEY</span></span>
+      </button>
+      <button class="seq-tab" data-phase="1">
+        <span class="seq-tab-num">05 — 08</span>
+        <span class="seq-tab-label"><span class="mn">ИНЖЕНЕРЧЛЭЛ</span><span class="en">ENGINEER</span></span>
+      </button>
+      <button class="seq-tab" data-phase="2">
+        <span class="seq-tab-num">09 — 12</span>
+        <span class="seq-tab-label"><span class="mn">ТАРИЛТ</span><span class="en">PLANT</span></span>
+      </button>
+      <button class="seq-tab" data-phase="3">
+        <span class="seq-tab-num">13 — 16</span>
+        <span class="seq-tab-label"><span class="mn">ХЯНАЛТ</span><span class="en">MONITOR</span></span>
+      </button>
+    </div>
+    <div class="step-panel active" data-phase="0">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/01.jpg" alt="Step 01" loading="lazy">
         </div>
@@ -2038,7 +2040,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">УСНЫ ХАЙГУУЛ</span><span class="en">Hydrological Survey</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/02.jpg" alt="Step 02" loading="lazy">
         </div>
@@ -2047,7 +2049,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">Хөрсний СУДАЛГАА</span><span class="en">Soil Analysis</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/03.jpg" alt="Step 03" loading="lazy">
         </div>
@@ -2056,7 +2058,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ЛАНДШАФТЫН зураглал</span><span class="en">Site Mapping</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/04.jpg" alt="Step 04" loading="lazy">
         </div>
@@ -2065,20 +2067,9 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ОРГАНИК ХАЯГДЛЫГ ЦУГЛУУЛЖ КОМПОСТ ХИЙХ</span><span class="en">COLLECTING ORGANIC WASTE TO COMPOSTING</span></div>
         </div>
       </div>
-          </div>
-        </div>
-      </div>
-      <div class="seq-phase" data-idx="1">
-        <div class="seq-phase-hdr" onclick="togglePhase(this)">
-          <div class="seq-phase-meta">
-            <span class="seq-phase-nums">05 — 08</span>
-            <span class="seq-phase-name"><span class="mn">ИНЖЕНЕРЧЛЭЛ</span><span class="en">ENGINEER</span></span>
-          </div>
-          <span class="seq-phase-arrow">▼</span>
-        </div>
-        <div class="seq-phase-body">
-          <div class="steps-grid">
-        <div class="step-card">
+    </div>
+    <div class="step-panel" data-phase="1">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/05.jpg" alt="Step 05" loading="lazy">
         </div>
@@ -2087,7 +2078,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ГҮНИЙ ХУДАГ ГАРГАХ</span><span class="en">DRILLING A DEEP WELL</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/06.jpg" alt="Step 06" loading="lazy">
         </div>
@@ -2096,7 +2087,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">УСАЛГААНЫ ТАНКУУД БЭЛТГЭХ</span><span class="en">PREPARING IRRIGATION TANKS</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/07.jpg" alt="Step 07" loading="lazy">
         </div>
@@ -2105,7 +2096,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ СИСТЕМ УГСРАЛТ</span><span class="en">INSTALLING A RENEWABLE ENERGY SYSTEM</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/08.jpg" alt="Step 08" loading="lazy">
         </div>
@@ -2114,20 +2105,9 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ХӨРС БОЛОВСРУУЛАЛТ</span><span class="en">SOIL CULTIVATION</span></div>
         </div>
       </div>
-          </div>
-        </div>
-      </div>
-      <div class="seq-phase" data-idx="2">
-        <div class="seq-phase-hdr" onclick="togglePhase(this)">
-          <div class="seq-phase-meta">
-            <span class="seq-phase-nums">09 — 12</span>
-            <span class="seq-phase-name"><span class="mn">ТАРИЛТ</span><span class="en">PLANT</span></span>
-          </div>
-          <span class="seq-phase-arrow">▼</span>
-        </div>
-        <div class="seq-phase-body">
-          <div class="steps-grid">
-        <div class="step-card">
+    </div>
+    <div class="step-panel" data-phase="2">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/09.jpg" alt="Step 09" loading="lazy">
         </div>
@@ -2136,7 +2116,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">МОДНЫ НҮХ УХАЛТ</span><span class="en">DIGGING TREE HOLES</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/10.jpg" alt="Step 10" loading="lazy">
         </div>
@@ -2145,7 +2125,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ХАШААЖУУЛТ</span><span class="en">FENCING</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/11.jpg" alt="Step 11" loading="lazy">
         </div>
@@ -2154,7 +2134,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">Мод БОРТОГЛОХ БОЛОН ТЭЭВЭРЛЭХ</span><span class="en">TREE INOCULATION AND TRANSPORTATION</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/12.jpg" alt="Step 12" loading="lazy">
         </div>
@@ -2163,20 +2143,9 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">МОД ТАРИХ</span><span class="en">PLANTING TREES</span></div>
         </div>
       </div>
-          </div>
-        </div>
-      </div>
-      <div class="seq-phase" data-idx="3">
-        <div class="seq-phase-hdr" onclick="togglePhase(this)">
-          <div class="seq-phase-meta">
-            <span class="seq-phase-nums">13 — 16</span>
-            <span class="seq-phase-name"><span class="mn">ХЯНАЛТ</span><span class="en">MONITOR</span></span>
-          </div>
-          <span class="seq-phase-arrow">▼</span>
-        </div>
-        <div class="seq-phase-body">
-          <div class="steps-grid">
-        <div class="step-card">
+    </div>
+    <div class="step-panel" data-phase="3">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/13.jpg" alt="Step 13" loading="lazy">
         </div>
@@ -2185,7 +2154,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">УСАЛГААНЫ СИСТЕМ УГСРАХ</span><span class="en">INSTALLING AN IRRIGATION SYSTEM</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/14.jpg" alt="Step 14" loading="lazy">
         </div>
@@ -2194,7 +2163,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ХЯНАЛТ УДИРДЛАГЫН СИСТЕМ</span><span class="en">MONITORING AND CONTROL SYSTEM</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/15.jpg" alt="Step 15" loading="lazy">
         </div>
@@ -2203,16 +2172,13 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ХОРТОН ШАВЖ УСТГАЛ</span><span class="en">PEST CONTROL</span></div>
         </div>
       </div>
-        <div class="step-card">
+      <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="assets/timeline/16.jpg" alt="Step 16" loading="lazy">
         </div>
         <div class="step-card-body">
           <div class="step-num">16</div>
               <div class="step-title"><span class="mn">ХИЙМЭЛ ДАГУУЛЫН ХЯНАЛТ</span><span class="en">SATELLITE MONITORING</span></div>
-        </div>
-      </div>
-          </div>
         </div>
       </div>
     </div>
@@ -2694,12 +2660,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     });
   },{threshold:0.3});
   document.querySelectorAll('.sector-card').forEach(function(c){sectorObs.observe(c)});
-function togglePhase(hdr){
-  var phase = hdr.parentElement;
-  var isOpen = phase.classList.contains('open');
-  document.querySelectorAll('.seq-phase.open').forEach(function(p){p.classList.remove('open')});
-  if(!isOpen) phase.classList.add('open');
-}
 function openPanel(id){
   document.querySelectorAll('.overlay-panel').forEach(function(p){p.classList.remove('open')});
   var panel=document.getElementById('panel-'+id);
