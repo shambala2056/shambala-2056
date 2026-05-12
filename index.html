@@ -702,8 +702,7 @@ body,nav,.hud,.la-card,.nasa-card,.pkg-card,.cta-box,footer{transition:backgroun
 .seq-tab.active .seq-tab-num{color:var(--green)}
 .seq-tab.active .seq-tab-label{opacity:1;color:var(--green)}
 .seq-tab:hover:not(.active) .seq-tab-label{opacity:0.8}
-.step-panel{display:none}
-.step-panel.active{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;animation:panelIn .32s cubic-bezier(.4,0,.2,1)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
 @keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 /* ═══ STEP CARDS — spotlight hover ═══════════════════════════════════════ */
 .step-card{position:relative;padding:0 0 22px;background:var(--surface);border:1px solid var(--border);cursor:default;overflow:hidden;transition:border-color .3s;min-height:320px}
@@ -728,8 +727,8 @@ html[data-theme="light"] .step-card{background:#fff;border-color:rgba(0,107,48,0
 html[data-theme="light"] .step-card:hover{border-color:rgba(0,107,48,0.4);box-shadow:0 8px 32px rgba(0,107,48,0.12)}
 html[data-theme="light"] .step-num{color:rgba(0,107,48,0.3)}
 html[data-theme="light"] .step-card:hover .step-num{color:rgba(0,107,48,0.6)}
-@media(max-width:900px){.step-panel.active{grid-template-columns:repeat(2,1fr)}.nasa-grid{grid-template-columns:1fr}.nasa-grid .nasa-card:first-child{grid-column:1}}
-@media(max-width:600px){.step-panel.active{grid-template-columns:1fr}.seq-tabs{flex-wrap:wrap}.seq-tab{flex:1 1 50%;border-bottom:1px solid var(--border)}}
+@media(max-width:900px){.steps-grid{grid-template-columns:repeat(2,1fr)}.nasa-grid{grid-template-columns:1fr}.nasa-grid .nasa-card:first-child{grid-column:1}}
+@media(max-width:600px){.steps-grid{grid-template-columns:1fr}}
 
 /* ═══ LANGUAGE TOGGLE ═══ */
 html[data-lang="mn"] .en{display:none!important}
@@ -1990,8 +1989,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <!-- SEQUENCE -->
 <section class="seq-s reveal" id="sequence">
   <div class="wrap">
-
-    <!-- Header -->
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px">
       <div>
         <div class="sl"><span class="mn">Ажлын дараалал</span><span class="en">Work Sequence</span></div>
@@ -1999,182 +1996,152 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <p style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;color:var(--muted);max-width:220px;text-align:right;line-height:1.7"><span class="mn">Усзүйн судалгаанаас хиймэл дагуулын хяналт хүртэлх бүрэн дараалал</span><span class="en">Full pipeline from water survey to satellite monitoring</span></p>
     </div>
-
-    <!-- Seq Tab Bar -->
-    <div class="seq-tabs" id="seq-tabs">
-      <button class="seq-tab active" data-phase="0">
-        <span class="seq-tab-num">01 — 04</span>
-        <span class="seq-tab-label"><span class="mn">СУДАЛГАА</span><span class="en">SURVEY</span></span>
-      </button>
-      <button class="seq-tab" data-phase="1">
-        <span class="seq-tab-num">05 — 08</span>
-        <span class="seq-tab-label"><span class="mn">ИНЖЕНЕРЧЛЭЛ</span><span class="en">ENGINEER</span></span>
-      </button>
-      <button class="seq-tab" data-phase="2">
-        <span class="seq-tab-num">09 — 12</span>
-        <span class="seq-tab-label"><span class="mn">ТАРИЛТ</span><span class="en">PLANT</span></span>
-      </button>
-      <button class="seq-tab" data-phase="3">
-        <span class="seq-tab-num">13 — 16</span>
-        <span class="seq-tab-label"><span class="mn">ХЯНАЛТ</span><span class="en">MONITOR</span></span>
-      </button>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/01.jpg" alt="Step 01" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">01</div>
+              <div class="step-title"><span class="mn">УСНЫ ХАЙГУУЛ</span><span class="en">Hydrological Survey</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/02.jpg" alt="Step 02" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">02</div>
+              <div class="step-title"><span class="mn">Хөрсний СУДАЛГАА</span><span class="en">Soil Analysis</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/03.jpg" alt="Step 03" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">03</div>
+              <div class="step-title"><span class="mn">ЛАНДШАФТЫН зураглал</span><span class="en">Site Mapping</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/04.jpg" alt="Step 04" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">04</div>
+              <div class="step-title"><span class="mn">ОРГАНИК ХАЯГДЛЫГ ЦУГЛУУЛЖ КОМПОСТ ХИЙХ</span><span class="en">COLLECTING ORGANIC WASTE TO COMPOSTING</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/05.jpg" alt="Step 05" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">05</div>
+              <div class="step-title"><span class="mn">ГҮНИЙ ХУДАГ ГАРГАХ</span><span class="en">DRILLING A DEEP WELL</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/06.jpg" alt="Step 06" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">06</div>
+              <div class="step-title"><span class="mn">УСАЛГААНЫ ТАНКУУД БЭЛТГЭХ</span><span class="en">PREPARING IRRIGATION TANKS</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/07.jpg" alt="Step 07" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">07</div>
+              <div class="step-title"><span class="mn">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ СИСТЕМ УГСРАЛТ</span><span class="en">INSTALLING A RENEWABLE ENERGY SYSTEM</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/08.jpg" alt="Step 08" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">08</div>
+              <div class="step-title"><span class="mn">ХӨРС БОЛОВСРУУЛАЛТ</span><span class="en">SOIL CULTIVATION</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/09.jpg" alt="Step 09" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">09</div>
+              <div class="step-title"><span class="mn">МОДНЫ НҮХ УХАЛТ</span><span class="en">DIGGING TREE HOLES</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/10.jpg" alt="Step 10" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">10</div>
+              <div class="step-title"><span class="mn">ХАШААЖУУЛТ</span><span class="en">FENCING</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/11.jpg" alt="Step 11" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">11</div>
+              <div class="step-title"><span class="mn">Мод БОРТОГЛОХ БОЛОН ТЭЭВЭРЛЭХ</span><span class="en">TREE INOCULATION AND TRANSPORTATION</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/12.jpg" alt="Step 12" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">12</div>
+              <div class="step-title"><span class="mn">МОД ТАРИХ</span><span class="en">PLANTING TREES</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/13.jpg" alt="Step 13" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">13</div>
+              <div class="step-title"><span class="mn">УСАЛГААНЫ СИСТЕМ УГСРАХ</span><span class="en">INSTALLING AN IRRIGATION SYSTEM</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/14.jpg" alt="Step 14" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">14</div>
+              <div class="step-title"><span class="mn">ХЯНАЛТ УДИРДЛАГЫН СИСТЕМ</span><span class="en">MONITORING AND CONTROL SYSTEM</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/15.jpg" alt="Step 15" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">15</div>
+              <div class="step-title"><span class="mn">ХОРТОН ШАВЖ УСТГАЛ</span><span class="en">PEST CONTROL</span></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="assets/timeline/16.jpg" alt="Step 16" loading="lazy">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">16</div>
+              <div class="step-title"><span class="mn">ХИЙМЭЛ ДАГУУЛЫН ХЯНАЛТ</span><span class="en">SATELLITE MONITORING</span></div>
+        </div>
+      </div>
     </div>
-
-    <!-- Phase Panels (2 × 2) -->
-    <div class="step-panel active" data-phase="0">
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/01.jpg" alt="Step 01" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">01</div>
-        <div class="step-title"><span class="mn">УСНЫ ХАЙГУУЛ</span><span class="en">Hydrological Survey</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/02.jpg" alt="Step 02" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">02</div>
-        <div class="step-title"><span class="mn">Хөрсний СУДАЛГАА</span><span class="en">Soil Analysis</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/03.jpg" alt="Step 03" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">03</div>
-        <div class="step-title"><span class="mn">ЛАНДШАФТЫН зураглал</span><span class="en">Site Mapping</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/04.jpg" alt="Step 04" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">04</div>
-        <div class="step-title"><span class="mn">ОРГАНИК ХАЯГДЛЫГ ЦУГЛУУЛЖ КОМПОСТ ХИЙХ</span><span class="en">COLLECTING ORGANIC WASTE TO COMPOSTING</span></div>
-  </div>
-</div>
-    </div>
-    <div class="step-panel" data-phase="1">
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/05.jpg" alt="Step 05" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">05</div>
-        <div class="step-title"><span class="mn">ГҮНИЙ ХУДАГ ГАРГАХ</span><span class="en">DRILLING A DEEP WELL</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/06.jpg" alt="Step 06" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">06</div>
-        <div class="step-title"><span class="mn">УСАЛГААНЫ ТАНКУУД БЭЛТГЭХ</span><span class="en">PREPARING IRRIGATION TANKS</span></div>
-  </div>
-</div>
-      
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/07.jpg" alt="Step 07" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">07</div>
-        <div class="step-title"><span class="mn">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ СИСТЕМ УГСРАЛТ</span><span class="en">INSTALLING A RENEWABLE ENERGY SYSTEM</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/08.jpg" alt="Step 08" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">08</div>
-        <div class="step-title"><span class="mn">ХӨРС БОЛОВСРУУЛАЛТ</span><span class="en">SOIL CULTIVATION</span></div>
-  </div>
-</div>
-    </div>
-    <div class="step-panel" data-phase="2">
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/09.jpg" alt="Step 09" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">09</div>
-        <div class="step-title"><span class="mn">МОДНЫ НҮХ УХАЛТ</span><span class="en">DIGGING TREE HOLES</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/10.jpg" alt="Step 10" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">10</div>
-        <div class="step-title"><span class="mn">ХАШААЖУУЛТ</span><span class="en">FENCING</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/11.jpg" alt="Step 11" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">11</div>
-        <div class="step-title"><span class="mn">Мод БОРТОГЛОХ БОЛОН ТЭЭВЭРЛЭХ</span><span class="en">TREE INOCULATION AND TRANSPORTATION</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/12.jpg" alt="Step 12" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">12</div>
-        <div class="step-title"><span class="mn">МОД ТАРИХ</span><span class="en">PLANTING TREES</span></div>
-  </div>
-</div>
-    </div>
-    <div class="step-panel" data-phase="3">
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/13.jpg" alt="Step 13" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">13</div>
-        <div class="step-title"><span class="mn">УСАЛГААНЫ СИСТЕМ УГСРАХ</span><span class="en">INSTALLING AN IRRIGATION SYSTEM</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/14.jpg" alt="Step 14" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">14</div>
-        <div class="step-title"><span class="mn">ХЯНАЛТ УДИРДЛАГЫН СИСТЕМ</span><span class="en">MONITORING AND CONTROL SYSTEM</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/15.jpg" alt="Step 15" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">15</div>
-        <div class="step-title"><span class="mn">ХОРТОН ШАВЖ УСТГАЛ</span><span class="en">PEST CONTROL</span></div>
-  </div>
-</div>
-      <div class="step-card">
-  <div class="step-img-wrap">
-    <img class="step-img" src="assets/timeline/16.jpg" alt="Step 16" loading="lazy">
-  </div>
-  <div class="step-card-body">
-    <div class="step-num">16</div>
-        <div class="step-title"><span class="mn">ХИЙМЭЛ ДАГУУЛЫН ХЯНАЛТ</span><span class="en">SATELLITE MONITORING</span></div>
-  </div>
-</div>
-    </div>
-
   </div>
 </section>
 
