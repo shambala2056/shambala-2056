@@ -1792,16 +1792,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 </script>
 
 <script>
-/* ── NASA Chart Focus-on-Click ──────────────────────────────────────────── */
-(function(){
-  var cards=document.querySelectorAll('.nasa-grid .nasa-card');
-  cards.forEach(function(card){
-    card.addEventListener('click',function(){
-      cards.forEach(function(c){c.classList.remove('focused')});
-      card.classList.add('focused');
-    });
-  });
-})();
+
 
 </script>
 
@@ -1984,7 +1975,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px">
       <div>
         <div class="sl"><span class="mn">Ажлын дараалал</span><span class="en">Work Sequence</span></div>
-        <h2 class="st"><span class="mn">16 АЛХАМТ <em>ДАРААЛАЛ</em></span><span class="en">16-STEP <em>SEQUENCE</em></span></h2>
+        <h2 class="st"><span class="mn">АЖЛЫН <em>ДАРААЛАЛ</em></span><span class="en">WORK <em>SEQUENCE</em></span></h2>
       </div>
       <p style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;color:var(--muted);max-width:220px;text-align:right;line-height:1.7"><span class="mn">Усзүйн судалгаанаас хиймэл дагуулын хяналт хүртэлх бүрэн дараалал</span><span class="en">Full pipeline from water survey to satellite monitoring</span></p>
     </div>
@@ -2693,6 +2684,17 @@ function closePanel(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
+
+/* ── NASA Chart Focus-on-Click ──────────────────────────────────────────── */
+(function(){
+  var cards=document.querySelectorAll('.nasa-grid .nasa-card');
+  cards.forEach(function(card){
+    card.addEventListener('click',function(){
+      cards.forEach(function(c){c.classList.remove('focused')});
+      card.classList.add('focused');
+    });
+  });
+})();
 
 /* ── Sequence Tab Switching ─────────────────────────────────────────────── */
 (function(){
