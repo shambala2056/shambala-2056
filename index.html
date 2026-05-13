@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#020810">
 <title>Shambala 2056 — Engineering Campus Mongolia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Chakra+Petch:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Chakra+Petch:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:'ChakraNums';src:url('https://fonts.gstatic.com/s/chakrapetch/v13/cIf6MapbsEk7TDLdtEz1BwkmmA.ttf') format('truetype');font-weight:400;unicode-range:U+0030-0039,U+002E,U+002C}
 @font-face{font-family:'ChakraNums';src:url('https://fonts.gstatic.com/s/chakrapetch/v13/cIflMapbsEk7TDLdtEz1BwkeQI5FQA.ttf') format('truetype');font-weight:600;unicode-range:U+0030-0039,U+002E,U+002C}
@@ -39,7 +39,7 @@ html{scroll-behavior:smooth}
   --glow-c:0 0 24px rgba(0,255,136,0.25);
 }
 *{-webkit-font-smoothing:antialiased}
-body{font-family:'Rajdhani',sans-serif;background:var(--void);color:var(--white);overflow-x:hidden;text-transform:uppercase}
+body{font-family:'Montserrat',sans-serif;font-weight:300;background:var(--void);color:var(--white);overflow-x:hidden;text-transform:uppercase}
 ::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:var(--green-dim)}
 /* scanlines */
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
@@ -55,22 +55,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;
 .n-logo-spin{height:36px;width:auto;display:block;filter:brightness(0) invert(1)}
 @keyframes logo-flip{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
 .n-logo-words{margin-left:10px;display:flex;flex-direction:column;justify-content:center;gap:2px}
-.n-wm-top{font-family:'Orbitron','ChakraNums',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1;letter-spacing:0.04em}
+.n-wm-top{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1;letter-spacing:0.04em}
 .n-wm-bot{display:flex;align-items:baseline;gap:6px}
-.n-wm-num{font-family:'Orbitron','ChakraNums',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1}
-.n-wm-sub{font-family:'Rajdhani',sans-serif;font-weight:400;font-size:6.5px;color:var(--muted);letter-spacing:1.2px;line-height:1.4}
+.n-wm-num{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1}
+.n-wm-sub{font-family:'Montserrat',sans-serif;font-weight:300;font-size:6.5px;color:var(--muted);letter-spacing:1.2px;line-height:1.4}
 html[data-theme="light"] .n-wm-top,html[data-theme="light"] .n-wm-num{color:#2a2a2a}
+html[data-theme="light"] .n-logo-spin{filter:none}
 html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
 .n-live{display:flex;align-items:center;gap:7px;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;
+  font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.14em;
   color:rgba(0,255,136,0.55);background:rgba(0,255,136,0.04);
   border:1px solid rgba(0,255,136,0.1);padding:5px 12px}
 .n-live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 1.5s ease-in-out infinite}
 .n-links{display:flex;list-style:none}
 .n-links li{overflow:visible}
 .n-links a{display:block;height:60px;line-height:60px;padding:0 12px;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
+  font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
   color:var(--muted);text-decoration:none;border:none;
   white-space:nowrap;transition:color 0.25s,background 0.25s,transform 0.2s}
 .n-links a:hover{color:var(--green);background:rgba(0,255,136,0.04);transform:translateY(-3px)}
@@ -99,30 +100,29 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 @keyframes scan{0%{top:0;opacity:0}5%{opacity:0.7}95%{opacity:0.4}100%{top:100vh;opacity:0}}
 
 .h-inner{position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;
-  padding:0 80px;padding-top:60px;display:grid;grid-template-columns:1.1fr 0.9fr;
-  grid-template-rows:1fr auto;gap:80px 80px;min-height:100vh}
+  padding:0 80px;display:grid;grid-template-columns:1.1fr 0.9fr;
+  align-items:center;gap:80px;min-height:100vh}
 
-.h-left{}
 .h-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;color:var(--cyan);
+  font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.18em;color:var(--cyan);
   border:1px solid var(--border-c);padding:6px 14px;background:rgba(0,255,136,0.04);
   animation:fu 0.8s ease 0.2s both}
 .h-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:blink 2s ease-in-out infinite}
 
-.h-title{font-family:'ChakraNums','DisplayFont',sans-serif;font-weight:900;line-height:0.88;
+.h-title{font-family:'Montserrat',sans-serif;font-weight:900;line-height:0.88;
   letter-spacing:0.04em;margin-bottom:8px;animation:fu 0.8s ease 0.35s both}
 .h-title .l1{font-size:clamp(3rem,7vw,7.5rem);color:var(--white)}
 .h-title .l2{font-size:clamp(3rem,7vw,7.5rem);color:transparent;
   -webkit-text-stroke:1.5px rgba(0,255,136,0.3)}
 .h-title .l3{font-size:clamp(1.2rem,2.9vw,3rem);color:var(--green);font-weight:300;white-space:nowrap;
   text-shadow:0 0 60px rgba(0,255,136,0.4),0 0 120px rgba(0,255,136,0.15)}
-.h-sub{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.28em;
+.h-sub{font-family:'Montserrat',sans-serif;font-size:0.72rem;letter-spacing:0.28em;
   color:var(--gold);margin-bottom:32px;animation:fu 0.8s ease 0.5s both}
 .h-desc{font-size:1.05rem;line-height:1.8;color:var(--muted);max-width:540px;
   margin-bottom:40px;font-weight:400;animation:fu 0.8s ease 0.65s both}
 .h-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fu 0.8s ease 0.8s both}
 .btn-p{display:inline-flex;align-items:center;gap:8px;
-  padding:0 30px;height:46px;font-family:'ChakraNums','Share Tech Mono',monospace;
+  padding:0 30px;height:46px;font-family:'Montserrat',sans-serif;
   font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;
   background:var(--green);color:var(--void);border:none;cursor:pointer;
   text-decoration:none;font-weight:700;
@@ -130,7 +130,7 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
   transition:all 0.3s}
 .btn-p:hover{background:#33FF99;box-shadow:0 0 32px rgba(0,255,136,0.5)}
 .btn-g{display:inline-flex;align-items:center;gap:8px;
-  padding:0 30px;height:46px;font-family:'ChakraNums','Share Tech Mono',monospace;
+  padding:0 30px;height:46px;font-family:'Montserrat',sans-serif;
   font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;
   background:transparent;color:var(--white);
   border:1px solid rgba(232,244,255,0.18);cursor:pointer;
@@ -146,16 +146,16 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
   background:linear-gradient(to right,transparent,var(--green),transparent)}
 .hud-bar{display:flex;justify-content:space-between;align-items:center;
   padding:12px 18px;border-bottom:1px solid var(--border);
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.16em}
+  font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.16em}
 .hud-bar-l{color:var(--green);text-transform:uppercase}
 .hud-bar-r{display:flex;align-items:center;gap:7px;color:rgba(0,255,136,0.5)}
 .hud-bar-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 1.5s ease-in-out infinite}
 .hud-data{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:transparent}
 .hud-cell{padding:18px 16px;background:transparent;transition:background 0.3s}
 .hud-cell:hover{background:rgba(0,255,136,0.03)}
-.hud-val{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.4rem;font-weight:700;
+.hud-val{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:700;
   color:var(--green);line-height:1;margin-bottom:4px}
-.hud-key{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;
+.hud-key{font-family:'Montserrat',sans-serif;font-size:0.52rem;letter-spacing:0.12em;
   text-transform:uppercase;color:var(--muted)}
 .hud-bar2{height:2px;background:rgba(0,255,136,0.08);margin-top:8px;overflow:hidden;position:relative}
 .hud-fill{height:100%;background:linear-gradient(to right,var(--green-dim),var(--green));
@@ -163,7 +163,7 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 @keyframes fill{from{width:0}}
 .hud-sats{display:flex;gap:6px;flex-wrap:wrap;padding:14px 16px;
   border-top:1px solid var(--border)}
-.sat{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;
+.sat{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.1em;
   color:var(--cyan);border:1px solid var(--border-c);padding:4px 10px;background:rgba(0,255,136,0.04)}
 
 /* ═══ TICKER ═══ */
@@ -171,7 +171,7 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
   padding:9px 0;background:rgba(0,255,136,0.03)}
 .tk-track{display:flex;animation:tk 45s linear infinite;white-space:nowrap}
 .tk-item{display:flex;align-items:center;gap:14px;padding:0 28px;flex-shrink:0;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.63rem;letter-spacing:0.1em;
+  font-family:'Montserrat',sans-serif;font-size:0.63rem;letter-spacing:0.1em;
   color:rgba(232,244,255,0.45)}
 .tk-sep{color:var(--green);opacity:0.5}
 @keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -179,10 +179,10 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 /* ═══ SHARED ═══ */
 .wrap{max-width:1440px;margin:0 auto;padding:0 80px}
 .sl{display:inline-flex;align-items:center;gap:10px;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;
+  font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.22em;
   text-transform:uppercase;color:var(--green);margin-bottom:12px}
 .sl::before{content:'';width:20px;height:1px;background:var(--green)}
-.st{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:clamp(2rem,4vw,3.8rem);
+.st{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3.8rem);
   font-weight:900;letter-spacing:0.04em;line-height:0.93}
 .st em{color:var(--green);font-style:normal}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.75s ease,transform 0.75s ease}
@@ -206,13 +206,13 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 .as-item:hover{background:rgba(0,255,136,0.04)}
 .as-item::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(to right,transparent,var(--green),transparent)}
-.as-val{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2.2rem;font-weight:900;
+.as-val{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;
   color:var(--white);line-height:1;margin-bottom:4px}
-.as-key{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;
+.as-key{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.15em;
   text-transform:uppercase;color:var(--green)}
 .aerial-hud{position:absolute;top:24px;left:50%;transform:translateX(-50%);
   display:flex;align-items:center;gap:8px;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;
+  font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.14em;
   color:rgba(0,255,136,0.6);background:rgba(2,8,16,0.7);
   border:1px solid var(--border-c);padding:7px 18px;backdrop-filter:blur(8px)}
 .hud-corners{position:absolute;inset:16px;pointer-events:none}
@@ -229,28 +229,24 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 .la-card:hover{transform:translateY(-4px)}
 .la-img-wrap{position:relative;overflow:hidden}
 .la-img-wrap img{width:100%;display:block;object-fit:cover;
-  filter:brightness(0.7) saturate(0.55) hue-rotate(160deg);
-  transition:filter 0.5s,transform 0.6s}
-.la-card:hover .la-img-wrap img{filter:brightness(0.85) saturate(0.75) hue-rotate(155deg);transform:scale(1.04)}
-.la-img-fade{position:absolute;bottom:0;left:0;right:0;height:40%;
-  background:linear-gradient(to top,var(--surface),transparent)}
-.la-img-topline{position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(to right,transparent,var(--green),transparent);
-  opacity:0;transition:opacity 0.3s}
-.la-card:hover .la-img-topline{opacity:1}
+  transition:transform 0.6s}
+.la-card:hover .la-img-wrap img{transform:scale(1.04)}
+.la-img-fade{display:none}
+.la-img-topline{display:none}
+.la-card:hover .la-img-topline{display:none}
 .la-phase-tag{position:absolute;top:14px;right:14px;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;
+  font-family:'Montserrat',sans-serif;font-size:0.52rem;letter-spacing:0.14em;
   color:var(--green);border:1px solid var(--border);background:rgba(2,8,16,0.8);padding:4px 10px}
 .la-body{padding:20px 20px 24px;border-top:1px solid var(--border)}
-.la-idx{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;
+.la-idx{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.18em;
   color:rgba(0,255,136,0.35);margin-bottom:4px}
-.la-name{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.2rem;font-weight:700;
+.la-name{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;
   letter-spacing:0.08em;color:var(--white);margin-bottom:4px;line-height:1.1}
-.la-type{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;
+.la-type{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.18em;
   text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
 .la-sg{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
-.la-sv{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1rem;font-weight:700;color:var(--gold);line-height:1}
-.la-sk{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;
+.la-sv{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--gold);line-height:1}
+.la-sk{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--muted);margin-top:2px}
 .la-prog{height:1px;background:rgba(0,255,136,0.1)}
 .la-prog-f{height:100%;background:linear-gradient(to right,var(--green-dim),var(--green));transition:width 1.8s ease}
@@ -266,16 +262,16 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 .data-panel-img-bar{position:absolute;bottom:0;left:0;right:0;height:2px;
   background:linear-gradient(to right,transparent,var(--green),transparent)}
 .dp-body{padding:24px 24px 28px}
-.dp-chip{display:inline-block;font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;
+.dp-chip{display:inline-block;font-family:'Montserrat',sans-serif;font-size:0.52rem;
   letter-spacing:0.16em;text-transform:uppercase;color:var(--cyan);
   border:1px solid var(--border-c);padding:3px 10px;background:rgba(0,255,136,0.04);margin-bottom:10px}
-.dp-title{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;
+.dp-title{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;
   letter-spacing:0.06em;color:var(--white);margin-bottom:8px}
 .dp-desc{font-size:0.85rem;line-height:1.7;color:var(--muted);margin-bottom:16px}
 .dp-specs{display:flex;flex-direction:column}
 .dp-spec{display:flex;justify-content:space-between;padding:7px 0;
   border-bottom:1px solid rgba(0,255,136,0.06);
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.63rem}
+  font-family:'Montserrat',sans-serif;font-size:0.63rem}
 .dp-spec:last-child{border-bottom:none}
 .dp-sk{color:var(--muted);letter-spacing:0.06em}
 .dp-sv{color:var(--green)}
@@ -284,7 +280,7 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 /* ═══ PARTNERS CAROUSEL ═══════════════════════════════════════════════ */
 .partners-s{padding:60px 0;background:rgba(0,255,136,0.025);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
 .partners-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
-.partners-count{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;color:var(--green);letter-spacing:0.06em}
+.partners-count{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:var(--green);letter-spacing:0.06em}
 .partners-count span{font-size:1.5rem}
 .partners-rows{display:flex;flex-direction:column;gap:12px}
 .cl-fade-wrap{
@@ -329,7 +325,7 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
   position:absolute;bottom:0;left:0;right:0;
   background:rgba(0,255,136,0.9);
   color:#020810;
-  font-family:'ChakraNums','Share Tech Mono',monospace;
+  font-family:'Montserrat',sans-serif;
   font-size:0.5rem;letter-spacing:0.1em;
   text-align:center;padding:3px 4px;
   transform:translateY(100%);
@@ -363,10 +359,10 @@ html[data-theme="light"] .partners-count{color:var(--green)}
   background:var(--green);transition:height 0.35s}
 .sq:hover{background:rgba(0,255,136,0.04);border-bottom-color:var(--green)}
 .sq:hover::before{height:100%}
-.sq-n{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2rem;font-weight:900;
+.sq-n{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;
   color:rgba(0,255,136,0.1);line-height:1;margin-bottom:10px;transition:color 0.3s}
 .sq:hover .sq-n{color:rgba(0,255,136,0.28)}
-.sq-t{font-family:'Rajdhani',sans-serif;font-size:0.8rem;font-weight:600;
+.sq-t{font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;
   letter-spacing:0.07em;text-transform:uppercase;color:var(--white);line-height:1.3}
 .sq-i{position:absolute;top:16px;right:16px;font-size:1rem;opacity:0.3}
 
@@ -382,7 +378,7 @@ html[data-theme="light"] .partners-count{color:var(--green)}
 .proc-topbar{position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(to right,var(--green),var(--cyan))}
 .proc-foot{padding:14px 16px;border-top:1px solid var(--border)}
-.proc-foot-label{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;
+.proc-foot-label{font-family:'Montserrat',sans-serif;font-size:0.6rem;
   letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
 
 /* ═══ PACKAGES ═══ */
@@ -393,14 +389,14 @@ html[data-theme="light"] .partners-count{color:var(--green)}
 .phc{padding:22px 20px;border-right:1px solid var(--border)}
 .phc:last-child{border-right:none}
 .phc.star{border-top:2px solid var(--green);background:rgba(0,255,136,0.06)}
-.ph-n{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:0.95rem;font-weight:700;
+.ph-n{font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700;
   letter-spacing:0.1em;color:var(--white);margin-bottom:3px}
-.ph-p{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.88rem;color:var(--gold)}
+.ph-p{font-family:'Montserrat',sans-serif;font-size:0.88rem;color:var(--gold)}
 .ph-p span{font-size:0.55rem;color:var(--muted);margin-left:3px}
 .pr{display:grid;grid-template-columns:220px repeat(3,1fr);
   border-bottom:1px solid rgba(0,255,136,0.05)}
 .pr:last-child{border-bottom:none}
-.prf{padding:11px 20px;font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;
+.prf{padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:0.62rem;
   letter-spacing:0.06em;color:var(--muted);border-right:1px solid var(--border);
   display:flex;align-items:center}
 .pc{padding:11px 20px;border-right:1px solid var(--border);
@@ -408,14 +404,14 @@ html[data-theme="light"] .partners-count{color:var(--green)}
 .pc:last-child{border-right:none}
 .pc.star{background:rgba(0,255,136,0.03)}
 .ck{color:var(--green)}.no{color:rgba(232,244,255,0.15)}
-.pt{color:var(--gold);font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;text-align:center}
+.pt{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:0.62rem;text-align:center}
 .pkg-cta{display:grid;grid-template-columns:220px repeat(3,1fr);background:var(--surface)}
 .pce{border-right:1px solid var(--border)}
 .pcc{padding:18px 20px;border-right:1px solid var(--border);
   display:flex;align-items:center;justify-content:center}
 .pcc:last-child{border-right:none}
 .pcc.star{background:rgba(0,255,136,0.04)}
-.pb{width:100%;padding:10px;font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;
+.pb{width:100%;padding:10px;font-family:'Montserrat',sans-serif;font-size:0.6rem;
   letter-spacing:0.14em;text-transform:uppercase;border:1px solid var(--border);
   background:transparent;color:var(--white);cursor:pointer;transition:all 0.3s}
 .pb:hover{border-color:var(--green);color:var(--green);box-shadow:var(--glow)}
@@ -424,15 +420,15 @@ html[data-theme="light"] .partners-count{color:var(--green)}
 
 /* ═══ IMPACT ═══ */
 .imp-s{padding:100px 0;background:var(--void);position:relative;overflow:hidden}
-.imp-s::after{content:'2056';position:absolute;font-family:'ChakraNums','DisplayFont',sans-serif;
+.imp-s::after{content:'2056';position:absolute;font-family:'Montserrat',sans-serif;
   font-size:22vw;font-weight:900;color:rgba(0,255,136,0.018);
   right:-2vw;bottom:-3vw;letter-spacing:0.1em;pointer-events:none;line-height:1}
 .imp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:52px;position:relative;z-index:1}
 .ic{background:var(--surface);padding:28px 22px;position:relative;overflow:hidden;
   border-bottom:2px solid transparent;transition:all 0.3s}
 .ic:hover{background:rgba(0,255,136,0.04);border-bottom-color:var(--green)}
-.ic-val{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2rem;font-weight:900;color:var(--white);line-height:1;margin-bottom:4px}
-.ic-unit{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.16em;
+.ic-val{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--white);line-height:1;margin-bottom:4px}
+.ic-unit{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.16em;
   text-transform:uppercase;color:var(--green);margin-bottom:8px}
 .ic-desc{font-size:0.76rem;color:var(--muted);line-height:1.5}
 .ic-glow{position:absolute;bottom:0;left:0;right:0;height:36px;
@@ -445,40 +441,40 @@ html[data-theme="light"] .partners-count{color:var(--green)}
   background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(0,255,136,0.05),transparent)}
 .cta-inner{max-width:1440px;margin:0 auto;padding:0 80px;
   display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1}
-.cta-h{font-family:'ChakraNums','DisplayFont',sans-serif;font-weight:900;line-height:0.9;letter-spacing:0.04em;
+.cta-h{font-family:'Montserrat',sans-serif;font-weight:900;line-height:0.9;letter-spacing:0.04em;
   font-size:clamp(2.5rem,5.5vw,5rem)}
 .cta-h em{color:var(--green);font-style:normal;display:block;
   text-shadow:0 0 50px rgba(0,255,136,0.35)}
 .cta-body p{font-size:0.95rem;line-height:1.8;color:var(--muted);margin-bottom:26px}
 .crows{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}
 .cr{display:flex;align-items:center;gap:12px;
-  font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.7rem;color:rgba(232,244,255,0.6)}
+  font-family:'Montserrat',sans-serif;font-size:0.7rem;color:rgba(232,244,255,0.6)}
 .cr-i{color:var(--green);width:15px;text-align:center}
 
 /* ═══ FOOTER ═══ */
 footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);padding:56px 0 32px}
 .fi{max-width:1440px;margin:0 auto;padding:0 80px;
   display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:56px}
-.fl{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:0.88rem;font-weight:700;
+.fl{font-family:'Montserrat',sans-serif;font-size:0.88rem;font-weight:700;
   letter-spacing:0.22em;color:var(--white);margin-bottom:14px;display:block;text-decoration:none}
 .fl em{color:var(--green);font-style:normal}
 .ft{font-size:0.82rem;color:var(--muted);line-height:1.7;max-width:260px;margin-bottom:20px}
 .fb-wrap{display:flex;gap:6px;flex-wrap:wrap}
-.fb{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;padding:3px 9px}
+.fb{font-family:'Montserrat',sans-serif;font-size:0.52rem;letter-spacing:0.1em;padding:3px 9px}
 .fb.g{color:rgba(0,255,136,0.45);border:1px solid rgba(0,255,136,0.12)}
 .fb.c{color:rgba(0,255,136,0.4);border:1px solid rgba(0,255,136,0.12)}
-.fc h6{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.22em;
+.fc h6{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.22em;
   text-transform:uppercase;color:var(--green);margin-bottom:16px}
 .fc ul{list-style:none}
 .fc ul li{margin-bottom:9px}
 .fc ul a{font-size:0.8rem;color:var(--muted);text-decoration:none;
-  font-family:'Rajdhani',sans-serif;font-weight:500;letter-spacing:0.04em;transition:color 0.3s}
+  font-family:'Montserrat',sans-serif;font-weight:300;letter-spacing:0.04em;transition:color 0.3s}
 .fc ul a:hover{color:var(--green)}
 .fbot{max-width:1440px;margin:32px auto 0;padding:20px 80px 0;
   border-top:1px solid rgba(0,255,136,0.06);
   display:flex;justify-content:space-between;align-items:center}
-.fbot p{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;color:rgba(232,244,255,0.18)}
-.fcoords{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.56rem;color:rgba(0,255,136,0.28);letter-spacing:0.1em}
+.fbot p{font-family:'Montserrat',sans-serif;font-size:0.58rem;color:rgba(232,244,255,0.18)}
+.fcoords{font-family:'Montserrat',sans-serif;font-size:0.56rem;color:rgba(0,255,136,0.28);letter-spacing:0.1em}
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:1100px){
@@ -508,11 +504,11 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 @keyframes chartFocus{from{opacity:0.4;transform:scaleY(0.97)}to{opacity:1;transform:scaleY(1)}}
 .nasa-card{background:var(--surface);border:1px solid var(--border);overflow:hidden;position:relative}
 .nasa-card img{width:100%;display:block;filter:brightness(1.05) saturate(0.9)}
-.nasa-label{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;
+.nasa-label{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.16em;
   color:var(--cyan);padding:12px 18px;border-bottom:1px solid var(--border-c);
   background:rgba(0,255,136,0.04)}
 .nasa-partners{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.nasa-badge{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;
+.nasa-badge{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.14em;
   color:var(--muted);border:1px solid var(--border-c);padding:5px 12px;
   background:rgba(0,255,136,0.04)}
 
@@ -539,9 +535,9 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 .flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:24px 22px;background:var(--surface);display:flex;flex-direction:column;overflow:hidden}
 .flip-back{transform:rotateY(180deg);gap:10px;overflow-y:auto}
 .flip-back::after{content:'';position:absolute;bottom:0;left:0;right:0;height:22px;background:linear-gradient(transparent,var(--surface));pointer-events:none}
-.flip-num{position:absolute;bottom:-16px;right:8px;font-family:'ChakraNums','DisplayFont',sans-serif;font-size:6.5rem;font-weight:900;line-height:1;color:rgba(232,244,255,0.035);user-select:none;pointer-events:none;transition:color .45s}
+.flip-num{position:absolute;bottom:-16px;right:8px;font-family:'Montserrat',sans-serif;font-size:6.5rem;font-weight:900;line-height:1;color:rgba(232,244,255,0.035);user-select:none;pointer-events:none;transition:color .45s}
 .flip-wrap:hover .flip-num{color:rgba(0,255,136,0.08)}
-.flip-hint{margin-top:auto;padding-top:14px;font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.42rem;letter-spacing:0.2em;color:var(--muted);opacity:0.4;display:flex;align-items:center;gap:6px;transition:opacity .25s}
+.flip-hint{margin-top:auto;padding-top:14px;font-family:'Montserrat',sans-serif;font-size:0.42rem;letter-spacing:0.2em;color:var(--muted);opacity:0.4;display:flex;align-items:center;gap:6px;transition:opacity .25s}
 .flip-wrap:hover .flip-hint{opacity:0}
 .flip-hint::before{content:'';display:inline-block;width:14px;height:1px;background:currentColor}
 .flip-hint::after{content:'ДЭЛГЭРЭНГҮЙ'}
@@ -557,7 +553,7 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 .esg-b-desc{font-size:0.57rem;color:var(--muted);line-height:1.65}
 /* ESG tab nav */
 .esg-tab-nav{display:flex;gap:2px;margin-bottom:0;margin-top:24px}
-.esg-tab-btn{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;padding:10px 20px;background:var(--surface);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s;border-bottom:none;outline:none}
+.esg-tab-btn{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.14em;padding:10px 20px;background:var(--surface);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s;border-bottom:none;outline:none}
 .esg-tab-btn:hover{color:var(--white)}
 .esg-tab-btn.active{background:rgba(0,255,136,0.05);border-color:rgba(0,255,136,0.3);border-bottom:1px solid rgba(0,255,136,0.05);color:var(--green)}
 .esg-panel{display:none;border:1px solid var(--border)}
@@ -566,12 +562,12 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 /* Law info blocks */
 .esg-info-block{padding:20px 24px;border-bottom:1px solid var(--border)}
 .esg-info-block:last-child{border-bottom:none}
-.esg-info-title{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:10px}
-.esg-law-pill{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;padding:3px 8px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)}
+.esg-info-title{font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.esg-law-pill{font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.1em;padding:3px 8px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)}
 .esg-info-body{font-size:0.63rem;line-height:1.75;color:var(--muted)}
 .esg-info-body strong{color:var(--white)}
 .esg-doc-list{margin-top:8px;display:flex;flex-direction:column;gap:4px}
-.esg-doc-item{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
+.esg-doc-item{font-family:'Montserrat',sans-serif;font-size:0.55rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
 .esg-doc-item::before{content:'▸';color:var(--green);flex-shrink:0}
 /* Calculator */
 .esg-calc-wrap{padding:20px 20px 8px}
@@ -579,16 +575,18 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 .esg-slider-row{display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .esg-slider-label{font-size:0.62rem;color:var(--muted);min-width:120px}
 input.esg-slider{flex:1;-webkit-appearance:none;height:2px;background:rgba(232,244,255,0.12);outline:none;cursor:pointer;border-radius:1px}
+html[data-theme="light"] input.esg-slider{background:rgba(0,107,48,0.2)}
+html[data-theme="light"] .legal-body{color:rgba(0,0,0,0.72)!important}
 input.esg-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--green);cursor:pointer;box-shadow:0 0 0 3px rgba(0,255,136,0.15)}
-.esg-slider-val{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;color:var(--green);min-width:65px;text-align:right}
+.esg-slider-val{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:var(--green);min-width:65px;text-align:right}
 .esg-results{border-top:1px solid var(--border);padding:0 20px 16px}
 .esg-r-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);font-size:0.63rem}
 .esg-r-row:last-child{border-bottom:none}
 .esg-r-key{color:var(--muted)}
-.esg-r-val{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;font-weight:700;color:var(--white)}
+.esg-r-val{font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:700;color:var(--white)}
 .esg-r-val.g{color:var(--green)}
 .esg-result-big{display:flex;align-items:baseline;gap:12px;padding:16px 20px;border-top:1px solid rgba(0,255,136,0.2);background:rgba(0,255,136,0.03)}
-.esg-big-num{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2.2rem;font-weight:700;color:var(--green);transition:all .15s}
+.esg-big-num{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:700;color:var(--green);transition:all .15s}
 .esg-big-label{font-size:0.6rem;color:var(--muted);line-height:1.6}
 
 html[data-theme="light"] .flip-front,html[data-theme="light"] .flip-back{background:#fff}
@@ -756,8 +754,8 @@ body,nav,.hud,.la-card,.nasa-card,.pkg-card,.cta-box,footer{transition:backgroun
 .seq-tab:last-child{border-right:none}
 .seq-tab::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--green),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .38s cubic-bezier(.4,0,.2,1)}
 .seq-tab.active::after,.seq-tab:hover::after{transform:scaleX(1)}
-.seq-tab-num{display:block;font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:5px;transition:color .25s}
-.seq-tab-label{display:block;font-family:'ChakraNums','DisplayFont',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;color:var(--white);opacity:0.5;transition:opacity .25s,color .25s}
+.seq-tab-num{display:block;font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.2em;color:var(--muted);margin-bottom:5px;transition:color .25s}
+.seq-tab-label{display:block;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;color:var(--white);opacity:0.5;transition:opacity .25s,color .25s}
 .seq-tab.active .seq-tab-num{color:var(--green)}
 .seq-tab.active .seq-tab-label{opacity:1;color:var(--green)}
 .seq-tab:hover:not(.active) .seq-tab-label{opacity:0.8}
@@ -775,11 +773,11 @@ body,nav,.hud,.la-card,.nasa-card,.pkg-card,.cta-box,footer{transition:backgroun
 .step-card::before{content:'';position:absolute;inset:0;background:radial-gradient(400px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,255,136,0.09),transparent 40%);opacity:0;transition:opacity .45s;pointer-events:none;z-index:0}
 .step-card:hover{border-color:rgba(0,255,136,0.22)}
 .step-card:hover::before{opacity:1}
-.step-num{position:relative;z-index:1;font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2rem;font-weight:700;line-height:1;color:rgba(0,255,136,0.3);margin-bottom:10px;letter-spacing:-0.03em;transition:color .35s}
+.step-num{position:relative;z-index:1;font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:700;line-height:1;color:rgba(0,255,136,0.3);margin-bottom:10px;letter-spacing:-0.03em;transition:color .35s}
 .step-card:hover .step-num{color:rgba(0,255,136,0.6)}
-.step-title{position:relative;z-index:1;font-family:'ChakraNums','DisplayFont',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;color:var(--white);margin-bottom:8px;opacity:0.9;line-height:1.35;transition:opacity .25s}
+.step-title{position:relative;z-index:1;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;color:var(--white);margin-bottom:8px;opacity:0.9;line-height:1.35;transition:opacity .25s}
 .step-card:hover .step-title{opacity:1}
-.step-desc{position:relative;z-index:1;font-family:'Rajdhani',sans-serif;font-size:0.75rem;line-height:1.55;color:var(--muted)}
+.step-desc{position:relative;z-index:1;font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.75rem;line-height:1.55;color:var(--muted)}
 html[data-theme="light"] .seq-tab{background:transparent}
 html[data-theme="light"] .seq-tab.active{background:rgba(0,107,48,0.07)}
 html[data-theme="light"] .step-card::before{background:radial-gradient(400px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,107,48,0.1),transparent 40%)}
@@ -793,7 +791,7 @@ html[data-theme="light"] .step-card:hover .step-num{color:rgba(0,107,48,0.6)}
 /* ═══ LANGUAGE TOGGLE ═══ */
 html[data-lang="mn"] .en{display:none!important}
 html[data-lang="en"] .mn{display:none!important}
-#lang-btn{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;
+#lang-btn{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.16em;
   color:var(--muted);background:transparent;border:1px solid rgba(0,255,136,0.18);
   padding:5px 12px;cursor:none!important;transition:color .2s,border-color .2s;white-space:nowrap}
 #lang-btn:hover{color:var(--green);border-color:rgba(0,255,136,0.5)}
@@ -803,12 +801,12 @@ html[data-theme="light"] #lang-btn:hover{color:var(--green);border-color:var(--g
 /* ═══ PRODUCTS SECTION ═══ */
 .prod-s{padding:100px 0;background:var(--deep)}
 html[data-theme="light"] .prod-s{background:#EDF7F1}
-.prod-cat-label{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;
+.prod-cat-label{font-family:'Montserrat',sans-serif;font-size:0.55rem;
   letter-spacing:0.22em;color:var(--green);margin-bottom:8px}
-.prod-cat-title{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2.2rem;
+.prod-cat-title{font-family:'Montserrat',sans-serif;font-size:2.2rem;
   font-weight:700;letter-spacing:0.04em;color:var(--white);margin-bottom:6px}
 html[data-theme="light"] .prod-cat-title{color:#0E0E0E}
-.prod-cat-sub{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;
+.prod-cat-sub{font-family:'Montserrat',sans-serif;font-size:0.6rem;
   letter-spacing:0.1em;color:var(--muted);margin-bottom:52px}
 
 /* Category sections */
@@ -840,17 +838,17 @@ html[data-theme="light"] .prod-card:hover{border-color:rgba(0,107,48,0.4)}
 
 .prod-card-img{display:block;width:calc(100% + 64px);height:auto;aspect-ratio:1406/440;object-fit:cover;margin:-36px -32px 20px;background:#0a1218;transition:transform .6s}
 .prod-card:hover .prod-card-img{transform:scale(1.03)}
-.prod-num{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:4.5rem;
+.prod-num{font-family:'Montserrat',sans-serif;font-size:4.5rem;
   font-weight:900;line-height:1;letter-spacing:-0.03em;margin-bottom:4px}
 .prod-num.green{color:var(--green)}
 .prod-num.cyan{color:var(--cyan)}
 .prod-num.gold{color:var(--gold)}
-.prod-tag{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;
+.prod-tag{font-family:'Montserrat',sans-serif;font-size:0.62rem;
   letter-spacing:0.22em;color:var(--muted);margin-bottom:18px}
-.prod-tag.lg{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.6rem;
+.prod-tag.lg{font-family:'Montserrat',sans-serif;font-size:1.6rem;
   font-weight:700;letter-spacing:0.04em;color:var(--white);margin-bottom:20px;line-height:1.15}
 html[data-theme="light"] .prod-tag.lg{color:#0E0E0E}
-.prod-price{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.6rem;
+.prod-price{font-family:'Montserrat',sans-serif;font-size:1.6rem;
   font-weight:700;margin-top:20px;margin-bottom:6px}
 .prod-price.green{color:var(--green)}
 .prod-price.cyan{color:var(--cyan)}
@@ -901,11 +899,11 @@ html[data-theme="light"] .prod-feats li{color:rgba(0,0,0,0.78)}
 .pkg-wide:hover .pkg-wide-img{transform:scale(1.02)}
 @media(max-width:700px){.pkg-wide{grid-template-columns:1fr;gap:24px}}
 html[data-theme="light"] .pkg-wide{background:#fff}
-.pkg-wide-num{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:5rem;
+.pkg-wide-num{font-family:'Montserrat',sans-serif;font-size:5rem;
   font-weight:900;line-height:1;color:var(--green);letter-spacing:-0.03em}
-.pkg-wide-price{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2.4rem;
+.pkg-wide-price{font-family:'Montserrat',sans-serif;font-size:2.4rem;
   font-weight:700;color:var(--gold);white-space:nowrap;text-align:right}
-.pkg-wide-note{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;
+.pkg-wide-note{font-family:'Montserrat',sans-serif;font-size:0.52rem;
   letter-spacing:0.12em;color:var(--muted);text-align:right;margin-top:6px}
 html[data-theme="light"] .pkg-wide-note{color:rgba(0,0,0,0.4)}
 .pkg-wide-contact{margin-top:24px;text-align:right}
@@ -926,9 +924,9 @@ html[data-theme="light"] .aluminy-card{background:linear-gradient(135deg,rgba(0,
 .aluminy-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
 @media(max-width:700px){.aluminy-steps{grid-template-columns:1fr}}
 .aluminy-step{padding:18px;border:1px solid rgba(0,255,136,0.15);background:rgba(0,255,136,0.03);position:relative}
-.aluminy-step-num{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2rem;
+.aluminy-step-num{font-family:'Montserrat',sans-serif;font-size:2rem;
   font-weight:900;color:rgba(0,255,136,0.2);line-height:1;margin-bottom:8px}
-.aluminy-step-label{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;
+.aluminy-step-label{font-family:'Montserrat',sans-serif;font-size:0.58rem;
   letter-spacing:0.15em;color:var(--cyan);margin-bottom:6px}
 .aluminy-step-text{font-size:0.72rem;color:var(--muted);line-height:1.5}
 html[data-theme="light"] .aluminy-step-text{color:rgba(0,0,0,0.55)}
@@ -950,17 +948,17 @@ html[data-theme="light"] .tl-s{background:#F3F8F5}
 .tl-phase.p2::before{background:linear-gradient(90deg,var(--cyan),transparent)}
 .tl-phase.p3::before{background:linear-gradient(90deg,var(--gold),transparent)}
 html[data-theme="light"] .tl-phase{background:#fff;border-color:rgba(0,107,48,0.15)}
-.tl-phase-num{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:5rem;font-weight:900;line-height:1;letter-spacing:-0.04em;opacity:0.08;margin-bottom:4px}
+.tl-phase-num{font-family:'Montserrat',sans-serif;font-size:5rem;font-weight:900;line-height:1;letter-spacing:-0.04em;opacity:0.08;margin-bottom:4px}
 .tl-phase.p1 .tl-phase-num{color:var(--green)}
 .tl-phase.p2 .tl-phase-num{color:var(--cyan)}
 .tl-phase.p3 .tl-phase-num{color:var(--gold)}
-.tl-phase-years{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;margin-bottom:6px}
+.tl-phase-years{font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.22em;margin-bottom:6px}
 .tl-phase.p1 .tl-phase-years{color:var(--green)}
 .tl-phase.p2 .tl-phase-years{color:var(--cyan)}
 .tl-phase.p3 .tl-phase-years{color:var(--gold)}
-.tl-phase-title{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.45rem;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.2}
+.tl-phase-title{font-family:'Montserrat',sans-serif;font-size:1.45rem;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.2}
 html[data-theme="light"] .tl-phase-title{color:#0E0E0E}
-.tl-phase-sub{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;color:var(--muted);margin-bottom:28px}
+.tl-phase-sub{font-family:'Montserrat',sans-serif;font-size:0.52rem;letter-spacing:0.14em;color:var(--muted);margin-bottom:28px}
 .tl-periods{display:flex;flex-direction:column;gap:0}
 .tl-period{display:flex;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.05)}
 .tl-period:first-child{border-top:none;padding-top:0}
@@ -974,7 +972,7 @@ html[data-theme="light"] .tl-phase-title{color:#0E0E0E}
 .tl-phase.p2 .tl-period-connector{background:var(--cyan)}
 .tl-phase.p3 .tl-period-connector{background:var(--gold)}
 
-.tl-period-date{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;color:var(--muted);margin-bottom:4px}
+.tl-period-date{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.14em;color:var(--muted);margin-bottom:4px}
 .tl-period-text{font-size:0.78rem;color:rgba(232,244,255,0.75);line-height:1.55}
 html[data-theme="light"] .tl-period-text{color:rgba(0,0,0,0.65)}
 /* ═══ HERO SECTORS STRIP ═══ */
@@ -987,9 +985,9 @@ html[data-theme="light"] .tl-period-text{color:rgba(0,0,0,0.65)}
 .h-sec-icon{width:38px;height:38px;flex-shrink:0;color:var(--green);opacity:0.75}
 .h-sec-icon svg{width:100%;height:100%}
 .h-sec-num{display:none}
-.h-sec-title{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.65rem;
+.h-sec-title{font-family:'Montserrat',sans-serif;font-size:0.65rem;
   font-weight:700;letter-spacing:0.08em;color:var(--white);line-height:1.4;margin-bottom:4px}
-.h-sec-sub{font-family:'Rajdhani',sans-serif;font-size:0.78rem;color:var(--muted);
+.h-sec-sub{font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.78rem;color:var(--muted);
   text-transform:none;line-height:1.3}
 @media(max-width:1024px){
   .h-sectors{grid-template-columns:1fr 1fr}
@@ -1015,12 +1013,12 @@ html[data-theme="light"] .h-sec-title{color:#111}
 .sector-card:hover::before{opacity:1}
 .sector-icon{width:52px;height:52px;color:var(--green);opacity:0.8;flex-shrink:0}
 .sector-icon svg{width:100%;height:100%}
-.sector-num{position:absolute;top:28px;right:32px;font-family:'ChakraNums','Share Tech Mono',monospace;
+.sector-num{position:absolute;top:28px;right:32px;font-family:'Montserrat',sans-serif;
   font-size:2.4rem;font-weight:700;color:rgba(0,255,136,0.06);line-height:1;pointer-events:none}
 .sector-body{flex:1}
-.sector-title{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;
+.sector-title{font-family:'Montserrat',sans-serif;font-size:0.66rem;letter-spacing:0.1em;
   color:var(--white);line-height:1.5;margin-bottom:8px}
-.sector-sub{font-family:'Rajdhani',sans-serif;font-size:0.8rem;color:var(--muted);text-transform:none;line-height:1.5}
+.sector-sub{font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.8rem;color:var(--muted);text-transform:none;line-height:1.5}
 .sector-bar{height:2px;background:rgba(0,255,136,0.08);border-radius:1px;margin-top:8px}
 .sector-bar-f{height:100%;background:linear-gradient(90deg,var(--green-dim),var(--green));border-radius:1px;
   width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
@@ -1039,10 +1037,10 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
 .overlay-close{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
   padding:16px 60px;background:rgba(2,8,16,0.96);border-bottom:1px solid rgba(0,255,136,0.1);
   backdrop-filter:blur(18px)}
-.overlay-close-title{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;
+.overlay-close-title{font-family:'Montserrat',sans-serif;font-size:0.62rem;
   letter-spacing:0.14em;color:var(--green)}
 .overlay-close-right{display:flex;align-items:center;gap:12px}
-.esc-hint{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;
+.esc-hint{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.18em;
   color:rgba(255,255,255,0.18);user-select:none}
 .esc-hint kbd{font-family:inherit;border:1px solid rgba(255,255,255,0.15);border-radius:3px;
   padding:1px 5px;font-size:0.48rem;color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.04)}
@@ -1055,6 +1053,112 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
 .overlay-close-btn:hover::before{background:rgba(0,255,136,0.08)}
 .overlay-close-btn svg{pointer-events:none}
 @media(max-width:768px){.overlay-close{padding:12px 24px}}
+
+/* ── HUD VIEWBOX MOTION ──────────────────────────────── */
+/* Scan line sweeping through HUD */
+.hud-scanv{position:absolute;left:0;right:0;height:1px;top:0;z-index:20;pointer-events:none;
+  background:linear-gradient(to right,transparent 0%,rgba(0,255,136,0.55) 50%,transparent 100%);
+  animation:hud-vscan 6s linear infinite}
+@keyframes hud-vscan{0%{top:0;opacity:0}4%{opacity:1}96%{opacity:0.35}100%{top:100%;opacity:0}}
+/* Corner bracket decorations */
+.hud-cb{position:absolute;width:18px;height:18px;pointer-events:none}
+.hud-cb::before,.hud-cb::after{content:'';position:absolute;background:var(--green)}
+.hud-cb-tl{top:-1px;left:-1px}
+.hud-cb-tl::before{top:0;left:0;width:100%;height:1.5px}
+.hud-cb-tl::after{top:0;left:0;width:1.5px;height:100%}
+.hud-cb-tr{top:-1px;right:-1px}
+.hud-cb-tr::before{top:0;right:0;width:100%;height:1.5px}
+.hud-cb-tr::after{top:0;right:0;width:1.5px;height:100%}
+.hud-cb-bl{bottom:-1px;left:-1px}
+.hud-cb-bl::before{bottom:0;left:0;width:100%;height:1.5px}
+.hud-cb-bl::after{bottom:0;left:0;width:1.5px;height:100%}
+.hud-cb-br{bottom:-1px;right:-1px}
+.hud-cb-br::before{bottom:0;right:0;width:100%;height:1.5px}
+.hud-cb-br::after{bottom:0;right:0;width:1.5px;height:100%}
+/* HUD glow pulse */
+.hud.hud-vb{animation:hud-glow-pulse 4s ease-in-out infinite}
+@keyframes hud-glow-pulse{0%,100%{box-shadow:0 0 0 0 transparent,inset 0 0 0 transparent}50%{box-shadow:0 0 40px rgba(0,255,136,0.07),inset 0 0 24px rgba(0,255,136,0.03)}}
+/* Staggered cell reveal */
+.hud.hud-vb .hud-cell{opacity:0;animation:cell-in 0.5s ease forwards}
+.hud.hud-vb .hud-cell:nth-child(1){animation-delay:0.05s}
+.hud.hud-vb .hud-cell:nth-child(2){animation-delay:0.15s}
+.hud.hud-vb .hud-cell:nth-child(3){animation-delay:0.25s}
+.hud.hud-vb .hud-cell:nth-child(4){animation-delay:0.35s}
+.hud.hud-vb .hud-cell:nth-child(5){animation-delay:0.45s}
+.hud.hud-vb .hud-cell:nth-child(6){animation-delay:0.55s}
+@keyframes cell-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* ── Documentary Films ─────────────────────────────── */
+.films-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.film-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:border-color .25s,transform .3s}
+.film-card:hover{border-color:rgba(0,255,136,0.35);transform:translateY(-5px)}
+.film-poster{position:relative;overflow:hidden;background:var(--deep);aspect-ratio:16/10}
+.film-poster img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.film-card:hover .film-poster img{transform:scale(1.04)}
+.film-poster-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,255,136,0.06) 0%,rgba(0,212,255,0.03) 100%)}
+.film-poster-bg.cyan{background:linear-gradient(135deg,rgba(0,212,255,0.06) 0%,rgba(0,255,136,0.03) 100%)}
+.film-badge{position:absolute;top:12px;left:12px;font-size:0.42rem;letter-spacing:0.16em;padding:4px 10px;background:rgba(2,8,16,0.85);border:1px solid rgba(0,255,136,0.3);color:var(--green)}
+.film-badge.cyan{border-color:rgba(0,212,255,0.35);color:var(--cyan)}
+.film-buy-tag{position:absolute;bottom:12px;right:12px;font-size:0.4rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(2,8,16,0.85);border:1px solid rgba(0,212,255,0.35);color:var(--cyan)}
+.film-info{padding:20px 20px 0;flex:1}
+.film-num{font-size:0.42rem;letter-spacing:0.22em;color:var(--green);margin-bottom:10px}
+.film-num.cyan{color:var(--cyan)}
+.film-title{font-size:0.82rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:10px}
+.film-sub{font-size:0.55rem;font-weight:300;color:var(--muted);line-height:1.7}
+.film-btns{padding:18px 20px;display:flex;gap:8px;flex-wrap:wrap}
+.film-btn{display:inline-flex;align-items:center;gap:7px;font-size:0.48rem;letter-spacing:0.12em;padding:9px 18px;border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .2s;cursor:pointer}
+.film-btn:hover{border-color:var(--green);color:var(--green);background:rgba(0,255,136,0.05)}
+.film-btn.green{border-color:rgba(0,255,136,0.35);color:var(--green)}
+.film-btn.green:hover{background:rgba(0,255,136,0.08)}
+.film-btn.cyan{border-color:rgba(0,212,255,0.35);color:var(--cyan)}
+.film-btn.cyan:hover{background:rgba(0,212,255,0.08)}
+html[data-theme="light"] .film-poster-bg{background:linear-gradient(135deg,rgba(0,107,48,0.08),rgba(0,95,138,0.05))}
+html[data-theme="light"] .film-poster-bg.cyan{background:linear-gradient(135deg,rgba(0,95,138,0.08),rgba(0,107,48,0.05))}
+html[data-theme="light"] .film-badge,.film-buy-tag{background:rgba(255,255,255,0.92)}
+/* Film title card (no poster available) */
+.film-poster-tc{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 22px 20px;position:relative;overflow:hidden}
+.film-poster-tc::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(0,255,136,0.06) 1px,transparent 1px);
+  background-size:28px 28px}
+.film-tc-label{font-size:0.38rem;letter-spacing:0.28em;color:rgba(0,255,136,0.45);margin-bottom:10px;position:relative;z-index:1}
+.film-tc-title{font-size:1.35rem;font-weight:900;line-height:1.05;color:var(--white);letter-spacing:0.04em;position:relative;z-index:1;margin-bottom:12px}
+.film-tc-sub{font-size:0.36rem;letter-spacing:0.18em;color:rgba(0,255,136,0.4);position:relative;z-index:1}
+.film-tc-deco{position:absolute;top:18px;right:18px;width:48px;height:48px;border:1px solid rgba(0,255,136,0.12);border-radius:50%}
+.film-tc-deco::after{content:'';position:absolute;inset:8px;border:1px solid rgba(0,255,136,0.08);border-radius:50%}
+@media(max-width:900px){.films-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.films-grid{grid-template-columns:1fr}}
+
+/* ── Section Background Motion ──────────────────────────────────────────── */
+.sec-mg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+/* Corner accent lines per section */
+.sec-mg::before{content:'';position:absolute;left:0;top:var(--scan-top,28%);width:40%;height:2px;
+  background:linear-gradient(to right,transparent 0%,var(--scan-clr,rgba(0,255,136,0.55)) 50%,transparent 100%);
+  animation:sec-scan var(--scan-dur,11s) linear infinite var(--scan-delay,0s)}
+@keyframes sec-scan{from{transform:translateX(-150%)}to{transform:translateX(380%)}}
+/* Breathing glow orb */
+.sec-mg::after{content:'';position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,var(--glow-clr,rgba(0,255,136,0.12)) 0%,transparent 60%);
+  top:var(--glow-y,-20%);left:var(--glow-x,-5%);
+  animation:sec-glow var(--glow-dur,8s) ease-in-out infinite var(--glow-delay,0s)}
+@keyframes sec-glow{0%,100%{opacity:0.45;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+/* Per-section config */
+.la-s{position:relative}
+.la-s .sec-mg{--scan-clr:rgba(0,255,136,0.50);--scan-top:38%;--scan-dur:12s;--glow-clr:rgba(0,255,136,0.12);--glow-y:-15%;--glow-x:72%;--glow-dur:8s}
+.seq-s{position:relative}
+.seq-s .sec-mg{--scan-clr:rgba(0,255,136,0.45);--scan-top:22%;--scan-dur:15s;--scan-delay:1s;--glow-clr:rgba(0,255,136,0.10);--glow-y:18%;--glow-x:85%;--glow-dur:11s;--glow-delay:2s}
+.nasa-s{position:relative}
+.nasa-s .sec-mg{--scan-clr:rgba(0,212,255,0.52);--scan-top:44%;--scan-dur:10s;--scan-delay:0.5s;--glow-clr:rgba(0,212,255,0.14);--glow-y:-18%;--glow-x:38%;--glow-dur:9s;--glow-delay:0.5s}
+.prod-s{position:relative}
+.prod-s .sec-mg{--scan-clr:rgba(0,212,255,0.45);--scan-top:32%;--scan-dur:13s;--scan-delay:1.5s;--glow-clr:rgba(0,212,255,0.12);--glow-y:-8%;--glow-x:80%;--glow-dur:10s;--glow-delay:1.5s}
+.tl-s{position:relative}
+.tl-s .sec-mg{--scan-clr:rgba(0,255,136,0.42);--scan-top:58%;--scan-dur:17s;--scan-delay:3s;--glow-clr:rgba(0,255,136,0.10);--glow-y:30%;--glow-x:-6%;--glow-dur:12s;--glow-delay:2s}
+.cta-s{position:relative}
+.cta-s .sec-mg{--scan-clr:rgba(0,255,136,0.60);--scan-top:48%;--scan-dur:8s;--glow-clr:rgba(0,255,136,0.16);--glow-y:-4%;--glow-x:42%;--glow-dur:5s}
+.partners-s{position:relative}
+.partners-s .sec-mg{--scan-clr:rgba(0,212,255,0.40);--scan-top:36%;--scan-dur:14s;--scan-delay:4s;--glow-clr:rgba(0,212,255,0.10);--glow-y:70%;--glow-x:78%;--glow-dur:13s;--glow-delay:3s}
+/* Films panel section */
+#panel-films section{position:relative}
+#panel-films section .sec-mg{--scan-clr:rgba(0,255,136,0.48);--scan-top:40%;--scan-dur:11s;--glow-clr:rgba(0,255,136,0.12);--glow-y:-10%;--glow-x:60%;--glow-dur:7s}
+html[data-theme="light"] .sec-mg{opacity:0.28}
 
 </style>
 </head>
@@ -1069,12 +1173,12 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
       <img class="n-logo-spin" src="shambala-logo.png" alt="Shambala">
     </div>
   </a>
-  <div class="n-live"><div class="n-live-dot"></div><span class="mn">ХИЙМЭЛ ДАГУУЛЫН ХОЛБОЛТ ИДЭВХТЭЙ</span><span class="en">SATELLITE LINK ACTIVE</span></div>
   <ul class="n-links">
     <li><a href="#hero"><span class="mn">Нүүр</span><span class="en">Home</span></a></li>
     <li><a href="#" onclick="openPanel('landarts');return false;"><span class="mn">Лэнд Арт</span><span class="en">Land Art</span></a></li>
     <li><a href="#" onclick="openPanel('packages');return false;"><span class="mn">Бүтээгдэхүүн</span><span class="en">Products</span></a></li>
     <li><a href="#" onclick="openPanel('esg');return false;"><span class="mn">ESG</span><span class="en">ESG</span></a></li>
+    <li><a href="#" onclick="openPanel('films');return false;"><span class="mn">Баримтат кино</span><span class="en">Films</span></a></li>
     <li><a href="#" onclick="openPanel('events');return false;"><span class="mn">Арга хэмжээ</span><span class="en">Events</span></a></li>
     <li><a href="#" onclick="openPanel('contact');return false;"><span class="mn">Холбоо барих</span><span class="en">Contact</span></a></li>
     <li><a href="/portal.html" class="n-cta">▶ <span class="mn">ХАРИЛЦАГЧ НЭВТРЭХ</span><span class="en">CLIENT LOGIN</span></a></li>
@@ -1116,8 +1220,13 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
       </div>
     </div>
 
-    <div class="h-right" style="animation:fu 0.8s ease 0.6s both">
-      <div class="hud">
+    <div class="h-right">
+      <div class="hud hud-vb" style="position:relative">
+        <div class="hud-scanv"></div>
+        <div class="hud-cb hud-cb-tl"></div>
+        <div class="hud-cb hud-cb-tr"></div>
+        <div class="hud-cb hud-cb-bl"></div>
+        <div class="hud-cb hud-cb-br"></div>
         <div class="hud-bar">
           <span class="hud-bar-l">// <span class="mn">ШУУД МЭДЭЭЛЭЛ</span><span class="en">LIVE DATA FEED</span></span>
           <span class="hud-bar-r"><span class="hud-bar-dot"></span><span class="mn">ИДЭВХТЭЙ</span><span class="en">ONLINE</span></span>
@@ -1161,42 +1270,9 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
           <div class="sat">LIDAR</div>
           <div class="sat">IoT LoRa</div>
         </div>
-        <div class="hud-corners"></div>
       </div>
     </div>
-    <div class="h-sectors">
-      <div class="h-sec-item">
-        <svg class="h-sec-icon" viewBox="0 0 40 40" fill="none"><path d="M8 14c0-3.3 2.7-6 6-6 .7 0 1.4.1 2 .4C17.3 5.9 19.5 4.5 22 4.5c4 0 7.2 3.2 7.2 7.2 0 .4 0 .8-.1 1.2 1.9.5 3.2 2.1 3.2 4.1 0 2.4-2 4.3-4.4 4.3H12c-2.6 0-4.2-1.9-4.2-4.2V14z" stroke="currentColor" stroke-width="1.5"/><path d="M20 34.5V26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 30c0 0 1.2-4 4-4s4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="34.5" r="1.5" fill="currentColor"/><path d="M15 35h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <div class="h-sec-body">
-          <div class="h-sec-num">01</div>
-          <div class="h-sec-title"><span class="mn">УХААЛАГ ХҮЛЭМЖИЙН АЖ АХУЙ</span><span class="en">SMART GREENHOUSE FARMING</span></div>
-        </div>
-      </div>
-      <div class="h-sec-divider"></div>
-      <div class="h-sec-item">
-        <svg class="h-sec-icon" viewBox="0 0 40 40" fill="none"><rect x="5" y="8" width="30" height="20" rx="1.5" stroke="currentColor" stroke-width="1.5"/><line x1="5" y1="14" x2="35" y2="14" stroke="currentColor" stroke-width="1"/><line x1="5" y1="20" x2="35" y2="20" stroke="currentColor" stroke-width="1"/><line x1="15" y1="8" x2="15" y2="28" stroke="currentColor" stroke-width="1"/><line x1="25" y1="8" x2="25" y2="28" stroke="currentColor" stroke-width="1"/><path d="M20 28v5M15 33h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="31" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M31 3V2M31 9v1M34 6h1M28 6h-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <div class="h-sec-body">
-          <div class="h-sec-num">02</div>
-          <div class="h-sec-title"><span class="mn">СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧНИЙ ТЕХНОЛОГИ</span><span class="en">RENEWABLE ENERGY TECHNOLOGY</span></div>
-        </div>
-      </div>
-      <div class="h-sec-divider"></div>
-      <div class="h-sec-item">
-        <svg class="h-sec-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1"/><circle cx="20" cy="20" r="2.5" fill="currentColor"/><line x1="20" y1="6" x2="20" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="28" x2="20" y2="34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="20" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="28" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="15" cy="16" r="1.5" fill="currentColor" opacity="0.6"/><circle cx="24" cy="19" r="1" fill="currentColor" opacity="0.5"/><circle cx="19" cy="24" r="1" fill="currentColor" opacity="0.5"/></svg>
-        <div class="h-sec-body">
-          <div class="h-sec-num">03</div>
-          <div class="h-sec-title"><span class="mn">МЭДЭЭЛЛИЙН ТЕХНОЛОГИ ХӨГЖҮҮЛЭЛТ</span><span class="en">INFORMATION TECHNOLOGY</span></div>
-        </div>
-      </div>
-      <div class="h-sec-divider"></div>
-      <div class="h-sec-item">
-        <svg class="h-sec-icon" viewBox="0 0 40 40" fill="none"><rect x="4" y="15" width="22" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M26 20h5l4 5v3H26" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="30" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="29" cy="30" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="30" r="1.2" fill="currentColor"/><circle cx="29" cy="30" r="1.2" fill="currentColor"/><circle cx="20" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M20 13v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <div class="h-sec-body">
-          <div class="h-sec-num">04</div>
-          <div class="h-sec-title"><span class="mn">УХААЛАГ АЯЛАЛ ЖУУЛЧЛАЛ</span><span class="en">SMART TOURISM</span></div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -1248,7 +1324,7 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
         <div class="sl"><span class="mn">Хөгжлүүлэлтийн ҮЕ ШАТУУД</span><span class="en">Development Roadmap</span></div>
         <h2 class="st"><span class="mn">2016–2056 <em>ҮЕ ШАТУУД</em></span><span class="en">2016–2056 <em>ROADMAP</em></span></h2>
       </div>
-      <p style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;color:var(--muted);max-width:240px;text-align:right;line-height:1.7"><span class="mn">Гурван үе шат · 36 жил · Говийн хөгжил</span><span class="en">Three phases · 36 years · Gobi restoration</span></p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;color:var(--muted);max-width:240px;text-align:right;line-height:1.7"><span class="mn">Гурван үе шат · 36 жил · Говийн хөгжил</span><span class="en">Three phases · 36 years · Gobi restoration</span></p>
     </div>
 
     <div class="tl-phases">
@@ -1257,8 +1333,8 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
       <div class="tl-phase p1">
         <div class="tl-phase-num">01</div>
         <div class="tl-phase-years">2020 — 2032</div>
-        <div class="tl-phase-title"><span class="mn">Сэргээгдэх эрчим хүч</span><span class="en">Renewable Energy</span></div>
-        <div class="tl-phase-sub">PHASE I · ENERGY</div>
+        <div class="tl-phase-title"><span class="mn">Сэргээгдэх эрчим хүчний сургууль</span><span class="en">Renewable Energy</span></div>
+        <div class="tl-phase-sub">PHASE I · RENEWABLE ENERGY</div>
 
         <div class="tl-periods">
           <div class="tl-period">
@@ -1267,8 +1343,8 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
               <div class="tl-period-connector"></div>
             </div>
             <div>
-              <div class="tl-period-date">2020.04 — 2024.11</div>
-              <div class="tl-period-text"><span class="mn">16 га талбайд хамгаалалтын зурвас байгуулах</span><span class="en">16 ha protective forest belt establishment</span></div>
+              <div class="tl-period-date">2020.04 — 2026.05</div>
+              <div class="tl-period-text"><span class="mn">16 га талбайд салхи, шороон шуурганаас хамгаалах ногоон зурвас байгуулах</span><span class="en">Establish 16 ha green belt to protect against wind and sandstorms</span></div>
             </div>
           </div>
           <div class="tl-period">
@@ -1277,8 +1353,8 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
               <div class="tl-period-connector"></div>
             </div>
             <div>
-              <div class="tl-period-date">2024.04 — 2028.11</div>
-              <div class="tl-period-text"><span class="mn">Сэргээгдэх эрчим хүчний судалгааны төвийн дэд бүтэц</span><span class="en">Renewable energy research centre infrastructure</span></div>
+              <div class="tl-period-date">2026.06-2028.04</div>
+              <div class="tl-period-text"><span class="mn">Шамбала CS2 BOOTH CAMP ЭХНИЙ ЭЛСЭЛТ АВАХ, БОГИНО ХУГАЦААНЫ ВАКУМ СУРГАЛТУУД </span><span class="en">SHAMBALA CS2 BOOTH CAMP FIRST ENROLLMENT, SHORT-TERM VACATION COURSES</span></div>
             </div>
           </div>
           <div class="tl-period">
@@ -1287,7 +1363,7 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
             </div>
             <div>
               <div class="tl-period-date">2028.04 — 2032.11</div>
-              <div class="tl-period-text"><span class="mn">Судалгааны төвийн барилга болон бусад бүтээн байгуулалт</span><span class="en">Research centre buildings and infrastructure completion</span></div>
+              <div class="tl-period-text"><span class="mn">ШАМБАЛА АХЛАХ СУРГУУЛЬ</span><span class="en">SHAMBALA HIGH SCHOOL</span></div>
             </div>
           </div>
         </div>
@@ -1297,8 +1373,8 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
       <div class="tl-phase p2">
         <div class="tl-phase-num">02</div>
         <div class="tl-phase-years">2032 — 2044</div>
-        <div class="tl-phase-title"><span class="mn">Мэдээллийн технологи</span><span class="en">Information Technology</span></div>
-        <div class="tl-phase-sub">PHASE II · TECHNOLOGY</div>
+        <div class="tl-phase-title"><span class="mn">AI,КАРБОН КРЕДИТ СУУРИЛСАН технологийн сургууль</span><span class="en">AI, CARBON CREDIT-BASED TECHNOLOGY COLLEGE</span></div>
+        <div class="tl-phase-sub">PHASE II · INFORMATION TECHNOLOGY</div>
 
         <div class="tl-periods">
           <div class="tl-period">
@@ -1308,7 +1384,7 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
             </div>
             <div>
               <div class="tl-period-date">2032.04 — 2036.11</div>
-              <div class="tl-period-text"><span class="mn">16 га хамгаалалтын зурвас байгуулах</span><span class="en">16 ha protective forest belt establishment</span></div>
+              <div class="tl-period-text"><span class="mn">CУРГУУЛИЙН ДЭД БҮТЭЦ байгуулах</span><span class="en">College campus infrastructure development</span></div>
             </div>
           </div>
           <div class="tl-period">
@@ -1318,7 +1394,7 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
             </div>
             <div>
               <div class="tl-period-date">2036.04 — 2040.11</div>
-              <div class="tl-period-text"><span class="mn">IT судалгааны төвийн дэд бүтэц байгуулах</span><span class="en">IT research centre infrastructure development</span></div>
+              <div class="tl-period-text"><span class="mn">ШАМБАЛА TECH КОЛЛЕЖ АНХНЫ ТӨГСӨЛТ</span><span class="en">SHAMBALA TECH COLLEGE FIRST GRADUATION</span></div>
             </div>
           </div>
           <div class="tl-period">
@@ -1327,7 +1403,7 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
             </div>
             <div>
               <div class="tl-period-date">2040.04 — 2044.11</div>
-              <div class="tl-period-text"><span class="mn">Олон улсын IT судалгааны лаборатори байгуулах</span><span class="en">International IT research laboratory establishment</span></div>
+              <div class="tl-period-text"><span class="mn">Олон улсын AI судалгааны лаборатори байгуулах</span><span class="en">International AI research laboratory establishment</span></div>
             </div>
           </div>
         </div>
@@ -1337,7 +1413,7 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
       <div class="tl-phase p3">
         <div class="tl-phase-num">03</div>
         <div class="tl-phase-years">2044 — 2056</div>
-        <div class="tl-phase-title"><span class="mn">Биоинженерчлэл</span><span class="en">Bioengineering</span></div>
+        <div class="tl-phase-title"><span class="mn">Биоинженерчлэлийн сургууль</span><span class="en">Bioengineering</span></div>
         <div class="tl-phase-sub">PHASE III · BIOENGINEERING</div>
 
         <div class="tl-periods">
@@ -1970,7 +2046,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">ЛЭНД АРТ</span><span class="en">LAND ART</span></span>
   <div class="overlay-close-right">
-    <span class="esc-hint"><kbd>ESC</kbd></span>
     <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -2246,7 +2321,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">ESG</span><span class="en">ESG</span></span>
   <div class="overlay-close-right">
-    <span class="esc-hint"><kbd>ESC</kbd></span>
     <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -2263,46 +2337,46 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="sl"><span class="mn">Хиймэл дагуулын хяналт</span><span class="en">Satellite Analysis</span></div>
         <h2 class="st"><span class="mn">ТООН <em>ҮЗҮҮЛЭЛТ</em></span><span class="en">NASA <em>DATA</em></span></h2>
       </div>
-      <p style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;color:var(--muted);max-width:260px;text-align:right;line-height:1.7"><span class="mn">2024 оноос NASA MODIS · Sentinel-5P · Sentinel-2 хиймэл дагуулаар модны өсөлтийг хянаж, Martensite Analytica байгууллагаар бие даан аудит хийлгэж байна</span><span class="en">Since 2024, tree monitoring conducted via NASA MODIS · Sentinel-5P · Sentinel-2 — independently audited by Martensite Analytica</span></p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;color:var(--muted);max-width:260px;text-align:right;line-height:1.7"><span class="mn">2024 оноос NASA MODIS · Sentinel-5P · Sentinel-2 хиймэл дагуулаар модны өсөлтийг хянаж, Martensite Analytica хөндлөнгийн аудитаар ажиллаж байна</span><span class="en">Since 2024, tree monitoring conducted via NASA MODIS · Sentinel-5P · Sentinel-2 — independently audited by Martensite Analytica</span></p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:2px">
       <div style="padding:20px 24px;background:var(--surface);border:1px solid var(--border)">
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.6rem;font-weight:700;color:var(--green)">7,089</div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">МОДНЫ НҮҮРСТӨРӨГЧ · КГ</span><span class="en">TREE CARBON · KG</span></div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--green)">7,089</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">МОДНЫ НҮҮРСТӨРӨГЧ · КГ</span><span class="en">TREE CARBON · KG</span></div>
       </div>
       <div style="padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-left:none">
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.6rem;font-weight:700;color:var(--cyan)">563</div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">УРГАМЛЫН НҮҮРСТӨРӨГЧ · КГ</span><span class="en">HERBACEOUS CARBON · KG</span></div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--cyan)">563</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">УРГАМЛЫН НҮҮРСТӨРӨГЧ · КГ</span><span class="en">HERBACEOUS CARBON · KG</span></div>
       </div>
       <div style="padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-left:none">
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.6rem;font-weight:700;color:var(--gold)">7,652</div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">НИЙТ НҮҮРСТӨРӨГЧ · КГ</span><span class="en">TOTAL CARBON STOCK · KG</span></div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--gold)">7,652</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">НИЙТ НҮҮРСТӨРӨГЧ · КГ</span><span class="en">TOTAL CARBON STOCK · KG</span></div>
       </div>
       <div style="padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-left:none">
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.6rem;font-weight:700;color:var(--green)">16,282</div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">ТӨСЛИЙН БИОМАСС · КГ</span><span class="en">POST-PROJECT BIOMASS · KG</span></div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--green)">16,282</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted);margin-top:4px"><span class="mn">ТӨСЛИЙН БИОМАСС · КГ</span><span class="en">POST-PROJECT BIOMASS · KG</span></div>
       </div>
     </div>
     <div style="margin-bottom:32px;padding:12px 20px;background:var(--surface);border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-      <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted)"><span class="mn">ЭХ СУРВАЛЖ: MARTENSITE ANALYTICA- ХӨНДЛӨНГИЙН АУДИТ 2024 &nbsp;·&nbsp; ХЯНАЛТЫН ТАЛБАЙТАЙ ХАРЬЦУУЛСАН ӨСӨЛТ: +7,550 КГ НҮҮРСТӨРӨГЧ</span><span class="en">// SOURCE: MARTENSITE ANALYTICA — INDEPENDENT AUDIT 2024 &nbsp;·&nbsp; NET GAIN VS CONTROL SITE: +7,550 KG CARBON</span></div>
-      <a href="https://www.martensite.io/shambala" target="_blank" rel="noopener" style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:var(--cyan);text-decoration:none;white-space:nowrap;flex-shrink:0;margin-left:20px"><span class="mn">БҮРЭН ТАЙЛАН ҮЗЭХ ↗</span><span class="en">VIEW FULL REPORT ↗</span></a>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted)"><span class="mn">ЭХ СУРВАЛЖ: MARTENSITE ANALYTICA- ХӨНДЛӨНГИЙН АУДИТ &nbsp;·&nbsp; </span><span class="en">// SOURCE: MARTENSITE ANALYTICA — INDEPENDENT AUDIT  &nbsp;·&nbsp; </span></div>
+      <a href="https://www.martensite.io/shambala" target="_blank" rel="noopener" style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--cyan);text-decoration:none;white-space:nowrap;flex-shrink:0;margin-left:20px"><span class="mn">БҮРЭН ТАЙЛАН ҮЗЭХ ↗</span><span class="en">VIEW FULL REPORT ↗</span></a>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px">
       <div style="padding:14px 18px;background:var(--surface);border:1px solid var(--border);display:flex;gap:12px;align-items:flex-start">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.9rem;font-weight:700;color:var(--green);min-width:44px">NDVI</div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;line-height:1.65;color:var(--muted)">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.9rem;font-weight:700;color:var(--green);min-width:44px">NDVI</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.52rem;line-height:1.65;color:var(--muted)">
           <span class="mn">ургамлын эрүүл мэнд ба тархалтын үзүүлэлт</span><span class="en">Vegetation Health &amp; Distribution Index</span>
         </div>
       </div>
       <div style="padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;gap:12px;align-items:flex-start">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.9rem;font-weight:700;color:var(--cyan);min-width:44px">EVI</div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;line-height:1.65;color:var(--muted)">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.9rem;font-weight:700;color:var(--cyan);min-width:44px">EVI</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.52rem;line-height:1.65;color:var(--muted)">
           <span class="mn">ургамлын нягтаршил ба биомассын үзүүлэлт</span><span class="en">Vegetation Density &amp; Biomass Index</span>
         </div>
       </div>
       <div style="padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;gap:12px;align-items:flex-start">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.9rem;font-weight:700;color:var(--gold);min-width:44px">NDWI</div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;line-height:1.65;color:var(--muted)">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.9rem;font-weight:700;color:var(--gold);min-width:44px">NDWI</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.52rem;line-height:1.65;color:var(--muted)">
           <span class="mn">ургамалд агуулагдах чийгийн үзүүлэлт</span><span class="en">Vegetation Water Content &amp; Surface Moisture Index</span>
         </div>
       </div>
@@ -2310,11 +2384,11 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div class="nasa-grid">
       <div class="nasa-card focused">
         <div class="nasa-label"><span class="mn">// ХУРИМТЛАГДСАН БИОМАСС</span><span class="en">// BIOMASS ACCUMULATION OVER TIME</span></div>
-        <svg id="nasa-chart-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="506.4" y="32" width="73.6" height="220" fill="rgba(0,255,136,0.03)"/><line x1="506.4" y1="32" x2="506.4" y2="252" stroke="rgba(0,255,136,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="512.4" y="46" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" letter-spacing="1"></text><line x1="65" y1="252.0" x2="580" y2="252.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0</text><line x1="65" y1="208.0" x2="580" y2="208.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="211.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">5,000</text><line x1="65" y1="164.0" x2="580" y2="164.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="167.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">10,000</text><line x1="65" y1="120.0" x2="580" y2="120.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="123.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">15,000</text><line x1="65" y1="76.0" x2="580" y2="76.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="79.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">20,000</text><line x1="65" y1="32.0" x2="580" y2="32.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">25,000</text><text x="65.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2019</text><text x="138.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2020</text><text x="212.1" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2021</text><text x="285.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2022</text><text x="359.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2023</text><text x="432.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2024</text><text x="506.4" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2026*</text><polyline points="65.0,237.7 138.6,230.0 212.1,199.2 285.7,164.0 359.3,133.2 432.9,108.7 506.4,84.2 580.0,59.7" fill="none" stroke="#00FF88" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="237.7" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="230.0" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="199.2" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="164.0" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="133.2" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="108.7" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="84.2" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="59.7" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><polyline points="65.0,239.2 138.6,241.4 212.1,245.4 285.7,248.2 359.3,249.5 432.9,250.1 506.4,250.1 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="239.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="245.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="248.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="249.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="250.1" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><rect x="73" y="32" width="16" height="2" fill="#00FF88"/><text x="93" y="35" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Төслийн талбай (кг)</text><rect x="73" y="46" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="93" y="49" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Хяналтын талбай (кг)</text></svg>
+        <svg id="nasa-chart-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="506.4" y="32" width="73.6" height="220" fill="rgba(0,255,136,0.03)"/><line x1="506.4" y1="32" x2="506.4" y2="252" stroke="rgba(0,255,136,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="512.4" y="46" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" letter-spacing="1"></text><line x1="65" y1="252.0" x2="580" y2="252.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0</text><line x1="65" y1="208.0" x2="580" y2="208.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="211.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">5,000</text><line x1="65" y1="164.0" x2="580" y2="164.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="167.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">10,000</text><line x1="65" y1="120.0" x2="580" y2="120.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="123.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">15,000</text><line x1="65" y1="76.0" x2="580" y2="76.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="79.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">20,000</text><line x1="65" y1="32.0" x2="580" y2="32.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="59" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">25,000</text><text x="65.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2019</text><text x="138.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2020</text><text x="212.1" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2021</text><text x="285.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2022</text><text x="359.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2023</text><text x="432.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2024</text><text x="506.4" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2026*</text><polyline points="65.0,237.7 138.6,230.0 212.1,199.2 285.7,164.0 359.3,133.2 432.9,108.7 506.4,84.2 580.0,59.7" fill="none" stroke="#00FF88" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="237.7" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="230.0" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="199.2" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="133.2" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="108.7" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="84.2" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="59.7" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><polyline points="65.0,239.2 138.6,241.4 212.1,245.4 285.7,248.2 359.3,249.5 432.9,250.1 506.4,250.1 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="239.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="245.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="248.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="249.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="250.1" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><rect x="73" y="32" width="16" height="2" fill="#00FF88"/><text x="93" y="35" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Төслийн талбай (кг)</text><rect x="73" y="46" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="93" y="49" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Хяналтын талбай (кг)</text></svg>
       </div>
       <div class="nasa-card">
         <div class="nasa-label"><span class="mn">// NDVI &amp; EVI ӨӨРЧЛӨЛТ</span><span class="en">// NDVI &amp; EVI TRENDS OVER TIME</span></div>
-        <svg id="nasa-chart-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="493.0" y="32" width="87.0" height="220" fill="rgba(0,255,136,0.03)"/><line x1="493.0" y1="32" x2="493.0" y2="252" stroke="rgba(0,255,136,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="499.0" y="46" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" letter-spacing="1"></text><line x1="58" y1="252.0" x2="580" y2="252.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0</text><line x1="58" y1="197.0" x2="580" y2="197.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="200.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.05</text><line x1="58" y1="142.0" x2="580" y2="142.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.10</text><line x1="58" y1="87.0" x2="580" y2="87.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="90.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.15</text><line x1="58" y1="32.0" x2="580" y2="32.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.20</text><text x="58.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2020</text><text x="145.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2021</text><text x="232.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2022</text><text x="319.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2023</text><text x="406.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2024</text><text x="493.0" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2026*</text><polyline points="58.0,118.9 145.0,120.0 232.0,158.5 319.0,150.8 406.0,125.5 493.0,117.8 580.0,110.1" fill="none" stroke="#00FF88" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="118.9" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="120.0" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="158.5" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="150.8" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="125.5" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="117.8" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="110.1" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,180.5 145.0,182.7 232.0,186.0 319.0,183.8 406.0,181.6 493.0,181.6 580.0,181.6" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="180.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="182.7" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="186.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="183.8" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="181.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="181.6" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="181.6" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,136.5 145.0,137.6 232.0,170.6 319.0,164.0 406.0,142.0 493.0,135.4 580.0,128.8" fill="none" stroke="#00FF88" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="136.5" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="137.6" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="170.6" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="164.0" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="142.0" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="135.4" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="128.8" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,190.4 145.0,191.5 232.0,194.8 319.0,192.6 406.0,190.4 493.0,190.4 580.0,190.4" fill="none" stroke="rgba(0,255,136,0.3)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="190.4" r="2.5" fill="rgba(0,255,136,0.3)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="191.5" r="2.5" fill="rgba(0,255,136,0.3)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="194.8" r="2.5" fill="rgba(0,255,136,0.3)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="192.6" r="2.5" fill="rgba(0,255,136,0.3)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="190.4" r="2.5" fill="rgba(0,255,136,0.3)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="190.4" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="190.4" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><rect x="66" y="32" width="16" height="2" fill="#00FF88"/><text x="86" y="35" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">NDVI — Төсөл</text><rect x="66" y="46" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="86" y="49" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">NDVI — Хяналт</text><rect x="66" y="60" width="16" height="2" fill="#00FF88"/><text x="86" y="63" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">EVI — Төсөл</text><rect x="66" y="74" width="16" height="2" fill="rgba(0,255,136,0.3)"/><text x="86" y="77" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">EVI — Хяналт</text></svg>
+        <svg id="nasa-chart-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="493.0" y="32" width="87.0" height="220" fill="rgba(0,255,136,0.03)"/><line x1="493.0" y1="32" x2="493.0" y2="252" stroke="rgba(0,255,136,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="499.0" y="46" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" letter-spacing="1"></text><line x1="58" y1="252.0" x2="580" y2="252.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0</text><line x1="58" y1="197.0" x2="580" y2="197.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="200.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.05</text><line x1="58" y1="142.0" x2="580" y2="142.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.10</text><line x1="58" y1="87.0" x2="580" y2="87.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="90.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.15</text><line x1="58" y1="32.0" x2="580" y2="32.0" stroke="rgba(0,255,136,0.08)" stroke-width="1"/><text x="52" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.20</text><text x="58.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2020</text><text x="145.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2021</text><text x="232.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2022</text><text x="319.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2023</text><text x="406.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2024</text><text x="493.0" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(0,255,136,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2026*</text><polyline points="58.0,118.9 145.0,120.0 232.0,158.5 319.0,150.8 406.0,125.5 493.0,117.8 580.0,110.1" fill="none" stroke="#00FF88" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="118.9" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="120.0" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="158.5" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="150.8" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="125.5" r="2.5" fill="#00FF88" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="117.8" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="110.1" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,180.5 145.0,182.7 232.0,186.0 319.0,183.8 406.0,181.6 493.0,181.6 580.0,181.6" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="180.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="182.7" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="186.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="183.8" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="181.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="181.6" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="181.6" r="2.5" fill="rgba(0,255,136,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,136.5 145.0,137.6 232.0,170.6 319.0,164.0 406.0,142.0 493.0,135.4 580.0,128.8" fill="none" stroke="#00D4FF" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="136.5" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="137.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="170.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="142.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="135.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="128.8" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,190.4 145.0,191.5 232.0,194.8 319.0,192.6 406.0,190.4 493.0,190.4 580.0,190.4" fill="none" stroke="rgba(0,212,255,0.4)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="191.5" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="194.8" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="192.6" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><rect x="66" y="32" width="16" height="2" fill="#00FF88"/><text x="86" y="35" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">NDVI — Төсөл</text><rect x="66" y="46" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="86" y="49" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">NDVI — Хяналт</text><rect x="66" y="60" width="16" height="2" fill="#00D4FF"/><text x="86" y="63" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">EVI — Төсөл</text><rect x="66" y="74" width="16" height="2" fill="rgba(0,212,255,0.4)"/><text x="86" y="77" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">EVI — Хяналт</text></svg>
       </div>
       <div class="nasa-card">
         <div class="nasa-label"><span class="mn">// NDWI  &amp; НИЙТ НҮҮРСТӨРӨГЧИЙН ШИНГЭЭЛТ</span><span class="en">// NDWI TRENDS &amp; CUMULATIVE CARBON SEQUESTRATION</span></div>
@@ -2336,51 +2410,22 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.2),transparent)"></div>
       </div>
 
-      <!-- 3 BENEFIT CARDS -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px">
-        <div class="esg-b-card" style="border-left:1px solid var(--border)">
-          <div class="esg-b-icon">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
-          </div>
-          <div class="esg-b-title"><span class="mn">МХБ-ын ESG тайлагнал</span><span class="en">MSE ESG Reporting</span></div>
-          <div class="esg-b-desc"><span class="mn">Монголын Хөрөнгийн Бирж — жилийн ESG тайлан шаардлагатай</span><span class="en">Mongolian Stock Exchange — annual ESG disclosure required</span></div>
-        </div>
-        <div class="esg-b-card">
-          <div class="esg-b-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <div class="esg-b-title"><span class="mn">UNCCD · Парисын хэлэлцээр</span><span class="en">UNCCD · Paris Agreement</span></div>
-          <div class="esg-b-desc"><span class="mn">МУ 1996, 2016 онд нэгдсэн — хувийн хэвшлийн оролцоог дэмждэг</span><span class="en">Mongolia joined 1996 &amp; 2016 — private sector participation supported</span></div>
-        </div>
-        <div class="esg-b-card">
-          <div class="esg-b-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <div class="esg-b-title"><span class="mn">Хиймэл дагуулын хяналт</span><span class="en">Satellite Monitoring</span></div>
-          <div class="esg-b-desc"><span class="mn">NASA MODIS · Sentinel — татварын аудитад шууд ашиглагдах тайлан</span><span class="en">NASA MODIS · Sentinel — reports usable directly in tax audits</span></div>
-        </div>
-      </div>
 
       <!-- 1% TAX HIGHLIGHT -->
       <div style="display:grid;grid-template-columns:1fr 2fr;gap:2px;margin-bottom:0">
-        <div style="padding:20px 22px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.25);position:relative;overflow:hidden">
+        <!-- LEFT: visual highlight -->
+        <div style="padding:28px 28px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.25);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:14px">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent)"></div>
-          <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:3.2rem;font-weight:700;color:var(--green);line-height:1">1%</div>
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;color:var(--muted);margin-top:8px"><span class="mn">ТАТВАРЫН ХӨНГӨЛӨЛТ</span><span class="en">TAX DEDUCTION</span></div>
-          <div style="margin-top:20px;font-size:0.72rem;line-height:1.7;color:rgba(232,244,255,0.7)">
-            <span class="mn">22.9.Албан татвар төлөгчийн орлого олох үйл ажиллагаатай хамааралгүй доор дурдсан үйл ажиллагааг нийгмийн хариуцлагын хүрээнд дэмжих зорилгоор элэгдэл тооцох үндсэн хөрөнгөд оруулсан хөрөнгө оруулалт, харилцан хамааралгүй бусад этгээдэд олгосон санхүүгийн дэмжлэг, хандивын зардлыг энэ хуулийн 20.1-д заасны дагуу ногдуулсан албан татвараас хасаж хөнгөлнө. Хөнгөлөх дүн нь тухайн татварын жилийн татвар ногдох орлогын 1 хувь хүртэл хэмжээнээс хэтрэхгүй байна.</span>
-            <span class="en">Art. 22.9 — Investment in fixed assets subject to depreciation, financial support and donations granted to unrelated parties for the purpose of supporting socially responsible activities unrelated to the taxpayer's income-generating activities shall be deducted from corporate income tax assessed pursuant to Art. 20.1. The deduction shall not exceed 1% of taxable income for the relevant tax year.</span>
-          </div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:5rem;font-weight:700;color:var(--green);line-height:1">1%</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;padding:5px 12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan);width:fit-content">ААНОАТ · 22.9</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">ТАТВАРЫН ХӨНГӨЛӨЛТ</span><span class="en">TAX DEDUCTION</span></div>
         </div>
-        <div style="padding:20px 22px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;gap:12px">
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)">ААНОАТ · 22.9</span>
-            <span style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)">ААНОАТ · 36 дугаар зүйл</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)">ЭХ · 276.5 – 276.6</span>
-          </div>
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;color:var(--muted);line-height:1.7">
+        <!-- RIGHT: legal text -->
+        <div style="padding:28px 28px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;gap:16px">
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;color:var(--cyan)">ААНОАТ · 22.9 — <span class="mn">ХУУЛИЙН ЗААЛТ</span><span class="en">LEGAL PROVISION</span></div>
+          <div class="legal-body" style="font-size:0.72rem;line-height:1.8;color:rgba(232,244,255,0.75)">
+            <span class="mn">22.9.Албан татвар төлөгчийн орлого олох үйл ажиллагаатай хамааралгүй доор дурдсан үйл ажиллагааг нийгмийн хариуцлагын хүрээнд дэмжих зорилгоор элэгдэл тооцох үндсэн хөрөнгөд оруулсан хөрөнгө оруулалт, харилцан хамааралгүй бусад этгээдэд олгосон санхүүгийн дэмжлэг, хандивын зардлыг энэ хуулийн 20.1-д заасны дагуу ногдуулсан албан татвараас хасаж хөнгөлнө. Хөнгөлөх дүн нь тухайн татварын жилийн <strong style="color:var(--green)">татвар ногдох орлогын 1 хувь хүртэл</strong> хэмжээнээс хэтрэхгүй байна.</span>
+            <span class="en">Art. 22.9 — Investment in fixed assets subject to depreciation, financial support and donations granted to unrelated parties for the purpose of supporting socially responsible activities unrelated to the taxpayer's income-generating activities shall be deducted from corporate income tax assessed pursuant to Art. 20.1. The deduction shall not exceed <strong style="color:var(--green)">1% of taxable income</strong> for the relevant tax year.</span>
           </div>
         </div>
       </div>
@@ -2399,7 +2444,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
             <span class="esg-r-val" id="esg-o-income">100,000,000 ₮</span>
           </div>
           <div class="esg-r-row">
-            <span class="esg-r-key"><span class="mn">Нийт орлогын 1% — хандивын дээд хэмжээ</span><span class="en">1% of income — max deductible donation</span></span>
+            <span class="esg-r-key"><span class="mn">татвар ногдох орлогын 1% — хэтрэхгүй</span><span class="en">1% of income — max deductible</span></span>
             <span class="esg-r-val" id="esg-o-1pct">1,000,000 ₮</span>
           </div>
           <div class="esg-r-row">
@@ -2427,7 +2472,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">БҮТЭЭГДЭХҮҮН</span><span class="en">PRODUCTS</span></span>
   <div class="overlay-close-right">
-    <span class="esc-hint"><kbd>ESC</kbd></span>
     <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -2449,8 +2493,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- ── CATEGORY 1: МОД / TREES ── -->
     <div class="prod-block">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--green)">01 ·</div>
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)"><span class="mn">МОД</span><span class="en">TREES</span></div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.25em;color:var(--green)">01 ·</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)"><span class="mn">МОД</span><span class="en">TREES</span></div>
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.3),transparent)"></div>
       </div>
       <div class="prod-grid cols-2">
@@ -2498,8 +2542,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- ── CATEGORY 2: МЕРЧ / MERCH ── -->
     <div class="prod-block">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--gold)">02 ·</div>
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)"><span class="mn">МЕРЧЕНДАЙЗ</span><span class="en">MERCHANDISE</span></div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.25em;color:var(--gold)">02 ·</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)"><span class="mn">МЕРЧЕНДАЙЗ</span><span class="en">MERCHANDISE</span></div>
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.3),transparent)"></div>
       </div>
       <div class="prod-grid cols-2">
@@ -2537,8 +2581,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- ── CATEGORY 3: БАЙГУУ. БАГЦ / CORPORATE ── -->
     <div class="prod-block">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--cyan)">03 ·</div>
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)"><span class="mn">БАЙГУУЛЛАГЫН БАГЦ</span><span class="en">CORPORATE PACKAGES</span></div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.25em;color:var(--cyan)">03 ·</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)"><span class="mn">БАЙГУУЛЛАГЫН БАГЦ</span><span class="en">CORPORATE PACKAGES</span></div>
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.3),transparent)"></div>
       </div>
 
@@ -2548,10 +2592,10 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div>
           <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap">
             <div class="pkg-wide-num">50</div>
-            <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;color:var(--green)"><span class="mn">МОД</span><span class="en">TREES</span></div>
-            <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:3rem;font-weight:700;line-height:1;color:var(--muted);align-self:center">+</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--green)"><span class="mn">МОД</span><span class="en">TREES</span></div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:700;line-height:1;color:var(--muted);align-self:center">+</div>
             <div class="pkg-wide-num">5</div>
-            <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;color:var(--green)"><span class="mn">ЖЕРСИ</span><span class="en">JERSEYS</span></div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--green)"><span class="mn">ЖЕРСИ</span><span class="en">JERSEYS</span></div>
           </div>
           <ul class="prod-feats" style="margin-top:16px">
             <li><span class="arrow g">▸</span><span class="mn">Говийн цөлжилттэй бүсэд таригдах 50 мод</span><span class="en">50 trees planted in the Gobi desertification zone</span></li>
@@ -2575,8 +2619,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- ── CATEGORY 4: ALUMINY TOUR ── -->
     <div class="prod-block">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--green)">04 ·</div>
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)">ALUMINY TOUR</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.25em;color:var(--green)">04 ·</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)">ALUMINY TOUR</div>
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.3),transparent)"></div>
       </div>
 
@@ -2584,8 +2628,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <div class="aluminy-card">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:28px">
           <div>
-            <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--green);margin-bottom:8px">// <span class="mn">СУРАГЧИД БОЛОН ОЮУТНУУДАД ЗОРИУЛСАН</span><span class="en">FOR STUDENTS &amp; PUPILS</span></div>
-            <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.8rem;font-weight:700;letter-spacing:0.06em;color:var(--white)">ALUMINY TOUR</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.25em;color:var(--green);margin-bottom:8px">// <span class="mn">СУРАГЧИД БОЛОН ОЮУТНУУДАД ЗОРИУЛСАН</span><span class="en">FOR STUDENTS &amp; PUPILS</span></div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:700;letter-spacing:0.06em;color:var(--white)">ALUMINY TOUR</div>
           </div>
         </div>
         <div class="aluminy-steps">
@@ -2616,7 +2660,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">АРГА ХЭМЖЭЭ</span><span class="en">EVENTS</span></span>
   <div class="overlay-close-right">
-    <span class="esc-hint"><kbd>ESC</kbd></span>
     <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -2633,7 +2676,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="sl"><span class="mn">Уулзалт · Семинар · Экспедиц</span><span class="en">Meetups · Seminars · Expeditions</span></div>
         <h2 class="st"><span class="mn">АРГА <em>ХЭМЖЭЭ</em></span><span class="en">UPCOMING <em>EVENTS</em></span></h2>
       </div>
-      <p style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;color:var(--muted);max-width:260px;text-align:right;line-height:1.7"><span class="mn">Шамбала 2056-ийн ажлын явц, судалгааны үр дүнг хуваалцах нээлттэй арга хэмжээнүүд</span><span class="en">Open events sharing progress and research from Shambala 2056</span></p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;color:var(--muted);max-width:260px;text-align:right;line-height:1.7"><span class="mn">Шамбала 2056-ийн ажлын явц, судалгааны үр дүнг хуваалцах нээлттэй арга хэмжээнүүд</span><span class="en">Open events sharing progress and research from Shambala 2056</span></p>
     </div>
     <div class="tl-phases">
 
@@ -2687,11 +2730,99 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 </section>
 </div>
 
+<div id="panel-films" class="overlay-panel">
+<div class="overlay-close">
+  <span class="overlay-close-title"><span class="mn">БАРИМТАТ КИНО</span><span class="en">DOCUMENTARIES</span></span>
+  <div class="overlay-close-right">
+    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+<section style="padding:80px 0">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px">
+      <div>
+        <div class="sl"><span class="mn">Говий · Урлаг · Технологи</span><span class="en">Gobi · Art · Technology</span></div>
+        <h2 class="st"><span class="mn">БАРИМТАТ <em>КИНО</em></span><span class="en">DOCUMENTARY <em>FILMS</em></span></h2>
+      </div>
+      <p style="font-size:0.6rem;font-weight:300;color:var(--muted);max-width:260px;text-align:right;line-height:1.8"><span class="mn">Шамбала 2056-ийн 3 баримтат кино — Говийн сэргэлт, урлаг, технологийн уулзварт бүтээгдсэн</span><span class="en">3 documentaries from Shambala 2056 — created at the intersection of Gobi restoration, art and technology</span></p>
+    </div>
+
+    <div class="films-grid">
+
+      <!-- 01 · Говийн ирээдүйг бүтээх нь 2.0 -->
+      <div class="film-card">
+        <div class="film-poster">
+          <img src="https://img.youtube.com/vi/nJ3x8Qlbo-E/maxresdefault.jpg" alt="Говийн ирээдүйг бүтээх нь 2.0" loading="lazy">
+          <div class="film-badge">▶ YouTube</div>
+        </div>
+        <div class="film-info">
+          <div class="film-num">01 · 2021</div>
+          <div class="film-title"><span class="mn">ГОВИЙН ИРЭЭДҮЙГ БҮТЭЭХ НЬ 2.0</span><span class="en">BUILDING THE FUTURE OF GOBI 2.0</span></div>
+          <div class="film-sub"><span class="mn">Шамбала2056 · Инженерийн суурин · Говийн ойжуулалтын баримтат кино</span><span class="en">Shambala2056 · Engineering Campus · Gobi afforestation documentary</span></div>
+        </div>
+        <div class="film-btns">
+          <a href="https://www.youtube.com/watch?v=nJ3x8Qlbo-E" target="_blank" rel="noopener" class="film-btn green">▶ <span class="mn">YouTube-д үзэх</span><span class="en">Watch on YouTube</span></a>
+        </div>
+      </div>
+
+      <!-- 02 · ART N TECH -->
+      <div class="film-card">
+        <div class="film-poster">
+          <div class="film-poster-tc" style="background:linear-gradient(160deg,#0a1a10 0%,#020810 55%,#091420 100%)">
+            <div class="film-tc-label">02</div>
+            <div class="film-tc-title">ART<br>N TECH</div>
+            <div class="film-tc-sub">SHAMBALA 2056 · 2022</div>
+            <div class="film-tc-deco"></div>
+          </div>
+          <div class="film-badge">▶ Facebook</div>
+        </div>
+        <div class="film-info">
+          <div class="film-num">02</div>
+          <div class="film-title">ART N TECH</div>
+          <div class="film-sub"><span class="mn">Шамбала2056 · Нүүдэлчдийн урлаг ба технологийн форум · Баримтат кино</span><span class="en">Shambala2056 · Nomadic art & technology forum · Documentary</span></div>
+        </div>
+        <div class="film-btns">
+          <a href="https://www.facebook.com/reel/1099746944752680" target="_blank" rel="noopener" class="film-btn green">▶ <span class="mn">Facebook-т үзэх</span><span class="en">Watch on Facebook</span></a>
+        </div>
+      </div>
+
+      <!-- 03 · Re-Generation: Greenland in Gobi -->
+      <div class="film-card">
+        <div class="film-poster">
+          <div class="film-poster-tc" style="background:linear-gradient(160deg,#061420 0%,#020810 55%,#0a0e18 100%)">
+            <div class="film-tc-label" style="color:var(--cyan)">03</div>
+            <div class="film-tc-title" style="color:var(--cyan)">GREENLAND<br>IN GOBI</div>
+            <div class="film-tc-sub" style="color:rgba(0,212,255,0.5)">RE-GENERATION · EP.3 · UNIVISION</div>
+            <div class="film-tc-deco" style="border-color:rgba(0,212,255,0.12)"></div>
+          </div>
+          <div class="film-badge cyan">UNIVISION · EP.3</div>
+          <div class="film-buy-tag"><span class="mn">БҮТЭН КИНО</span><span class="en">FULL FILM</span></div>
+        </div>
+        <div class="film-info">
+          <div class="film-num cyan">03 · RE-GENERATION</div>
+          <div class="film-title">GREENLAND IN GOBI</div>
+          <div class="film-sub"><span class="mn">Re-Generation баримтат цуврал · 3-р анги · Univision · Трэйлерийг үнэгүй, бүтэн кино худалдаж авах боломжтой</span><span class="en">Re-Generation documentary series · Episode 3 · Univision · Trailer free, full film available to purchase</span></div>
+        </div>
+        <div class="film-btns">
+          <a href="https://www.facebook.com/reel/724573235901721" target="_blank" rel="noopener" class="film-btn">▶ <span class="mn">Трэйлер үзэх</span><span class="en">Watch Trailer</span></a>
+          <a href="#" target="_blank" rel="noopener" class="film-btn cyan">🎬 <span class="mn">Худалдаж авах</span><span class="en">Buy Full Film</span></a>
+        </div>
+      </div>
+
+    </div><!-- /films-grid -->
+  </div>
+</section>
+</div>
+
 <div id="panel-contact" class="overlay-panel">
 <div class="overlay-close">
   <span class="overlay-close-title"><span class="mn">ХОЛБОО БАРИХ</span><span class="en">CONTACT</span></span>
   <div class="overlay-close-right">
-    <span class="esc-hint"><kbd>ESC</kbd></span>
     <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -2828,6 +2959,234 @@ function esgCalc(){
   document.getElementById('esg-o-trees').textContent=trees.toLocaleString()+' мод';
   document.getElementById('esg-o-big').textContent=ceiling.toLocaleString()+' ₮';
 }
+
+/* ── Section Background Motion (canvas + CSS) ────────────────────────────── */
+(function(){
+  var cfgs=[
+    {sel:'.la-s',                clr:'0,255,136',n:20},
+    {sel:'.seq-s',               clr:'0,255,136',n:18},
+    /* .nasa-s gets its own satellite orbit canvas below */
+    /* .prod-s gets its own grid+pulse canvas below */
+    {sel:'.tl-s',                clr:'0,255,136',n:16},
+    {sel:'.cta-s',               clr:'0,255,136',n:18},
+    {sel:'.partners-s',          clr:'0,212,255',n:14},
+    {sel:'#panel-films section', clr:'0,255,136',n:16}
+  ];
+  cfgs.forEach(function(cfg){
+    document.querySelectorAll(cfg.sel).forEach(function(sec){
+      /* CSS overlay — scan line + glow */
+      var mg=document.createElement('div');
+      mg.className='sec-mg';
+      sec.insertBefore(mg,sec.firstChild);
+      /* Canvas — particle field */
+      var cv=document.createElement('canvas');
+      cv.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0';
+      sec.insertBefore(cv,sec.firstChild);
+      var ctx=cv.getContext('2d'),W=0,H=0,pts=[];
+      var clr=cfg.clr,n=cfg.n;
+      function resize(){var w=cv.offsetWidth,h=cv.offsetHeight;if(w>10&&h>10){W=cv.width=w;H=cv.height=h;}}
+      function mkP(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,r:Math.random()*1.8+.5,a:Math.random()*.45+.25};}
+      function init(){resize();if(!W||!H)return;pts=[];for(var i=0;i<n;i++)pts.push(mkP());}
+      var panel=sec.closest('.overlay-panel');
+      function visible(){return !panel||panel.classList.contains('open');}
+      function draw(){
+        requestAnimationFrame(draw);
+        if(!W||!H||!visible())return;
+        ctx.clearRect(0,0,W,H);
+        for(var i=0;i<pts.length;i++){
+          for(var j=i+1;j<pts.length;j++){
+            var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+            if(d<160){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+              ctx.strokeStyle='rgba('+clr+','+((1-d/160)*.14)+')';ctx.lineWidth=.5;ctx.stroke();}
+          }
+        }
+        pts.forEach(function(p){
+          p.x+=p.vx;p.y+=p.vy;
+          if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+          ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fillStyle='rgba('+clr+','+p.a+')';ctx.fill();
+        });
+      }
+      init();draw();
+      /* Re-init when panel first opens (canvas may be zero-size when hidden) */
+      if(panel){
+        var ready=(W>0&&H>0);
+        new MutationObserver(function(){
+          if(!ready&&panel.classList.contains('open')){ready=true;init();}
+        }).observe(panel,{attributes:true,attributeFilter:['class']});
+      }
+    });
+  });
+})();
+
+/* ── ESG / NASA Section: data stream lines ───────────────────────────────── */
+(function(){
+  var sec=document.querySelector('.nasa-s');
+  if(!sec)return;
+  var mg=document.createElement('div');mg.className='sec-mg';sec.insertBefore(mg,sec.firstChild);
+  var cv=document.createElement('canvas');
+  cv.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0';
+  sec.insertBefore(cv,sec.firstChild);
+  var ctx=cv.getContext('2d'),W=0,H=0,lines=[];
+  var panel=sec.closest('.overlay-panel');
+  function visible(){return !panel||panel.classList.contains('open');}
+
+  function mkLine(){
+    return{
+      x: Math.random()*W*.25,
+      y: Math.random()*H,
+      w: W*(.45+Math.random()*.45),
+      vy: .18+Math.random()*.32,
+      a: .04+Math.random()*.13,
+      clr: Math.random()>.38?'0,212,255':'0,255,136'
+    };
+  }
+
+  function resize(){
+    var w=cv.offsetWidth,h=cv.offsetHeight;
+    if(w>10&&h>10){
+      W=cv.width=w;H=cv.height=h;
+      lines=[];for(var i=0;i<26;i++)lines.push(mkLine());
+    }
+  }
+
+  function draw(){
+    requestAnimationFrame(draw);
+    if(!W||!H||!visible())return;
+    ctx.clearRect(0,0,W,H);
+    ctx.lineWidth=1;ctx.setLineDash([]);
+
+    lines.forEach(function(l){
+      l.y-=l.vy;
+      if(l.y<-2){l.y=H+2;l.x=Math.random()*W*.25;l.w=W*(.45+Math.random()*.45);l.a=.04+Math.random()*.13;l.vy=.18+Math.random()*.32;}
+      var g=ctx.createLinearGradient(l.x,0,l.x+l.w,0);
+      g.addColorStop(0,'rgba('+l.clr+',0)');
+      g.addColorStop(.08,'rgba('+l.clr+','+l.a+')');
+      g.addColorStop(.92,'rgba('+l.clr+','+l.a+')');
+      g.addColorStop(1,'rgba('+l.clr+',0)');
+      ctx.beginPath();ctx.moveTo(l.x,l.y);ctx.lineTo(l.x+l.w,l.y);
+      ctx.strokeStyle=g;ctx.stroke();
+    });
+  }
+
+  resize();draw();
+  if(panel){
+    var ready=(W>0&&H>0);
+    new MutationObserver(function(){
+      if(!ready&&panel.classList.contains('open')){ready=true;resize();}
+    }).observe(panel,{attributes:true,attributeFilter:['class']});
+  }
+})();
+
+/* ── Products Section: glowing grid + node pulses (Vercel / Linear style) ── */
+(function(){
+  var sec=document.querySelector('.prod-s');
+  if(!sec)return;
+  var mg=document.createElement('div');mg.className='sec-mg';sec.insertBefore(mg,sec.firstChild);
+  var cv=document.createElement('canvas');
+  cv.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0';
+  sec.insertBefore(cv,sec.firstChild);
+  var ctx=cv.getContext('2d'),W=0,H=0;
+  var G=54,grid=[],allNodes=[],pulses=[];
+  var panel=sec.closest('.overlay-panel');
+  function visible(){return !panel||panel.classList.contains('open');}
+
+  function buildGrid(){
+    grid=[];allNodes=[];
+    var cols=Math.ceil(W/G)+1,rows=Math.ceil(H/G)+1;
+    var ox=(W-(cols-1)*G)/2,oy=(H-(rows-1)*G)/2;
+    for(var r=0;r<rows;r++){
+      grid[r]=[];
+      for(var c=0;c<cols;c++){
+        var n={x:ox+c*G,y:oy+r*G,r:r,c:c,glow:0};
+        grid[r][c]=n;allNodes.push(n);
+      }
+    }
+    grid.R=rows;grid.C=cols;
+  }
+
+  function resize(){
+    var w=cv.offsetWidth,h=cv.offsetHeight;
+    if(w>10&&h>10){W=cv.width=w;H=cv.height=h;buildGrid();}
+  }
+
+  function nb(r,c){
+    var a=[];
+    if(c+1<grid.C)a.push(grid[r][c+1]);
+    if(r+1<grid.R)a.push(grid[r+1][c]);
+    if(c>0)a.push(grid[r][c-1]);
+    if(r>0)a.push(grid[r-1][c]);
+    return a;
+  }
+
+  function spawnPulse(){
+    if(!grid.R)return;
+    var r=Math.floor(Math.random()*grid.R),c=Math.floor(Math.random()*grid.C);
+    var src=grid[r][c],targets=nb(r,c);
+    if(!targets.length)return;
+    var tgt=targets[Math.floor(Math.random()*targets.length)];
+    src.glow=Math.max(src.glow,.9);
+    pulses.push({x:src.x,y:src.y,tx:tgt.x,ty:tgt.y,tgt:tgt,prog:0,spd:.013+Math.random()*.013});
+  }
+
+  function draw(){
+    requestAnimationFrame(draw);
+    if(!W||!H||!visible())return;
+    ctx.clearRect(0,0,W,H);
+
+    if(Math.random()<.05)spawnPulse();
+
+    /* Grid lines */
+    ctx.setLineDash([]);ctx.lineWidth=1;
+    if(grid.R&&grid.C){
+      ctx.strokeStyle='rgba(0,212,255,0.055)';
+      for(var r=0;r<grid.R;r++){
+        ctx.beginPath();ctx.moveTo(grid[r][0].x,grid[r][0].y);ctx.lineTo(grid[r][grid.C-1].x,grid[r][grid.C-1].y);ctx.stroke();
+      }
+      for(var c=0;c<grid.C;c++){
+        ctx.beginPath();ctx.moveTo(grid[0][c].x,grid[0][c].y);ctx.lineTo(grid[grid.R-1][c].x,grid[grid.R-1][c].y);ctx.stroke();
+      }
+    }
+
+    /* Pulses */
+    pulses=pulses.filter(function(p){return p.prog<1;});
+    pulses.forEach(function(p){
+      p.prog=Math.min(p.prog+p.spd,1);
+      if(p.prog>=1){p.tgt.glow=Math.max(p.tgt.glow,.9);return;}
+      var px=p.x+(p.tx-p.x)*p.prog,py=p.y+(p.ty-p.y)*p.prog;
+      /* Lit trail */
+      ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(px,py);
+      ctx.strokeStyle='rgba(0,212,255,0.32)';ctx.lineWidth=1;ctx.stroke();
+      /* Head */
+      ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,212,255,0.85)';ctx.fill();
+      /* Halo */
+      ctx.beginPath();ctx.arc(px,py,7,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,212,255,0.13)';ctx.fill();
+    });
+
+    /* Nodes */
+    allNodes.forEach(function(n){
+      if(n.glow>0)n.glow*=.95;
+      var a=.07+n.glow*.55,r=1.5+n.glow*2.8;
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,212,255,'+a+')';ctx.fill();
+      if(n.glow>.12){
+        ctx.beginPath();ctx.arc(n.x,n.y,r+5,0,Math.PI*2);
+        ctx.fillStyle='rgba(0,212,255,'+(n.glow*.1)+')';ctx.fill();
+      }
+    });
+  }
+
+  resize();draw();
+  if(panel){
+    var ready=(W>0&&H>0);
+    new MutationObserver(function(){
+      if(!ready&&panel.classList.contains('open')){ready=true;resize();}
+    }).observe(panel,{attributes:true,attributeFilter:['class']});
+  }
+})();
+
 </script>
 </body>
 </html>
