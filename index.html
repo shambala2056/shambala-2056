@@ -897,6 +897,14 @@ html[data-theme="light"] .prod-feats li{color:rgba(0,0,0,0.78)}
   object-fit:cover;margin:-40px -40px 24px;grid-column:1 / -1;background:#0a1218;
   transition:transform .6s}
 .pkg-wide:hover .pkg-wide-img{transform:scale(1.02)}
+.pkg-wide-caption{grid-column:1 / -1;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  margin-top:-8px;margin-bottom:20px;padding:12px 16px;
+  background:rgba(0,255,136,0.05);border-left:2px solid var(--green);
+  font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.9rem;color:var(--white);text-transform:none}
+.pkg-wide-caption-letters{font-family:'ChakraNums','DisplayFont',sans-serif;font-weight:700;
+  font-size:1.1rem;letter-spacing:0.3em;color:var(--green);white-space:nowrap}
+html[data-theme="light"] .pkg-wide-caption{background:rgba(0,107,48,0.06);color:rgba(0,0,0,0.78)}
+html[data-theme="light"] .pkg-wide-caption-letters{color:#006B30}
 @media(max-width:700px){.pkg-wide{grid-template-columns:1fr;gap:24px}}
 html[data-theme="light"] .pkg-wide{background:#fff}
 .pkg-wide-num{font-family:'Montserrat',sans-serif;font-size:5rem;
@@ -930,6 +938,11 @@ html[data-theme="light"] .aluminy-card{background:linear-gradient(135deg,rgba(0,
   letter-spacing:0.15em;color:var(--cyan);margin-bottom:6px}
 .aluminy-step-text{font-size:0.72rem;color:var(--muted);line-height:1.5}
 html[data-theme="light"] .aluminy-step-text{color:rgba(0,0,0,0.55)}
+.aluminy-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.aluminy-list li{font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.9rem;line-height:1.5;
+  color:var(--white);text-transform:none;padding-left:14px;position:relative}
+.aluminy-list li::before{content:'▸';position:absolute;left:0;top:0;color:var(--green);font-weight:600}
+html[data-theme="light"] .aluminy-list li{color:rgba(0,0,0,0.78)}
 
 /* ── Timeline 2016–2056 ──────────────────────────────────────────────────── */
 .tl-s{padding:120px 0;background:var(--void)}
@@ -974,7 +987,62 @@ html[data-theme="light"] .tl-phase-title{color:#0E0E0E}
 
 .tl-period-date{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.14em;color:var(--muted);margin-bottom:4px}
 .tl-period-text{font-size:0.78rem;color:rgba(232,244,255,0.75);line-height:1.55}
+.gz-card .tl-phase-num{position:absolute;top:24px;right:28px;margin-bottom:0;opacity:0.06}
 html[data-theme="light"] .tl-period-text{color:rgba(0,0,0,0.65)}
+/* GO ZERO Report Archive */
+.gz-archive{margin-top:24px}
+.gz-archive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media(max-width:720px){.gz-archive-grid{grid-template-columns:1fr}}
+.gz-archive-card{position:relative;display:flex;flex-direction:column;text-align:left;
+  background:rgba(0,255,136,0.03);border:1px solid rgba(0,255,136,0.16);
+  cursor:pointer;padding:0;overflow:hidden;outline:none;font-family:inherit;color:inherit;
+  transition:background .25s,border-color .25s,transform .25s,box-shadow .25s}
+.gz-archive-card:hover{background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.45);
+  transform:translateY(-3px);box-shadow:0 14px 36px -16px rgba(0,255,136,0.4)}
+.gz-archive-card:focus-visible{border-color:var(--green);box-shadow:0 0 0 2px rgba(0,255,136,0.35)}
+.gz-archive-thumb{position:relative;aspect-ratio:16/9;background:var(--deep);
+  border-bottom:1px solid rgba(0,255,136,0.14);overflow:hidden}
+.gz-archive-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  display:block;transition:transform .6s,filter .3s;filter:saturate(0.95) brightness(0.95)}
+.gz-archive-card:hover .gz-archive-cover{transform:scale(1.03);filter:saturate(1) brightness(1)}
+.gz-archive-thumb-glyph{position:absolute;bottom:12px;right:14px;font-size:1.1rem;color:var(--green);z-index:2;
+  text-shadow:0 0 12px rgba(0,255,136,0.5)}
+html[data-theme="light"] .gz-archive-thumb-glyph{color:#006b30;text-shadow:none}
+.gz-archive-info{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px}
+.gz-archive-info .gz-archive-year{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.62rem;
+  letter-spacing:0.22em;color:var(--green)}
+.gz-archive-name{font-family:'Orbitron','ChakraNums',sans-serif;font-weight:700;font-size:1.15rem;
+  letter-spacing:0.06em;color:var(--white)}
+html[data-theme="light"] .gz-archive-card{background:rgba(0,107,48,0.03);border-color:rgba(0,107,48,0.2)}
+html[data-theme="light"] .gz-archive-card:hover{background:rgba(0,107,48,0.06);border-color:rgba(0,107,48,0.55)}
+html[data-theme="light"] .gz-archive-name{color:#1a1a1a}
+html[data-theme="light"] .gz-archive-h{color:#006b30}
+
+/* GO ZERO PDF Modal */
+.gz-modal{position:fixed;inset:0;z-index:2000;display:none;
+  background:rgba(2,8,16,0.94);backdrop-filter:blur(10px);
+  align-items:stretch;justify-content:center;padding:20px}
+.gz-modal.open{display:flex}
+.gz-modal-inner{position:relative;width:100%;max-width:1400px;height:100%;
+  background:var(--deep);border:1px solid rgba(0,255,136,0.25);display:flex;flex-direction:column;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,0.7)}
+.gz-modal-head{display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;border-bottom:1px solid rgba(0,255,136,0.18);gap:16px;flex-shrink:0}
+.gz-modal-title{font-family:'Orbitron','ChakraNums',sans-serif;font-weight:700;font-size:0.95rem;
+  letter-spacing:0.12em;color:var(--white)}
+.gz-modal-actions{display:flex;gap:10px;align-items:center}
+.gz-modal-close{width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid rgba(0,255,136,0.3);color:var(--green);cursor:pointer;
+  font-size:1rem;line-height:1;transition:background .2s,border-color .2s}
+.gz-modal-close:hover{background:rgba(0,255,136,0.08);border-color:var(--green)}
+.gz-modal-body{flex:1;min-height:0;background:#1a1a1a;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.gz-modal-pages{display:flex;flex-direction:column;gap:8px;padding:8px;margin:0 auto;max-width:1200px}
+.gz-modal-pages img{display:block;width:100%;height:auto;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+@media(max-width:720px){.gz-modal{padding:0}.gz-modal-inner{border:0}}
+html[data-theme="light"] .gz-modal{background:rgba(245,245,240,0.95)}
+html[data-theme="light"] .gz-modal-inner{background:#fff;border-color:rgba(0,107,48,0.3)}
+html[data-theme="light"] .gz-modal-title{color:#1a1a1a}
+html[data-theme="light"] .gz-modal-close{color:#006b30;border-color:rgba(0,107,48,0.35)}
 /* ═══ HERO SECTORS STRIP ═══ */
 .h-sectors{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
   grid-column:1/-1;background:transparent;gap:0}
@@ -2588,7 +2656,11 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 
       <!-- 50 мод + 5 жерси -->
       <div class="pkg-wide" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
-        <img class="pkg-wide-img" src="assets/products/mongolz-letters.jpg" alt="Mongolz үсэгнүүд" loading="lazy">
+        <img class="pkg-wide-img" src="assets/products/mongolz-letters.jpg?v=2" alt="Mongolz үсэгнүүд" loading="lazy">
+        <div class="pkg-wide-caption">
+          <span class="pkg-wide-caption-letters">O G O L Z 1</span>
+          <span class="mn">тэмдэгт дээр мод авах боломжтой</span><span class="en">— trees available on this symbol</span>
+        </div>
         <div>
           <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap">
             <div class="pkg-wide-num">50</div>
@@ -2635,18 +2707,30 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="aluminy-steps">
           <div class="aluminy-step">
             <div class="aluminy-step-num">01</div>
-            <div class="aluminy-step-label"><span class="mn">ЭЛСЭЛТ</span><span class="en">ENROLMENT</span></div>
-            <p class="aluminy-step-text"><span class="mn">Элсэгч оюутан говийн лэнд артад нэрэмжит модоо тарьж, GPS байршил болон гэрчилгээгээ хүлээн авна.</span><span class="en">Incoming student plants their personal tree in the Gobi land art. Receives GPS location and certificate.</span></p>
+            <div class="aluminy-step-label"><span class="mn">1-Р АНГИЙН ЭЛСЭГЧ БОЛОН ТӨГСӨГЧДӨД</span><span class="en">FOR 1ST GRADE ENROLLEES &amp; GRADUATES</span></div>
+            <ul class="aluminy-list">
+              <li><span class="mn">Экологийн суурь боловсрол олгох</span><span class="en">Foundational ecological education</span></li>
+              <li><span class="mn">Өөрийн нэрийн мод</span><span class="en">A personalised tree</span></li>
+              <li><span class="mn">Цаг хугацааны капсул үлдээх</span><span class="en">Leave a time capsule</span></li>
+            </ul>
           </div>
           <div class="aluminy-step">
             <div class="aluminy-step-num">02</div>
-            <div class="aluminy-step-label"><span class="mn">СУРАЛЦАХ ХУГАЦАА</span><span class="en">12 YEARS</span></div>
-            <p class="aluminy-step-text"><span class="mn">Суралцах 12 жилийн турш мод нь NASA-ийн хиймэл дагуулаар хянагдана. Оюутан жил бүр өсөлтийн тайланг хүлээн авна.</span><span class="en">The tree is monitored annually via NASA satellite. Student receives yearly growth updates.</span></p>
+            <div class="aluminy-step-label"><span class="mn">12-Р АНГИЙН ТӨГСӨГЧДӨД</span><span class="en">FOR 12TH GRADE GRADUATES</span></div>
+            <ul class="aluminy-list">
+              <li><span class="mn">Байгаль орчны экосистемд бодит хувь нэмэр оруулах</span><span class="en">Make a tangible contribution to the ecosystem</span></li>
+              <li><span class="mn">Өөрийн нэрийн мод</span><span class="en">A personalised tree</span></li>
+              <li><span class="mn">Ирээдүйн зорилтоо тусгасан дурсамж бичиж үлдээх</span><span class="en">Leave a memoir capturing your future aspirations</span></li>
+            </ul>
           </div>
           <div class="aluminy-step">
             <div class="aluminy-step-num">03</div>
-            <div class="aluminy-step-label"><span class="mn">ТӨГСӨЛТ</span><span class="en">GRADUATION</span></div>
-            <p class="aluminy-step-text"><span class="mn">Төгсөгч эхлэлийн модондоо эргэж ирж, шинэ мод тарина. Говийн аялал болон зурагт гэрчилгээ гардуулагдана.</span><span class="en">Graduate returns to see their tree, plants a second one, and receives a photo-tour certificate.</span></p>
+            <div class="aluminy-step-label"><span class="mn">ИХ СУРГУУЛИА ТӨГСӨЖ БУЙ ОЮУТНУУДАД</span><span class="en">FOR UNIVERSITY GRADUATES</span></div>
+            <ul class="aluminy-list">
+              <li><span class="mn">Байгаль орчны экосистемд бодит хувь нэмэр оруулах</span><span class="en">Make a tangible contribution to the ecosystem</span></li>
+              <li><span class="mn">Өөрийн нэрийн мод</span><span class="en">A personalised tree</span></li>
+              <li><span class="mn">Ажил мэргэжлийн гарааны төлөвлөгөө, алсын хараагаа багтаасан дурсамж бичиж үлдээх</span><span class="en">Leave a memoir with your career plan &amp; long-term vision</span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -2669,65 +2753,97 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
   </div>
 </div>
 <!-- EVENTS -->
-<section class="tl-s reveal" id="events">
+<section class="prod-s reveal" id="events">
   <div class="wrap">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
-      <div>
-        <div class="sl"><span class="mn">Уулзалт · Семинар · Экспедиц</span><span class="en">Meetups · Seminars · Expeditions</span></div>
-        <h2 class="st"><span class="mn">АРГА <em>ХЭМЖЭЭ</em></span><span class="en">UPCOMING <em>EVENTS</em></span></h2>
-      </div>
-      <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;color:var(--muted);max-width:260px;text-align:right;line-height:1.7"><span class="mn">Шамбала 2056-ийн ажлын явц, судалгааны үр дүнг хуваалцах нээлттэй арга хэмжээнүүд</span><span class="en">Open events sharing progress and research from Shambala 2056</span></p>
-    </div>
-    <div class="tl-phases">
 
-      <div class="tl-phase p1">
-        <div class="tl-phase-num">01</div>
-        <div class="tl-phase-years"><span class="mn">2026 · 06 · 05</span><span class="en">5 Jun 2026</span></div>
-        <div class="tl-phase-title">GO ZERO</div>
-        <div class="tl-phase-sub"><span class="mn">Монголын анхны "нүүрстөрөгч тэглэх" олон нийтийн арга хэмжээ. Байгаль орчны сайн дурын мод тарих, хог цуглуулах, нүүрстөрөгчийн бодлогын нээлттэй хэлэлцүүлэг — Улаанбаатар хотод.</span><span class="en">Mongolia's first public "go carbon-zero" event. Volunteer tree planting, clean-up drive, and open discussion on carbon policy — held in Ulaanbaatar.</span></div>
-        <div class="tl-periods">
-          <div class="tl-period">
-            <div class="tl-period-line"><div class="tl-period-dot"></div><div class="tl-period-connector"></div></div>
-            <div><div class="tl-period-date">10:00</div><div class="tl-period-text"><span class="mn">Нээлт · Нүүрстөрөгчийн танилцуулга</span><span class="en">Opening · Carbon briefing</span></div></div>
+    <!-- HEADER -->
+    <div style="margin-bottom:60px">
+      <div class="prod-cat-label">// <span class="mn">АРГА ХЭМЖЭЭ · НААДАМ</span><span class="en">EVENTS · FESTIVALS</span></div>
+      <h2 class="prod-cat-title"><span class="mn">АРГА <em style="color:var(--green)">ХЭМЖЭЭ</em></span><span class="en">UPCOMING <em style="color:var(--green)">EVENTS</em></span></h2>
+    </div>
+
+    <!-- ── CATEGORY 1: GO ZERO ── -->
+    <div class="prod-block">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--green)">01 ·</div>
+        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)">GO ZERO</div>
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.3),transparent)"></div>
+      </div>
+      <p style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.92rem;color:rgba(232,244,255,0.75);line-height:1.6;text-transform:none;margin-bottom:24px;max-width:780px"><span class="mn">Энэхүү арга хэмжээ нь хүлэмжийн хийг бууруулах асуудал шийдлийг энгийн ойлгомжтойгоор олон нийтэд хүргэх ба 2030 он хүртэл жил бүр зохион байгуулагдах арга хэмжээ юм.</span><span class="en">This event communicates greenhouse-gas reduction solutions to the public in a clear, accessible way — held annually through 2030.</span></p>
+      <div class="gz-archive-grid">
+        <button class="gz-archive-card" type="button" data-pdf="assets/gozero/go-zero-2022.pdf" data-title="GO ZERO 2022">
+          <div class="gz-archive-thumb">
+            <img class="gz-archive-cover" src="assets/gozero/go-zero-2022.jpg" alt="GO ZERO 2022 cover" loading="lazy">
+            <div class="gz-archive-thumb-glyph">◧</div>
           </div>
-          <div class="tl-period">
-            <div class="tl-period-line"><div class="tl-period-dot"></div><div class="tl-period-connector"></div></div>
-            <div><div class="tl-period-date">11:00</div><div class="tl-period-text"><span class="mn">Сайн дурын мод тарих</span><span class="en">Volunteer tree planting</span></div></div>
+          <div class="gz-archive-info">
+            <div class="gz-archive-year">2022</div>
+            <div class="gz-archive-name">GO ZERO</div>
           </div>
-          <div class="tl-period">
-            <div class="tl-period-line"><div class="tl-period-dot"></div></div>
-            <div><div class="tl-period-date">14:00</div><div class="tl-period-text"><span class="mn">CO₂ бодлогын нээлттэй хэлэлцүүлэг</span><span class="en">Open CO₂ policy panel</span></div></div>
+        </button>
+        <button class="gz-archive-card" type="button" data-pdf="assets/gozero/go-zero-2023.pdf" data-title="GO ZERO 2023">
+          <div class="gz-archive-thumb">
+            <img class="gz-archive-cover" src="assets/gozero/go-zero-2023.jpg" alt="GO ZERO 2023 cover" loading="lazy">
+            <div class="gz-archive-thumb-glyph">◧</div>
+          </div>
+          <div class="gz-archive-info">
+            <div class="gz-archive-year">2023</div>
+            <div class="gz-archive-name">GO ZERO</div>
+          </div>
+        </button>
+        <button class="gz-archive-card" type="button" data-pdf="assets/gozero/go-zero-2024.pdf" data-title="GO ZERO 2024">
+          <div class="gz-archive-thumb">
+            <img class="gz-archive-cover" src="assets/gozero/go-zero-2024.jpg" alt="GO ZERO 2024 cover" loading="lazy">
+            <div class="gz-archive-thumb-glyph">◧</div>
+          </div>
+          <div class="gz-archive-info">
+            <div class="gz-archive-year">2024</div>
+            <div class="gz-archive-name">GO ZERO</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="prod-divider"></div>
+
+    <!-- ── CATEGORY 2: ART N TECH FESTIVAL 2 ── -->
+    <div class="prod-block">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--cyan)">02 ·</div>
+        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)">ART N TECH FESTIVAL 2</div>
+        <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.3),transparent)"></div>
+        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">2026 · 08 · 22</span><span class="en">22 AUG 2026</span></div>
+      </div>
+      <div class="prod-grid cols-1">
+        <div class="prod-card accent-cyan" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
+          <p class="prod-desc"><span class="mn">Art n Tech Festival-ийн хоёрдугаар хэвлэл. Говийн хөдөөгийн байгалийн дэвсгэр дээр урлаг, технологи, байгаль орчны инновацийг нэгтгэсэн хоёр өдрийн олон нийтийн фестиваль.</span><span class="en">Second edition of Art n Tech Festival. A two-day public festival merging art, technology and environmental innovation against the backdrop of the Gobi steppe.</span></p>
+          <ul class="prod-feats">
+            <li><span class="arrow c">▸</span><strong style="color:var(--cyan);font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;margin-right:10px">DAY 1</strong><span class="mn">Лэнд артын нэвтрүүлэг · Технологийн үзэсгэлэн</span><span class="en">Land art showcase · Tech exhibition</span></li>
+            <li><span class="arrow c">▸</span><strong style="color:var(--cyan);font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;margin-right:10px">DAY 1</strong><span class="mn">Хиймэл дагуулын шууд дамжуулал</span><span class="en">Live satellite data demonstration</span></li>
+            <li><span class="arrow c">▸</span><strong style="color:var(--cyan);font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;margin-right:10px">DAY 2</strong><span class="mn">Мод тарих · Говийн аялал · Нээлттэй студи</span><span class="en">Tree planting · Gobi tour · Open studio</span></li>
+          </ul>
+          <div class="prod-buy cyan">
+            <div class="prod-buy-label"><span class="mn">Бүртгүүлэх</span><span class="en">Register</span></div>
+            <a href="mailto:hello@shambala.today" class="prod-buy-link cyan">hello@shambala.today <span class="prod-buy-arrow">→</span></a>
           </div>
         </div>
       </div>
-
-      <div class="tl-phase p2">
-        <div class="tl-phase-num">02</div>
-        <div class="tl-phase-years"><span class="mn">2026 · 08 · 22</span><span class="en">22 Aug 2026</span></div>
-        <div class="tl-phase-title">ART N TECH FESTIVAL 2</div>
-        <div class="tl-phase-sub"><span class="mn">Art n Tech Festival-ийн хоёрдугаар хэвлэл. Говийн хөдөөгийн байгалийн дэвсгэр дээр урлаг, технологи, байгаль орчны инновацийг нэгтгэсэн хоёр өдрийн олон нийтийн фестиваль.</span><span class="en">Second edition of Art n Tech Festival. A two-day public festival merging art, technology and environmental innovation against the backdrop of the Gobi steppe.</span></div>
-        <div class="tl-periods">
-          <div class="tl-period">
-            <div class="tl-period-line"><div class="tl-period-dot"></div><div class="tl-period-connector"></div></div>
-            <div><div class="tl-period-date">DAY 1</div><div class="tl-period-text"><span class="mn">Лэнд артын нэвтрүүлэг · Технологийн үзэсгэлэн</span><span class="en">Land art showcase · Tech exhibition</span></div></div>
-          </div>
-          <div class="tl-period">
-            <div class="tl-period-line"><div class="tl-period-dot"></div><div class="tl-period-connector"></div></div>
-            <div><div class="tl-period-date">DAY 1</div><div class="tl-period-text"><span class="mn">Хиймэл дагуулын шууд дамжуулал</span><span class="en">Live satellite data demonstration</span></div></div>
-          </div>
-          <div class="tl-period">
-            <div class="tl-period-line"><div class="tl-period-dot"></div></div>
-            <div><div class="tl-period-date">DAY 2</div><div class="tl-period-text"><span class="mn">Мод тарих · Говийн аялал · Нээлттэй студи</span><span class="en">Tree planting · Gobi tour · Open studio</span></div></div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /tl-phases -->
-    <div style="margin-top:48px;text-align:center">
-      <a href="mailto:hello@shambala.today" class="btn-p">▶ <span class="mn">БҮРТГҮҮЛЭХ</span><span class="en">REGISTER</span></a>
     </div>
+
   </div>
 </section>
+
+<div id="gz-modal" class="gz-modal" role="dialog" aria-modal="true" aria-labelledby="gz-modal-title">
+  <div class="gz-modal-inner">
+    <div class="gz-modal-head">
+      <div id="gz-modal-title" class="gz-modal-title">GO ZERO</div>
+      <div class="gz-modal-actions">
+        <button class="gz-modal-close" type="button" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="gz-modal-body"><div id="gz-modal-pages" class="gz-modal-pages"></div></div>
+  </div>
+</div>
 </div>
 
 <div id="panel-films" class="overlay-panel">
@@ -2906,6 +3022,51 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel()
       card.classList.add('focused');
     });
   });
+})();
+
+/* ── GO ZERO PDF Modal ──────────────────────────────────────────────────── */
+(function(){
+  var modal=document.getElementById('gz-modal');
+  if(!modal)return;
+  var pagesEl=document.getElementById('gz-modal-pages');
+  var titleEl=document.getElementById('gz-modal-title');
+  var body=modal.querySelector('.gz-modal-body');
+  var closeBtn=modal.querySelector('.gz-modal-close');
+  var manifest={
+    'assets/gozero/go-zero-2022.pdf':{dir:'assets/gozero/pages-2022',pages:[1,2,3,4,5,6,7,8]},
+    'assets/gozero/go-zero-2023.pdf':{dir:'assets/gozero/pages-2023',pages:[1,2,3,4,5]},
+    'assets/gozero/go-zero-2024.pdf':{dir:'assets/gozero/pages-2024',pages:[1,2,3,5,6,7,8,9,10,11]}
+  };
+  function open(pdf,title){
+    titleEl.textContent=title||'GO ZERO';
+    pagesEl.innerHTML='';
+    var info=manifest[pdf];
+    if(info){
+      info.pages.forEach(function(n,idx){
+        var img=document.createElement('img');
+        img.src=info.dir+'/p-'+n+'.jpg';
+        img.alt=(title||'')+' page '+n;
+        img.loading=idx>1?'lazy':'eager';
+        pagesEl.appendChild(img);
+      });
+    }
+    modal.classList.add('open');
+    if(body)body.scrollTop=0;
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    modal.classList.remove('open');
+    pagesEl.innerHTML='';
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('.gz-archive-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      open(card.dataset.pdf,card.dataset.title);
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  modal.addEventListener('click',function(e){if(e.target===modal)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))close();});
 })();
 
 /* ── Sequence Tab Switching ─────────────────────────────────────────────── */
