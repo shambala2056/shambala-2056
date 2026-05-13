@@ -899,6 +899,14 @@ html[data-theme="light"] .prod-feats li{color:rgba(0,0,0,0.78)}
   object-fit:cover;margin:-40px -40px 24px;grid-column:1 / -1;background:#0a1218;
   transition:transform .6s}
 .pkg-wide:hover .pkg-wide-img{transform:scale(1.02)}
+.pkg-wide-caption{grid-column:1 / -1;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  margin-top:-8px;margin-bottom:20px;padding:12px 16px;
+  background:rgba(0,255,136,0.05);border-left:2px solid var(--green);
+  font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.9rem;color:var(--white);text-transform:none}
+.pkg-wide-caption-letters{font-family:'ChakraNums','DisplayFont',sans-serif;font-weight:700;
+  font-size:1.1rem;letter-spacing:0.3em;color:var(--green);white-space:nowrap}
+html[data-theme="light"] .pkg-wide-caption{background:rgba(0,107,48,0.06);color:rgba(0,0,0,0.78)}
+html[data-theme="light"] .pkg-wide-caption-letters{color:#006B30}
 @media(max-width:700px){.pkg-wide{grid-template-columns:1fr;gap:24px}}
 html[data-theme="light"] .pkg-wide{background:#fff}
 .pkg-wide-num{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:5rem;
@@ -932,6 +940,11 @@ html[data-theme="light"] .aluminy-card{background:linear-gradient(135deg,rgba(0,
   letter-spacing:0.15em;color:var(--cyan);margin-bottom:6px}
 .aluminy-step-text{font-size:0.72rem;color:var(--muted);line-height:1.5}
 html[data-theme="light"] .aluminy-step-text{color:rgba(0,0,0,0.55)}
+.aluminy-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.aluminy-list li{font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.9rem;line-height:1.5;
+  color:var(--white);text-transform:none;padding-left:14px;position:relative}
+.aluminy-list li::before{content:'▸';position:absolute;left:0;top:0;color:var(--green);font-weight:600}
+html[data-theme="light"] .aluminy-list li{color:rgba(0,0,0,0.78)}
 
 /* ── Timeline 2016–2056 ──────────────────────────────────────────────────── */
 .tl-s{padding:120px 0;background:var(--void)}
@@ -2544,7 +2557,11 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 
       <!-- 50 мод + 5 жерси -->
       <div class="pkg-wide" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
-        <img class="pkg-wide-img" src="assets/products/mongolz-letters.jpg" alt="Mongolz үсэгнүүд" loading="lazy">
+        <img class="pkg-wide-img" src="assets/products/mongolz-letters.jpg?v=2" alt="Mongolz үсэгнүүд" loading="lazy">
+        <div class="pkg-wide-caption">
+          <span class="pkg-wide-caption-letters">O G O L Z 1</span>
+          <span class="mn">тэмдэгт дээр мод авах боломжтой</span><span class="en">— trees available on this symbol</span>
+        </div>
         <div>
           <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap">
             <div class="pkg-wide-num">50</div>
@@ -2591,18 +2608,30 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="aluminy-steps">
           <div class="aluminy-step">
             <div class="aluminy-step-num">01</div>
-            <div class="aluminy-step-label"><span class="mn">ЭЛСЭЛТ</span><span class="en">ENROLMENT</span></div>
-            <p class="aluminy-step-text"><span class="mn">Элсэгч оюутан говийн лэнд артад нэрэмжит модоо тарьж, GPS байршил болон гэрчилгээгээ хүлээн авна.</span><span class="en">Incoming student plants their personal tree in the Gobi land art. Receives GPS location and certificate.</span></p>
+            <div class="aluminy-step-label"><span class="mn">1-Р АНГИЙН ЭЛСЭГЧ БОЛОН ТӨГСӨГЧДӨД</span><span class="en">FOR 1ST GRADE ENROLLEES &amp; GRADUATES</span></div>
+            <ul class="aluminy-list">
+              <li><span class="mn">Экологийн суурь боловсрол олгох</span><span class="en">Foundational ecological education</span></li>
+              <li><span class="mn">Өөрийн нэрийн мод</span><span class="en">A personalised tree</span></li>
+              <li><span class="mn">Цаг хугацааны капсул үлдээх</span><span class="en">Leave a time capsule</span></li>
+            </ul>
           </div>
           <div class="aluminy-step">
             <div class="aluminy-step-num">02</div>
-            <div class="aluminy-step-label"><span class="mn">СУРАЛЦАХ ХУГАЦАА</span><span class="en">12 YEARS</span></div>
-            <p class="aluminy-step-text"><span class="mn">Суралцах 12 жилийн турш мод нь NASA-ийн хиймэл дагуулаар хянагдана. Оюутан жил бүр өсөлтийн тайланг хүлээн авна.</span><span class="en">The tree is monitored annually via NASA satellite. Student receives yearly growth updates.</span></p>
+            <div class="aluminy-step-label"><span class="mn">12-Р АНГИЙН ТӨГСӨГЧДӨД</span><span class="en">FOR 12TH GRADE GRADUATES</span></div>
+            <ul class="aluminy-list">
+              <li><span class="mn">Байгаль орчны экосистемд бодит хувь нэмэр оруулах</span><span class="en">Make a tangible contribution to the ecosystem</span></li>
+              <li><span class="mn">Өөрийн нэрийн мод</span><span class="en">A personalised tree</span></li>
+              <li><span class="mn">Ирээдүйн зорилтоо тусгасан дурсамж бичиж үлдээх</span><span class="en">Leave a memoir capturing your future aspirations</span></li>
+            </ul>
           </div>
           <div class="aluminy-step">
             <div class="aluminy-step-num">03</div>
-            <div class="aluminy-step-label"><span class="mn">ТӨГСӨЛТ</span><span class="en">GRADUATION</span></div>
-            <p class="aluminy-step-text"><span class="mn">Төгсөгч эхлэлийн модондоо эргэж ирж, шинэ мод тарина. Говийн аялал болон зурагт гэрчилгээ гардуулагдана.</span><span class="en">Graduate returns to see their tree, plants a second one, and receives a photo-tour certificate.</span></p>
+            <div class="aluminy-step-label"><span class="mn">ИХ СУРГУУЛИА ТӨГСӨЖ БУЙ ОЮУТНУУДАД</span><span class="en">FOR UNIVERSITY GRADUATES</span></div>
+            <ul class="aluminy-list">
+              <li><span class="mn">Байгаль орчны экосистемд бодит хувь нэмэр оруулах</span><span class="en">Make a tangible contribution to the ecosystem</span></li>
+              <li><span class="mn">Өөрийн нэрийн мод</span><span class="en">A personalised tree</span></li>
+              <li><span class="mn">Ажил мэргэжлийн гарааны төлөвлөгөө, алсын хараагаа багтаасан дурсамж бичиж үлдээх</span><span class="en">Leave a memoir with your career plan &amp; long-term vision</span></li>
+            </ul>
           </div>
         </div>
       </div>
