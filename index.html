@@ -51,19 +51,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;
   padding:0 60px;background:rgba(2,8,16,0.94);
   border-bottom:1px solid rgba(0,255,136,0.1);backdrop-filter:blur(18px);overflow:visible}
 .n-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
-.n-logo-svg{height:38px;width:auto;overflow:visible;display:block}
-.logo-pin-outline{fill:none;stroke:var(--green);stroke-width:2.2;stroke-linejoin:round}
-.logo-spiral-path{fill:none;stroke:var(--green);stroke-width:2.2;stroke-linecap:round}
-.logo-text-main{font-family:'Orbitron','ChakraNums',sans-serif;font-weight:700;font-size:27px;fill:var(--white)}
-.logo-text-sub{font-family:'Rajdhani',sans-serif;font-weight:400;font-size:10px;fill:var(--muted);letter-spacing:1.2px}
-/* spiral rotation */
-.logo-spiral-group{transform-box:view-box;transform-origin:32px 30px;animation:logo-spin 10s linear infinite}
-@keyframes logo-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-/* light mode logo */
-html[data-theme="light"] .logo-text-main{fill:#2a2a2a}
-html[data-theme="light"] .logo-pin-outline{stroke:var(--green)}
-html[data-theme="light"] .logo-spiral-path{stroke:var(--green)}
-html[data-theme="light"] .logo-text-sub{fill:rgba(0,0,0,0.45)}
+.n-logo-spin-wrap{perspective:300px;display:flex;align-items:center;flex-shrink:0}
+.n-logo-spin{height:36px;width:auto;display:block;filter:brightness(0) invert(1)}
+@keyframes logo-flip{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+.n-logo-words{margin-left:10px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.n-wm-top{font-family:'Orbitron','ChakraNums',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1;letter-spacing:0.04em}
+.n-wm-bot{display:flex;align-items:baseline;gap:6px}
+.n-wm-num{font-family:'Orbitron','ChakraNums',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1}
+.n-wm-sub{font-family:'Rajdhani',sans-serif;font-weight:400;font-size:6.5px;color:var(--muted);letter-spacing:1.2px;line-height:1.4}
+html[data-theme="light"] .n-wm-top,html[data-theme="light"] .n-wm-num{color:#2a2a2a}
+html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
 .n-live{display:flex;align-items:center;gap:7px;
   font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;
@@ -117,7 +114,7 @@ html[data-theme="light"] .logo-text-sub{fill:rgba(0,0,0,0.45)}
 .h-title .l1{font-size:clamp(3rem,7vw,7.5rem);color:var(--white)}
 .h-title .l2{font-size:clamp(3rem,7vw,7.5rem);color:transparent;
   -webkit-text-stroke:1.5px rgba(0,255,136,0.3)}
-.h-title .l3{font-size:clamp(3rem,7vw,7.5rem);color:var(--green);
+.h-title .l3{font-size:clamp(1.2rem,2.9vw,3rem);color:var(--green);font-weight:300;white-space:nowrap;
   text-shadow:0 0 60px rgba(0,255,136,0.4),0 0 120px rgba(0,255,136,0.15)}
 .h-sub{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.28em;
   color:var(--gold);margin-bottom:32px;animation:fu 0.8s ease 0.5s both}
@@ -535,6 +532,68 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(0,255,136,0.08);pad
 .hud-cell:hover{background:rgba(0,255,136,0.06)!important;box-shadow:0 0 20px rgba(0,255,136,0.08) inset}
 .nasa-card{transition:transform .4s,box-shadow .4s}
 .nasa-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,212,255,0.12)}
+/* 3D flip cards */
+.flip-wrap{perspective:900px;position:relative}
+.flip-card{position:relative;width:100%;height:100%;min-height:195px;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,0,.2,1)}
+.flip-wrap:hover .flip-card{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:24px 22px;background:var(--surface);display:flex;flex-direction:column;overflow:hidden}
+.flip-back{transform:rotateY(180deg);gap:10px;overflow-y:auto}
+.flip-back::after{content:'';position:absolute;bottom:0;left:0;right:0;height:22px;background:linear-gradient(transparent,var(--surface));pointer-events:none}
+.flip-num{position:absolute;bottom:-16px;right:8px;font-family:'ChakraNums','DisplayFont',sans-serif;font-size:6.5rem;font-weight:900;line-height:1;color:rgba(232,244,255,0.035);user-select:none;pointer-events:none;transition:color .45s}
+.flip-wrap:hover .flip-num{color:rgba(0,255,136,0.08)}
+.flip-hint{margin-top:auto;padding-top:14px;font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.42rem;letter-spacing:0.2em;color:var(--muted);opacity:0.4;display:flex;align-items:center;gap:6px;transition:opacity .25s}
+.flip-wrap:hover .flip-hint{opacity:0}
+.flip-hint::before{content:'';display:inline-block;width:14px;height:1px;background:currentColor}
+.flip-hint::after{content:'ДЭЛГЭРЭНГҮЙ'}
+
+/* ESG benefit cards */
+.esg-benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:2px}
+.esg-b-card{padding:16px 14px;background:var(--surface);border:1px solid var(--border);border-left:none;transition:border-color .25s,background .25s}
+.esg-b-card:first-child{border-left:1px solid var(--border)}
+.esg-b-card:hover{border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.03)}
+.esg-b-icon{width:30px;height:30px;background:rgba(0,255,136,0.07);display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0}
+.esg-b-icon svg{width:14px;height:14px;stroke:var(--green);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.esg-b-title{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;color:var(--white);margin-bottom:6px}
+.esg-b-desc{font-size:0.57rem;color:var(--muted);line-height:1.65}
+/* ESG tab nav */
+.esg-tab-nav{display:flex;gap:2px;margin-bottom:0;margin-top:24px}
+.esg-tab-btn{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;padding:10px 20px;background:var(--surface);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s;border-bottom:none;outline:none}
+.esg-tab-btn:hover{color:var(--white)}
+.esg-tab-btn.active{background:rgba(0,255,136,0.05);border-color:rgba(0,255,136,0.3);border-bottom:1px solid rgba(0,255,136,0.05);color:var(--green)}
+.esg-panel{display:none;border:1px solid var(--border)}
+.esg-panel.active{display:block}
+.esg-tab-btn.active[data-tab=law]{border-bottom-color:var(--surface)}
+/* Law info blocks */
+.esg-info-block{padding:20px 24px;border-bottom:1px solid var(--border)}
+.esg-info-block:last-child{border-bottom:none}
+.esg-info-title{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.esg-law-pill{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;padding:3px 8px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)}
+.esg-info-body{font-size:0.63rem;line-height:1.75;color:var(--muted)}
+.esg-info-body strong{color:var(--white)}
+.esg-doc-list{margin-top:8px;display:flex;flex-direction:column;gap:4px}
+.esg-doc-item{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
+.esg-doc-item::before{content:'▸';color:var(--green);flex-shrink:0}
+/* Calculator */
+.esg-calc-wrap{padding:20px 20px 8px}
+.esg-calc-prompt{font-size:0.65rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.esg-slider-row{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.esg-slider-label{font-size:0.62rem;color:var(--muted);min-width:120px}
+input.esg-slider{flex:1;-webkit-appearance:none;height:2px;background:rgba(232,244,255,0.12);outline:none;cursor:pointer;border-radius:1px}
+input.esg-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--green);cursor:pointer;box-shadow:0 0 0 3px rgba(0,255,136,0.15)}
+.esg-slider-val{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;color:var(--green);min-width:65px;text-align:right}
+.esg-results{border-top:1px solid var(--border);padding:0 20px 16px}
+.esg-r-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);font-size:0.63rem}
+.esg-r-row:last-child{border-bottom:none}
+.esg-r-key{color:var(--muted)}
+.esg-r-val{font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.6rem;font-weight:700;color:var(--white)}
+.esg-r-val.g{color:var(--green)}
+.esg-result-big{display:flex;align-items:baseline;gap:12px;padding:16px 20px;border-top:1px solid rgba(0,255,136,0.2);background:rgba(0,255,136,0.03)}
+.esg-big-num{font-family:'ChakraNums','DisplayFont',sans-serif;font-size:2.2rem;font-weight:700;color:var(--green);transition:all .15s}
+.esg-big-label{font-size:0.6rem;color:var(--muted);line-height:1.6}
+
+html[data-theme="light"] .flip-front,html[data-theme="light"] .flip-back{background:#fff}
+html[data-theme="light"] .flip-back::after{background:linear-gradient(transparent,#fff)}
+
 /* ── Stagger child reveal ──────────────────────────────────────────────── */
 .stagger-child{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .stagger-child.on{opacity:1;transform:none}
@@ -959,28 +1018,9 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
 <div id="cur-dot"></div>
 <nav>
   <a href="#" class="n-logo">
-    <svg class="n-logo-svg" viewBox="0 0 308 76" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <clipPath id="pin-clip">
-          <path d="M32,2 C14,2 2,14 2,32 C2,52 32,74 32,74 C32,74 62,52 62,32 C62,14 50,2 32,2 Z"/>
-        </clipPath>
-      </defs>
-      <!-- Pin outline (static) -->
-      <path class="logo-pin-outline" d="M32,2 C14,2 2,14 2,32 C2,52 32,74 32,74 C32,74 62,52 62,32 C62,14 50,2 32,2 Z"/>
-      <!-- Spiral (rotating), clipped inside pin -->
-      <g clip-path="url(#pin-clip)">
-        <g class="logo-spiral-group">
-          <path class="logo-spiral-path" d="M 32.9,27.1 L 32.8,27.0 L 32.6,26.8 L 32.4,26.7 L 32.2,26.6 L 31.9,26.5 L 31.7,26.4 L 31.4,26.3 L 31.2,26.2 L 30.9,26.2 L 30.6,26.2 L 30.3,26.2 L 30.0,26.2 L 29.7,26.3 L 29.4,26.4 L 29.1,26.5 L 28.8,26.6 L 28.5,26.7 L 28.2,26.9 L 27.9,27.1 L 27.6,27.3 L 27.3,27.6 L 27.1,27.9 L 26.9,28.2 L 26.7,28.5 L 26.5,28.8 L 26.3,29.2 L 26.1,29.6 L 26.0,29.9 L 25.9,30.4 L 25.8,30.8 L 25.8,31.2 L 25.8,31.6 L 25.8,32.1 L 25.9,32.5 L 26.0,33.0 L 26.1,33.4 L 26.2,33.9 L 26.4,34.3 L 26.7,34.8 L 26.9,35.2 L 27.2,35.6 L 27.5,36.0 L 27.9,36.4 L 28.3,36.7 L 28.7,37.1 L 29.1,37.4 L 29.6,37.6 L 30.1,37.9 L 30.6,38.1 L 31.1,38.3 L 31.7,38.4 L 32.3,38.5 L 32.8,38.6 L 33.4,38.6 L 34.0,38.6 L 34.6,38.6 L 35.2,38.5 L 35.8,38.3 L 36.4,38.2 L 37.0,37.9 L 37.6,37.7 L 38.2,37.4 L 38.7,37.0 L 39.3,36.6 L 39.8,36.2 L 40.3,35.7 L 40.7,35.2 L 41.1,34.6 L 41.5,34.1 L 41.9,33.4 L 42.2,32.8 L 42.5,32.1 L 42.7,31.4 L 42.9,30.7 L 43.0,30.0 L 43.1,29.3 L 43.1,28.5 L 43.1,27.7 L 43.0,27.0 L 42.9,26.2 L 42.7,25.4 L 42.5,24.7 L 42.2,23.9 L 41.8,23.2 L 41.5,22.5 L 41.0,21.8 L 40.5,21.2 L 40.0,20.5 L 39.4,19.9 L 38.8,19.4 L 38.1,18.8 L 37.4,18.4 L 36.6,17.9 L 35.8,17.5 L 35.0,17.2 L 34.2,16.9 L 33.3,16.7 L 32.4,16.6 L 31.5,16.4 L 30.6,16.4 L 29.6,16.4 L 28.7,16.5 L 27.8,16.7 L 26.9,16.9 L 26.0,17.2 L 25.1,17.5 L 24.2,17.9 L 23.3,18.4 L 22.5,18.9 L 21.7,19.5 L 20.9,20.1 L 20.2,20.8 L 19.5,21.6 L 18.9,22.4 L 18.3,23.2 L 17.8,24.1 L 17.3,25.0 L 16.9,26.0 L 16.6,27.0 L 16.3,28.0 L 16.1,29.1 L 16.0,30.1 L 15.9,31.2 L 15.9,32.3 L 16.0,33.4 L 16.2,34.5 L 16.4,35.6 L 16.7,36.6 L 17.1,37.7 L 17.6,38.7 L 18.1,39.7 L 18.7,40.7 L 19.4,41.7 L 20.1,42.6 L 20.9,43.4 L 21.8,44.2 L 22.7,44.9 L 23.7,45.6 L 24.7,46.3 L 25.7,46.8 L 26.9,47.3 L 28.0,47.7 L 29.2,48.0 L 30.4,48.3 L 31.6,48.5 L 32.9,48.6 L 34.1,48.6 L 35.4,48.5 L 36.6,48.3 L 37.9,48.1"/>
-        </g>
-      </g>
-      <!-- SHAMBALA -->
-      <text class="logo-text-main" x="74" y="37">SHAMBALA</text>
-      <!-- 2056 -->
-      <text class="logo-text-main" x="74" y="65">2056</text>
-      <!-- ENGINEERING CAMPUS stacked -->
-      <text class="logo-text-sub" x="214" y="51">ENGINEERING</text>
-      <text class="logo-text-sub" x="214" y="65">CAMPUS</text>
-    </svg>
+    <div class="n-logo-spin-wrap">
+      <img class="n-logo-spin" src="shambala-logo.png" alt="Shambala">
+    </div>
   </a>
   <div class="n-live"><div class="n-live-dot"></div><span class="mn">ХИЙМЭЛ ДАГУУЛЫН ХОЛБОЛТ ИДЭВХТЭЙ</span><span class="en">SATELLITE LINK ACTIVE</span></div>
   <ul class="n-links">
@@ -1012,8 +1052,8 @@ html[data-theme="light"] .sector-num{color:rgba(0,107,48,0.06)}
       </div>
       <div class="h-title">
         <div class="l1"><span class="mn">ШАМБАЛА</span><span class="en">SHAMBALA</span></div>
-        <div class="l2"><span class="mn">ИНЖЕНЕРИЙН</span><span class="en">ENGINEERING</span></div>
-        <div class="l3"><span class="mn">СУУРИН</span><span class="en">CAMPUS</span></div>
+        <div class="l2"><span class="mn">2056</span><span class="en">2056</span></div>
+        <div class="l3"><span class="mn">ИНЖЕНЕРИЙН СУУРИН</span><span class="en"> ENIGNEERING CAMPUS</span></div>
       </div>
       <div class="h-sub">
         <span class="mn">МОНГОЛ УЛС &nbsp;·&nbsp; 2016 — 2056 &nbsp;·&nbsp; ГОВИЙН НӨХӨН СЭРГЭЭЛТ</span>
@@ -1622,26 +1662,26 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
       xLeft:65, xRight:580, yTop:32, yBot:252,
       years:[2019,2020,2021,2022,2023,2024,2025,2026],
       series:[
-        {vals:[1625,2500,6000,10000,13500,16283,21113,25705], color:'#00FF88',            label:'Project (kg)'},
-        {vals:[1460,1200,750,430,280,217,212,208],            color:'rgba(232,244,255,0.6)', label:'Control (kg)'}
+        {vals:[1625,2500,6000,10000,13500,16283,21113,25705], color:'#00FF88',            label:'Төслийн талбай (кг)'},
+        {vals:[1460,1200,750,430,280,217,212,208],            color:'rgba(232,244,255,0.6)', label:'Хяналтын талбай (кг)'}
       ]
     },
     'nasa-chart-2': {
       xLeft:58, xRight:580, yTop:32, yBot:252,
       years:[2020,2021,2022,2023,2024,2025,2026],
       series:[
-        {vals:[0.121,0.120,0.085,0.092,0.115,0.131,0.145], color:'#00FF88',            label:'NDVI Project', dec:3},
-        {vals:[0.065,0.063,0.060,0.062,0.064,0.064,0.064], color:'rgba(232,244,255,0.6)', label:'NDVI Control', dec:3},
-        {vals:[0.105,0.104,0.074,0.080,0.100,0.114,0.126], color:'#00D4FF',            label:'EVI  Project', dec:3},
-        {vals:[0.056,0.055,0.052,0.054,0.056,0.056,0.056], color:'rgba(0,212,255,0.4)', label:'EVI  Control', dec:3}
+        {vals:[0.121,0.120,0.085,0.092,0.115,0.131,0.145], color:'#00FF88',            label:'NDVI — Төсөл', dec:3},
+        {vals:[0.065,0.063,0.060,0.062,0.064,0.064,0.064], color:'rgba(232,244,255,0.6)', label:'NDVI — Хяналт', dec:3},
+        {vals:[0.105,0.104,0.074,0.080,0.100,0.114,0.126], color:'#00D4FF',            label:'EVI — Төсөл', dec:3},
+        {vals:[0.056,0.055,0.052,0.054,0.056,0.056,0.056], color:'rgba(0,212,255,0.4)', label:'EVI — Хяналт', dec:3}
       ]
     },
     'nasa-chart-3': {
       xLeft:70, xRight:580, yTop:32, yBot:252,
       years:[2019,2020,2021,2022,2023,2024,2025,2026],
       series:[
-        {vals:[764,1075,2913,4872,6460,7653,9642,11616], color:'#FFB800',               label:'Project (kg C)'},
-        {vals:[686,580,380,200,130,102,100,98],           color:'rgba(232,244,255,0.6)', label:'Control (kg C)'}
+        {vals:[764,1075,2913,4872,6460,7653,9642,11616], color:'#FFB800',               label:'Нүүрстөрөгч — Төсөл (кг)'},
+        {vals:[686,580,380,200,130,102,100,98],           color:'rgba(232,244,255,0.6)', label:'Нүүрстөрөгч — Хяналт (кг)'}
       ]
     }
   };
@@ -2216,7 +2256,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <div style="padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;gap:12px;align-items:flex-start">
         <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.9rem;font-weight:700;color:var(--gold);min-width:44px">NDWI</div>
         <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;line-height:1.65;color:var(--muted)">
-          <span class="mn">ургамлын усны агуулга ба газрын гадаргын чийгийн үзүүлэлт</span><span class="en">Vegetation Water Content &amp; Surface Moisture Index</span>
+          <span class="mn">ургамлагд агуулагдах чийгийн үзүүлэлт</span><span class="en">Vegetation Water Content &amp; Surface Moisture Index</span>
         </div>
       </div>
     </div>
@@ -2249,104 +2289,87 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.2),transparent)"></div>
       </div>
 
+      <!-- 3 BENEFIT CARDS -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px">
+        <div class="esg-b-card" style="border-left:1px solid var(--border)">
+          <div class="esg-b-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+          </div>
+          <div class="esg-b-title"><span class="mn">МХБ-ын ESG тайлагнал</span><span class="en">MSE ESG Reporting</span></div>
+          <div class="esg-b-desc"><span class="mn">Монголын Хөрөнгийн Бирж — жилийн ESG тайлан шаардлагатай</span><span class="en">Mongolian Stock Exchange — annual ESG disclosure required</span></div>
+        </div>
+        <div class="esg-b-card">
+          <div class="esg-b-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="esg-b-title"><span class="mn">UNCCD · Парисын хэлэлцээр</span><span class="en">UNCCD · Paris Agreement</span></div>
+          <div class="esg-b-desc"><span class="mn">МУ 1996, 2016 онд нэгдсэн — хувийн хэвшлийн оролцоог дэмждэг</span><span class="en">Mongolia joined 1996 &amp; 2016 — private sector participation supported</span></div>
+        </div>
+        <div class="esg-b-card">
+          <div class="esg-b-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="esg-b-title"><span class="mn">Хиймэл дагуулын хяналт</span><span class="en">Satellite Monitoring</span></div>
+          <div class="esg-b-desc"><span class="mn">NASA MODIS · Sentinel — татварын аудитад шууд ашиглагдах тайлан</span><span class="en">NASA MODIS · Sentinel — reports usable directly in tax audits</span></div>
+        </div>
+      </div>
+
       <!-- 1% TAX HIGHLIGHT -->
-      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2px;margin-bottom:2px">
-        <div style="padding:32px 28px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.25);position:relative;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2px;margin-bottom:0">
+        <div style="padding:20px 22px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.25);position:relative;overflow:hidden">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent)"></div>
           <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:3.2rem;font-weight:700;color:var(--green);line-height:1">1%</div>
           <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;color:var(--muted);margin-top:8px"><span class="mn">ТАТВАРЫН ХӨНГӨЛӨЛТ</span><span class="en">TAX DEDUCTION</span></div>
           <div style="margin-top:20px;font-size:0.72rem;line-height:1.7;color:rgba(232,244,255,0.7)">
-            <span class="mn">Аж ахуйн нэгжийн орлогын албан татварын тухай хуулийн 36 дугаар зүйл — байгаль орчныг хамгаалах, сэргээн засах зардлыг татварын суурь орлогоос хасах боломжтой.</span>
-            <span class="en">Article 36 of the Corporate Income Tax Law — eligible environmental restoration and protection expenses are deductible from taxable income.</span>
+            <span class="mn">22.9.Албан татвар төлөгчийн орлого олох үйл ажиллагаатай хамааралгүй доор дурдсан үйл ажиллагааг нийгмийн хариуцлагын хүрээнд дэмжих зорилгоор элэгдэл тооцох үндсэн хөрөнгөд оруулсан хөрөнгө оруулалт, харилцан хамааралгүй бусад этгээдэд олгосон санхүүгийн дэмжлэг, хандивын зардлыг энэ хуулийн 20.1-д заасны дагуу ногдуулсан албан татвараас хасаж хөнгөлнө. Хөнгөлөх дүн нь тухайн татварын жилийн татвар ногдох орлогын 1 хувь хүртэл хэмжээнээс хэтрэхгүй байна.</span>
+            <span class="en">Art. 22.9 — Investment in fixed assets subject to depreciation, financial support and donations granted to unrelated parties for the purpose of supporting socially responsible activities unrelated to the taxpayer's income-generating activities shall be deducted from corporate income tax assessed pursuant to Art. 20.1. The deduction shall not exceed 1% of taxable income for the relevant tax year.</span>
           </div>
         </div>
-        <div style="padding:32px 28px;background:var(--surface);border:1px solid var(--border);border-left:none">
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.18em;color:var(--muted);margin-bottom:16px">// <span class="mn">ТАТВАРЫН СУУРЬ</span><span class="en">TAX BASIS</span></div>
-          <p style="font-size:0.72rem;line-height:1.8;color:rgba(232,244,255,0.75);margin:0">
-            <span class="mn">Монгол Улсын <strong style="color:var(--white)">Аж ахуйн нэгжийн орлогын албан татварын тухай хууль (2019)</strong>-ийн дагуу корпораций нийт орлогын дунджаар 1 хувьд хүрэх дүнг байгаль орчны хамгааллын зориулалттай хөрөнгө оруулалтад зарцуулж, татварын суурь орлогоос хасуулах боломжтой. Шамбала 2056-тай байгуулсан корпорейт гэрээ нь энэхүү заалтад бүрэн нийцнэ — хиймэл дагуулаар баталгаажуулсан ойн сэргэлтийн тайланг татварын аудитад шууд ашиглах боломжтой.</span>
-            <span class="en">Under Mongolia's <strong style="color:var(--white)">Corporate Income Tax Law (2019)</strong>, companies may deduct up to approximately 1% of gross revenue allocated to qualifying environmental protection investments from their taxable income. A Shambala 2056 corporate partnership agreement fully satisfies this provision — satellite-verified reforestation reports are directly usable in tax audits.</span>
-          </p>
+        <div style="padding:20px 22px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;gap:12px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)">ААНОАТ · 22.9</span>
+            <span style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)">ААНОАТ · 36 дугаар зүйл</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.48rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)">ЭХ · 276.5 – 276.6</span>
+          </div>
+          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;color:var(--muted);line-height:1.7">
+          </div>
         </div>
       </div>
 
-      <!-- LAW CARDS GRID -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
-
-        <div style="padding:24px 22px;background:var(--surface);border:1px solid var(--border)">
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:10px">ХУУЛЬ · 01</div>
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:var(--white);margin-bottom:10px;line-height:1.4">
-            <span class="mn">Цөлжилттэй тэмцэх үндэсний хөтөлбөр</span><span class="en">National Anti-Desertification Programme</span>
+      <!-- CALCULATOR -->
+      <div class="esg-calc-wrap" style="border:1px solid var(--border);border-top:none">
+        <div class="esg-calc-prompt"><span class="mn">Жилийн татвар ногдох орлогоо оруулаад татварын хөнгөлөлтийн боломжоо тооцоол</span><span class="en">Enter your annual taxable income to estimate your tax deduction potential</span></div>
+        <div class="esg-slider-row">
+          <span class="esg-slider-label"><span class="mn">Татвар ногдох орлого</span><span class="en">Taxable income</span></span>
+          <input type="range" class="esg-slider" id="esg-sl" min="10" max="1000" step="10" value="100" oninput="esgCalc()">
+          <span class="esg-slider-val"><span id="esg-sv">100 сая</span> ₮</span>
+        </div>
+        <div class="esg-results">
+          <div class="esg-r-row">
+            <span class="esg-r-key"><span class="mn">Жилийн татвар ногдох орлого</span><span class="en">Annual taxable income</span></span>
+            <span class="esg-r-val" id="esg-o-income">100,000,000 ₮</span>
           </div>
-          <p style="font-size:0.65rem;line-height:1.7;color:var(--muted);margin:0">
-            <span class="mn">МУ-ын Засгийн газрын 2030 он хүртэлх тогтвортой хөгжлийн зорилтыг хэрэгжүүлэх хүрээнд батлагдсан үндэсний хөтөлбөр. Жилд 1 сая га газрыг хамарсан ойжуулалт болон газрын доройтлыг сэргээх зорилттой.</span>
-            <span class="en">National programme aligned with Mongolia's SDG 2030 goals. Targets reforestation of 1 million hectares annually and reversal of land degradation across the steppe and Gobi zones.</span>
-          </p>
-        </div>
-
-        <div style="padding:24px 22px;background:var(--surface);border:1px solid var(--border);border-left:none">
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:10px">ХУУЛЬ · 02</div>
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:var(--white);margin-bottom:10px;line-height:1.4">
-            <span class="mn">Байгаль орчны нөлөөллийн үнэлгээний тухай хууль (2012)</span><span class="en">Environmental Impact Assessment Law (2012)</span>
+          <div class="esg-r-row">
+            <span class="esg-r-key"><span class="mn">Нийт орлогын 1% — хандивын дээд хэмжээ</span><span class="en">1% of income — max deductible donation</span></span>
+            <span class="esg-r-val" id="esg-o-1pct">1,000,000 ₮</span>
           </div>
-          <p style="font-size:0.65rem;line-height:1.7;color:var(--muted);margin:0">
-            <span class="mn">Том хэмжээний хөрөнгө оруулалтын төслүүдэд байгаль орчны нөлөөллийн үнэлгээ заавал хийлгэх шаардлагатай. Шамбала 2056-ийн NASA-ийн дата дээр суурилсан хяналт нь энэ үнэлгээнд шаардагдах баримт нотолгоог бэлтгэнэ.</span>
-            <span class="en">Requires mandatory environmental impact assessments for large-scale investment projects. Shambala 2056's NASA-based monitoring produces the evidence documentation required under this law.</span>
-          </p>
-        </div>
-
-        <div style="padding:24px 22px;background:var(--surface);border:1px solid var(--border);border-left:none">
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:10px">ХУУЛЬ · 03</div>
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:var(--white);margin-bottom:10px;line-height:1.4">
-            <span class="mn">Ойн тухай хууль (2012) · Ногоон ХБН бодлого</span><span class="en">Forest Law (2012) · Green GDP Policy</span>
+          <div class="esg-r-row">
+            <span class="esg-r-key"><span class="mn">Нэг модны үнэ</span><span class="en">Price per tree</span></span>
+            <span class="esg-r-val">55,000 ₮</span>
           </div>
-          <p style="font-size:0.65rem;line-height:1.7;color:var(--muted);margin:0">
-            <span class="mn">Ойн тухай хуулийн дагуу ойн нөхөн сэргэлтэд оролцсон аж ахуйн нэгжид татварын урамшуулал олгох заалт тусгагдсан. МУ-ын Ногоон ХБН-ий бодлого нь байгаль орчны хөрөнгө оруулалтыг ESG тайлагналд тооцохыг дэмжинэ.</span>
-            <span class="en">The Forest Law includes provisions for tax incentives to companies participating in forest restoration. Mongolia's Green GDP policy recognises environmental investment as qualifying ESG expenditure.</span>
-          </p>
-        </div>
-
-        <div style="padding:24px 22px;background:var(--surface);border:1px solid var(--border);border-top:none">
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;color:var(--gold);margin-bottom:10px">ESG · 01</div>
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:var(--white);margin-bottom:10px;line-height:1.4">
-            <span class="mn">МХБ-ын ESG тайлагналын шаардлага</span><span class="en">MSE ESG Disclosure Requirements</span>
+          <div class="esg-r-row">
+            <span class="esg-r-key"><span class="mn">Авч болох модны тоо <span style="opacity:0.55">(хандив ÷ 55,000)</span></span><span class="en">Trees you can plant <span style="opacity:0.55">(donation ÷ 55,000)</span></span></span>
+            <span class="esg-r-val" id="esg-o-trees">18 мод</span>
           </div>
-          <p style="font-size:0.65rem;line-height:1.7;color:var(--muted);margin:0">
-            <span class="mn">Монголын хөрөнгийн бирж (МХБ) 2023 оноос нийтийн компаниудаас ESG тайлан гаргахыг шаарддаг болсон. Шамбала 2056-тай хамтарсан байгаль орчны хөрөнгө оруулалт нь МХБ-ын шаардлагад нийцсэн "Байгаль орчны" (E) хэсгийн мэдээллийг бүрдүүлнэ.</span>
-            <span class="en">The Mongolian Stock Exchange (MSE) has required public companies to submit ESG disclosures since 2023. A Shambala 2056 environmental investment directly satisfies the Environmental (E) pillar of MSE disclosure requirements.</span>
-          </p>
         </div>
-
-        <div style="padding:24px 22px;background:var(--surface);border:1px solid var(--border);border-left:none;border-top:none">
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;color:var(--gold);margin-bottom:10px">ESG · 02</div>
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:var(--white);margin-bottom:10px;line-height:1.4">
-            <span class="mn">UNCCD — Цөлжилтийг бууруулах НҮБ-ын конвенц</span><span class="en">UNCCD — UN Convention to Combat Desertification</span>
-          </div>
-          <p style="font-size:0.65rem;line-height:1.7;color:var(--muted);margin:0">
-            <span class="mn">Монгол Улс 1996 онд UNCCD-д нэгдэн орсон. Конвенцын дагуу тус улс цөлжилтийг бууруулах үндэсний үйл ажиллагааны төлөвлөгөөтэй бөгөөд хувийн хэвшлийн оролцоог идэвхтэй дэмждэг. Шамбала 2056-ийн ажил нь энэ хүрээнд шууд тооцогдоно.</span>
-            <span class="en">Mongolia joined the UNCCD in 1996 and maintains a national action plan to combat desertification that actively supports private-sector participation. Shambala 2056 operations are directly recognised under this framework.</span>
-          </p>
+        <div class="esg-result-big">
+          <div class="esg-big-num" id="esg-o-big">1,000,000 ₮</div>
+          <div class="esg-big-label"><span class="mn">татвараасаа хасуулах боломжтой дүн</span><span class="en">deductible from your tax liability</span></div>
         </div>
-
-        <div style="padding:24px 22px;background:var(--surface);border:1px solid var(--border);border-left:none;border-top:none">
-          <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;color:var(--gold);margin-bottom:10px">ESG · 03</div>
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:var(--white);margin-bottom:10px;line-height:1.4">
-            <span class="mn">Нүүрстөрөгчийн зах зээл · Парисын хэлэлцээр</span><span class="en">Carbon Markets · Paris Agreement</span>
-          </div>
-          <p style="font-size:0.65rem;line-height:1.7;color:var(--muted);margin:0">
-            <span class="mn">Монгол Улс Парисын хэлэлцээрт 2016 онд нэгдсэн бөгөөд үндэсний тодорхойлсон хувь нэмрийн (NDC) дагуу ойн сэргэлтийг гол арга хэмжээ болгосон. Хиймэл дагуулаар баталгаажсан CO₂ шингэлт нь олон улсын нүүрстөрөгчийн зах зээлд арилжаалагдах бэлэн байдалтай.</span>
-            <span class="en">Mongolia joined the Paris Agreement in 2016, naming reforestation as a core NDC measure. Satellite-verified CO₂ sequestration from Shambala 2056 is eligible for trading on international voluntary carbon markets.</span>
-          </p>
-        </div>
-
-      </div><!-- /law cards -->
-
-      <div style="margin-top:2px;padding:14px 22px;background:var(--surface);border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;color:var(--muted)">
-          <span class="mn">// Татварын хөнгөлөлтийн тооцооны нарийн нөхцлийг мэргэжлийн татварын зөвлөхтэй тодруулна уу.</span>
-          <span class="en">// Exact tax deduction eligibility and thresholds should be verified with a qualified Mongolian tax adviser.</span>
-        </div>
-        <a href="mailto:hello@shambala.today" class="btn-p" style="font-size:0.6rem;padding:8px 18px">▶ <span class="mn">ESG ХАМТЫН АЖИЛЛАГАА</span><span class="en">ESG PARTNERSHIP</span></a>
       </div>
+
     </div><!-- /legal -->
 
   </div>
@@ -2746,6 +2769,26 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel()
     });
   });
 })();
+
+// ESG tab + calculator
+function esgTab(id,btn){
+  document.querySelectorAll('.esg-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.esg-tab-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('esg-p-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function esgCalc(){
+  var v=parseInt(document.getElementById('esg-sl').value); // сая ₮
+  var disp=v>=1000?'1 тэрбум':v.toLocaleString()+' сая';
+  document.getElementById('esg-sv').textContent=disp;
+  var income=v*1000000;
+  var ceiling=Math.round(income*0.01);
+  var trees=Math.floor(ceiling/55000);
+  document.getElementById('esg-o-income').textContent=income.toLocaleString()+' ₮';
+  document.getElementById('esg-o-1pct').textContent=ceiling.toLocaleString()+' ₮';
+  document.getElementById('esg-o-trees').textContent=trees.toLocaleString()+' мод';
+  document.getElementById('esg-o-big').textContent=ceiling.toLocaleString()+' ₮';
+}
 </script>
 </body>
 </html>
