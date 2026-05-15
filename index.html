@@ -3864,13 +3864,16 @@ function esgCalc(){
 /* ── Smart Nav (hide on scroll-down, show on scroll-up) ── */
 (function(){
   var nav=document.querySelector('nav');
+  var hero=document.querySelector('.hero');
   var lastY=window.scrollY,ticking=false,menuOpen=false;
+  function heroBottom(){return hero?(hero.offsetTop+hero.offsetHeight):window.innerHeight;}
   window.addEventListener('scroll',function(){
     if(ticking)return;
     ticking=true;
     requestAnimationFrame(function(){
       var y=window.scrollY;
-      if(menuOpen||y<80){nav.classList.remove('nav--hidden');}
+      var past=y>heroBottom()-80;
+      if(menuOpen||!past){nav.classList.remove('nav--hidden');}
       else if(y>lastY+6){nav.classList.add('nav--hidden');}
       else if(y<lastY-4){nav.classList.remove('nav--hidden');}
       lastY=y;ticking=false;
