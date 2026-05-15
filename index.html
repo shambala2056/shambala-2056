@@ -2545,50 +2545,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 <script>
 /* ── Theme Toggle ──────────────────────────────────────────────────────────*/
 (function(){
+  // Force dark mode — light mode disabled until development is complete.
+  // Ignore localStorage and system preference; do not re-attach toggle/listeners.
   var html=document.documentElement;
-  var btn=document.getElementById('theme-toggle');
-  var sunIcon=document.getElementById('icon-sun');
-  var moonIcon=document.getElementById('icon-moon');
-
-  // Apply saved or system preference
-  var saved=localStorage.getItem('shambala-theme');
-  var preferLight=window.matchMedia('(prefers-color-scheme:light)').matches;
-  var theme=saved||(preferLight?'light':'dark');
-  apply(theme);
-
-  function apply(t){
-    if(t==='light'){
-      html.setAttribute('data-theme','light');
-      if(sunIcon)sunIcon.style.display='block';
-      if(moonIcon)moonIcon.style.display='none';
-      // fix SVG chart backgrounds
-      document.querySelectorAll('#nasa-chart-1,#nasa-chart-2,#nasa-chart-3').forEach(function(svg){
-        svg.style.background='#FFFFFF';
-      });
-    } else {
-      html.removeAttribute('data-theme');
-      if(sunIcon)sunIcon.style.display='none';
-      if(moonIcon)moonIcon.style.display='block';
-      document.querySelectorAll('#nasa-chart-1,#nasa-chart-2,#nasa-chart-3').forEach(function(svg){
-        svg.style.background='#020810';
-      });
-    }
-  }
-
-  if(btn){
-    btn.addEventListener('click',function(){
-      var current=html.getAttribute('data-theme')==='light'?'light':'dark';
-      var next=current==='light'?'dark':'light';
-      localStorage.setItem('shambala-theme',next);
-      apply(next);
-    });
-  }
-
-  // Watch system preference changes
-  window.matchMedia('(prefers-color-scheme:light)').addEventListener('change',function(e){
-    if(!localStorage.getItem('shambala-theme')){
-      apply(e.matches?'light':'dark');
-    }
+  try{localStorage.removeItem('shambala-theme');}catch(e){}
+  html.removeAttribute('data-theme');
+  document.querySelectorAll('#nasa-chart-1,#nasa-chart-2,#nasa-chart-3').forEach(function(svg){
+    svg.style.background='#020810';
   });
 })();
 </script>
