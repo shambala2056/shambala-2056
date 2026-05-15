@@ -834,6 +834,7 @@ nav.nav--hidden{transform:translateY(-100%)}
 .step-img-wrap{position:relative;width:100%;height:220px;overflow:hidden;background:#0a1218}
 .step-img-wrap::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 0% 100%,rgba(0,140,220,0.55) 0%,rgba(0,80,180,0.3) 25%,transparent 55%);pointer-events:none;transition:opacity .4s;z-index:1}
 .step-img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.step-img.contain{object-fit:contain;background:#0a1218}
 .step-card:hover .step-img{transform:scale(1.04)}
 .step-card:hover .step-img-wrap::after{opacity:.7}
 .step-card::before{content:'';position:absolute;inset:0;background:radial-gradient(400px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(57,173,72,0.09),transparent 40%);opacity:0;transition:opacity .45s;pointer-events:none;z-index:0}
@@ -1059,6 +1060,7 @@ html[data-theme="light"] .tl-phase{background:#fff;border-color:rgba(31,97,40,0.
   border-bottom:1px solid rgba(57,173,72,0.14);overflow:hidden}
 .gz-archive-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
   display:block;transition:transform .6s,filter .3s;filter:saturate(0.95) brightness(0.95)}
+.gz-archive-cover[src*="go-zero-2022"]{object-fit:cover}
 .gz-archive-card:hover .gz-archive-cover{transform:scale(1.03);filter:saturate(1) brightness(1)}
 .gz-archive-thumb-glyph{position:absolute;bottom:12px;right:14px;font-size:1.1rem;color:var(--green);z-index:2;
   text-shadow:0 0 12px rgba(57,173,72,0.5)}
@@ -1091,8 +1093,8 @@ html[data-theme="light"] .gz-archive-h{color:#1F6128}
   font-size:1rem;line-height:1;transition:background .2s,border-color .2s}
 .gz-modal-close:hover{background:rgba(57,173,72,0.08);border-color:var(--green)}
 .gz-modal-body{flex:1;min-height:0;background:#1a1a1a;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-.gz-modal-pages{display:flex;flex-direction:column;gap:8px;padding:8px;margin:0 auto;max-width:1200px}
-.gz-modal-pages img{display:block;width:100%;height:auto;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.gz-modal-pages{display:flex;flex-direction:column;gap:0;padding:0;margin:0 auto;max-width:1200px}
+.gz-modal-pages img{display:block;width:100%;height:auto;background:#fff}
 @media(max-width:720px){.gz-modal{padding:0}.gz-modal-inner{border:0}}
 html[data-theme="light"] .gz-modal{background:rgba(245,245,240,0.95)}
 html[data-theme="light"] .gz-modal-inner{background:#fff;border-color:rgba(31,97,40,0.3)}
@@ -1185,9 +1187,7 @@ html[data-theme="light"] .sector-num{color:rgba(31,97,40,0.06)}
 
 /* ── HUD VIEWBOX MOTION ──────────────────────────────── */
 /* Scan line sweeping through HUD */
-.hud-scanv{position:absolute;left:0;right:0;height:1px;top:0;z-index:20;pointer-events:none;
-  background:linear-gradient(to right,transparent 0%,rgba(57,173,72,0.55) 50%,transparent 100%);
-  animation:hud-vscan 6s linear infinite}
+.hud-scanv{display:none}
 @keyframes hud-vscan{0%{top:0;opacity:0}4%{opacity:1}96%{opacity:0.35}100%{top:100%;opacity:0}}
 /* Corner bracket decorations */
 .hud-cb{position:absolute;width:18px;height:18px;pointer-events:none}
@@ -1235,8 +1235,8 @@ html[data-theme="light"] .sector-num{color:rgba(31,97,40,0.06)}
 .film-poster-play iframe,.film-poster-play video{width:100%;height:100%;border:0;display:block;position:absolute;inset:0;background:#000;object-fit:contain}
 .film-badge.cyan{border-color:rgba(0,212,255,0.35);color:var(--cyan)}
 .film-buy-tag{position:absolute;bottom:12px;right:12px;font-size:0.4rem;letter-spacing:0.14em;padding:4px 10px;background:rgba(2,8,16,0.85);border:1px solid rgba(0,212,255,0.35);color:var(--cyan)}
-.film-info{padding:20px 20px 0;flex:1}
-.film-num{font-size:0.42rem;letter-spacing:0.22em;color:var(--green);margin-bottom:10px}
+.film-info{padding:20px 20px 24px;flex:1}
+.film-num{font-size:0.95rem;font-weight:700;letter-spacing:0.18em;color:var(--green);margin-bottom:14px}
 .film-num.cyan{color:var(--cyan)}
 .film-title{font-size:0.82rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:10px}
 .film-sub{font-size:0.55rem;font-weight:300;color:var(--muted);line-height:1.7}
@@ -1698,7 +1698,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     <li><a href="#" onclick="openPanel('esg');return false;"><span class="mn">ESG</span><span class="en">ESG</span></a></li>
     <li><a href="#" onclick="openPanel('films');return false;"><span class="mn">Баримтат кино</span><span class="en">Films</span></a></li>
     <li><a href="#" onclick="openPanel('events');return false;"><span class="mn">Арга хэмжээ</span><span class="en">Events</span></a></li>
-    <li><a href="/portal.html" class="n-cta">▶ <span class="mn">ХАРИЛЦАГЧ НЭВТРЭХ</span><span class="en">CLIENT LOGIN</span></a></li>
+    <li style="display:none"><a href="/portal.html" class="n-cta">▶ <span class="mn">ХАРИЛЦАГЧ НЭВТРЭХ</span><span class="en">CLIENT LOGIN</span></a></li>
   </ul>
   <button id="lang-btn" onclick="toggleLang()">MN | EN</button>
   <button id="mob-menu-btn" aria-label="Menu" onclick="toggleMobMenu()">
@@ -1721,7 +1721,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
       <li><a href="#" onclick="openPanel('esg');closeMobMenu();return false;"><span class="mob-num">04</span><span class="mob-label">ESG</span><span class="mob-arrow">→</span></a></li>
       <li><a href="#" onclick="openPanel('films');closeMobMenu();return false;"><span class="mob-num">05</span><span class="mob-label"><span class="mn">Баримтат кино</span><span class="en">Films</span></span><span class="mob-arrow">→</span></a></li>
       <li><a href="#" onclick="openPanel('events');closeMobMenu();return false;"><span class="mob-num">06</span><span class="mob-label"><span class="mn">Арга хэмжээ</span><span class="en">Events</span></span><span class="mob-arrow">→</span></a></li>
-      <li class="mob-cta-item"><a href="/portal.html" onclick="closeMobMenu()"><span class="mob-num">▶</span><span class="mob-label"><span class="mn">ХАРИЛЦАГЧ НЭВТРЭХ</span><span class="en">CLIENT LOGIN</span></span><span class="mob-arrow">→</span></a></li>
+      <li class="mob-cta-item" style="display:none"><a href="/portal.html" onclick="closeMobMenu()"><span class="mob-num">▶</span><span class="mob-label"><span class="mn">ХАРИЛЦАГЧ НЭВТРЭХ</span><span class="en">CLIENT LOGIN</span></span><span class="mob-arrow">→</span></a></li>
     </ul>
   </div>
   <div id="mob-menu-foot">
@@ -2690,15 +2690,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <span class="seq-tab-label"><span class="mn">СУДАЛГАА</span><span class="en">SURVEY</span></span>
       </button>
       <button class="seq-tab" data-phase="1">
-        <span class="seq-tab-num">05 — 08</span>
-        <span class="seq-tab-label"><span class="mn">ИНЖЕНЕРЧЛЭЛ</span><span class="en">ENGINEER</span></span>
+        <span class="seq-tab-num">05 — 09</span>
+        <span class="seq-tab-label"><span class="mn">ДЭД БҮТЭЦ</span><span class="en">INFRASTRUCTURE</span></span>
       </button>
       <button class="seq-tab" data-phase="2">
-        <span class="seq-tab-num">09 — 12</span>
+        <span class="seq-tab-num">10 — 13</span>
         <span class="seq-tab-label"><span class="mn">ТАРИЛТ</span><span class="en">PLANT</span></span>
       </button>
       <button class="seq-tab" data-phase="3">
-        <span class="seq-tab-num">13 — 16</span>
+        <span class="seq-tab-num">14 — 16</span>
         <span class="seq-tab-label"><span class="mn">ХЯНАЛТ</span><span class="en">MONITOR</span></span>
       </button>
     </div>
@@ -2727,7 +2727,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         </div>
         <div class="step-card-body">
           <div class="step-num">03</div>
-              <div class="step-title"><span class="mn">ЛАНДШАФТЫН зураглал</span><span class="en">Site Mapping</span></div>
+              <div class="step-title"><span class="mn">АЖЛЫН ЗУРАГ</span><span class="en">Working Drawing</span></div>
         </div>
       </div>
       <div class="step-card">
@@ -2777,24 +2777,24 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">ХӨРС БОЛОВСРУУЛАЛТ</span><span class="en">SOIL CULTIVATION</span></div>
         </div>
       </div>
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img class="step-img" src="" data-src="assets/timeline/10.webp" alt="Step 09">
+        </div>
+        <div class="step-card-body">
+          <div class="step-num">09</div>
+              <div class="step-title"><span class="mn">ХАШААЖУУЛТ</span><span class="en">FENCING</span></div>
+        </div>
+      </div>
     </div>
     <div class="step-panel" data-phase="2">
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/09.webp" alt="Step 09">
-        </div>
-        <div class="step-card-body">
-          <div class="step-num">09</div>
-              <div class="step-title"><span class="mn">МОДНЫ НҮХ УХАЛТ</span><span class="en">DIGGING TREE HOLES</span></div>
-        </div>
-      </div>
-      <div class="step-card">
-        <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/10.webp" alt="Step 10">
+          <img class="step-img" src="" data-src="assets/timeline/09.webp" alt="Step 10">
         </div>
         <div class="step-card-body">
           <div class="step-num">10</div>
-              <div class="step-title"><span class="mn">ХАШААЖУУЛТ</span><span class="en">FENCING</span></div>
+              <div class="step-title"><span class="mn">МОДНЫ НҮХ УХАЛТ</span><span class="en">DIGGING TREE HOLES</span></div>
         </div>
       </div>
       <div class="step-card">
@@ -2815,8 +2815,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">МОД ТАРИХ</span><span class="en">PLANTING TREES</span></div>
         </div>
       </div>
-    </div>
-    <div class="step-panel" data-phase="3">
       <div class="step-card">
         <div class="step-img-wrap">
           <img class="step-img" src="" data-src="assets/timeline/13.webp" alt="Step 13">
@@ -2826,9 +2824,11 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
               <div class="step-title"><span class="mn">УСАЛГААНЫ СИСТЕМ УГСРАХ</span><span class="en">INSTALLING AN IRRIGATION SYSTEM</span></div>
         </div>
       </div>
+    </div>
+    <div class="step-panel" data-phase="3">
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/14.webp" alt="Step 14">
+          <img class="step-img contain" src="" data-src="assets/timeline/14.webp" alt="Step 14">
         </div>
         <div class="step-card-body">
           <div class="step-num">14</div>
@@ -3244,7 +3244,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <div class="gz-archive-grid">
         <button class="gz-archive-card" type="button" data-pdf="assets/gozero/go-zero-2022.pdf" data-title="GO ZERO 2022">
           <div class="gz-archive-thumb">
-            <img class="gz-archive-cover" src="assets/gozero/go-zero-2022.jpg" alt="GO ZERO 2022 cover" loading="lazy">
+            <img class="gz-archive-cover" src="assets/gozero/go-zero-2022.jpg?v=2" alt="GO ZERO 2022 cover" loading="lazy">
             <div class="gz-archive-thumb-glyph">◧</div>
           </div>
           <div class="gz-archive-info">
@@ -3254,7 +3254,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         </button>
         <button class="gz-archive-card" type="button" data-pdf="assets/gozero/go-zero-2023.pdf" data-title="GO ZERO 2023">
           <div class="gz-archive-thumb">
-            <img class="gz-archive-cover" src="assets/gozero/go-zero-2023.jpg" alt="GO ZERO 2023 cover" loading="lazy">
+            <img class="gz-archive-cover" src="assets/gozero/go-zero-2023.jpg?v=2" alt="GO ZERO 2023 cover" loading="lazy">
             <div class="gz-archive-thumb-glyph">◧</div>
           </div>
           <div class="gz-archive-info">
@@ -3289,14 +3289,13 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <div class="prod-grid cols-2">
         <div class="prod-card accent-cyan" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
           <div class="prod-tag lg">ART N TECH FESTIVAL 2022</div>
-          <video class="ate-video" controls preload="metadata" playsinline poster="assets/ate/art-n-tech-2022.png" style="width:100%;display:block;margin-top:14px;background:#000">
+          <video class="ate-video" controls preload="metadata" playsinline poster="assets/ate/festival-2022.jpg" style="width:100%;aspect-ratio:16/9;display:block;margin-top:14px;background:#000;object-fit:cover">
             <source src="assets/ate/green-land-in-gobi-2022.mp4" type="video/mp4">
           </video>
-          <p class="prod-desc" style="margin-top:14px"><span class="mn">"Green Land in Gobi" — 2022 оны наадмын тойм видео.</span><span class="en">"Green Land in Gobi" — 2022 festival highlights.</span></p>
         </div>
         <div class="prod-card accent-cyan" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
           <div class="prod-tag lg">ART N TECH FESTIVAL 2025</div>
-          <p class="prod-desc"><span class="mn">2025 оны наадмын мэдээлэл удахгүй нэмэгдэнэ.</span><span class="en">2025 festival details coming soon.</span></p>
+          <img src="assets/ate/festival-2025.jpg" alt="ART N TECH Festival 2025" loading="lazy" style="width:100%;aspect-ratio:16/9;display:block;margin-top:14px;background:#000;object-fit:cover">
         </div>
       </div>
     </div>
@@ -3336,7 +3335,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="sl"><span class="mn">Говий · Урлаг · Технологи</span><span class="en">Gobi · Art · Technology</span></div>
         <h2 class="st"><span class="mn">БАРИМТАТ <em>КИНО</em></span><span class="en">DOCUMENTARY <em>FILMS</em></span></h2>
       </div>
-      <p style="font-size:0.6rem;font-weight:300;color:var(--muted);max-width:260px;text-align:right;line-height:1.8"><span class="mn">Шамбала 2056-ийн 3 баримтат кино — Говийн сэргэлт, урлаг, технологийн уулзварт бүтээгдсэн</span><span class="en">3 documentaries from Shambala 2056 — created at the intersection of Gobi restoration, art and technology</span></p>
     </div>
 
     <div class="films-grid">
@@ -3345,7 +3343,6 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <div class="film-card" data-video="assets/films/building-gobi-future-2.mp4" data-poster="assets/films/building-gobi-future-2.jpg">
         <div class="film-poster film-poster-play" role="button" tabindex="0" aria-label="Видео тоглуулах">
           <img src="assets/films/building-gobi-future-2.jpg" alt="Говийн ирээдүйг бүтээх нь 2.0" loading="lazy">
-          <div class="film-badge">▶ <span class="mn">Тоглуулах</span><span class="en">Play</span></div>
           <div class="film-play-btn" aria-hidden="true">▶</div>
         </div>
         <div class="film-info">
@@ -3357,10 +3354,9 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 
     
       <!-- 02· Re-Generation: Greenland in Gobi -->
-      <div class="film-card" data-video="assets/ate/green-land-in-gobi-2022.mp4" data-poster="assets/films/green-land-in-gobi-2022.jpg">
+      <div class="film-card" data-video="assets/ate/green-land-in-gobi-2022.mp4" data-poster="assets/films/green-land-in-gobi-2022.jpg?v=3">
         <div class="film-poster film-poster-play" role="button" tabindex="0" aria-label="Видео тоглуулах">
-          <img src="assets/films/green-land-in-gobi-2022.jpg" alt="Greenland in Gobi" loading="lazy">
-          <div class="film-badge">▶ <span class="mn">Тоглуулах</span><span class="en">Play</span></div>
+          <img src="assets/films/green-land-in-gobi-2022.jpg?v=3" alt="Greenland in Gobi" loading="lazy">
           <div class="film-play-btn" aria-hidden="true">▶</div>
         </div>
         <div class="film-info">
@@ -3373,13 +3369,12 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <div class="film-card" data-video="assets/films/art-n-tech-teaser.mp4" data-poster="assets/films/art-n-tech-teaser.jpg">
         <div class="film-poster film-poster-play" role="button" tabindex="0" aria-label="Видео тоглуулах">
           <img src="assets/films/art-n-tech-teaser.jpg" alt="Art N Tech" loading="lazy">
-          <div class="film-badge">▶ <span class="mn">Тоглуулах</span><span class="en">Play</span></div>
           <div class="film-play-btn" aria-hidden="true">▶</div>
         </div>
         <div class="film-info">
-          <div class="film-num">03</div>
+          <div class="film-num">03 · 2024</div>
           <div class="film-title">ART N TECH</div>
-          <div class="film-sub"><span class="mn">Шамбала2056 · Нүүдэлчдийн урлаг ба технологийн наадам · Баримтат кино</span><span class="en">Shambala2056 · Nomadic art & technology festival · Documentary</span></div>
+          <div class="film-sub"><span class="mn">Урлаг ба Технологи</span><span class="en">Art &amp; Technology</span></div>
         </div>
       </div>
 
