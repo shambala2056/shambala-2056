@@ -83,7 +83,7 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 .h-bg{position:absolute;inset:0;
   background-image:url("hero-bg.webp");
   background-size:cover;background-position:center 35%;
-  filter:brightness(0.42) saturate(0.6)}
+  filter:brightness(0.78) saturate(0.95)}
 .h-grid{position:absolute;inset:0;
   background-image:
     linear-gradient(rgba(0,255,136,0.035) 1px,transparent 1px),
@@ -112,8 +112,7 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 .h-title{font-family:'Montserrat',sans-serif;font-weight:900;line-height:0.88;
   letter-spacing:0.04em;margin-bottom:8px;animation:fu 0.8s ease 0.35s both}
 .h-title .l1{font-size:clamp(3rem,7vw,7.5rem);color:var(--white)}
-.h-title .l2{font-size:clamp(3rem,7vw,7.5rem);color:transparent;
-  -webkit-text-stroke:1.5px rgba(0,255,136,0.3)}
+.h-title .l2{font-size:clamp(3rem,7vw,7.5rem);color:var(--white)}
 .h-title .l3{font-size:clamp(1.2rem,2.9vw,3rem);color:var(--green);font-weight:300;white-space:nowrap;
   text-shadow:0 0 60px rgba(0,255,136,0.4),0 0 120px rgba(0,255,136,0.15)}
 .h-sub{font-family:'Montserrat',sans-serif;font-size:0.72rem;letter-spacing:0.28em;
@@ -1257,10 +1256,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="h-bg"></div>
-  <canvas id="hero-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:0.55"></canvas>
-  <div class="h-grid"></div>
   <div class="h-vignette"></div>
-  <div class="h-scanline"></div>
   <div class="h-inner">
     <div class="h-left">
       <div class="h-tag">
@@ -1334,8 +1330,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="sat">NASA MODIS</div>
           <div class="sat">Sentinel-5P</div>
           <div class="sat">Sentinel-2</div>
-          <div class="sat">LIDAR</div>
-          <div class="sat">IoT LoRa</div>
         </div>
       </div>
     </div>
@@ -1349,7 +1343,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">BE HUMAN ЛЭНД АРТ · 21,857 МОД ·  30,000 М²</span><span class="en">BE HUMAN LAND ART · 21,857 TREES ·  30,000 М²</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ART N TECH ·  36,000 МОД ·  38,970 М² ·  10 кВт</span><span class="en">ART N TECH ·  36,000 TREES ·  38,970 М² ·  10 kWt</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">MONGOLZ#1 ·  100,000 МОД ·  40,000 М² ·  20 кВт</span><span class="en">MONGOLZ#1 ·  100,000 TREES ·  40,000 М² ·  20 kWt</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span>NASA MODIS · SENTINEL-5P · SENTINEL-2 · LIDAR</span>
+    <span class="tk-item"><span class="tk-sep">◈</span>NASA MODIS · SENTINEL-5P · SENTINEL-2</span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">НИЙТ БИОМАСС 114,906 ТОНН</span><span class="en">TOTAL BIOMASS 114,906 TONNES</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">CO₂ ШИНГЭЭЛТ 33,603,913 кг/жил</span><span class="en">CO₂ ABSORPTION 33,603,913 kg/year</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ДУСЛЫН УСАЛГААНЫ СИСТЕМ ·  18,000м ХООЛОЙ</span><span class="en">DRIP IRRIGATION SYSTEM ·  18,000m PIPE</span></span>
@@ -1358,7 +1352,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">BE HUMAN ЛЭНД АРТ ·  21,857 МОД — 30,000 М²</span><span class="en">BE HUMAN LAND ART ·  21,857 TREES ·  30,000 М²</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">АRT N TECH ·  36,000 МОД ·  38,970 М² ·  10 кВт</span><span class="en">ART N TECH ·  36,000 TREES ·  38,970 М² ·  10 kWt</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">МONGOLZ#1 ·  100,000 МОД ·  40,000 М² ·  20 кВт</span><span class="en">MONGOLZ #1 · 100,000 TREES ·  40,000 М² ·  20 kWt</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span>NASA MODIS · SENTINEL-5P · SENTINEL-2 · LIDAR</span>
+    <span class="tk-item"><span class="tk-sep">◈</span>NASA MODIS · SENTINEL-5P · SENTINEL-2</span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">НИЙТ БИОМАСС 114,906 ТОНН</span><span class="en">TOTAL BIOMASS 114,906 TONNES</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">CO₂ ШИНГЭЭЛТ 33,603,913 кг/жил</span><span class="en">CO₂ ABSORPTION 33,603,913 kg/year</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ДУСЛЫН УСАЛГААНЫ СИСТЕМ · 18,000м ХООЛОЙ</span><span class="en">DRIP IRRIGATION SYSTEM · 18,000m PIPE</span></span>
@@ -2779,26 +2773,26 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 
     <div class="prod-divider"></div>
 
-    <!-- ── CATEGORY 2: ART N TECH FESTIVAL 2 ── -->
+    <!-- ── CATEGORY 2: ART N TECH FESTIVAL ── -->
     <div class="prod-block">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
         <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--cyan)">02 ·</div>
-        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)">ART N TECH FESTIVAL 2</div>
+        <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)">ART N TECH FESTIVAL</div>
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,136,0.3),transparent)"></div>
         <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">2026 · 08 · 22</span><span class="en">22 AUG 2026</span></div>
       </div>
-      <div class="prod-grid cols-1">
+      <p class="prod-desc" style="margin-bottom:24px"><span class="mn">Монгол орны цөлжилттэй бус нутагт дэлхийн тогтвортой хөгжлийн зорилтуудын хүрээнд үндэсний соёл уламжлал, монгол хүний оюуны бүтээлийг инноваци, зохиогчийн эрхэд тулгуурлан эдийн засгийн эргэлтэд оруулж, соёлын үйлдвэрлэлийг хөгжүүлэх замаар монгол соёлын нөлөөг дэлхий нийтэд сурталчлан таниулахад оршино.</span><span class="en">Within Mongolia's non-desertified territories and the framework of the global Sustainable Development Goals, our mission is to bring national heritage and Mongolian intellectual creations into economic circulation through innovation and copyright, develop cultural production, and promote Mongolian cultural influence to the world.</span></p>
+      <div class="prod-grid cols-2">
         <div class="prod-card accent-cyan" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
-          <p class="prod-desc"><span class="mn">Art n Tech Festival-ийн хоёрдугаар хэвлэл. Говийн хөдөөгийн байгалийн дэвсгэр дээр урлаг, технологи, байгаль орчны инновацийг нэгтгэсэн хоёр өдрийн олон нийтийн фестиваль.</span><span class="en">Second edition of Art n Tech Festival. A two-day public festival merging art, technology and environmental innovation against the backdrop of the Gobi steppe.</span></p>
-          <ul class="prod-feats">
-            <li><span class="arrow c">▸</span><strong style="color:var(--cyan);font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;margin-right:10px">DAY 1</strong><span class="mn">Лэнд артын нэвтрүүлэг · Технологийн үзэсгэлэн</span><span class="en">Land art showcase · Tech exhibition</span></li>
-            <li><span class="arrow c">▸</span><strong style="color:var(--cyan);font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;margin-right:10px">DAY 1</strong><span class="mn">Хиймэл дагуулын шууд дамжуулал</span><span class="en">Live satellite data demonstration</span></li>
-            <li><span class="arrow c">▸</span><strong style="color:var(--cyan);font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;margin-right:10px">DAY 2</strong><span class="mn">Мод тарих · Говийн аялал · Нээлттэй студи</span><span class="en">Tree planting · Gobi tour · Open studio</span></li>
-          </ul>
-          <div class="prod-buy cyan">
-            <div class="prod-buy-label"><span class="mn">Бүртгүүлэх</span><span class="en">Register</span></div>
-            <a href="mailto:hello@shambala.today" class="prod-buy-link cyan">hello@shambala.today <span class="prod-buy-arrow">→</span></a>
-          </div>
+          <div class="prod-tag lg">ART N TECH FESTIVAL 2022</div>
+          <video class="ate-video" controls preload="metadata" playsinline poster="assets/ate/art-n-tech-2022.png" style="width:100%;display:block;margin-top:14px;background:#000">
+            <source src="assets/ate/green-land-in-gobi-2022.mp4" type="video/mp4">
+          </video>
+          <p class="prod-desc" style="margin-top:14px"><span class="mn">"Green Land in Gobi" — 2022 оны наадмын тойм видео.</span><span class="en">"Green Land in Gobi" — 2022 festival highlights.</span></p>
+        </div>
+        <div class="prod-card accent-cyan" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
+          <div class="prod-tag lg">ART N TECH FESTIVAL 2025</div>
+          <p class="prod-desc"><span class="mn">2025 оны наадмын мэдээлэл удахгүй нэмэгдэнэ.</span><span class="en">2025 festival details coming soon.</span></p>
         </div>
       </div>
     </div>
