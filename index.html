@@ -811,6 +811,8 @@ html[data-theme="light"] .fb{border-color:rgba(0,0,0,0.12);color:rgba(0,0,0,0.4)
 /* Theme transition */
 html{transition:background .4s,color .4s}
 body,nav,.hud,.la-card,.nasa-card,.pkg-card,.cta-box,footer{transition:background .4s,color .4s,border-color .4s,box-shadow .4s}
+nav{transition:background .4s,color .4s,border-color .4s,box-shadow .4s,transform .32s cubic-bezier(.4,0,.2,1)}
+nav.nav--hidden{transform:translateY(-100%)}
 
 
 /* ═══ PHASE TIMELINE ═════════════════════════════════════════════════════ */
@@ -1755,10 +1757,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
         <span class="mn">Монгол улсад тогтвортой хөгжлийн зорилтуудыг хангасан олон улсын эрдэм шинжилгээ, судалгааны хүрээлэнг байгуулах.</span>
         <span class="en">Restoring the Gobi Desert through international research and monitoring. </span>
       </p>
-      <div class="h-btns">
-        <a href="#" onclick="openPanel('packages');return false;" class="btn-p">▶ <span class="mn">БҮТЭЭГДЭХҮҮН</span><span class="en">PRODUCTS</span></a>
-        <a href="#" onclick="openPanel('landarts');return false;" class="btn-g">◈ <span class="mn">ЛЭНД АРТ</span><span class="en">LAND ART</span></a>
-      </div>
     </div>
 
     <div class="h-right">
@@ -3863,6 +3861,24 @@ function esgCalc(){
   }
 })();
 
+/* ── Smart Nav (hide on scroll-down, show on scroll-up) ── */
+(function(){
+  var nav=document.querySelector('nav');
+  var lastY=window.scrollY,ticking=false,menuOpen=false;
+  window.addEventListener('scroll',function(){
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(function(){
+      var y=window.scrollY;
+      if(menuOpen||y<80){nav.classList.remove('nav--hidden');}
+      else if(y>lastY+6){nav.classList.add('nav--hidden');}
+      else if(y<lastY-4){nav.classList.remove('nav--hidden');}
+      lastY=y;ticking=false;
+    });
+  },{passive:true});
+  window._setNavMenuOpen=function(v){menuOpen=v;if(v)nav.classList.remove('nav--hidden');};
+})();
+
 /* ── Mobile Menu ────────────────────────────────────── */
 window.toggleMobMenu = function(){
   var btn = document.getElementById('mob-menu-btn');
@@ -3873,6 +3889,7 @@ window.toggleMobMenu = function(){
     menu.style.display='flex';
     requestAnimationFrame(function(){ menu.classList.add('open'); });
     document.body.style.overflow='hidden';
+    if(window._setNavMenuOpen) window._setNavMenuOpen(true);
   } else {
     closeMobMenu();
   }
@@ -3883,6 +3900,7 @@ window.closeMobMenu = function(){
   btn.classList.remove('open');
   menu.classList.remove('open');
   document.body.style.overflow='';
+  if(window._setNavMenuOpen) window._setNavMenuOpen(false);
   setTimeout(function(){ if(!menu.classList.contains('open')) menu.style.display='none'; }, 400);
 };
 
