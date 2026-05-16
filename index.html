@@ -25,6 +25,9 @@ document.documentElement.removeAttribute('data-theme');
 @font-face{font-family:'ChakraNums';src:url('https://fonts.gstatic.com/s/chakrapetch/v13/cIflMapbsEk7TDLdtEz1BwkeQI5FQA.ttf') format('truetype');font-weight:600;unicode-range:U+0030-0039,U+002E,U+002C}
 @font-face{font-family:'ChakraNums';src:url('https://fonts.gstatic.com/s/chakrapetch/v13/cIflMapbsEk7TDLdtEz1BwkeJI9FQA.ttf') format('truetype');font-weight:700;unicode-range:U+0030-0039,U+002E,U+002C}
 @font-face{font-family:'ChakraNums';src:url('https://fonts.gstatic.com/s/chakrapetch/v13/cIflMapbsEk7TDLdtEz1BwkeJI9FQA.ttf') format('truetype');font-weight:900;unicode-range:U+0030-0039,U+002E,U+002C}
+/* ═════ Force all text uppercase site-wide ═════ */
+body,body *{text-transform:uppercase!important}
+input,textarea,select{text-transform:none!important}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 :root{
@@ -623,6 +626,32 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
   .pil-head{flex-direction:column;align-items:flex-start}
   .pil-desc{text-align:left}
 }
+/* ═════ DIAGRAM + PHASE-CLICK CASCADE mode — 3-pillars explanations hidden, phase cards reveal detail on click ═════ */
+.pil-detail{display:none!important}
+.agi-embed > section#agi-vision,
+.agi-embed > section#agi-synergy,
+.agi-embed > section#agi-trends,
+.agi-embed > section#agi-phases,
+.agi-embed > section#agi-growth,
+.agi-embed > section#agi-risks{display:none!important}
+/* Phase I — horizontal-scroll panorama (Dari's shambala-timeline-2024.jpg, 14998×2143) */
+.agi-embed .p1-pano{position:relative;background:var(--bg-0);border:1px solid #1F1F2E;margin:0;overflow:hidden}
+.agi-embed .p1-pano::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#F5C543,#F0A04B,transparent);z-index:3}
+.agi-embed .p1-pano-scroll{overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar{height:6px}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar-thumb{background:rgba(245,197,67,0.45);border-radius:3px}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar-thumb:hover{background:rgba(245,197,67,0.7)}
+.agi-embed .p1-pano-img{height:520px;width:auto;display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.agi-embed .p1-pano-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(2,8,16,.82);backdrop-filter:blur(6px);border:1px solid rgba(245,197,67,.4);color:#F5C543;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .2s;z-index:5;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.agi-embed .p1-pano-arrow:hover{background:rgba(245,197,67,.18);border-color:#F5C543;color:#fff;transform:translateY(-50%) scale(1.05)}
+.agi-embed .p1-pano-arrow.left{left:18px}
+.agi-embed .p1-pano-arrow.right{right:18px}
+.agi-embed .p1-pano-arrow svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.agi-embed .p1-pano-cap{position:absolute;left:18px;bottom:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:#F5C543;background:rgba(2,8,16,.88);padding:7px 14px;border:1px solid rgba(245,197,67,.35);text-transform:uppercase;z-index:4}
+@media(max-width:768px){.agi-embed .p1-pano-img{height:340px}.agi-embed .p1-pano-arrow{width:38px;height:38px}.agi-embed .p1-pano-arrow svg{width:15px;height:15px}.agi-embed .p1-pano-cap{font-size:9px;padding:5px 10px}}
+/* Cascade drawer padding override when Phase I is active — let the panorama go edge-to-edge */
+.agi-embed .tl-expand-inner:has(.p1-pano){padding:0}
 /* ═════ INTERACTIVE PILLAR DIAGRAM ═════ */
 .pil-stage{position:relative}
 .pil-diagram svg [data-pil]{cursor:pointer;transition:filter .35s ease,opacity .35s ease}
@@ -2092,48 +2121,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   </div>
 </div>
 
-<!-- HOME TIMELINE — horizontal scrollable panorama -->
-<style>
-.h-tl-s{position:relative;background:var(--void);padding:28px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
-.h-tl-scroll{overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-.h-tl-scroll::-webkit-scrollbar{height:6px}
-.h-tl-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}
-.h-tl-scroll::-webkit-scrollbar-thumb{background:rgba(57,173,72,0.35);border-radius:3px}
-.h-tl-scroll::-webkit-scrollbar-thumb:hover{background:rgba(57,173,72,0.55)}
-.h-tl-img{height:680px;width:auto;display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
-.h-tl-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(2,8,16,0.78);backdrop-filter:blur(6px);
-  border:1px solid rgba(57,173,72,0.35);color:var(--white);cursor:pointer;
-  transition:background .2s,border-color .2s,color .2s;z-index:5;
-  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
-.h-tl-arrow:hover{background:rgba(57,173,72,0.18);border-color:var(--green);color:var(--green)}
-.h-tl-arrow.left{left:20px}
-.h-tl-arrow.right{right:20px}
-.h-tl-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-html[data-theme="light"] .h-tl-s{background:#f8f8f8;border-color:rgba(0,0,0,0.08)}
-html[data-theme="light"] .h-tl-arrow{background:rgba(255,255,255,0.9);color:#1a1a1a;border-color:rgba(0,0,0,0.15)}
-html[data-theme="light"] .h-tl-arrow:hover{background:rgba(57,173,72,0.12);color:var(--green);border-color:var(--green)}
-@media(max-width:768px){.h-tl-img{height:380px}.h-tl-arrow{width:36px;height:36px}.h-tl-arrow svg{width:14px;height:14px}}
-</style>
-<section class="h-tl-s" aria-label="Shambala 2020-2056 Timeline">
-  <button class="h-tl-arrow left" type="button" onclick="hTlScroll(-1)" aria-label="Scroll left">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <div class="h-tl-scroll" id="h-tl-scroll">
-    <img class="h-tl-img" src="assets/timeline/shambala-timeline-2024.jpg" alt="Shambala Timeline 2020–2056" loading="lazy">
-  </div>
-  <button class="h-tl-arrow right" type="button" onclick="hTlScroll(1)" aria-label="Scroll right">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-</section>
-<script>
-function hTlScroll(dir){
-  var el=document.getElementById('h-tl-scroll');
-  if(!el)return;
-  el.scrollBy({left:dir*el.clientWidth*0.85,behavior:'smooth'});
-}
-</script>
 
 <!-- TIMELINE / DEVELOPMENT PILLARS — pillars visible; year carousel hidden until milestone reveal -->
 <section class="tl-s reveal" id="timeline">
@@ -2224,8 +2211,7 @@ function hTlScroll(dir){
           <g class="pil-node-agi" data-pil="agi" tabindex="0" role="button" aria-label="AGI pillar" style="color:#39AD48">
             <circle class="pil-node-ring" cx="350" cy="100" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
             <circle cx="350" cy="100" r="68" fill="none" stroke="#39AD48" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
-            <text x="350" y="96" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#39AD48" letter-spacing="3">AGI</text>
-            <text x="350" y="115" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn-sw">ОЮУН УХААН</tspan></text>
+            <text x="350" y="106" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#39AD48" letter-spacing="3">AGI</text>
           </g>
 
           <!-- Node: SOLAR (bottom-left) -->
@@ -2233,7 +2219,7 @@ function hTlScroll(dir){
             <circle class="pil-node-ring" cx="170" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
             <circle cx="170" cy="490" r="68" fill="none" stroke="#F5C543" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
             <text x="170" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="16" font-weight="700" fill="#F5C543" letter-spacing="3">SOLAR</text>
-            <text x="170" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn-sw">ЭРЧИМ ХҮЧ</tspan></text>
+            <text x="170" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn">ЭРЧИМ ХҮЧ</tspan><tspan class="en">ENERGY</tspan></text>
           </g>
 
           <!-- Node: CARBON (bottom-right) -->
@@ -2241,155 +2227,12 @@ function hTlScroll(dir){
             <circle class="pil-node-ring" cx="530" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
             <circle cx="530" cy="490" r="68" fill="none" stroke="#00D4FF" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
             <text x="530" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="15" font-weight="700" fill="#00D4FF" letter-spacing="2">CARBON</text>
-            <text x="530" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn-sw">ЗАХ ЗЭЭЛ</tspan></text>
+            <text x="530" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn">ЗАХ ЗЭЭЛ</tspan><tspan class="en">MARKETS</tspan></text>
           </g>
         </svg>
       </div>
 
       <!-- INTERACTIVE DETAIL PANEL -->
-      <div class="pil-detail" data-active="loop">
-        <div class="pil-detail-prompt">
-          <span class="pil-detail-prompt-key"><span class="mn">Схем дээрх 7 цэгийг сонгох</span><span class="en">Select any of 7 zones on the diagram</span></span>
-          <span class="pil-detail-prompt-hint"><span class="mn">3 ТУЛГУУР · 3 СИНЕРГИ · 1 ТӨВ ХААЛТТАЙ ГОГЦОО</span><span class="en">3 PILLARS · 3 SYNERGIES · 1 CENTRAL LOOP</span></span>
-        </div>
-
-        <!-- ── AGI ── -->
-        <div class="pil-card-x agi" data-pil="agi">
-          <div class="pil-card-x-head">
-            <span class="pil-card-x-num">01 / <em>AGI</em></span>
-            <span class="pil-card-x-pill">PILLAR · COGNITIVE LAYER</span>
-          </div>
-          <h3><span class="mn">Хиймэл ерөнхий оюун ухаан</span><span class="en">Artificial General Intelligence</span></h3>
-          <div class="pil-card-x-sub"><span class="mn">Системийн ухаалаг удирдлагын давхарга</span><span class="en">Cognitive Control Plane</span></div>
-          <div class="pil-card-x-body">
-            <p><span class="mn">Шамбала 2056-ийн AGI давхарга нь нарны фермийн физик, материалын химийн судалгаа, дэлхийн карбон зах зээлийн стратеги — гэсэн гурван домэйнд нэгэн зэрэг тооцоолол явуулах бодлогын архитектур. Энэ нь тус тусдаа ажилладаг тусгай мэргэжлийн системүүдийн оронд физик ба эдийн засгийн зарчмын мэдлэгт суурилсан нэгдсэн удирдлагын давхарга үүсгэдэг. Бодит цаг хугацаанд гүйцэтгэх хяналт ба урт хугацааны стратегийн төлөвлөлтийг нэг шийдвэрийн архитектурт нэгтгэнэ.</span><span class="en">Shambala 2056's AGI layer is a unified policy architecture that reasons simultaneously across solar-farm physics, materials chemistry, and global carbon-market strategy. It replaces siloed domain-expert systems with a single decision plane grounded in physical and economic priors — integrating real-time control with long-horizon strategy in one reasoning architecture.</span></p>
-            <ul class="pil-card-x-stats">
-              <li><b><span class="mn">Олон домэйны суурь загвар</span><span class="en">Multi-domain foundation model</span></b> — <span class="mn">физик · цаг уур · зах зээлийн микроструктур</span><span class="en">physics · atmospheric science · market microstructure</span></li>
-              <li><b><span class="mn">Хаалттай гогцоо</span><span class="en">Closed-loop control</span></b> — <span class="mn">таамаглал → диспатч → тооцоо → суралцал</span><span class="en">forecast → dispatch → settlement → continual learning</span></li>
-              <li><b><span class="mn">Эрчим хүчтэй хослуулсан инференс</span><span class="en">PV-colocated inference compute</span></b> — <span class="mn">100% сэргээгдэх эрчим хүчээр тэжээгдэх</span><span class="en">100% renewable-powered training & serving</span></li>
-              <li><b><span class="mn">Аудитад зориулсан үндэслэлийн ул мөр</span><span class="en">Auditable reasoning traces</span></b> — <span class="mn">зохицуулагч байгууллагын нийцэлд</span><span class="en">regulatory & compliance verifiable</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ── SOLAR ── -->
-        <div class="pil-card-x solar" data-pil="solar">
-          <div class="pil-card-x-head">
-            <span class="pil-card-x-num">02 / <em>SOLAR</em></span>
-            <span class="pil-card-x-pill">PILLAR · PRODUCTION LAYER</span>
-          </div>
-          <h3><span class="mn">Нарны сэргээгдэх эрчим хүч</span><span class="en">Solar Renewable Energy</span></h3>
-          <div class="pil-card-x-sub"><span class="mn">Үйлдвэрлэлийн суурь давхарга</span><span class="en">Production Foundation</span></div>
-          <div class="pil-card-x-body">
-            <p><span class="mn">Дорноговийн нарны тусгал ~5.5–6.0 кВт·ц/м²/өдөр буюу Азийн хамгийн өндөр илчлэгтэй бүсийн нэг. Газрын нөөц, газар хөдлөлийн тогтворжилт, ил гарсан өргөн нутаг дэвсгэр нь үндсэн хэмжээний фотовольтаик суурилуулалтад тохирно. Хүчин чадал нь 100 МВт (PHASE I) → 10 ГВт+ (PHASE IV) хүртэл шат шатаар өргөжих бөгөөд BESS батерейн нөөц, ногоон устөрөгчийн электролиз, бүс нутгийн электрон сүлжээний экспортыг хамарна.</span><span class="en">Dornogovi's irradiance of ~5.5–6.0 kWh/m²/day places it among Asia's highest insolation regions, with the land availability, seismic stability, and open terrain required for utility-scale PV. Capacity scales in phases from 100 MW (Phase I) toward 10 GW+ (Phase IV), integrated with BESS energy storage, green-hydrogen electrolysis, and regional grid-export pathways.</span></p>
-            <ul class="pil-card-x-stats">
-              <li><b><span class="mn">Битфэйшиал монокристалл цахиур</span><span class="en">Bifacial monocrystalline silicon</span></b> — <span class="mn">перовскит тандем эс рүү шилжих зам зураг</span><span class="en">perovskite/Si tandem cell roadmap</span></li>
-              <li><b><span class="mn">DC-нийлсэн BESS батерей</span><span class="en">DC-coupled BESS</span></b> — <span class="mn">налуу зөөлрүүлэлт ба нэмэлт үйлчилгээ</span><span class="en">ramp smoothing & ancillary services</span></li>
-              <li><b><span class="mn">100 МВт электролизийн туршилт</span><span class="en">100 MW electrolyzer pilot</span></b> — <span class="mn">ногоон H₂ / NH₃ экспорт</span><span class="en">green H₂ / NH₃ export pathway</span></li>
-              <li><b><span class="mn">Хүчин чадлын ашиглалт 24–28%</span><span class="en">Capacity factor 24–28%</span></b> — <span class="mn">Герман ~14% · Испани ~22% харьцуулбал</span><span class="en">vs. Germany ~14% · Spain ~22%</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ── CARBON ── -->
-        <div class="pil-card-x carbon" data-pil="carbon">
-          <div class="pil-card-x-head">
-            <span class="pil-card-x-num">03 / <em>CARBON</em></span>
-            <span class="pil-card-x-pill">PILLAR · VALUE LAYER</span>
-          </div>
-          <h3><span class="mn">Карбон зах зээл, кредит</span><span class="en">Carbon Markets & Credits</span></h3>
-          <div class="pil-card-x-sub"><span class="mn">Үнэлэмжийн давхарга</span><span class="en">Monetization Layer</span></div>
-          <div class="pil-card-x-body">
-            <p><span class="mn">Монголын нүүрс давамгайлсан сүлжээний ялгаралтын коэффициент ~1.0 тCO₂e/МВт·ц нь Ази тивд хамгийн өндөр түвшинд тооцогддог. Эндээс үүсэх кредит нь Verra VCS, Gold Standard, Парисын хэлэлцээрийн 6.4-р зүйлийн ITMO механизмд тэнцэх ба AGI-аар явуулагдах dMRV нь ICVCM-ийн Core Carbon Principles стандартад нийцсэн өндөр нэгдмэл байдлын түвшинд үнэлэгдэнэ. Энэхүү additionality давуу тал нь цэвэр сүлжээтэй орнуудад давтан үүсгэх боломжгүй структуртай боломж юм.</span><span class="en">Mongolia's coal-heavy grid emissions factor of ~1.0 tCO₂e/MWh ranks among the highest in Asia, placing credits originating here in a structurally advantaged additionality tier. Issuances are eligible under Verra VCS, Gold Standard, and Article 6.4 ITMO pathways, with AGI-driven dMRV positioning them at the integrity tier defined by the ICVCM Core Carbon Principles — a structural opportunity that cleaner-grid jurisdictions cannot replicate.</span></p>
-            <ul class="pil-card-x-stats">
-              <li><b><span class="mn">VCS · Gold Standard · Article 6.4</span><span class="en">VCS · Gold Standard · Article 6.4</span></b> — <span class="mn">олон стандарт хосолсон баталгаажуулалт</span><span class="en">multi-standard issuance pathway</span></li>
-              <li><b><span class="mn">Тасралтгүй dMRV</span><span class="en">Continuous dMRV</span></b> — <span class="mn">сар хүрэхгүй нарийвчлалаар хиймэл дагуул + IoT</span><span class="en">satellite + IoT, sub-monthly granularity</span></li>
-              <li><b><span class="mn">Хамтран байрласан DAC модулиуд</span><span class="en">Co-located DAC modules</span></b> — <span class="mn">TRL 7–8 · нарны эрчим хүчээр тэжээгдэх</span><span class="en">TRL 7–8 · solar-powered</span></li>
-              <li><b><span class="mn">Корпорацийн форвард оффтэйк</span><span class="en">Corporate forward offtake</span></b> — <span class="mn">кредитийн урьдчилсан санхүүжилт</span><span class="en">pre-financed credit pipeline</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ── AGI × SOLAR ── -->
-        <div class="pil-card-x agi-solar" data-pil="agi-solar">
-          <div class="pil-card-x-head">
-            <span class="pil-card-x-num">SYNERGY · <em>AGI × SOLAR</em></span>
-            <span class="pil-card-x-pill">YIELD AMPLIFICATION</span>
-          </div>
-          <h3><span class="mn">AGI × нарны эрчим хүч</span><span class="en">AGI × Solar Operations</span></h3>
-          <div class="pil-card-x-sub"><span class="mn">Үйл ажиллагааны үр ашгийн өсөлт</span><span class="en">Operating Yield Amplification</span></div>
-          <div class="pil-card-x-body">
-            <p><span class="mn">AGI нь нарны фермийг идэвхгүй активаас идэвхтэй оновчилсон активт хувиргана. Трансформерт суурилсан тусгалын таамаглал нь өдрөөс өмнөх зах зээл дэх диспатчийн саналыг бодит гаралттай нягт уялдуулна; бэхжүүлэх сурагч PV, BESS, электролизийн ачааллыг нэгдсэн байдлаар төлөвлөдөг; инвертерийн флот хэмжээний анмалын илрүүлэлт нь хүчин чадлын алдагдлаас өмнө доройтлыг ажиглана. Үр дүн нь хязгаарлалтын дараах бодит гаралтын мэдэгдэхүйц өсөлт ба LCOE-ийн доош чиглэсэн дарамт.</span><span class="en">AGI converts solar from a passive asset into an actively optimized one. Transformer-based irradiance forecasting tightens the gap between dispatch bids and realized output; reinforcement learning jointly schedules PV, BESS, and electrolyzer loads; fleet-wide anomaly detection on inverter telemetry catches degradation before it shows up as yield loss. The net effect is measurable curtailment-adjusted yield uplift and downward pressure on LCOE.</span></p>
-            <ul class="pil-card-x-stats">
-              <li><b>72h <span class="mn">тусгалын таамаглал</span><span class="en">irradiance forecasting</span></b> — <em>&lt;3% MAPE</em></li>
-              <li><b><span class="mn">PV + BESS + H₂ нэгдсэн диспатч</span><span class="en">Joint PV + BESS + H₂ dispatch</span></b> — <em><span class="mn">15–25% бодит гаралтын өсөлт</span><span class="en">15–25% yield lift</span></em></li>
-              <li><b><span class="mn">Инвертерийн анмалын илрүүлэлт</span><span class="en">Inverter anomaly detection</span></b> — <em><span class="mn">төлөвлөгөөгүй зогсолт 30–50% бууруулна</span><span class="en">30–50% unplanned-downtime reduction</span></em></li>
-              <li><b><span class="mn">Идэвхтэй сурах материалын нээлт</span><span class="en">Active-learning materials discovery</span></b> — <span class="mn">перовскит/Si тандем PCE өсгөх</span><span class="en">accelerating perovskite/Si tandem PCE gains</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ── AGI × CARBON ── -->
-        <div class="pil-card-x agi-carbon" data-pil="agi-carbon">
-          <div class="pil-card-x-head">
-            <span class="pil-card-x-num">SYNERGY · <em>AGI × CARBON</em></span>
-            <span class="pil-card-x-pill">INTEGRITY · VERIFICATION</span>
-          </div>
-          <h3><span class="mn">AGI × карбон зах зээл</span><span class="en">AGI × Carbon Markets</span></h3>
-          <div class="pil-card-x-sub"><span class="mn">Баталгаажуулалт ба нэгдмэл байдал</span><span class="en">Verification & Credit Integrity</span></div>
-          <div class="pil-card-x-body">
-            <p><span class="mn">Сайн дурын карбон зах зээлийн хамгийн том сул тал нь баталгаажуулалтын зардал болон кредитийн нэгдмэл байдал. AGI нь хоёуланг нь нэгэн зэрэг хаана: парсель түвшний хиймэл дагуулд суурилсан dMRV, шалтгаант ML-ээр үндэслэсэн baseline ба additionality тооцоо, мэдлэгийн графын үндэслэлээр давхар бүртгэлийн илрүүлэлт. Үр дүн нь зохицуулагчийн нийцлийн оффтэйкэд тохирох, ICVCM-ийн стандартад нийцсэн integrity tier-ийн кредит.</span><span class="en">The voluntary carbon market's chronic weakness is verification cost and credit integrity. AGI closes both at once: parcel-resolution satellite-derived dMRV, causal-ML counterfactual baselines and additionality testing, and cross-registry double-counting prevention via knowledge-graph reasoning. The outcome is credits priced at the integrity tier — eligible for compliance-grade offtake and ICVCM Core Carbon Principles alignment.</span></p>
-            <ul class="pil-card-x-stats">
-              <li><b><span class="mn">Олон үе шатт хиймэл дагуул нэгтгэл</span><span class="en">Multi-sensor satellite fusion</span></b> — <span class="mn">Sentinel-2 · Sentinel-1 SAR · арилжааны нарийвчлалт</span><span class="en">Sentinel-2 · Sentinel-1 SAR · sub-meter commercial</span></li>
-              <li><b><span class="mn">Шалтгаант ML-ийн baseline</span><span class="en">Causal-ML baselines</span></b> — <span class="mn">additionality counterfactual тооцоо</span><span class="en">counterfactual additionality testing</span></li>
-              <li><b><span class="mn">Регистрийн хооронд тулгалт</span><span class="en">Cross-registry reconciliation</span></b> — <span class="mn">давхар бүртгэлээс хамгаалах графын үндэслэл</span><span class="en">knowledge-graph anti-double-counting</span></li>
-              <li><b><span class="mn">Бараг бодит цаг хугацааны MRV</span><span class="en">Near-real-time MRV</span></b> — <em><span class="mn">жил тутмын аудитын оронд</span><span class="en">replacing annual third-party visits</span></em></li>
-              <li><b><span class="mn">Аудитад нийцэх үндэслэлийн ул мөр</span><span class="en">Audit-grade reasoning traces</span></b></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ── SOLAR × CARBON ── -->
-        <div class="pil-card-x solar-carbon" data-pil="solar-carbon">
-          <div class="pil-card-x-head">
-            <span class="pil-card-x-num">SYNERGY · <em>SOLAR × CARBON</em></span>
-            <span class="pil-card-x-pill">STRUCTURAL ADDITIONALITY</span>
-          </div>
-          <h3><span class="mn">Нарны эрчим хүч × карбон зах зээл</span><span class="en">Solar × Carbon Markets</span></h3>
-          <div class="pil-card-x-sub"><span class="mn">Хамгийн өндөр нөлөөтэй CO₂ бууруулалт</span><span class="en">Highest-Impact Mitigation per kWh</span></div>
-          <div class="pil-card-x-body">
-            <p><span class="mn">Монголын сүлжээний ялгаралтын коэффициент ~1.0 тCO₂e/МВт·ц нь Азийн хамгийн өндөр түвшний нэг бөгөөд энд гарсан нарны нэг МВт·ц нь цэвэр сүлжээнд гарсантай харьцуулахад 2–3 дахин их нүүрсийг түрж гарна. Парисын 6.4-р зүйлийн ITMO эрхтэй хосолсон энэ нь бусад орнуудыг давтан үүсгэх боломжгүй структуртай карбон арбитраж бий болгоно. Цаашлаад нарны эрчмээр явуулах green hydrogen болон Direct Air Capture (DAC) нь хатуу декарбоны секторт чиглэсэн экспортын зам нээж байна.</span><span class="en">Mongolia's grid emissions factor of ~1.0 tCO₂e/MWh ranks among the highest in Asia, meaning each solar MWh displaces 2–3× more carbon than in cleaner grids. Combined with Article 6.4 ITMO transferability, this geography produces a structural carbon arbitrage that cleaner jurisdictions cannot replicate. Solar-powered green hydrogen and Direct Air Capture (DAC) further open export pathways to hard-to-abate sectors.</span></p>
-            <ul class="pil-card-x-stats">
-              <li><b><span class="mn">МВт·ц-д ~1.0 тCO₂e тэгшилгээ</span><span class="en">~1.0 tCO₂e displaced per MWh</span></b> — <em><span class="mn">ЕС-д ~0.4 харьцуулбал</span><span class="en">EU avg. ~0.4</span></em></li>
-              <li><b><span class="mn">Article 6.4 ITMO эрх</span><span class="en">Article 6.4 ITMO eligibility</span></b> — <span class="mn">олон улсын шилжүүлэлт</span><span class="en">internationally transferable mitigation outcomes</span></li>
-              <li><b><span class="mn">Ногоон H₂ → NH₃ / метанол</span><span class="en">Green H₂ → NH₃ / methanol</span></b> — <span class="mn">ган · далайн тээвэр · бордоо</span><span class="en">steel · shipping · fertilizer decarbonization</span></li>
-              <li><b><span class="mn">Бага чийгшилт Гоби</span><span class="en">Low-humidity Gobi climate</span></b> — <span class="mn">TRL 7–8 DAC амжилттай ажиллах</span><span class="en">TRL 7–8 DAC technically viable</span></li>
-              <li><b><span class="mn">Карбон-сөрөг үйлдвэрлэлийн зам</span><span class="en">Carbon-negative manufacturing pathway</span></b></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ── CLOSED LOOP (default active) ── -->
-        <div class="pil-card-x loop active" data-pil="loop">
-          <div class="pil-card-x-head">
-            <span class="pil-card-x-num">SHAMBALA 2056 · <em>CLOSED LOOP</em></span>
-            <span class="pil-card-x-pill">SELF-FUNDING FLYWHEEL</span>
-          </div>
-          <h3><span class="mn">Хаалттай гогцоо систем</span><span class="en">Closed-Loop System</span></h3>
-          <div class="pil-card-x-sub"><span class="mn">Өөрөө санхүүжих ба өөрөө сайжрах ээрэг</span><span class="en">Self-Funding, Self-Improving Flywheel</span></div>
-          <div class="pil-card-x-body">
-            <p><span class="mn">Гурван тулгуурын нэгдэл нь өөрийгөө бэхжүүлэх капиталын ээрэг үүсгэнэ: <b>карбон кредитийн орлого</b> нь AGI-ийн компьют ба дараагийн нарны үе шатыг санхүүжүүлж → <b>AGI</b> нь гаралтыг өсгөж илүү олон кредит үүсгэнэ → <b>хүчин чадлын тэлэлт</b> нь тэгшилгээний боломжийг улам нэмэгдүүлнэ. Тус бүрийн сайжруулалт нь нөгөөг үржүүлдэг — нэмэгдэх биш үржигдэх синерги. Цэвэр нарны, цэвэр AGI эсвэл цэвэр карбон төслүүд энэ структурыг давтан үүсгэх боломжгүй.</span><span class="en">The convergence of the three pillars produces a self-reinforcing capital flywheel: <b>carbon credit revenue</b> funds AGI compute and the next phase of solar build-out → <b>AGI</b> raises yield, producing more credits → <b>capacity expansion</b> further increases displacement potential. Each pillar's improvement multiplies the others — multiplicative synergy, not additive. Pure-play solar, pure-play AGI, or pure-play carbon projects cannot replicate this structure.</span></p>
-            <ul class="pil-card-x-stats">
-              <li><b><span class="mn">Үржлэг (нэмлэг биш) синерги</span><span class="en">Multiplicative (not additive) synergy</span></b></li>
-              <li><b><span class="mn">Капиталын эргэлт</span><span class="en">Capital recycling</span></b> — <em>credits → capacity → compute → credits</em></li>
-              <li><b><span class="mn">Нэг шүүхийн интеграц</span><span class="en">Single-jurisdiction integration</span></b> — <span class="mn">масштабтай зохицуулалтын тодорхой байдал</span><span class="en">regulatory clarity at scale</span></li>
-              <li><b><span class="mn">Хамгийн өндөр additionality геобайршил</span><span class="en">Highest-additionality geography</span></b> — <span class="mn">институцийн дархлаа</span><span class="en">institutional moat</span></li>
-              <li><b><span class="mn">32 жилийн хугацаа</span><span class="en">32-year horizon</span></b> — <span class="mn">2024–2056 · глобал нет-зерод уялдсан</span><span class="en">2024–2056 · aligned with global net-zero pathway</span></li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
       <!-- /INTERACTIVE DETAIL PANEL -->
 
       <script>
@@ -3005,8 +2848,8 @@ function hTlScroll(dir){
 }
 .agi-embed .timeline {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
   position: relative;
 }
 @media (max-width: 900px) {
@@ -3066,6 +2909,54 @@ function hTlScroll(dir){
   color: var(--text-2);
   font-size: 13px;
   line-height: 1.55;
+}
+/* ═════ Timeline interactive cascade + motion-graphic connector ═════ */
+.agi-embed .timeline-wrap{position:relative;padding-top:46px}
+.agi-embed .timeline-line{display:none}
+.agi-embed .tl-connector{position:absolute;top:18px;left:0;right:0;width:100%;height:44px;pointer-events:none;z-index:0;overflow:visible}
+.agi-embed .tl-flow-line{animation:tl-flow-anim 1.8s linear infinite}
+@keyframes tl-flow-anim{from{stroke-dashoffset:0}to{stroke-dashoffset:-44}}
+.agi-embed .tl-station{cursor:pointer;pointer-events:auto;transition:r .35s ease,stroke-width .35s ease,filter .35s ease}
+.agi-embed .tl-station:hover{filter:drop-shadow(0 0 8px currentColor)}
+.agi-embed .tl-station-pulse{transform-box:fill-box;transform-origin:center;animation:tl-station-pulse 1.8s ease-out infinite}
+@keyframes tl-station-pulse{0%{r:6;opacity:.7}80%{r:18;opacity:0}100%{r:18;opacity:0}}
+.agi-embed .tl-seg{transition:opacity .5s ease;filter:drop-shadow(0 0 6px currentColor)}
+.agi-embed .tl-seg.lit{opacity:.9}
+.agi-embed .tl-pulse-bead{animation:tl-bead 6.5s ease-in-out infinite;opacity:.85;filter:drop-shadow(0 0 5px #00FF94)}
+@keyframes tl-bead{0%{cx:100;cy:30;opacity:0}5%{opacity:1}25%{cx:300;cy:30;opacity:1}50%{cx:500;cy:30;opacity:1}75%{cx:700;cy:30;opacity:1}95%{cx:900;cy:30;opacity:1}100%{cx:900;cy:30;opacity:0}}
+.agi-embed .tl-phase-past::before{background:#F5C543!important;box-shadow:0 0 12px #F5C543!important}
+.agi-embed .tl-phase-past:hover{border-color:#F5C543}
+.agi-embed .tl-phase-past[aria-expanded="true"]{border-color:#F5C543;box-shadow:0 12px 36px -12px rgba(245,197,67,.28),0 0 0 1px rgba(245,197,67,.2)}
+.agi-embed .tl-phase-past[aria-expanded="true"]::before{box-shadow:0 0 18px #F5C543}
+.agi-embed .tl-phase-past[aria-expanded="true"] .tl-phase-cue{color:#F5C543}
+.agi-embed .tl-phase-past .tl-phase-id{background:linear-gradient(135deg,#F5C543,#F0A04B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.agi-embed .tl-phase-past .tl-phase-years{color:#F5C543}
+.agi-embed .tl-phase-status{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:#F5C543;padding:4px 8px;background:rgba(245,197,67,.06);border:1px solid rgba(245,197,67,.25);display:inline-block;text-transform:uppercase}
+.agi-embed .tl-phase{cursor:pointer;user-select:none;outline:none}
+.agi-embed .tl-phase:focus-visible{outline:1px dashed #00FF94;outline-offset:4px}
+.agi-embed .tl-phase[aria-expanded="true"]{border-color:#00FF94;background:var(--bg-2);box-shadow:0 12px 36px -12px rgba(0,255,148,.28),0 0 0 1px rgba(0,255,148,.2)}
+.agi-embed .tl-phase[aria-expanded="true"]::before{transform:scale(1.6);box-shadow:0 0 18px #00FF94}
+.agi-embed .tl-phase[aria-expanded="true"] .tl-phase-cue{opacity:1;color:#00FF94}
+.agi-embed .tl-phase[aria-expanded="true"] .tl-phase-cue-arr{transform:rotate(180deg)}
+.agi-embed .tl-phase-cue{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--muted);opacity:.6;text-transform:uppercase;transition:opacity .3s,color .3s}
+.agi-embed .tl-phase:hover .tl-phase-cue{opacity:1}
+.agi-embed .tl-phase-cue-arr{display:inline-block;transition:transform .35s cubic-bezier(.4,0,.2,1);font-size:12px}
+.agi-embed .tl-drop{position:absolute;left:12.5%;top:calc(100% - 64px - 64px);transform:translateX(-50%);width:2px;height:64px;background:linear-gradient(180deg,#00FF94,rgba(0,255,148,0));opacity:0;transition:left .55s cubic-bezier(.4,0,.2,1),opacity .35s ease,top .35s ease;z-index:1;pointer-events:none}
+.agi-embed .tl-drop::before{content:'';position:absolute;left:50%;top:0;width:8px;height:8px;background:#00FF94;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 16px #00FF94;animation:tl-drop-blink 1.4s ease-in-out infinite}
+.agi-embed .tl-drop::after{content:'';position:absolute;left:50%;bottom:-4px;width:6px;height:6px;border-right:2px solid #00FF94;border-bottom:2px solid #00FF94;transform:translateX(-50%) rotate(45deg);filter:drop-shadow(0 0 6px #00FF94)}
+@keyframes tl-drop-blink{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}}
+.agi-embed .timeline-wrap.open .tl-drop{opacity:1}
+.agi-embed .tl-expand{margin-top:80px;border:1px solid var(--border);background:var(--bg-1);max-height:0;overflow:hidden;opacity:0;transition:max-height .65s cubic-bezier(.4,0,.2,1),opacity .4s ease,margin-top .4s,border-color .4s;position:relative}
+.agi-embed .tl-expand::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00FF94,#00E5FF);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.agi-embed .timeline-wrap.open .tl-expand{max-height:3200px;opacity:1;border-color:#00FF94}
+.agi-embed .timeline-wrap.open .tl-expand::before{transform:scaleX(1)}
+.agi-embed .tl-expand-inner{padding:40px 40px 48px;animation:tl-cascade .55s cubic-bezier(.4,0,.2,1)}
+@keyframes tl-cascade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.agi-embed .tl-expand-inner .phase-detail{grid-template-columns:1fr 1.4fr}
+@media (max-width:900px){
+  .agi-embed .tl-connector{display:none}
+  .agi-embed .timeline-wrap{padding-top:0}
+  .agi-embed .tl-drop{display:none}
 }
 .agi-embed .tabs {
   display: flex;
@@ -3540,391 +3431,107 @@ function hTlScroll(dir){
 .agi-embed .container{max-width:1200px;margin:0 auto;padding:0 24px}
 </style>
 <div class="agi-embed">
-<section id="agi-vision">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-head-num">/ 01 · Алсын хараа</div>
-        <h2>Дөрвөн<br>тулгуур</h2>
-      </div>
-      <p class="section-head-desc">
-        Шамбала 2056 нь дөрвөн стратегийн тулгуурыг нэг системд нэгтгэсэн. Тэдгээр нь бие даан ажиллахаас илүүтэй харилцан хүчирхэгжүүлж, нэг нь нөгөөгийнхөө үр дүнг үржүүлэх синергийн загвараар бүтнэ.
-      </p>
-    </div>
 
-    <div class="pillars reveal-stagger">
-      <div class="pillar">
-        <div class="pillar-num">01 / AGI</div>
-        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="24" cy="24" r="6"/>
-          <circle cx="24" cy="8" r="3"/>
-          <circle cx="24" cy="40" r="3"/>
-          <circle cx="8" cy="24" r="3"/>
-          <circle cx="40" cy="24" r="3"/>
-          <path d="M24 14v4M24 30v4M14 24h4M30 24h4"/>
-        </svg>
-        <h3>Хиймэл оюун ухаан</h3>
-        <p>Ерөнхий зориулалтын AGI системийг эрчим хүчний удирдлага, эрдэм шинжилгээ, карбон зах зээлийн стратегид бодит хэрэглээнд оруулна.</p>
-        <div class="pillar-stat">→ <b>10⁸ PFLOPS</b> / 2056</div>
-      </div>
 
-      <div class="pillar">
-        <div class="pillar-num">02 / SOLAR</div>
-        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="24" cy="24" r="8"/>
-          <path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.5 9.5l4 4M34.5 34.5l4 4M9.5 38.5l4-4M34.5 13.5l4-4"/>
-        </svg>
-        <h3>Нарны эрчим хүч</h3>
-        <p>Дорноговийн жилийн 300+ нартай өдрийг ашиглан 100 МВт-аас 10,000+ МВт хүртэл өсөх нарны фотовольтаик систем барина.</p>
-        <div class="pillar-stat">→ <b>10,000+ МВт</b> / 2056</div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">03 / CARBON</div>
-        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M14 36c-4 0-8-3-8-8s4-8 8-8c0-6 5-12 12-12s12 5 12 12c4 0 6 3 6 8s-2 8-6 8H14z"/>
-          <path d="M20 28l4 4 8-8"/>
-        </svg>
-        <h3>Карбон зах зээл</h3>
-        <p>Verra VCS, Gold Standard стандарт дээр суурилсан өөрийн карбон биржийн платформ, Ази-Номхон далайн бүсийн арилжааны төв болно.</p>
-        <div class="pillar-stat">→ <b>500М т CO₂</b> / жил</div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">04 / EDUCATION</div>
-        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M4 16l20-8 20 8-20 8L4 16z"/>
-          <path d="M12 20v10c0 3 5 6 12 6s12-3 12-6V20"/>
-          <path d="M44 16v12"/>
-        </svg>
-        <h3>Элит сургууль</h3>
-        <p>Caltech, Rockefeller загвараар 1,000 өндөр чанартай оюутантай, AGI ба сэргээгдэх эрчим хүчинд төвлөрсөн судалгааны их сургууль.</p>
-        <div class="pillar-stat">→ <b>1,000 оюутан</b> / Top 50</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="agi-synergy">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-head-num">/ 02 · Системийн уялдаа</div>
-        <h2>Гурвалсан<br>синерги</h2>
-      </div>
-      <p class="section-head-desc">
-        AGI, нарны эрчим хүч, карбон зах зээл — энэ гурав нь тус тусдаа биш, харин хаалттай гогцоо үүсгэн нэг нь нөгөөгийнхөө үр дүнг үржүүлдэг систем. Шамбала 2056 нь яг гурван талын давхцалын төв цэгт ажиллана.
-      </p>
-    </div>
-
-    <!-- Triangle Diagram -->
-    <div class="synergy-diagram reveal">
-      <svg viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" aria-label="Synergy diagram">
-        <defs>
-          <linearGradient id="edge-as" x1="350" y1="100" x2="130" y2="480" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#00FF94"/>
-            <stop offset="100%" stop-color="#FFB800"/>
-          </linearGradient>
-          <linearGradient id="edge-ac" x1="350" y1="100" x2="570" y2="480" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#00FF94"/>
-            <stop offset="100%" stop-color="#00E5FF"/>
-          </linearGradient>
-          <linearGradient id="edge-sc" x1="130" y1="480" x2="570" y2="480" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#FFB800"/>
-            <stop offset="100%" stop-color="#00E5FF"/>
-          </linearGradient>
-          <filter id="glow-svg" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <radialGradient id="hub-bg">
-            <stop offset="0%" stop-color="#00FF94" stop-opacity="0.15"/>
-            <stop offset="100%" stop-color="#00FF94" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- Edges -->
-        <line x1="350" y1="150" x2="170" y2="450" stroke="url(#edge-as)" stroke-width="2" opacity="0.7" class="syn-edge"/>
-        <line x1="350" y1="150" x2="530" y2="450" stroke="url(#edge-ac)" stroke-width="2" opacity="0.7" class="syn-edge"/>
-        <line x1="170" y1="490" x2="530" y2="490" stroke="url(#edge-sc)" stroke-width="2" opacity="0.7" class="syn-edge"/>
-
-        <!-- Edge labels -->
-        <g font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.5">
-          <text x="195" y="310" fill="#FFB800" text-anchor="middle" font-weight="500" transform="rotate(-55 195 310)">AGI × SOLAR</text>
-          <text x="505" y="310" fill="#00E5FF" text-anchor="middle" font-weight="500" transform="rotate(55 505 310)">AGI × CARBON</text>
-          <text x="350" y="525" fill="#B8B8C8" text-anchor="middle" font-weight="500">SOLAR × CARBON</text>
-        </g>
-
-        <!-- Center hub: SHAMBALA -->
-        <circle cx="350" cy="320" r="100" fill="url(#hub-bg)"/>
-        <circle cx="350" cy="320" r="60" fill="#0A0A12" stroke="#00FF94" stroke-width="1" opacity="0.5"/>
-        <circle cx="350" cy="320" r="60" fill="none" stroke="#00FF94" stroke-width="1" class="syn-pulse" opacity="0.6"/>
-        <text x="350" y="315" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" letter-spacing="2">SHAMBALA</text>
-        <text x="350" y="338" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#00FF94" letter-spacing="3" font-weight="700">2056</text>
-
-        <!-- Node: AGI (top) -->
-        <g filter="url(#glow-svg)">
-          <circle cx="350" cy="100" r="55" fill="#0A0A12" stroke="#00FF94" stroke-width="2"/>
-        </g>
-        <text x="350" y="96" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="20" font-weight="700" fill="#00FF94" letter-spacing="2">AGI</text>
-        <text x="350" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#B8B8C8" letter-spacing="1">Оюун ухаан</text>
-
-        <!-- Node: SOLAR (bottom-left) -->
-        <g filter="url(#glow-svg)">
-          <circle cx="130" cy="490" r="55" fill="#0A0A12" stroke="#FFB800" stroke-width="2"/>
-        </g>
-        <text x="130" y="486" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="17" font-weight="700" fill="#FFB800" letter-spacing="2">SOLAR</text>
-        <text x="130" y="508" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#B8B8C8" letter-spacing="1">Эрчим хүч</text>
-
-        <!-- Node: CARBON (bottom-right) -->
-        <g filter="url(#glow-svg)">
-          <circle cx="570" cy="490" r="55" fill="#0A0A12" stroke="#00E5FF" stroke-width="2"/>
-        </g>
-        <text x="570" y="486" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="16" font-weight="700" fill="#00E5FF" letter-spacing="2">CARBON</text>
-        <text x="570" y="508" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#B8B8C8" letter-spacing="1">Зах зээл</text>
-      </svg>
-    </div>
-
-    <!-- Synergy detail cards -->
-    <div class="synergy-grid reveal-stagger">
-      <!-- AGI × SOLAR -->
-      <div class="syn-card">
-        <div class="syn-card-label">
-          <span class="syn-tag agi">AGI</span>
-          <span style="color:var(--muted)">×</span>
-          <span class="syn-tag solar">SOLAR</span>
-        </div>
-        <h4>Нарны эрчим хүчийг бодит цаг хугацаанд оновчилно</h4>
-        <p class="syn-card-intro">AGI нь зөвхөн өгөгдөл боловсруулдаг алгоритм биш, харин нарны фермийн физик, цаг агаар, эдийн засагт нэгэн зэрэг хариу өгдөг ухаалаг систем юм.</p>
-        <ul>
-          <li>Цаг агаар, үүлний хөдөлгөөнийг 72 цагийн өмнө 95%+ нарийвчлалтай таамаглах</li>
-          <li>Тоосны хуримтлал, эвдрэлийг урьдчилан илрүүлж засварын зардлыг 30–50% бууруулах</li>
-          <li>Батерейн цэнэг-задралыг динамикаар оновчилж нөөц цахилгааны ашиглалтыг 2 дахин нэмэгдүүлэх</li>
-          <li>Перовскит, тандем зэрэг шинэ материалуудыг автоматаар нээж LCOE-г $0.01/kWh хүртэл бууруулах</li>
-          <li>Жилийн засвар-үйлчилгээний хүний хүчийг 70%-аар хэмнэх</li>
-        </ul>
-      </div>
-
-      <!-- AGI × CARBON -->
-      <div class="syn-card">
-        <div class="syn-card-label">
-          <span class="syn-tag agi">AGI</span>
-          <span style="color:var(--muted)">×</span>
-          <span class="syn-tag carbon">CARBON</span>
-        </div>
-        <h4>Карбон зах зээлд итгэлцэл, ил тод байдал үүсгэнэ</h4>
-        <p class="syn-card-intro">Дэлхийн карбон зах зээлийн хамгийн том асуудал бол давхар тоолох ба хуурамч кредит. AGI үүнийг хиймэл дагуулын зураг, IoT, блокчэйнийг хослуулан шийдвэрлэнэ.</p>
-        <ul>
-          <li>Хиймэл дагуулын зургаар ой мод, нүүрстөрөгчийн шингээлтийг автомат хэмжих</li>
-          <li>MRV процессыг (Monitoring/Reporting/Verification) бараг зэрэг хугацаанд гүйцэтгэх</li>
-          <li>Карбон зах зээлийн арилжааны стратегийг хүний оролцоогүйгээр оновчилох</li>
-          <li>Хуурамч кредит, давхар бүртгэлийг шууд илрүүлж зах зээлийн нэр хүндийг хамгаалах</li>
-          <li>Нийлүүлэлтийн сүлжээний нүүрсний мөрийг бүх үе шатанд хянах</li>
-        </ul>
-      </div>
-
-      <!-- SOLAR × CARBON -->
-      <div class="syn-card">
-        <div class="syn-card-label">
-          <span class="syn-tag solar">SOLAR</span>
-          <span style="color:var(--muted)">×</span>
-          <span class="syn-tag carbon">CARBON</span>
-        </div>
-        <h4>Карбон кредитийн хамгийн найдвартай эх үүсвэр</h4>
-        <p class="syn-card-intro">Нарны цахилгаан станц ажиллах бүрд газрын тосны эрчим хүчийг орлуулж бодит CO₂ ялгаралтыг бууруулна. Энэ нь карбон кредитийн хамгийн ил тод, баталгаатай эх үүсвэр.</p>
-        <ul>
-          <li>1 МВт нарны хүчин чадал жилд ~600–800 тонн CO₂ кредит үүсгэнэ</li>
-          <li>Ногоон устөрөгч (Green Hydrogen) — үйлдвэрлэлийн декарбонжилтын түлхүүр</li>
-          <li>Нараар тэжээгдсэн Direct Air Capture (DAC) — агаараас CO₂ шингээх төхөөрөмж</li>
-          <li>Карбон негатив технологийн анхдагч эрчим хүчний суурь</li>
-          <li>Усны цэвэрлэгээ, аммиак үйлдвэрлэлд илүүдэл нарны эрчмийг чиглүүлэх</li>
-        </ul>
-      </div>
-
-      <!-- TRIPLE OVERLAP -->
-      <div class="syn-card triple">
-        <div class="syn-card-label">
-          <span class="syn-tag agi">AGI</span>
-          <span style="color:var(--muted)">×</span>
-          <span class="syn-tag solar">SOLAR</span>
-          <span style="color:var(--muted)">×</span>
-          <span class="syn-tag carbon">CARBON</span>
-        </div>
-        <h4>Гурвалсан давхцал — хаалттай гогцоо систем</h4>
-        <p class="syn-card-intro">Шамбала 2056 нь гурван талын нэгийг сонгохгүйгээр нэг нэгдсэн системд нэгтгэх замаар бусад төслүүдээс үндсээр нь ялгардаг.</p>
-        <ul>
-          <li>AGI удирдсан нарны ферм → дээд ашигтай үйлдвэрлэл → илүү карбон кредит</li>
-          <li>Карбон кредитийн орлого → шинэ нарны хүчин чадал → AGI-н сургалтын эрчим хүч</li>
-          <li>AGI нь шинэ материал нээх → нарны үр ашиг ↑ → карбон кредит ↑</li>
-          <li>Бүх систем өөрөө өөрийгөө санхүүжүүлэх, өөрөө өөрийгөө сайжруулах эргэлт</li>
-          <li>Дэлхийн ESG, ногоон шилжилтийн стандарт болох институцийн дархлаа</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="agi-trends">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-head-num">/ 03 · Ирээдүйн боломж</div>
-        <h2>Технологийн<br>чиг хандлага</h2>
-      </div>
-      <p class="section-head-desc">
-        Дараагийн 30 жилд AGI, нарны эрчим хүч, карбон зах зээл хэрхэн хувьсах вэ? IEA, DOE, MIT, DeepMind, IRENA зэрэг олон улсын тэргүүлэгч төвүүдийн судалгаан дээр үндэслэсэн боломжит хүрэх амжилтыг үе үеэр харуулна.
-      </p>
-    </div>
-
-    <div class="trends-timeline reveal">
-      <!-- 2025-2030 -->
-      <div class="trends-decade">
-        <div class="trends-decade-side">
-          <div class="trends-decade-year">2025–2030</div>
-          <div class="trends-decade-label">// Суурийн үе</div>
-        </div>
-        <div class="trends-cards">
-          <div class="trend-card agi">
-            <div class="trend-card-tag">AGI / AI агент</div>
-            <h5>Автомат агентын үе</h5>
-            <p>GPT, Claude, Gemini зэрэг том загварууд бие даан зорилго хэрэгжүүлдэг агент болж хувирна. Хүний оролцоо багасна.</p>
-          </div>
-          <div class="trend-card solar">
-            <div class="trend-card-tag">SOLAR / Tandem PV</div>
-            <h5>Перовскит худалдаанд</h5>
-            <p>Перовскит/силиконы тандем зайны үр ашиг 30%+, LCOE $0.02/kWh-д хүрнэ. Дэлхийд жилд 600+ ГВт суурилуулна.</p>
-          </div>
-          <div class="trend-card carbon">
-            <div class="trend-card-tag">CARBON / Voluntary</div>
-            <h5>$100Б зах зээл</h5>
-            <p>Дэлхийн сайн дурын карбон зах зээл (VCM) $50–100 тэрбумд хүрнэ. EU CBAM хүчин төгөлдөр болно.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2030-2040 -->
-      <div class="trends-decade">
-        <div class="trends-decade-side">
-          <div class="trends-decade-year">2030–2040</div>
-          <div class="trends-decade-label">// AGI гарч ирэх үе</div>
-        </div>
-        <div class="trends-cards">
-          <div class="trend-card agi">
-            <div class="trend-card-tag">AGI / Emerging</div>
-            <h5>Анхдагч AGI</h5>
-            <p>Хүний түвшний AGI гарч ирж, шинжлэх ухааны нээлтийг бие даан хийж эхэлнэ. Материал, эм бүтээх хугацаа 10 дахин богсоно.</p>
-          </div>
-          <div class="trend-card solar">
-            <div class="trend-card-tag">SOLAR / Dominance</div>
-            <h5>Solar > Coal</h5>
-            <p>Нар дэлхийн анхдагч эрчим хүчний эх үүсвэр болж нүүрсийг бүрэн орлоно. Жилд 1,500+ ГВт суурилуулалт.</p>
-          </div>
-          <div class="trend-card carbon">
-            <div class="trend-card-tag">CARBON / DAC scale</div>
-            <h5>DAC массивжих</h5>
-            <p>Direct Air Capture-ийн зардал $100/т-аас доош унаж арилжааны хэмжээ авна. Жилд 100М тонн CO₂ шингээнэ.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2040-2050 -->
-      <div class="trends-decade">
-        <div class="trends-decade-side">
-          <div class="trends-decade-year">2040–2050</div>
-          <div class="trends-decade-label">// Шилжилтийн үе</div>
-        </div>
-        <div class="trends-cards">
-          <div class="trend-card agi">
-            <div class="trend-card-tag">AGI / Autonomous</div>
-            <h5>AGI шинжлэх ухаан</h5>
-            <p>AGI нь хүний оролцоогүйгээр шинэ материал, эм, эрчим хүчний шийдэл нээнэ. Шинжлэх ухааны прогресс 5-10 дахин хурдасна.</p>
-          </div>
-          <div class="trend-card solar">
-            <div class="trend-card-tag">SOLAR / SBSP</div>
-            <h5>Космост гарах</h5>
-            <p>Орбит дахь нарны эрчим хүч (Space-Based Solar Power) анхны арилжааны нэгжүүд эхэлнэ. 24/7 эрчим хүч.</p>
-          </div>
-          <div class="trend-card carbon">
-            <div class="trend-card-tag">CARBON / $1Т</div>
-            <h5>$1Т зах зээл</h5>
-            <p>Карбон зах зээл $1 их наяд хүрч, газрын тосны зах зээлтэй ойртоно. Карбон үнэ $200+/т.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2050-2056 -->
-      <div class="trends-decade">
-        <div class="trends-decade-side">
-          <div class="trends-decade-year">2050–2056</div>
-          <div class="trends-decade-label">// Шилжилт төгсөх үе</div>
-        </div>
-        <div class="trends-cards">
-          <div class="trend-card agi">
-            <div class="trend-card-tag">AGI / Integrated</div>
-            <h5>Эдийн засагт нэгдсэн AGI</h5>
-            <p>AGI нь эдийн засгийн системийн салшгүй хэсэг болж, хүний хийдэг танин мэдэхүйн ажлын 60%-ийг гүйцэтгэнэ.</p>
-          </div>
-          <div class="trend-card solar">
-            <div class="trend-card-tag">SOLAR / 50%+</div>
-            <h5>50%+ үр ашигтай зай</h5>
-            <p>AGI-р зохион бүтээгдсэн олон-таних зайнууд 50%+ онолын үр ашигтай болж нар бүхнийг тэжээнэ.</p>
-          </div>
-          <div class="trend-card carbon">
-            <div class="trend-card-tag">CARBON / Net-Negative</div>
-            <h5>Net-Negative дэлхий</h5>
-            <p>Дэлхий нь анх удаа карбон негатив байдалд шилжих анхны жилүүд. Шамбала 2056 — энэ шилжилтийн нэг гол тулгуур.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="agi-timeline">
   <div class="container">
     <div class="section-head reveal">
       <div>
-        <div class="section-head-num">/ 04 · Хугацааны зураглал</div>
-        <h2>32 жил<br>4 үе шат</h2>
+        <div class="section-head-num">2016-2056</div>
+        <h2><span class="mn">ХӨГЖҮҮЛЭЛТИЙН<br>үе шатУУД</span><span class="en">DEVELOPMENT<br>PHASES</span></h2>
       </div>
       <p class="section-head-desc">
-        Үе шат бүр 8 жилийн хугацаатай, өмнөх үеийн дэд бүтэц, технологи, мэдлэгийн суурин дээр өргөжих зарчмаар бүтнэ. Зүүн талаас баруун тийш — суурь тавихаас дэлхийн стандарт тогтоох хүртэл.
       </p>
     </div>
 
     <div class="timeline-wrap reveal">
-      <div class="timeline-line"></div>
+      <!-- Motion-graphic connector: animated horizontal line + 5 dots over the cards -->
+      <svg class="tl-connector" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="tl-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F5C543"/>
+            <stop offset="22%" stop-color="#00FF94"/>
+            <stop offset="60%" stop-color="#00E5FF"/>
+            <stop offset="100%" stop-color="#00E5FF"/>
+          </linearGradient>
+          <filter id="tl-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- base track -->
+        <line x1="100" y1="30" x2="900" y2="30" stroke="url(#tl-grad)" stroke-width="1" opacity="0.25"/>
+        <!-- flowing dashed overlay -->
+        <line x1="100" y1="30" x2="900" y2="30" stroke="url(#tl-grad)" stroke-width="1.5" opacity="0.85" stroke-dasharray="14 8" class="tl-flow-line"/>
+        <!-- segment highlights between dots — light up when adjacent dots are active -->
+        <line class="tl-seg" data-seg="1-2" x1="100" y1="30" x2="300" y2="30" stroke="#F5C543" stroke-width="2.4" opacity="0"/>
+        <line class="tl-seg" data-seg="2-3" x1="300" y1="30" x2="500" y2="30" stroke="#00FF94" stroke-width="2.4" opacity="0"/>
+        <line class="tl-seg" data-seg="3-4" x1="500" y1="30" x2="700" y2="30" stroke="#00E5FF" stroke-width="2.4" opacity="0"/>
+        <line class="tl-seg" data-seg="4-5" x1="700" y1="30" x2="900" y2="30" stroke="#00E5FF" stroke-width="2.4" opacity="0"/>
+        <!-- traveling bead pulse -->
+        <circle r="3" fill="#fff" class="tl-pulse-bead"/>
+        <!-- 5 station dots -->
+        <g filter="url(#tl-glow)">
+          <circle class="tl-station" data-phase="p1" cx="100" cy="30" r="6" fill="#0A0A12" stroke="#F5C543" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p2" cx="300" cy="30" r="6" fill="#0A0A12" stroke="#00FF94" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p3" cx="500" cy="30" r="6" fill="#0A0A12" stroke="#00FF94" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p4" cx="700" cy="30" r="6" fill="#0A0A12" stroke="#00E5FF" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p5" cx="900" cy="30" r="6" fill="#0A0A12" stroke="#00E5FF" stroke-width="1.5"/>
+        </g>
+        <!-- pulse ring around active station (positioned via JS) -->
+        <circle class="tl-station-pulse" cx="100" cy="30" r="6" fill="none" stroke="#00FF94" stroke-width="1.5" opacity="0"/>
+      </svg>
+
       <div class="timeline">
-        <div class="tl-phase" onclick="showTab('p2')">
+        <div class="tl-phase tl-phase-past" data-phase="p1" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
+          <div class="tl-phase-id">I</div>
+          <div class="tl-phase-years">2016 → 2024</div>
+          <h4><span class="mn">Хамгаалах зурвас байгуулах</span><span class="en">Shelterbelt Establishment</span></h4>
+          <p><span class="mn">166,857 хайлаас, 108,970 м² нөхөн сэргээлт, NASA + Martensite Analytica хяналт.</span><span class="en">166,857 elm trees, 108,970 m² restoration, NASA + Martensite Analytica monitoring.</span></p>
+          <div class="tl-phase-status">COMPLETED · ХЭРЭГЖСЭН</div>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
+        </div>
+
+        <div class="tl-phase" data-phase="p2" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">II</div>
           <div class="tl-phase-years">2024 → 2032</div>
-          <h4>Суурь дэд бүтэц ба туршилт</h4>
-          <p>100 МВт нарны станц, AGI лаборатори, 100 элит оюутан, анхдагч карбон кредит.</p>
+          <h4><span class="mn">Суурь дэд бүтэц ба туршилт</span><span class="en">Foundational Infrastructure & Pilot</span></h4>
+          <p><span class="mn">100 МВт нарны станц, AGI лаборатори, анхны 100 оюутан, анхдагч карбон кредит.</span><span class="en">100 MW solar plant, AGI laboratory, first 100 students, pilot carbon credits.</span></p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
-        <div class="tl-phase" onclick="showTab('p3')">
+        <div class="tl-phase" data-phase="p3" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">III</div>
           <div class="tl-phase-years">2032 → 2040</div>
-          <h4>Өргөтгөл ба боловсронгуй</h4>
-          <p>1,000 МВт, Smart Grid, AGI бодит хэрэглээ, 300 оюутан, олон улсын аккредитаци.</p>
+          <h4><span class="mn">Өргөтгөл ба сайжруулалт</span><span class="en">Expansion & Refinement</span></h4>
+          <p><span class="mn">1,000 МВт, Smart Grid, AGI бодит хэрэглээ, 300 оюутан.</span><span class="en">1,000 MW, Smart Grid, AGI deployment, 300 students.</span></p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
-        <div class="tl-phase" onclick="showTab('p4')">
+        <div class="tl-phase" data-phase="p4" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">IV</div>
           <div class="tl-phase-years">2040 → 2048</div>
-          <h4>Олон улсын тэргүүлэгч</h4>
-          <p>5,000 МВт, ExaFLOPS supercomputer, 600 оюутан, бүс нутгийн карбон төв.</p>
+          <h4><span class="mn">Олон улсын тэргүүлэгч</span><span class="en">International Leadership</span></h4>
+          <p><span class="mn">5,000 МВт, ExaFLOPS supercomputer, 600 оюутан, бүс нутгийн карбон төв.</span><span class="en">5,000 MW, ExaFLOPS supercomputer, 600 students, regional carbon hub.</span></p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
-        <div class="tl-phase" onclick="showTab('p5')">
+        <div class="tl-phase" data-phase="p5" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">V</div>
           <div class="tl-phase-years">2048 → 2056</div>
-          <h4>Алсын хараа бүрэн хэрэгжих</h4>
-          <p>10,000+ МВт, AGI бие даасан судалгаа, 1,000 оюутан, дэлхийн стандарт тогтоогч.</p>
+          <h4><span class="mn">Алсын хараа бүрэн хэрэгжих</span><span class="en">Vision Fully Realized</span></h4>
+          <p><span class="mn">10,000+ МВт, AGI бие даасан судалгаа, 1,000 оюутан, дэлхийн стандарт тогтоогч.</span><span class="en">10,000+ MW, autonomous AGI research, 1,000 students, global standard-setter.</span></p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
+      </div>
+
+      <!-- Vertical drop indicator from active card to expand panel -->
+      <div class="tl-drop" aria-hidden="true"></div>
+
+      <!-- Cascading expand drawer -->
+      <div class="tl-expand" id="tl-expand" aria-live="polite">
+        <div class="tl-expand-inner"></div>
       </div>
     </div>
   </div>
@@ -3949,6 +3556,22 @@ function hTlScroll(dir){
       <button class="tab" data-tab="p5">V · 2048–2056</button>
     </div>
 
+    <!-- PHASE I (hidden source — revealed only via timeline card click) -->
+    <div class="tab-content" id="agi-p1" hidden>
+      <section class="p1-pano" aria-label="Shambala 2016–2024 timeline panorama">
+        <button class="p1-pano-arrow left" type="button" data-p1-scroll="-1" aria-label="Scroll left">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="p1-pano-scroll">
+          <img class="p1-pano-img" src="assets/timeline/shambala-timeline-2024.jpg" alt="Shambala 2056 · 2016–2024 timeline panorama" loading="lazy">
+        </div>
+        <button class="p1-pano-arrow right" type="button" data-p1-scroll="1" aria-label="Scroll right">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="p1-pano-cap">2016 → 2024 · PHASE I · COMPLETED</div>
+      </section>
+    </div>
+
     <!-- PHASE II -->
     <div class="tab-content active" id="agi-p2">
       <div class="phase-detail">
@@ -3959,10 +3582,6 @@ function hTlScroll(dir){
             <div class="phase-kpi">
               <div class="phase-kpi-label">Нарны эрчим хүч</div>
               <div class="phase-kpi-val">100<span class="unit">МВт</span></div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Оюутны тоо</div>
-              <div class="phase-kpi-val">100</div>
             </div>
             <div class="phase-kpi">
               <div class="phase-kpi-label">Карбон кредит</div>
@@ -3978,25 +3597,21 @@ function hTlScroll(dir){
           <h4>// 1. Дэд бүтэц</h4>
           <p class="phase-intro">Орчин үеийн, бие даасан, ногоон технологид суурилсан дэд бүтцийн бүтээн байгуулалт:</p>
           <ul>
-            <li><strong>Сэргээгдэх эрчим хүч:</strong> 100 МВт хүчин чадалтай нарны фотовольтаик цахилгаан станц (2027 онд эхний 50 МВт, 2032 онд дараагийн 50 МВт тус тус ашиглалтад орно).</li>
-            <li><strong>Эрчим хүчний нөөцлөлт:</strong> Цахилгаан тогтворжуулах систем бүхий 200 МВт·ц багтаамжтай лити-ион батерейн агуулах.</li>
+            <li><strong>Сэргээгдэх эрчим хүч:</strong> 100 МВт хүчин чадалтай нарны цахилгаан станц (2027 онд эхний 50 МВт, 2032 онд дараагийн 50 МВт тус тус ашиглалтад орно).</li>
+            <li><strong>Эрчим хүчний нөөцлөлт:</strong> Цахилгаан тогтворжуулах систем бүхий 200 МВт·ц багтаамжтай батерейн агуулах.</li>
             <li><strong>Мэдээллийн технологи:</strong> 5 МВт ачаалал даах чадвар бүхий өөрийн Tier III зэрэглэлийн дата төв болон өндөр хурдны шилэн кабелийн сүлжээ.</li>
-            <li><strong>Ирээдүйн эрчим хүч:</strong> Туршилтын зориулалттай ногоон устөрөгч үйлдвэрлэх жижиг нэгж.</li>
           </ul>
           <h4>// 2. Боловсрол (Шамбала Технологийн Сургууль)</h4>
-          <p class="phase-intro">Дэлхийн жишигт нийцсэн технологи, инновацийн боловсролын төв:</p>
+          <p class="phase-intro">ОЛОН УЛСЫН жишигт нийцсэн технологи, инновацийн боловсролын төв:</p>
           <ul>
             <li><strong>Кампус:</strong> Сургуулийн анхны хичээлийн байр, орчин үеийн лаборатори, оюутны дотуур байр.</li>
-            <li><strong>Бакалаврын 3 үндсэн хөтөлбөр:</strong> (1) Нарны инженерчлэл, (2) AGI (Ерөнхий хиймэл оюун ухаан)-ийн үндэс, (3) Тогтвортой эрчим хүчний эдийн засаг.</li>
-            <li><strong>Оюутан элсэлт:</strong> Нийт 100 шилдэг оюутан элсүүлэх бөгөөд үүний 20% нь гадаадын оюутнууд байна.</li>
-            <li><strong>Гадаад хамтын ажиллагаа:</strong> Дэлхийн шилдэг их сургуулиуд болох MIT, Stanford, ETH Zürich, KAIST-тэй хамтран ажиллах санамж бичиг (MoU) байгуулна.</li>
+            <li><strong>Бакалаврын 3 үндсэн хөтөлбөр:</strong> сэргээгдэх эрчим хүчний инженерчлэл, AI (хиймэл оюун ухаан), (3) Карбон кредит ба зах зээл.</li>
           </ul>
-          <h4>// 3. AGI хөгжүүлэлт (Хиймэл оюун ухаан)</h4>
+          <h4>// 3. AGI хөгжүүлэлт </h4>
           <p class="phase-intro">Цаг уур, эрчим хүчний асуудлыг шийдвэрлэхэд чиглэсэн хиймэл оюун ухааны судалгаа:</p>
           <ul>
             <li><strong>Судалгааны дэд бүтэц:</strong> 500 PFLOPS тооцоолох хүчин чадалтай GPU/TPU кластер бүхий машин сургалтын дэвшилтэт лаборатори.</li>
             <li><strong>Судлаач солилцоо:</strong> Жил бүр олон улсын 20–30 зочин судлаач хүлээн авч, хамтарсан судалгаа хийх хөтөлбөр.</li>
-            <li><strong>Инноваци:</strong> Эрчим хүч болон цаг агаарын салбарт зориулагдсан анхдагч AGI (Artificial General Intelligence) прототипийг хөгжүүлж нэвтрүүлэх.</li>
           </ul>
           <h4>// 4. Карбон зах зээл</h4>
           <p class="phase-intro">Уур амьсгалын өөрчлөлтийн эсрэг олон улсын түвшний санаачилга:</p>
@@ -4036,20 +3651,17 @@ function hTlScroll(dir){
         </div>
         <div class="phase-main">
           <h4>// 1. Дэд бүтэц</h4>
-          <p class="phase-intro">Эрчим хүч, технологийн хүчин чадлыг үлэмж хэмжээгээр нэмэгдүүлэх:</p>
+          <p class="phase-intro">Эрчим хүч, технологийн хүчин чадлыг нэмэгдүүлэх:</p>
           <ul>
             <li><strong>Нарны эрчим хүч:</strong> Цахилгаан станцын хүчин чадлыг 10 дахин өсгөж, 1,000 МВт-д хүргэх.</li>
             <li><strong>Ухаалаг сүлжээ (Smart Grid):</strong> Эрчим хүчний хуваарилалтыг бодит цаг хугацаанд оновчлох AGI-д суурилсан ухаалаг сүлжээг бүрэн нэвтрүүлэх.</li>
             <li><strong>Судалгааны кампус:</strong> 30 гаруй барилга байгууламж бүхий, нийт 50 га талбайг хамарсан орчин үеийн эрдэм шинжилгээ, инновацийн цогцолбор байгуулах.</li>
-            <li><strong>Ногоон устөрөгч:</strong> 50 МВт-аас дээш хүчин чадалтай, үйлдвэрлэлийн түвшний (industrial-scale) ногоон устөрөгчийн үйлдвэрийг ашиглалтад оруулах.</li>
           </ul>
           <h4>// 2. Боловсрол</h4>
           <p class="phase-intro">Олон улсад хүлээн зөвшөөрөгдсөн, эрдэм шинжилгээний тэргүүлэх төв болох:</p>
           <ul>
             <li><strong>Ахисан түвшний хөтөлбөр:</strong> Магистр болон докторын түвшний 10+ шинэ хөтөлбөр хэрэгжүүлэх.</li>
-            <li><strong>Оюутны бүрэлдэхүүн:</strong> Нийт 300 оюутантай болох бөгөөд үүний 30–40%-ийг гадаадын шилдэг элсэгчид бүрдүүлэх.</li>
-            <li><strong>Олон улсын магадлан итгэмжлэл:</strong> Сургалтын хөтөлбөрүүдээ дэлхийн жишигт нийцүүлж, инженер технологийн ABET болон EUR-ACE олон улсын аккредитацид хамруулах.</li>
-            <li><strong>Эрдэм шинжилгээний бүтээл:</strong> Жил бүр олон улсын нэр хүнд бүхий мэргэжлийн сэтгүүлүүдэд 100-аас дээш эрдэм шинжилгээний өгүүлэл хэвлүүлэх.</li>
+            <li><strong>Олон улсын магадлан итгэмжлэл:</strong> Сургалтын хөтөлбөрүүдээ дэлхийн жишигт нийцүүлж, инженер технологийн ABET болон EUR-ACE олон улсын магадлан итгэмжлэлд хамруулах.</li>
           </ul>
           <h4>// 3. AGI бодит хэрэглээ</h4>
           <p class="phase-intro">Хиймэл оюун ухааныг үйлдвэрлэл, бизнесийн процесст шууд интеграци хийх:</p>
@@ -4096,27 +3708,22 @@ function hTlScroll(dir){
         </div>
         <div class="phase-main">
           <h4>// 1. Дэд бүтэц</h4>
-          <p class="phase-intro">Дэлхийн болон бүс нутгийн түвшинд эрчим хүч, технологийн экспортлогч болох:</p>
+          <p class="phase-intro">бүс нутгийн түвшинд эрчим хүч, технологийн экспортлогч болох:</p>
           <ul>
-            <li><strong>Мега эрчим хүч:</strong> Нарны цахилгаан станцын хүчин чадлыг 5,000 МВт хүртэл нэмэгдүүлж, олон улсад эрчим хүч экспортлох чадамжтай болох.</li>
-            <li><strong>Бүс нутгийн интеграци:</strong> Хятад, Орос, Япон, Өмнөд Солонгос улсуудын эрчим хүчний сүлжээтэй холбогдох өндөр хүчдэлийн дамжуулах шугамын интеграци хийх.</li>
-            <li><strong>Суперкомпьютер:</strong> AGI-ийн (Ерөнхий хиймэл оюун ухаан) аварга загваруудыг сургах зориулалттай 10 ExaFLOPS-оос дээш хүчин чадалтай өөрийн суперкомпьютерийн төвийг байгуулах.</li>
-            <li><strong>Сансрын технологи:</strong> Дэлхийн тойрог зам дахь нарны эрчим хүчний буюу SBSP (Space-Based Solar Power) анхны туршилтын төслийг эхлүүлэх.</li>
+            <li><strong>Мега эрчим хүч:</strong> Нарны цахилгаан станцын хүчин чадлыг 5,000 МВт хүртэл нэмэгдүүлж, эрчим хүч экспортлох чадамжтай болох.</li>
+            <li><strong>Суперкомпьютер:</strong> AGI-ийн (Ерөнхий хиймэл оюун ухаан) аварга загваруудыг сургах зориулалттай суперкомпьютерийн төвийг байгуулах.</li>
           </ul>
           <h4>// 2. Боловсрол</h4>
-          <p class="phase-intro">Дэлхийн шинжлэх ухаан, технологийн боловсролын тэргүүлэх төвүүдийн нэг болох:</p>
+          <p class="phase-intro">олон улсын технологийн боловсролын тэргүүлэх судалгааны төвүүдийн нэг болох:</p>
           <ul>
-            <li><strong>Дэлхийн эрэмбэ:</strong> «QS World University Rankings»-ийн дэлхийн шилдэг Топ 100 их сургуулийн жагсаалтад багтах.</li>
             <li><strong>Олон улсын кампус:</strong> Дэлхийн 30 гаруй улсаас өндөр шалгуураар тэнцсэн шилдэг 600 оюутан элсүүлэх.</li>
-            <li><strong>Корпорацийн түншлэл:</strong> Дэлхийн эрчим хүчний аваргууд болох BP, Total, Sinopec, Equinor зэрэг компаниудтай хамтарсан R&amp;D (Судалгаа, хөгжүүлэлт)-ийн төвүүдийг байгуулах.</li>
-            <li><strong>Шилдэг багш нар:</strong> Нобелийн шагналт эрдэмтдийг урьж ажиллуулах «Зочин профессорын хөтөлбөр» хэрэгжүүлэх.</li>
+            <li><strong>Шилдэг багш нар:</strong> салбарын экспертүүдийг урьж ажиллуулах «Зочин профессорын хөтөлбөр» хэрэгжүүлэх.</li>
           </ul>
           <h4>// 3. AGI бүрэн нэвтрэлт</h4>
           <p class="phase-intro">Хиймэл оюун ухааныг инновацийн хөдөлгүүр болгон ашиглах:</p>
           <ul>
             <li><strong>Бүрэн бие даасан удирдлага:</strong> Цахилгаан станц болон дэд бүтцийн бүхий л процессыг AGI систем хөндлөнгийн оролцоогүйгээр бие даан 100% удирдах.</li>
             <li><strong>Шинжлэх ухааны нээлт:</strong> Шинэ материал, технологийн судалгаа, шинжлэх ухааны нээлтүүдийг AGI-д түшиглэн хийдэг систем нэвтрүүлэх.</li>
-            <li><strong>Глобал манлайлал:</strong> AGI-ийн ёс зүй болон аюулгүй байдлын олон улсын стандарт, дүрэм журмыг боловсруулахад дэлхийд манлайлан оролцох.</li>
           </ul>
           <h4>// 4. Карбон зах зээл</h4>
           <p class="phase-intro">Уур амьсгалын өөрчлөлтийн эсрэг мега төслүүдийг хэрэгжүүлэх:</p>
@@ -4156,33 +3763,21 @@ function hTlScroll(dir){
         </div>
         <div class="phase-main">
           <h4>// 1. Дэд бүтэц</h4>
-          <p class="phase-intro">Бүс нутгийн эрчим хүчний шилжилт болон сансрын технологийн эрин үеийг эхлүүлэх:</p>
+          <p class="phase-intro">Бүс нутгийн эрчим хүчний шилжилтийг эхлүүлэх:</p>
           <ul>
             <li><strong>Эрчим хүчний мега экспорт:</strong> Нарны цахилгаан станцын хүчин чадлыг 10,000+ МВт-д хүргэж, бүс нутагтаа ногоон эрчим хүчний экспортоор тэргүүлэгч болох.</li>
-            <li><strong>Сансрын эрчим хүч:</strong> Дэлхийн тойрог зам дахь нарны эрчим хүчний (SBSP) анхны арилжааны зориулалттай, 100 МВт-аас дээш хүчин чадалтай нэгжийг амжилттай ашиглалтад оруулах.</li>
             <li><strong>AGI төв:</strong> AGI-ийн (Ерөнхий хиймэл оюун ухаан) ёс зүй, аюулгүй байдлыг хангах олон улсын төвийг байгуулж, байнгын үйл ажиллагаанд оруулах.</li>
-            <li><strong>Уур амьсгалын технологи:</strong> Нүүрстөрөгчийн сөрөг буюу Carbon Negative технологийн судалгаа, хөгжүүлэлтийн дэлхийн гол төв болох.</li>
+            <li><strong>Уур амьсгалын технологи:</strong> Нүүрстөрөгчийн сөрөг буюу Carbon Negative технологийн судалгаа, хөгжүүлэлтийн төв байгуулах.</li>
           </ul>
           <h4>// 2. Боловсрол</h4>
-          <p class="phase-intro">Шинжлэх ухааны нээлт, гоц авьяастнуудыг төрүүлэх дэлхийн элит институт:</p>
           <ul>
-            <li><strong>Дэлхийн эрэмбэ:</strong> «QS World University Rankings»-ийн дэлхийн шилдэг Топ 50 их сургуулийн жагсаалтад албан ёсоор багтах.</li>
             <li><strong>Сургалтын онцгой загвар:</strong> Caltech болон Rockefeller их сургуулиудын загвараар буюу цөөн бөгөөд чанартай 1,000 шилдэг оюутанд гүнзгийрүүлсэн боловсрол олгох.</li>
-            <li><strong>Эрдэм шинжилгээний манлайлал:</strong> Жил бүр олон улсад хүлээн зөвшөөрөгдсөн 1,000-аас дээш эрдэм шинжилгээний өгүүлэл, бүтээл хэвлүүлэх.</li>
-            <li><strong>Шилдэг эрдэмтэд:</strong> Нобелийн болон Тюрингийн шагналтнуудыг төрүүлэн гаргадаг, дэлхийд хүлээн зөвшөөрөгдсөн нэр хүндтэй шинжлэх ухааны уурхай болох.</li>
-          </ul>
-          <h4>// 3. AGI бие даасан үе (Autonomous Era)</h4>
-          <p class="phase-intro">Хиймэл оюун ухаан бие даан хөгжиж, хүн төрөлхтний дэвшилд үйлчлэх үе:</p>
-          <ul>
-            <li><strong>Бие даасан инноваци:</strong> AGI систем хүнээс хараат бусаар бие даан судалгаа явуулж, шинжлэх ухааны цоо шинэ нээлтүүдийг (discoveries) хийж эхлэх.</li>
-            <li><strong>Бүрэн бие даасан удирдлага:</strong> Хүний ямар нэгэн оролцоогүйгээр эрчим хүч, хот байгуулалт, үйлдвэрлэлийн цогц системүүдийг AGI бие даан, найдвартай удирдах.</li>
-            <li><strong>Стандартчиллын институци:</strong> AGI-ийн цаашдын хөгжлийн дэлхийн стандарт, зохицуулалтыг боловсруулан баталдаг олон улсын институци болон өргөжих.</li>
           </ul>
           <h4>// 4. Карбон зах зээл</h4>
-          <p class="phase-intro">Дэлхийн нүүрстөрөгчийн эдийн засгийг тодорхойлогч хөдөлгүүр болох:</p>
+          <p class="phase-intro">ОЛОН УЛСЫН нүүрстөрөгчийн эдийн засагт томоохон тоглогч болох:</p>
           <ul>
-            <li><strong>Арилжааны үлэмж хэмжээ:</strong> Жил бүр 500 сая тонн CO₂-той тэнцэх хэмжээний нүүрстөрөгчийн кредитийн арилжааг өөрийн платформоор гүйцэтгэх.</li>
-            <li><strong>Дэлхийн үнийн жишиг:</strong> Олон улсын карбон зах зээл дээрх үнийн лавлагаа буюу жишгийг (benchmark) тогтоодог дэлхийн төв цэг (hub) болох.</li>
+            <li><strong>Арилжааны хэмжээ:</strong> Жил бүр 500 сая тонн CO₂-той тэнцэх хэмжээний нүүрстөрөгчийн кредитийн арилжааг өөрийн платформоор гүйцэтгэх.</li>
+            <li><strong>Дэлхийн үнийн жишиг:</strong> Олон улсын карбон зах зээл дээрх үнийн лавлагаа буюу жишгийг (benchmark) тогтоодог ази тивийн төв (hub) болох.</li>
             <li><strong>Технологийн экспорт:</strong> Нүүрстөрөгчийг бууруулах, агаараас шүүх «Карбон негатив» (Carbon Negative) технологиудыг олон улсын зах зээлд экспортлогч орон болох.</li>
           </ul>
         </div>
@@ -4191,167 +3786,6 @@ function hTlScroll(dir){
   </div>
 </section>
 
-<section id="agi-growth">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-head-num">/ 06 · Өсөлтийн зураглал</div>
-        <h2>Үе шатны<br>өсөлт</h2>
-      </div>
-      <p class="section-head-desc">
-        Үндсэн үзүүлэлтүүд II үе шатнаас V үе шат хүртэл хэрхэн өсөж буйг харьцангуй хэмжээгээр харуулна. Бүх үзүүлэлт V үе шатанд хүрэх дээд утгын хувийг харуулсан.
-      </p>
-    </div>
-
-    <div class="growth reveal">
-      <div class="growth-head">
-        <div class="growth-title">Нийт өсөлтийн динамик</div>
-        <div class="growth-legend">
-          <span><span class="lg-dot" style="background:#00B86B"></span>II</span>
-          <span><span class="lg-dot" style="background:#00FF94"></span>III</span>
-          <span><span class="lg-dot" style="background:#00E5FF"></span>IV</span>
-          <span><span class="lg-dot" style="background:#7B61FF"></span>V</span>
-        </div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">Нарны МВт</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="1">100</div>
-          <div class="metric-bar p3" data-width="9">1K</div>
-          <div class="metric-bar p4" data-width="40">5K</div>
-          <div class="metric-bar p5" data-width="50">10K</div>
-        </div>
-        <div class="metric-final">10,000+</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">Карбон М т</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="0.1">0.5</div>
-          <div class="metric-bar p3" data-width="1.9">10</div>
-          <div class="metric-bar p4" data-width="18">100</div>
-          <div class="metric-bar p5" data-width="80">500</div>
-        </div>
-        <div class="metric-final">500М</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">Оюутан</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="10">100</div>
-          <div class="metric-bar p3" data-width="20">300</div>
-          <div class="metric-bar p4" data-width="30">600</div>
-          <div class="metric-bar p5" data-width="40">1K</div>
-        </div>
-        <div class="metric-final">1,000</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">AGI PFLOPS</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="0.5">500</div>
-          <div class="metric-bar p3" data-width="9.5">10K</div>
-          <div class="metric-bar p4" data-width="40">1M</div>
-          <div class="metric-bar p5" data-width="50">100M</div>
-        </div>
-        <div class="metric-final">100M+</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">USD Тэрбум</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="1.5">0.25</div>
-          <div class="metric-bar p3" data-width="7.5">1.25</div>
-          <div class="metric-bar p4" data-width="36">6</div>
-          <div class="metric-bar p5" data-width="55">9</div>
-        </div>
-        <div class="metric-final">$16.5Б</div>
-      </div>
-
-      <div class="metric-row" style="border-bottom:none">
-        <div class="metric-name">Улс / Хамтын ажиллагаа</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="10">10</div>
-          <div class="metric-bar p3" data-width="20">30</div>
-          <div class="metric-bar p4" data-width="30">60</div>
-          <div class="metric-bar p5" data-width="40">100</div>
-        </div>
-        <div class="metric-final">100+</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="agi-risks">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-head-num">/ 08 · Эрсдэлийн удирдлага</div>
-        <h2>5 эрсдэл<br>5 шийдэл</h2>
-      </div>
-      <p class="section-head-desc">
-        Урт хугацааны төслийн хувьд эрсдэлийг тогтмол хянах нь чухал. Доорх таван үндсэн эрсдэлд тус бүрд нь бууруулах тодорхой арга хэмжээ боловсруулсан.
-      </p>
-    </div>
-
-    <div class="risks-grid reveal-stagger">
-      <div class="risk-card">
-        <div class="risk-num">RISK-01</div>
-        <h4>Технологийн эрсдэл</h4>
-        <p>AGI-н хөгжил хүлээснээс удаашрах эсвэл хүрсэн чанарын түвшин шаардлагад нийцэхгүй байх магадлал.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Олон стратегийн түнштэй ажиллах, бэлэн загварыг үргэлж нөөц байлгах.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-02</div>
-        <h4>Зах зээлийн эрсдэл</h4>
-        <p>Карбон кредитийн үнэ огцом унах, дэлхийн эрэлт буурах магадлал.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Урт хугацааны offtake гэрээ, үнийн доод хязгаартай форвард худалдаа.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-03</div>
-        <h4>Геополитикийн эрсдэл</h4>
-        <p>Бүсийн нөхцөл байдал, гадаад худалдааны хязгаарлалт, экспортын замын блок.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Олон тал руу чиглэсэн экспортын стратеги, олон улсын байгууллагуудтай хүчтэй харилцаа.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-04</div>
-        <h4>Цаг уурын эрсдэл</h4>
-        <p>Шороон шуурга, ган, температурын хэлбэлзэл нарны зайн үр ашигт нөлөөлөх.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Автомат цэвэрлэх систем, олон жилийн статистик дээр суурилсан байршил сонголт.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-05</div>
-        <h4>Санхүүгийн эрсдэл</h4>
-        <p>Хүүгийн өсөлт, валютын ханшийн савлагаа, олон улсын хөрөнгийн зах зээлийн шок.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Олон валютаар орлого олох, төгрөг-доллар хедж стратеги.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-06</div>
-        <h4>Ёс зүйн эрсдэл</h4>
-        <p>AGI хяналт, өгөгдлийн нууцлал, эрчим хүчний шударга хуваарилалттай холбоотой ёс зүйн асуудлууд.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Хараат бус ёс зүйн зөвлөл, олон улсын аудит, ил тод тайлагнал.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </div>
 <!-- ═════ /AGI.html EMBED ═════ -->
 <style id="agi-embed-fallbacks">
@@ -4408,175 +3842,100 @@ function hTlScroll(dir){
     }
     requestAnimationFrame(step);
   }
+
+  // ═════ Timeline cascade + motion-graphic connector ═════
+  var wrap=root.querySelector('.timeline-wrap');
+  if(!wrap) return;
+  var expand=wrap.querySelector('.tl-expand');
+  var expandInner=wrap.querySelector('.tl-expand-inner');
+  var drop=wrap.querySelector('.tl-drop');
+  var phases=Array.prototype.slice.call(wrap.querySelectorAll('.tl-phase'));
+  var stations=Array.prototype.slice.call(wrap.querySelectorAll('.tl-station'));
+  var segments=Array.prototype.slice.call(wrap.querySelectorAll('.tl-seg'));
+  var stationPulse=wrap.querySelector('.tl-station-pulse');
+  // x positions of the 4 stations in SVG viewBox coords (0..1000)
+  var STATION_X={p1:100,p2:300,p3:500,p4:700,p5:900};
+  // segments adjacent to each phase (lit when active)
+  var SEG_FOR={p1:['1-2'],p2:['1-2','2-3'],p3:['2-3','3-4'],p4:['3-4','4-5'],p5:['4-5']};
+
+  function activate(key){
+    if(!key) return;
+    var card=phases.filter(function(c){return c.dataset.phase===key})[0];
+    var src=document.getElementById('agi-'+key);
+    if(!card||!src) return;
+    var alreadyOpen=card.getAttribute('aria-expanded')==='true';
+    phases.forEach(function(c){c.setAttribute('aria-expanded','false')});
+    if(alreadyOpen){
+      // Toggle close
+      wrap.classList.remove('open');
+      segments.forEach(function(s){s.classList.remove('lit')});
+      if(stationPulse) stationPulse.setAttribute('opacity','0');
+      return;
+    }
+    card.setAttribute('aria-expanded','true');
+    expandInner.innerHTML='';
+    // Clone the source detail and inject (re-trigger cascade animation)
+    var clone=src.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.removeAttribute('hidden');
+    clone.classList.remove('tab-content');
+    clone.style.display='block';
+    expandInner.appendChild(clone);
+    // Re-trigger CSS animation by toggling display
+    expandInner.style.animation='none';
+    void expandInner.offsetWidth;
+    expandInner.style.animation='';
+    wrap.classList.add('open');
+    // Position drop indicator under the card
+    var phasesGrid=wrap.querySelector('.timeline');
+    var idx=phases.indexOf(card);
+    var cardRect=card.getBoundingClientRect();
+    var gridRect=phasesGrid.getBoundingClientRect();
+    var leftPct=((cardRect.left+cardRect.width/2)-gridRect.left)/gridRect.width*100;
+    drop.style.left=leftPct+'%';
+    // Light up adjacent segments
+    var litSet=SEG_FOR[key]||[];
+    segments.forEach(function(s){s.classList.toggle('lit',litSet.indexOf(s.dataset.seg)>=0)});
+    // Move station pulse over the active station
+    if(stationPulse){
+      stationPulse.setAttribute('cx',STATION_X[key]);
+      stationPulse.setAttribute('opacity','0.85');
+    }
+    // Smooth-scroll the expand panel into view if it's off-screen
+    setTimeout(function(){
+      var er=expand.getBoundingClientRect();
+      if(er.bottom>window.innerHeight){expand.scrollIntoView({behavior:'smooth',block:'nearest'})}
+    },420);
+  }
+
+  // Phase I panorama arrows — delegated so cloned buttons still work
+  expandInner.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-p1-scroll]');
+    if(!btn) return;
+    var scroller=expandInner.querySelector('.p1-pano-scroll');
+    if(!scroller) return;
+    var dir=parseInt(btn.dataset.p1Scroll,10)||1;
+    scroller.scrollBy({left:dir*scroller.clientWidth*0.85,behavior:'smooth'});
+  });
+
+  // Click handlers
+  phases.forEach(function(c){c.addEventListener('click',function(){activate(c.dataset.phase)})});
+  phases.forEach(function(c){c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(c.dataset.phase)}})});
+  stations.forEach(function(s){s.addEventListener('click',function(){activate(s.dataset.phase)})});
+
+  // Re-position drop on resize while open
+  window.addEventListener('resize',function(){
+    var open=phases.filter(function(c){return c.getAttribute('aria-expanded')==='true'})[0];
+    if(!open) return;
+    var phasesGrid=wrap.querySelector('.timeline');
+    var cardRect=open.getBoundingClientRect();
+    var gridRect=phasesGrid.getBoundingClientRect();
+    drop.style.left=(((cardRect.left+cardRect.width/2)-gridRect.left)/gridRect.width*100)+'%';
+  });
 })();
 </script>
 
         <!-- ═════ HIDDEN: 2016–2056 ROADMAP — reveal after milestone ═════ -->
-    <div id="yr-hidden-wrap" style="display:none" aria-hidden="true">
-
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px">
-      <div>
-        <div class="sl"><span class="mn">Хөгжлүүлэлтийн ҮЕ ШАТУУД</span><span class="en">Development Roadmap</span></div>
-        <h2 class="st"><span class="mn">2016–2056 <em>ҮЕ ШАТУУД</em></span><span class="en">2016–2056 <em>ROADMAP</em></span></h2>
-      </div>
-    </div>
-
-    <div class="yr-wrap" id="yr-wrap">
-      <div class="owl-carousel owl-theme" id="yr-owl">
-
-        <!-- 2016-2020 -->
-        <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2016–2020</div>
-          <div class="yr-phase">2016–2020 · PHASE I · ЭХЛЭЛ</div>
-          <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-events">
-            <div class="yr-event">5 сарын 29 өдөр төслийн талбайн анхны <strong>тарваган хайлаас мод</strong>ыг тарив.</div>
-            <div class="yr-event">"Грийн дрилл" ХХК төслийн талбай дээрх мод тарилтын анхны <strong>1,500 нүх</strong> ухав.</div>
-            <div class="yr-event">1 модны нэг удаагийн усалгаанд 3-5 литр ус шаарддаг бөгөөд 1,500 модонд нийт <strong>7,500 литр ус</strong> зарцуулна. 1,500 модыг нэг удаа гараар усалгаанд 2-4 цаг шаарддаг.</div>
-            <div class="yr-event">Шамбала инженеринг кампус дахь <strong>анхны гэр</strong>ийг "Гэр 2 төсөл" өгөв.</div>
-            <div class="yr-event">"Пластик центр" ХХК төслийн талбай дээрх <strong>био 00</strong> барьсан.</div>
-            <div class="yr-event">"Грийн солар энержи" ХХК төслийн талбайн тог цахилгааны хангаж <strong>3кВт-ын нарны панел</strong> угсарч, бүх тогны хэрэгцээг <strong>100% сэргээгдэх эрчим хүч</strong>ээр шийдэж өгөв.</div>
-            <div class="yr-event">Хамгийн анхны <strong>147 мод</strong>ыг "I love planet" компанит ажлын хүрээнд "Yvesrocher" брэнд авлаа.</div>
-            <div class="yr-event">"Efes group" "Eco Home" брэндийн ахуйн хэрэгсэл буюу халуун сав, хулсан аяга, хулсан таваг болон хүнсний хэрэгцээг хангаж, <strong>147 мод</strong>.</div>
-            <div class="yr-event">"Зөвхөн түүнд" ХХК Модны анхны пайзыг хийж гүйцэтгэсэн. <strong>10 мод</strong></div>
-            <div class="yr-event">"Molpedia" нь төслийн анхны мод тарилтын явц болон бусад бүтээн байгуулалтын үеэр видео контент хийж цацсан. <strong>10 мод</strong></div>
-            <div class="yr-event">"UB comedy" нь төслийн анхны мод тарилтын явц болон бусад бүтээн байгуулалтын үеэр видео контент хийж цацсан. <strong>10 мод</strong></div>
-            <div class="yr-event">"Timberland Mongolia" 147 мод · "MIG даатгал" ХХК 147 мод · "Ойм" 10 мод · "Jack's coffee" 10 мод · "UNREAD" 10 мод · "Лантуун дохио" ТББ 10 мод</div>
-          </div>
-        </div>
-
-        <!-- 2021 -->
-        <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2021</div>
-          <div class="yr-phase">PHASE I · BE HUMAN LAND ART</div>
-          <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-events">
-            <div class="yr-event">"Лантуун дохио" ТББ-тай хамтран "BE HUMAN" <strong>21,857 мод</strong>той анхны LAND ART бүтээсэн</div>
-            <div class="yr-event"><strong>7,287 нүх</strong> ухаж <strong>27,857 мод</strong> тарьсан.</div>
-            <div class="yr-event">"Call pro" ХХК <strong>100 мод</strong></div>
-            <div class="yr-event">4500 орчим хувь хэрэглэгчид модтой</div>
-            <div class="yr-event">"Human network" <strong>100 мод</strong></div>
-            <div class="yr-event">Дуслын усалгааны систем хийгдэж <strong>бүрэн автоматжсан</strong>.</div>
-            <div class="yr-event">"UNREAD" 100 мод · "REMAX" 50 мод · "Цоба" 50 мод · "Ач тусын үлгэрүүд" ХХК 10 мод · "SCC" ХХК 20 мод</div>
-            <div class="yr-event">"Чихэрлэг залуусын нэгдэл" 44 мод · "Тод оймс" ХХК 108 мод · "RIO TINTO" ХХК 176 мод</div>
-            <div class="yr-event">Анхны ажилчдын хувцсыг "Наран Шиггтээ" ХХК хийсэн. <strong>44 мод</strong></div>
-            <div class="yr-event">"Түмэн шувуут" ХХК хонины ноосон бордоогоор хангасан. <strong>100 мод</strong></div>
-            <div class="yr-event">Италийн элчин сайдын яам 100 мод · "Ланд Бридж" ХХК 18 мод</div>
-            <div class="yr-event">"Улс Групп" ХХК 77 мод · "Улз Гол" ХХК 77 мод · "Улз Дриллинг" ХХК 77 мод · "Улз Финнанс" ББСБ 77 мод</div>
-            <div class="yr-event">"Голден Хаммер" ХХК 77 мод · "Ар Эс И" ХХК 77 мод · "Хөөсгөл" ХХК 77 мод</div>
-            <div class="yr-event">"MSM Групп" ХХК <strong>286 мод</strong> · "Тойрог" 10 мод · "Нароба Институт" 145 мод</div>
-          </div>
-        </div>
-
-        <!-- 2022 -->
-        <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2022</div>
-          <div class="yr-phase">PHASE I · ART'N TECH FESTIVAL · GO ZERO</div>
-          <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-events">
-            <div class="yr-event">"Грийн дрилл" ХХК 2022 оны 5 сард Art'n tech (ATE) лэнд артын <strong>12,000 модны нүх</strong>ийг ухаж дуусгасан.</div>
-            <div class="yr-event">"ЦОЙЛОГСОZ" залуусын нэгдэлтэй хамтран анхны "Олон Улсын Урлаг Технологийн наадам"-г <strong>200 хүний оролцоотойгоор</strong> 7 сарын 15, 16-ны өдөр зохион байгуулав.</div>
-            <div class="yr-event">Уг наадамд "CRM", "Hicharge", "Ger internet" байгууллагуүд оролцов. <strong>"CRM" 50 мод</strong></div>
-            <div class="yr-event">Анхны "Go zero 2022" (0 хүлэмжийн хий ялгаруулах) арга хэмжээ нь 2022 оны <strong>11 сарын 25</strong>-нд "Улаанбаатар инновацын төв"-д <strong>100 хүний оролцоотойгоор</strong> зохион байгуулав.</div>
-            <div class="yr-event">"ЭМ ПИ ЭС СИ" ББСБ-ийн "Токи" байгальд ээлтэй үйлдэл бүрийг урамшуулах OXYGEN хөтөлбөр. OXYGEN нь цөлжилтийн эсрэг хувь нэмрээ оруулж говийн бүсэд мод тарих бөгөөд хэрхэн тарьж арчлах талаар мэдлэгийг хөгжилтэй, сонирхолтой аргаар олж авах урамшуулалт хөтөлбөр юм. <strong>500 мод</strong></div>
-            <div class="yr-event">"Treelings" компани Шамбала инженеринг кампусын модыг <strong>хяналтын удирдагуйн систем</strong>ээр бүртгэж эхэлсэн.</div>
-          </div>
-        </div>
-
-        <!-- 2023 -->
-        <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2023</div>
-          <div class="yr-phase">PHASE I · ATE · GO ZERO 2023</div>
-          <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-events">
-            <div class="yr-event">Art'n tech (ATE) лэнд артын ерөнхий ивээн тэтгэгч <strong>"Номин холдинг" 1000 мод</strong></div>
-            <div class="yr-event">"ЭМ ПИ ЭС СИ" ББСБ-ийн <strong>"Токи" 1000 мод</strong></div>
-            <div class="yr-event">"UB CAB" 101 мод · "MKY Cashmere" 100 мод · "Monlogistic" 100 мод</div>
-            <div class="yr-event">"Ардын тэтгэврийн данс" 60 мод · "Ард БИТ" 60 мод · "Ард кредит" 60 мод · "Ард актив" 60 мод</div>
-            <div class="yr-event">"Storepay" 100 мод · "GGI" 108 мод</div>
-            <div class="yr-event">Go zero 2023 — Хорт хавдар ба хүлэмжийн хийн хамаарлын талаар мэдлэглэх арга хэмжээ. <strong>2023 оны 12 сарын 1</strong>-нд "Улаанбаатар инновацын төв"-д байгуулагдаж <strong>200 хүний оролцоотойгоор</strong> Улаанбаатарт зохион байгуулаа.</div>
-          </div>
-        </div>
-
-        <!-- 2024 -->
-        <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2024</div>
-          <div class="yr-phase">PHASE I · 4 ЖИЛИЙН ОЙ · КАРБОН ОФФСЕТС</div>
-          <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-events">
-            <div class="yr-event">"Номин Даатгал" "Be Human", "ATE" лэнд артын бүх модыг <strong>2056 он хүртэл даатгасан</strong>. "Номин Даатгал" нь 151 мод</div>
-            <div class="yr-event">"Номин электроникс" "HITACHI brand" хамтран Шамбала 2056 — оффис тохижилт дээр хамтран ажиллаж контент хийсэн. <strong>500 мод</strong></div>
-            <div class="yr-event">ART'N TECH land art documentary ep1 "Номин Холдинг"-той хамтран бүтээв. "Номин моторс" 301 мод, "Номин карт" 100 мод, "Номин юнион" 150 мод, "Номин хоумстайл" 200 мод</div>
-            <div class="yr-event">"BE HUMAN" лэнд артын 21,857 модны зургийг нэг бүрчлэн авч, <strong>модны эздэд ургалтын явц харуулсан зургийг илгээв</strong>.</div>
-            <div class="yr-event">"ART'N TECH" лэнд артын элс шороо дүүрсэн <strong>6000 нүх</strong>ийг дахин ухаж, <strong>15,000 хайлаас</strong> тарив.</div>
-            <div class="yr-event"><strong>28,000 метр усалгааны систем</strong> угсарсан.</div>
-            <div class="yr-event">Төслийн талбайг <strong>хиймэл дагуулаас хардаг</strong> болов.</div>
-            <div class="yr-event">"ЭМ ПИ ЭС СИ" ББСБ-ийн "Токи" 500 мод · "UB print" 100 мод · "Pizza hut" 700 мод · "Zangia" 50 мод</div>
-            <div class="yr-event">"Starchase" 135 мод · "Дорноговь" аймаг 305 мод · "G&M Star" 45 мод · "BU properties" 50 мод · "Monlogistic" 100 мод</div>
-            <div class="yr-event">Төслийн талбайн нийт модны хүчилтөрөгч ялгаруулж буй хэмжээ, нүүрстөрөгчийн давхар ислэл шингээж буй хэмжээ, үүсгэж буй биомассыг <strong>"Martensite Analytica"</strong> компанитай хамтран гаргав.</div>
-            <div class="yr-event">"Шамбала Карбон Оффсетс" ХХК охин компани байгуулагдав. Шамбала А/2 оффис <strong>Дорноговь аймаг Сайншанд суманд</strong> байгуулагдав.</div>
-            <div class="yr-event">Шамбала 2056 <strong>"PARIS 2024"</strong> олимпод оролцож буй тамирчиддаа амжилт хүсэн нэрийн мод бэлэглэв.</div>
-            <div class="yr-event">ATE брэндийн анхны <strong>NFC тагтай цамц</strong>ыг хөгжүүлэлт хийн танилцуулав.</div>
-            <div class="yr-event">2020 онд эхлүүлсэн бидний төслийн <strong>нэгдүгээр 4 жил</strong> амжилтай дуусаж хоёрдугаар 4 жилээ эхлүүлж байна.</div>
-          </div>
-        </div>
-
-        <!-- 2026 NOW -->
-        <div class="yr-slide yr-p1 yr-now">
-          <div class="yr-year-num">2026</div>
-          <div class="yr-phase">PHASE I · ОДОО · NOW</div>
-          <div class="yr-status s-now">NOW · 2026</div>
-        </div>
-
-        <!-- 2028 -->
-        <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2028</div>
-          <div class="yr-phase">PHASE I · ТӨЛӨВЛӨГӨӨ · PLANNED</div>
-          <div class="yr-status s-future">UPCOMING</div>
-          <div class="yr-title"><span class="mn">CS2 Boot Camp Дуусгавар</span><span class="en">CS2 Boot Camp Complete</span></div>
-          <div class="yr-desc"><span class="mn">Шамбала CS2 Boot Camp хөтөлбөр амжилттай дуусгавар болж, төгсөгчид инженерийн суурины анхны боловсролын бүтээгдэхүүн болно.</span><span class="en">The CS2 Boot Camp program concludes successfully, producing the first cohort of campus-trained engineers.</span></div>
-        </div>
-
-        <!-- 2032 -->
-        <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2032</div>
-          <div class="yr-phase">PHASE I ДУУСГАВАР · PHASE II ЭХЛЭЛ</div>
-          <div class="yr-status s-future">UPCOMING</div>
-          <div class="yr-title"><span class="mn">Шамбала Ахлах Сургууль Нээлт</span><span class="en">Shambala High School Opens</span></div>
-          <div class="yr-desc"><span class="mn">Phase I дуусгавар болж, Шамбала Ахлах Сургууль нээгдэнэ. Мөн AI болон Карбон кредит суурилсан технологийн сургуулийн дэд бүтцийг байгуулж эхэлнэ.</span><span class="en">Phase I concludes with the opening of Shambala High School. Phase II begins — AI & Carbon credit technology college infrastructure development starts.</span></div>
-        </div>
-
-        <!-- 2040 -->
-        <div class="yr-slide yr-p2">
-          <div class="yr-year-num">2040</div>
-          <div class="yr-phase">PHASE II · AI · МЭДЭЭЛЛИЙН ТЕХНОЛОГИ</div>
-          <div class="yr-status s-future">UPCOMING</div>
-          <div class="yr-title"><span class="mn">Шамбала Tech Коллежийн Анхны Төгсөлт</span><span class="en">Shambala Tech College First Graduation</span></div>
-          <div class="yr-desc"><span class="mn">AI болон карбон кредит суурилсан Шамбала Tech Коллежийн анхны оюутнууд төгсөж, олон улсын AI судалгааны лаборатори байгуулах ажил эхэлнэ.</span><span class="en">The first graduates of Shambala Tech College complete their studies, and work begins on an international AI research laboratory.</span></div>
-        </div>
-
-        <!-- 2048 -->
-        <div class="yr-slide yr-p3">
-          <div class="yr-year-num">2048</div>
-          <div class="yr-phase">PHASE III · БИОИНЖЕНЕРЧЛЭЛ</div>
-          <div class="yr-status s-future">UPCOMING</div>
-          <div class="yr-title"><span class="mn">Биомедицины Судалгааны Төвийн Дэд Бүтэц</span><span class="en">Biomedical Research Centre Infrastructure</span></div>
-          <div class="yr-desc"><span class="mn">Биоинженерчлэлийн сургуулийн дэд бүтэц бүрэн байгуулагдаж, биомедицины судалгааны төвийн барилга ажиллагааны бэлтгэл хийгдэнэ.</span><span class="en">Bioengineering college infrastructure is fully established, and the biomedical research centre building is prepared for operations.</span></div>
-        </div>
-
-        <!-- 2056 -->
-        <div class="yr-slide yr-p3">
-          <div class="yr-year-num">2056</div>
-          <div class="yr-phase">ЭЦСИЙН ЗОРИЛГО · FINAL VISION</div>
-          <div class="yr-status s-future">UPCOMING</div>
-          <div class="yr-title"><span class="mn">Шамбала 2056 — Бүрэн Гүйцэд Инженерийн Суурин</span><span class="en">Shambala 2056 — Full Engineering Campus</span></div>
-          <div class="yr-desc"><span class="mn">Олон улсын биомедицины судалгааны лаборатори байгуулагдаж, Шамбала 2056 нь дэлхийн түвшний инженерчлэл, судалгааны төв болох эцсийн зорилгодоо хүрнэ.</span><span class="en">The international biomedical research laboratory opens — Shambala 2056 achieves its ultimate vision as a world-class engineering and research campus.</span></div>
-        </div>
-
-      </div>
-    </div><!-- /yr-wrap -->
-
-    </div>
     <!-- ═════ /HIDDEN ROADMAP ═════ -->
 
   </div>
@@ -5438,15 +4797,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div class="nasa-grid">
       <div class="nasa-card focused">
         <div class="nasa-label"><span class="mn">// ХУРИМТЛАГДСАН БИОМАСС</span><span class="en">// BIOMASS ACCUMULATION OVER TIME</span></div>
-        <svg id="nasa-chart-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="506.4" y="32" width="73.6" height="220" fill="rgba(57,173,72,0.03)"/><line x1="506.4" y1="32" x2="506.4" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="512.4" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="65" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="65" y1="208.0" x2="580" y2="208.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="211.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">5,000</text><line x1="65" y1="164.0" x2="580" y2="164.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="167.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">10,000</text><line x1="65" y1="120.0" x2="580" y2="120.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="123.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">15,000</text><line x1="65" y1="76.0" x2="580" y2="76.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="79.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">20,000</text><line x1="65" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">25,000</text><text x="65.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2019</text><text x="138.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="212.1" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="285.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="359.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="432.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="506.4" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="65.0,237.7 138.6,230.0 212.1,199.2 285.7,164.0 359.3,133.2 432.9,108.7 506.4,84.2 580.0,59.7" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="237.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="230.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="199.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="133.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="108.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="84.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="59.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="65.0,239.2 138.6,241.4 212.1,245.4 285.7,248.2 359.3,249.5 432.9,250.1 506.4,250.1 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="239.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="245.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="248.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="249.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="250.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="70" y="32" width="16" height="2" fill="#39AD48"/><text x="90" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай</text><rect x="180" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="200" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай</text></svg>
+        <svg id="nasa-chart-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="506.4" y="32" width="73.6" height="220" fill="rgba(57,173,72,0.03)"/><line x1="506.4" y1="32" x2="506.4" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="512.4" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="65" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="65" y1="208.0" x2="580" y2="208.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="211.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">5,000</text><line x1="65" y1="164.0" x2="580" y2="164.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="167.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">10,000</text><line x1="65" y1="120.0" x2="580" y2="120.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="123.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">15,000</text><line x1="65" y1="76.0" x2="580" y2="76.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="79.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">20,000</text><line x1="65" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">25,000</text><text x="65.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2019</text><text x="138.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="212.1" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="285.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="359.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="432.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="506.4" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="65.0,237.7 138.6,230.0 212.1,199.2 285.7,164.0 359.3,133.2 432.9,108.7 506.4,84.2 580.0,59.7" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="237.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="230.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="199.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="133.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="108.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="84.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="59.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="65.0,239.2 138.6,241.4 212.1,245.4 285.7,248.2 359.3,249.5 432.9,250.1 506.4,250.1 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="239.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="245.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="248.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="249.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="250.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="70" y="32" width="16" height="2" fill="#39AD48"/><text x="90" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Төслийн талбай</tspan><tspan class="en">Project Area</tspan></text><rect x="180" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="200" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Хяналтын талбай</tspan><tspan class="en">Control Area</tspan></text></svg>
       </div>
       <div class="nasa-card">
         <div class="nasa-label"><span class="mn">// NDVI &amp; EVI ӨӨРЧЛӨЛТ</span><span class="en">// NDVI &amp; EVI TRENDS OVER TIME</span></div>
-        <svg id="nasa-chart-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="493.0" y="32" width="87.0" height="220" fill="rgba(57,173,72,0.03)"/><line x1="493.0" y1="32" x2="493.0" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="499.0" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="58" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="58" y1="197.0" x2="580" y2="197.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="200.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.05</text><line x1="58" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.10</text><line x1="58" y1="87.0" x2="580" y2="87.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="90.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.15</text><line x1="58" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.20</text><text x="58.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="145.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="232.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="319.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="406.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="493.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="58.0,118.9 145.0,120.0 232.0,158.5 319.0,150.8 406.0,125.5 493.0,117.8 580.0,110.1" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="118.9" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="120.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="158.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="150.8" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="125.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="117.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="110.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,180.5 145.0,182.7 232.0,186.0 319.0,183.8 406.0,181.6 493.0,181.6 580.0,181.6" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="180.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="182.7" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="186.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="183.8" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="181.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,136.5 145.0,137.6 232.0,170.6 319.0,164.0 406.0,142.0 493.0,135.4 580.0,128.8" fill="none" stroke="#00D4FF" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="136.5" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="137.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="170.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="142.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="135.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="128.8" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,190.4 145.0,191.5 232.0,194.8 319.0,192.6 406.0,190.4 493.0,190.4 580.0,190.4" fill="none" stroke="rgba(0,212,255,0.4)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="191.5" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="194.8" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="192.6" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><rect x="60" y="32" width="16" height="2" fill="#39AD48"/><text x="80" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай</text><rect x="170" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="190" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай</text><rect x="290" y="32" width="16" height="2" fill="#00D4FF"/><text x="310" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай · EVI</text><rect x="430" y="32" width="16" height="2" fill="rgba(0,212,255,0.4)"/><text x="450" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай · EVI</text></svg>
+        <svg id="nasa-chart-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="493.0" y="32" width="87.0" height="220" fill="rgba(57,173,72,0.03)"/><line x1="493.0" y1="32" x2="493.0" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="499.0" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="58" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="58" y1="197.0" x2="580" y2="197.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="200.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.05</text><line x1="58" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.10</text><line x1="58" y1="87.0" x2="580" y2="87.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="90.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.15</text><line x1="58" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.20</text><text x="58.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="145.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="232.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="319.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="406.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="493.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="58.0,118.9 145.0,120.0 232.0,158.5 319.0,150.8 406.0,125.5 493.0,117.8 580.0,110.1" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="118.9" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="120.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="158.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="150.8" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="125.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="117.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="110.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,180.5 145.0,182.7 232.0,186.0 319.0,183.8 406.0,181.6 493.0,181.6 580.0,181.6" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="180.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="182.7" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="186.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="183.8" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="181.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,136.5 145.0,137.6 232.0,170.6 319.0,164.0 406.0,142.0 493.0,135.4 580.0,128.8" fill="none" stroke="#00D4FF" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="136.5" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="137.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="170.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="142.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="135.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="128.8" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,190.4 145.0,191.5 232.0,194.8 319.0,192.6 406.0,190.4 493.0,190.4 580.0,190.4" fill="none" stroke="rgba(0,212,255,0.4)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="191.5" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="194.8" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="192.6" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><rect x="60" y="32" width="16" height="2" fill="#39AD48"/><text x="80" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Төслийн талбай</tspan><tspan class="en">Project Area</tspan></text><rect x="170" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="190" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Хяналтын талбай</tspan><tspan class="en">Control Area</tspan></text><rect x="290" y="32" width="16" height="2" fill="#00D4FF"/><text x="310" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Төслийн талбай · EVI</tspan><tspan class="en">Project · EVI</tspan></text><rect x="430" y="32" width="16" height="2" fill="rgba(0,212,255,0.4)"/><text x="450" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Хяналтын талбай · EVI</tspan><tspan class="en">Control · EVI</tspan></text></svg>
       </div>
       <div class="nasa-card">
         <div class="nasa-label"><span class="mn">// NDWI  &amp; НИЙТ НҮҮРСТӨРӨГЧИЙН ШИНГЭЭЛТ</span><span class="en">// NDWI TRENDS &amp; CUMULATIVE CARBON SEQUESTRATION</span></div>
-        <svg id="nasa-chart-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="507.1" y="32" width="72.9" height="220" fill="rgba(57,173,72,0.03)"/><line x1="507.1" y1="32" x2="507.1" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="513.1" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="70" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="70" y1="215.3" x2="580" y2="215.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="218.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">2,000</text><line x1="70" y1="178.7" x2="580" y2="178.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="181.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">4,000</text><line x1="70" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">6,000</text><line x1="70" y1="105.3" x2="580" y2="105.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="108.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">8,000</text><line x1="70" y1="68.7" x2="580" y2="68.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="71.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">10,000</text><line x1="70" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">12,000</text><text x="70.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2019</text><text x="142.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="215.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="288.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="361.4" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="434.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="507.1" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="70.0,238.0 142.9,232.3 215.7,198.6 288.6,162.7 361.4,133.6 434.3,111.7 507.1,101.7 580.0,79.8" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="238.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="232.3" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="198.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="162.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="133.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="111.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="101.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="79.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="70.0,239.4 142.9,241.4 215.7,245.0 288.6,248.3 361.4,249.6 434.3,250.1 507.1,250.2 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="239.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="245.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="248.3" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="249.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="75" y="32" width="16" height="2" fill="#39AD48"/><text x="95" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай</text><rect x="185" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="205" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай</text></svg>
+        <svg id="nasa-chart-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="507.1" y="32" width="72.9" height="220" fill="rgba(57,173,72,0.03)"/><line x1="507.1" y1="32" x2="507.1" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="513.1" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="70" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="70" y1="215.3" x2="580" y2="215.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="218.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">2,000</text><line x1="70" y1="178.7" x2="580" y2="178.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="181.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">4,000</text><line x1="70" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">6,000</text><line x1="70" y1="105.3" x2="580" y2="105.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="108.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">8,000</text><line x1="70" y1="68.7" x2="580" y2="68.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="71.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">10,000</text><line x1="70" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">12,000</text><text x="70.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2019</text><text x="142.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="215.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="288.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="361.4" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="434.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="507.1" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="70.0,238.0 142.9,232.3 215.7,198.6 288.6,162.7 361.4,133.6 434.3,111.7 507.1,101.7 580.0,79.8" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="238.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="232.3" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="198.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="162.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="133.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="111.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="101.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="79.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="70.0,239.4 142.9,241.4 215.7,245.0 288.6,248.3 361.4,249.6 434.3,250.1 507.1,250.2 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="239.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="245.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="248.3" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="249.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="75" y="32" width="16" height="2" fill="#39AD48"/><text x="95" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Төслийн талбай</tspan><tspan class="en">Project Area</tspan></text><rect x="185" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="205" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600"><tspan class="mn">Хяналтын талбай</tspan><tspan class="en">Control Area</tspan></text></svg>
       </div>
     </div>
     <div class="nasa-partners">
@@ -5628,12 +4987,12 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:28px 28px;background:rgba(57,173,72,0.04);border:1px solid rgba(57,173,72,0.25);display:flex;flex-direction:column;justify-content:center;gap:14px">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent);z-index:2"></div>
           <div style="font-family:'Montserrat',sans-serif;font-size:5rem;font-weight:700;color:var(--green);line-height:1">1%</div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;padding:5px 12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan);width:fit-content">ААНОАТ · 22.9</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;padding:5px 12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan);width:fit-content"><span class="mn">ААНОАТ · 22.9</span><span class="en">CIT · Art. 22.9</span></div>
           <div style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">ТАТВАРЫН ХӨНГӨЛӨЛТ</span><span class="en">TAX DEDUCTION</span></div>
         </div>
         <!-- RIGHT: legal text -->
         <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:28px 28px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;gap:16px">
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;color:var(--cyan)">ААНОАТ · 22.9 — <span class="mn">ХУУЛИЙН ЗААЛТ</span><span class="en">LEGAL PROVISION</span></div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;color:var(--cyan)"><span class="mn">ААНОАТ · 22.9 — ХУУЛИЙН ЗААЛТ</span><span class="en">CIT · Art. 22.9 — LEGAL PROVISION</span></div>
           <div class="legal-body" style="font-size:0.72rem;line-height:1.8;color:rgba(232,244,255,0.75)">
             <span class="mn">22.9.Албан татвар төлөгчийн орлого олох үйл ажиллагаатай хамааралгүй доор дурдсан үйл ажиллагааг нийгмийн хариуцлагын хүрээнд дэмжих зорилгоор элэгдэл тооцох үндсэн хөрөнгөд оруулсан хөрөнгө оруулалт, харилцан хамааралгүй бусад этгээдэд олгосон санхүүгийн дэмжлэг, хандивын зардлыг энэ хуулийн 20.1-д заасны дагуу ногдуулсан албан татвараас хасаж хөнгөлнө. Хөнгөлөх дүн нь тухайн татварын жилийн <strong style="color:var(--green)">татвар ногдох орлогын 1 хувь хүртэл</strong> хэмжээнээс хэтрэхгүй байна.</span>
             <span class="en">Art. 22.9 — Investment in fixed assets subject to depreciation, financial support and donations granted to unrelated parties for the purpose of supporting socially responsible activities unrelated to the taxpayer's income-generating activities shall be deducted from corporate income tax assessed pursuant to Art. 20.1. The deduction shall not exceed <strong style="color:var(--green)">1% of taxable income</strong> for the relevant tax year.</span>
