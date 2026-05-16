@@ -2977,8 +2977,8 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 }
 .agi-embed .timeline {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
   position: relative;
 }
 @media (max-width: 900px) {
@@ -3038,6 +3038,54 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   color: var(--text-2);
   font-size: 13px;
   line-height: 1.55;
+}
+/* ═════ Timeline interactive cascade + motion-graphic connector ═════ */
+.agi-embed .timeline-wrap{position:relative;padding-top:46px}
+.agi-embed .timeline-line{display:none}
+.agi-embed .tl-connector{position:absolute;top:18px;left:0;right:0;width:100%;height:44px;pointer-events:none;z-index:0;overflow:visible}
+.agi-embed .tl-flow-line{animation:tl-flow-anim 1.8s linear infinite}
+@keyframes tl-flow-anim{from{stroke-dashoffset:0}to{stroke-dashoffset:-44}}
+.agi-embed .tl-station{cursor:pointer;pointer-events:auto;transition:r .35s ease,stroke-width .35s ease,filter .35s ease}
+.agi-embed .tl-station:hover{filter:drop-shadow(0 0 8px currentColor)}
+.agi-embed .tl-station-pulse{transform-box:fill-box;transform-origin:center;animation:tl-station-pulse 1.8s ease-out infinite}
+@keyframes tl-station-pulse{0%{r:6;opacity:.7}80%{r:18;opacity:0}100%{r:18;opacity:0}}
+.agi-embed .tl-seg{transition:opacity .5s ease;filter:drop-shadow(0 0 6px currentColor)}
+.agi-embed .tl-seg.lit{opacity:.9}
+.agi-embed .tl-pulse-bead{animation:tl-bead 6.5s ease-in-out infinite;opacity:.85;filter:drop-shadow(0 0 5px #00FF94)}
+@keyframes tl-bead{0%{cx:100;cy:30;opacity:0}5%{opacity:1}25%{cx:300;cy:30;opacity:1}50%{cx:500;cy:30;opacity:1}75%{cx:700;cy:30;opacity:1}95%{cx:900;cy:30;opacity:1}100%{cx:900;cy:30;opacity:0}}
+.agi-embed .tl-phase-past::before{background:#F5C543!important;box-shadow:0 0 12px #F5C543!important}
+.agi-embed .tl-phase-past:hover{border-color:#F5C543}
+.agi-embed .tl-phase-past[aria-expanded="true"]{border-color:#F5C543;box-shadow:0 12px 36px -12px rgba(245,197,67,.28),0 0 0 1px rgba(245,197,67,.2)}
+.agi-embed .tl-phase-past[aria-expanded="true"]::before{box-shadow:0 0 18px #F5C543}
+.agi-embed .tl-phase-past[aria-expanded="true"] .tl-phase-cue{color:#F5C543}
+.agi-embed .tl-phase-past .tl-phase-id{background:linear-gradient(135deg,#F5C543,#F0A04B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.agi-embed .tl-phase-past .tl-phase-years{color:#F5C543}
+.agi-embed .tl-phase-status{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:#F5C543;padding:4px 8px;background:rgba(245,197,67,.06);border:1px solid rgba(245,197,67,.25);display:inline-block;text-transform:uppercase}
+.agi-embed .tl-phase{cursor:pointer;user-select:none;outline:none}
+.agi-embed .tl-phase:focus-visible{outline:1px dashed #00FF94;outline-offset:4px}
+.agi-embed .tl-phase[aria-expanded="true"]{border-color:#00FF94;background:var(--bg-2);box-shadow:0 12px 36px -12px rgba(0,255,148,.28),0 0 0 1px rgba(0,255,148,.2)}
+.agi-embed .tl-phase[aria-expanded="true"]::before{transform:scale(1.6);box-shadow:0 0 18px #00FF94}
+.agi-embed .tl-phase[aria-expanded="true"] .tl-phase-cue{opacity:1;color:#00FF94}
+.agi-embed .tl-phase[aria-expanded="true"] .tl-phase-cue-arr{transform:rotate(180deg)}
+.agi-embed .tl-phase-cue{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--muted);opacity:.6;text-transform:uppercase;transition:opacity .3s,color .3s}
+.agi-embed .tl-phase:hover .tl-phase-cue{opacity:1}
+.agi-embed .tl-phase-cue-arr{display:inline-block;transition:transform .35s cubic-bezier(.4,0,.2,1);font-size:12px}
+.agi-embed .tl-drop{position:absolute;left:12.5%;top:calc(100% - 64px - 64px);transform:translateX(-50%);width:2px;height:64px;background:linear-gradient(180deg,#00FF94,rgba(0,255,148,0));opacity:0;transition:left .55s cubic-bezier(.4,0,.2,1),opacity .35s ease,top .35s ease;z-index:1;pointer-events:none}
+.agi-embed .tl-drop::before{content:'';position:absolute;left:50%;top:0;width:8px;height:8px;background:#00FF94;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 16px #00FF94;animation:tl-drop-blink 1.4s ease-in-out infinite}
+.agi-embed .tl-drop::after{content:'';position:absolute;left:50%;bottom:-4px;width:6px;height:6px;border-right:2px solid #00FF94;border-bottom:2px solid #00FF94;transform:translateX(-50%) rotate(45deg);filter:drop-shadow(0 0 6px #00FF94)}
+@keyframes tl-drop-blink{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}}
+.agi-embed .timeline-wrap.open .tl-drop{opacity:1}
+.agi-embed .tl-expand{margin-top:80px;border:1px solid var(--border);background:var(--bg-1);max-height:0;overflow:hidden;opacity:0;transition:max-height .65s cubic-bezier(.4,0,.2,1),opacity .4s ease,margin-top .4s,border-color .4s;position:relative}
+.agi-embed .tl-expand::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00FF94,#00E5FF);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.agi-embed .timeline-wrap.open .tl-expand{max-height:3200px;opacity:1;border-color:#00FF94}
+.agi-embed .timeline-wrap.open .tl-expand::before{transform:scaleX(1)}
+.agi-embed .tl-expand-inner{padding:40px 40px 48px;animation:tl-cascade .55s cubic-bezier(.4,0,.2,1)}
+@keyframes tl-cascade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.agi-embed .tl-expand-inner .phase-detail{grid-template-columns:1fr 1.4fr}
+@media (max-width:900px){
+  .agi-embed .tl-connector{display:none}
+  .agi-embed .timeline-wrap{padding-top:0}
+  .agi-embed .tl-drop{display:none}
 }
 .agi-embed .tabs {
   display: flex;
@@ -3856,35 +3904,92 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     </div>
 
     <div class="timeline-wrap reveal">
-      <div class="timeline-line"></div>
+      <!-- Motion-graphic connector: animated horizontal line + 5 dots over the cards -->
+      <svg class="tl-connector" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="tl-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F5C543"/>
+            <stop offset="22%" stop-color="#00FF94"/>
+            <stop offset="60%" stop-color="#00E5FF"/>
+            <stop offset="100%" stop-color="#00E5FF"/>
+          </linearGradient>
+          <filter id="tl-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- base track -->
+        <line x1="100" y1="30" x2="900" y2="30" stroke="url(#tl-grad)" stroke-width="1" opacity="0.25"/>
+        <!-- flowing dashed overlay -->
+        <line x1="100" y1="30" x2="900" y2="30" stroke="url(#tl-grad)" stroke-width="1.5" opacity="0.85" stroke-dasharray="14 8" class="tl-flow-line"/>
+        <!-- segment highlights between dots — light up when adjacent dots are active -->
+        <line class="tl-seg" data-seg="1-2" x1="100" y1="30" x2="300" y2="30" stroke="#F5C543" stroke-width="2.4" opacity="0"/>
+        <line class="tl-seg" data-seg="2-3" x1="300" y1="30" x2="500" y2="30" stroke="#00FF94" stroke-width="2.4" opacity="0"/>
+        <line class="tl-seg" data-seg="3-4" x1="500" y1="30" x2="700" y2="30" stroke="#00E5FF" stroke-width="2.4" opacity="0"/>
+        <line class="tl-seg" data-seg="4-5" x1="700" y1="30" x2="900" y2="30" stroke="#00E5FF" stroke-width="2.4" opacity="0"/>
+        <!-- traveling bead pulse -->
+        <circle r="3" fill="#fff" class="tl-pulse-bead"/>
+        <!-- 5 station dots -->
+        <g filter="url(#tl-glow)">
+          <circle class="tl-station" data-phase="p1" cx="100" cy="30" r="6" fill="#0A0A12" stroke="#F5C543" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p2" cx="300" cy="30" r="6" fill="#0A0A12" stroke="#00FF94" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p3" cx="500" cy="30" r="6" fill="#0A0A12" stroke="#00FF94" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p4" cx="700" cy="30" r="6" fill="#0A0A12" stroke="#00E5FF" stroke-width="1.5"/>
+          <circle class="tl-station" data-phase="p5" cx="900" cy="30" r="6" fill="#0A0A12" stroke="#00E5FF" stroke-width="1.5"/>
+        </g>
+        <!-- pulse ring around active station (positioned via JS) -->
+        <circle class="tl-station-pulse" cx="100" cy="30" r="6" fill="none" stroke="#00FF94" stroke-width="1.5" opacity="0"/>
+      </svg>
+
       <div class="timeline">
-        <div class="tl-phase" onclick="showTab('p2')">
+        <div class="tl-phase tl-phase-past" data-phase="p1" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
+          <div class="tl-phase-id">I</div>
+          <div class="tl-phase-years">2016 → 2024</div>
+          <h4>Хамгаалах зурвас байгуулах</h4>
+          <p>166,857 хайлаас, 108,970 м² нөхөн сэргээлт, NASA + Martensite Analytica хяналт.</p>
+          <div class="tl-phase-status">COMPLETED · ХЭРЭГЖСЭН</div>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt">Дэлгэрэнгүй харах</span><span class="tl-phase-cue-arr">↓</span></div>
+        </div>
+
+        <div class="tl-phase" data-phase="p2" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">II</div>
           <div class="tl-phase-years">2024 → 2032</div>
           <h4>Суурь дэд бүтэц ба туршилт</h4>
           <p>100 МВт нарны станц, AGI лаборатори, 100 элит оюутан, анхдагч карбон кредит.</p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt">Дэлгэрэнгүй харах</span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
-        <div class="tl-phase" onclick="showTab('p3')">
+        <div class="tl-phase" data-phase="p3" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">III</div>
           <div class="tl-phase-years">2032 → 2040</div>
           <h4>Өргөтгөл ба боловсронгуй</h4>
           <p>1,000 МВт, Smart Grid, AGI бодит хэрэглээ, 300 оюутан, олон улсын аккредитаци.</p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt">Дэлгэрэнгүй харах</span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
-        <div class="tl-phase" onclick="showTab('p4')">
+        <div class="tl-phase" data-phase="p4" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">IV</div>
           <div class="tl-phase-years">2040 → 2048</div>
           <h4>Олон улсын тэргүүлэгч</h4>
           <p>5,000 МВт, ExaFLOPS supercomputer, 600 оюутан, бүс нутгийн карбон төв.</p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt">Дэлгэрэнгүй харах</span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
-        <div class="tl-phase" onclick="showTab('p5')">
+        <div class="tl-phase" data-phase="p5" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">V</div>
           <div class="tl-phase-years">2048 → 2056</div>
           <h4>Алсын хараа бүрэн хэрэгжих</h4>
           <p>10,000+ МВт, AGI бие даасан судалгаа, 1,000 оюутан, дэлхийн стандарт тогтоогч.</p>
+          <div class="tl-phase-cue"><span class="tl-phase-cue-txt">Дэлгэрэнгүй харах</span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
+      </div>
+
+      <!-- Vertical drop indicator from active card to expand panel -->
+      <div class="tl-drop" aria-hidden="true"></div>
+
+      <!-- Cascading expand drawer -->
+      <div class="tl-expand" id="tl-expand" aria-live="polite">
+        <div class="tl-expand-inner"></div>
       </div>
     </div>
   </div>
@@ -3907,6 +4012,63 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
       <button class="tab" data-tab="p3">III · 2032–2040</button>
       <button class="tab" data-tab="p4">IV · 2040–2048</button>
       <button class="tab" data-tab="p5">V · 2048–2056</button>
+    </div>
+
+    <!-- PHASE I (hidden source — revealed only via timeline card click) -->
+    <div class="tab-content" id="agi-p1" hidden>
+      <div class="phase-detail">
+        <div class="phase-side">
+          <h3 style="background:linear-gradient(135deg,#F5C543,#F0A04B);-webkit-background-clip:text;background-clip:text;color:transparent">I</h3>
+          <div class="phase-side-years" style="color:#F5C543">2016 – 2024 · 8 жил · ХЭРЭГЖСЭН</div>
+          <div class="phase-kpis">
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Тарьсан мод</div>
+              <div class="phase-kpi-val">166,857</div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Сэргээгдсэн талбай</div>
+              <div class="phase-kpi-val">108,970<span class="unit">м²</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">CO₂ шингээлт</div>
+              <div class="phase-kpi-val">33,603<span class="unit">кг/жил</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Биомасс</div>
+              <div class="phase-kpi-val">114,906<span class="unit">тонн</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-main">
+          <h4>// Нөхөн сэргээлт ба хамгаалах зурвас</h4>
+          <ul>
+            <li>166,857 хайлаас (Ulmus pumila) ба тарваган хайлаасыг 108,970 м² талбайд тарьж, говийн цөлжилттэй тэмцэх хамгаалах зурвасыг бий болгосон</li>
+            <li>"BE HUMAN" Лэнд Арт — Монгол дахь анхны Land Art (21,857 мод, 30,000 м²), "Лантуун дохио" ТББ-тай хамтран бүтээсэн</li>
+            <li>"ART N TECH FESTIVAL" — 36,000 мод, 38,970 м², 10 кВт нарны хүчин чадал</li>
+            <li>"MONGOLZ#1" — 100,000 мод, 40,000 м², 20 кВт — анхны корпорацийн стратегийн хамтрагч</li>
+          </ul>
+          <h4>// Дэд бүтэц</h4>
+          <ul>
+            <li>18,000 м дусаагуурын усалгааны систем, нараар тэжээгдэх насос</li>
+            <li>Анхны 3 кВт нарны панел (2020) → нийт 35 кВт суурилуулсан хүчин чадал</li>
+            <li>Талбайн бүх үйл ажиллагаа 100% сэргээгдэх эрчим хүчээр</li>
+            <li>Шамбала инженеринг кампусын анхны байр (Эрдэнэ сум, Дорноговь · УБ-аас 584 км)</li>
+          </ul>
+          <h4>// Хяналт ба баталгаажуулалт</h4>
+          <ul>
+            <li>NASA MODIS, Sentinel-2, Sentinel-5P хиймэл дагуулын тогтмол мониторинг</li>
+            <li>NDVI · EVI · NDWI үзүүлэлтүүдээр ургамалжилт, биомасс, чийгшилийг хянах</li>
+            <li>Martensite Analytica хөндлөнгийн аудит — биомасс, CO₂ шингээлтийн баталгаажсан жилийн тайлан</li>
+            <li>Жилийн 33,603 кг CO₂ шингээлт, нийт 114,906 тонн биомасс — бүртгэгдсэн</li>
+          </ul>
+          <h4>// Хамтрагчид</h4>
+          <ul>
+            <li>"Лантуун дохио" ТББ, Nomin Holding, MONGOLZ, Timberland Mongolia, MIG Даатгал, Yvesrocher, Efes Group · 20+ байгууллага</li>
+            <li>Татварын тухай хуулийн 22.9 (1% хөнгөлөлт)-д нийцсэн хандивын бүтэц</li>
+            <li>Карбон стандартын бэлтгэлийн үе шат (Verra VCS, Gold Standard)</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <!-- PHASE II -->
@@ -4135,167 +4297,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   </div>
 </section>
 
-<section id="agi-growth">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-head-num">/ 06 · Өсөлтийн зураглал</div>
-        <h2>Үе шатны<br>өсөлт</h2>
-      </div>
-      <p class="section-head-desc">
-        Үндсэн үзүүлэлтүүд II үе шатнаас V үе шат хүртэл хэрхэн өсөж буйг харьцангуй хэмжээгээр харуулна. Бүх үзүүлэлт V үе шатанд хүрэх дээд утгын хувийг харуулсан.
-      </p>
-    </div>
-
-    <div class="growth reveal">
-      <div class="growth-head">
-        <div class="growth-title">Нийт өсөлтийн динамик</div>
-        <div class="growth-legend">
-          <span><span class="lg-dot" style="background:#00B86B"></span>II</span>
-          <span><span class="lg-dot" style="background:#00FF94"></span>III</span>
-          <span><span class="lg-dot" style="background:#00E5FF"></span>IV</span>
-          <span><span class="lg-dot" style="background:#7B61FF"></span>V</span>
-        </div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">Нарны МВт</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="1">100</div>
-          <div class="metric-bar p3" data-width="9">1K</div>
-          <div class="metric-bar p4" data-width="40">5K</div>
-          <div class="metric-bar p5" data-width="50">10K</div>
-        </div>
-        <div class="metric-final">10,000+</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">Карбон М т</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="0.1">0.5</div>
-          <div class="metric-bar p3" data-width="1.9">10</div>
-          <div class="metric-bar p4" data-width="18">100</div>
-          <div class="metric-bar p5" data-width="80">500</div>
-        </div>
-        <div class="metric-final">500М</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">Оюутан</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="10">100</div>
-          <div class="metric-bar p3" data-width="20">300</div>
-          <div class="metric-bar p4" data-width="30">600</div>
-          <div class="metric-bar p5" data-width="40">1K</div>
-        </div>
-        <div class="metric-final">1,000</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">AGI PFLOPS</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="0.5">500</div>
-          <div class="metric-bar p3" data-width="9.5">10K</div>
-          <div class="metric-bar p4" data-width="40">1M</div>
-          <div class="metric-bar p5" data-width="50">100M</div>
-        </div>
-        <div class="metric-final">100M+</div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-name">USD Тэрбум</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="1.5">0.25</div>
-          <div class="metric-bar p3" data-width="7.5">1.25</div>
-          <div class="metric-bar p4" data-width="36">6</div>
-          <div class="metric-bar p5" data-width="55">9</div>
-        </div>
-        <div class="metric-final">$16.5Б</div>
-      </div>
-
-      <div class="metric-row" style="border-bottom:none">
-        <div class="metric-name">Улс / Хамтын ажиллагаа</div>
-        <div class="metric-bar-track">
-          <div class="metric-bar p2" data-width="10">10</div>
-          <div class="metric-bar p3" data-width="20">30</div>
-          <div class="metric-bar p4" data-width="30">60</div>
-          <div class="metric-bar p5" data-width="40">100</div>
-        </div>
-        <div class="metric-final">100+</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="agi-risks">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-head-num">/ 08 · Эрсдэлийн удирдлага</div>
-        <h2>5 эрсдэл<br>5 шийдэл</h2>
-      </div>
-      <p class="section-head-desc">
-        Урт хугацааны төслийн хувьд эрсдэлийг тогтмол хянах нь чухал. Доорх таван үндсэн эрсдэлд тус бүрд нь бууруулах тодорхой арга хэмжээ боловсруулсан.
-      </p>
-    </div>
-
-    <div class="risks-grid reveal-stagger">
-      <div class="risk-card">
-        <div class="risk-num">RISK-01</div>
-        <h4>Технологийн эрсдэл</h4>
-        <p>AGI-н хөгжил хүлээснээс удаашрах эсвэл хүрсэн чанарын түвшин шаардлагад нийцэхгүй байх магадлал.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Олон стратегийн түнштэй ажиллах, бэлэн загварыг үргэлж нөөц байлгах.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-02</div>
-        <h4>Зах зээлийн эрсдэл</h4>
-        <p>Карбон кредитийн үнэ огцом унах, дэлхийн эрэлт буурах магадлал.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Урт хугацааны offtake гэрээ, үнийн доод хязгаартай форвард худалдаа.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-03</div>
-        <h4>Геополитикийн эрсдэл</h4>
-        <p>Бүсийн нөхцөл байдал, гадаад худалдааны хязгаарлалт, экспортын замын блок.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Олон тал руу чиглэсэн экспортын стратеги, олон улсын байгууллагуудтай хүчтэй харилцаа.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-04</div>
-        <h4>Цаг уурын эрсдэл</h4>
-        <p>Шороон шуурга, ган, температурын хэлбэлзэл нарны зайн үр ашигт нөлөөлөх.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Автомат цэвэрлэх систем, олон жилийн статистик дээр суурилсан байршил сонголт.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-05</div>
-        <h4>Санхүүгийн эрсдэл</h4>
-        <p>Хүүгийн өсөлт, валютын ханшийн савлагаа, олон улсын хөрөнгийн зах зээлийн шок.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Олон валютаар орлого олох, төгрөг-доллар хедж стратеги.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-num">RISK-06</div>
-        <h4>Ёс зүйн эрсдэл</h4>
-        <p>AGI хяналт, өгөгдлийн нууцлал, эрчим хүчний шударга хуваарилалттай холбоотой ёс зүйн асуудлууд.</p>
-        <div class="risk-mitigation">
-          <b>// Шийдэл</b> Хараат бус ёс зүйн зөвлөл, олон улсын аудит, ил тод тайлагнал.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </div>
 <!-- ═════ /AGI.html EMBED ═════ -->
 <style id="agi-embed-fallbacks">
@@ -4352,6 +4353,86 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     }
     requestAnimationFrame(step);
   }
+
+  // ═════ Timeline cascade + motion-graphic connector ═════
+  var wrap=root.querySelector('.timeline-wrap');
+  if(!wrap) return;
+  var expand=wrap.querySelector('.tl-expand');
+  var expandInner=wrap.querySelector('.tl-expand-inner');
+  var drop=wrap.querySelector('.tl-drop');
+  var phases=Array.prototype.slice.call(wrap.querySelectorAll('.tl-phase'));
+  var stations=Array.prototype.slice.call(wrap.querySelectorAll('.tl-station'));
+  var segments=Array.prototype.slice.call(wrap.querySelectorAll('.tl-seg'));
+  var stationPulse=wrap.querySelector('.tl-station-pulse');
+  // x positions of the 4 stations in SVG viewBox coords (0..1000)
+  var STATION_X={p1:100,p2:300,p3:500,p4:700,p5:900};
+  // segments adjacent to each phase (lit when active)
+  var SEG_FOR={p1:['1-2'],p2:['1-2','2-3'],p3:['2-3','3-4'],p4:['3-4','4-5'],p5:['4-5']};
+
+  function activate(key){
+    if(!key) return;
+    var card=phases.filter(function(c){return c.dataset.phase===key})[0];
+    var src=document.getElementById('agi-'+key);
+    if(!card||!src) return;
+    var alreadyOpen=card.getAttribute('aria-expanded')==='true';
+    phases.forEach(function(c){c.setAttribute('aria-expanded','false')});
+    if(alreadyOpen){
+      // Toggle close
+      wrap.classList.remove('open');
+      segments.forEach(function(s){s.classList.remove('lit')});
+      if(stationPulse) stationPulse.setAttribute('opacity','0');
+      return;
+    }
+    card.setAttribute('aria-expanded','true');
+    expandInner.innerHTML='';
+    // Clone the source detail and inject (re-trigger cascade animation)
+    var clone=src.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.removeAttribute('hidden');
+    clone.classList.remove('tab-content');
+    clone.style.display='block';
+    expandInner.appendChild(clone);
+    // Re-trigger CSS animation by toggling display
+    expandInner.style.animation='none';
+    void expandInner.offsetWidth;
+    expandInner.style.animation='';
+    wrap.classList.add('open');
+    // Position drop indicator under the card
+    var phasesGrid=wrap.querySelector('.timeline');
+    var idx=phases.indexOf(card);
+    var cardRect=card.getBoundingClientRect();
+    var gridRect=phasesGrid.getBoundingClientRect();
+    var leftPct=((cardRect.left+cardRect.width/2)-gridRect.left)/gridRect.width*100;
+    drop.style.left=leftPct+'%';
+    // Light up adjacent segments
+    var litSet=SEG_FOR[key]||[];
+    segments.forEach(function(s){s.classList.toggle('lit',litSet.indexOf(s.dataset.seg)>=0)});
+    // Move station pulse over the active station
+    if(stationPulse){
+      stationPulse.setAttribute('cx',STATION_X[key]);
+      stationPulse.setAttribute('opacity','0.85');
+    }
+    // Smooth-scroll the expand panel into view if it's off-screen
+    setTimeout(function(){
+      var er=expand.getBoundingClientRect();
+      if(er.bottom>window.innerHeight){expand.scrollIntoView({behavior:'smooth',block:'nearest'})}
+    },420);
+  }
+
+  // Click handlers
+  phases.forEach(function(c){c.addEventListener('click',function(){activate(c.dataset.phase)})});
+  phases.forEach(function(c){c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(c.dataset.phase)}})});
+  stations.forEach(function(s){s.addEventListener('click',function(){activate(s.dataset.phase)})});
+
+  // Re-position drop on resize while open
+  window.addEventListener('resize',function(){
+    var open=phases.filter(function(c){return c.getAttribute('aria-expanded')==='true'})[0];
+    if(!open) return;
+    var phasesGrid=wrap.querySelector('.timeline');
+    var cardRect=open.getBoundingClientRect();
+    var gridRect=phasesGrid.getBoundingClientRect();
+    drop.style.left=(((cardRect.left+cardRect.width/2)-gridRect.left)/gridRect.width*100)+'%';
+  });
 })();
 </script>
 
