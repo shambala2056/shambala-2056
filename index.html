@@ -100,25 +100,25 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
   animation:scan 8s linear infinite;opacity:0}
 @keyframes scan{0%{top:0;opacity:0}5%{opacity:0.7}95%{opacity:0.4}100%{top:100vh;opacity:0}}
 
-.h-inner{position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;
-  padding:0 80px;display:grid;grid-template-columns:1.1fr 0.9fr;
-  align-items:center;gap:80px;min-height:100vh}
+.h-inner{position:relative;z-index:2;width:100%;max-width:none;margin:0;
+  padding:0 60px;display:grid;grid-template-columns:1.25fr 0.75fr;
+  align-items:center;gap:60px;min-height:100vh}
 
-.h-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;
-  font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.18em;color:var(--cyan);
-  border:1px solid var(--border-c);padding:6px 14px;background:rgba(57,173,72,0.04);
+.h-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:36px;
+  font-family:'Montserrat',sans-serif;font-size:0.72rem;letter-spacing:0.18em;color:var(--cyan);
+  border:1px solid var(--border-c);padding:8px 16px;background:rgba(57,173,72,0.04);
   animation:fu 0.8s ease 0.2s both}
 .h-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:blink 2s ease-in-out infinite}
 
 .h-title{font-family:'Montserrat',sans-serif;font-weight:900;line-height:0.88;
-  letter-spacing:0.04em;margin-bottom:8px;animation:fu 0.8s ease 0.35s both}
-.h-title .l1{font-size:clamp(2rem,4.6vw,5rem);color:var(--white);white-space:nowrap}
-.h-title .l3{font-size:clamp(1.2rem,2.9vw,3rem);color:var(--green);font-weight:300;white-space:nowrap;
+  letter-spacing:0.04em;margin-bottom:10px;animation:fu 0.8s ease 0.35s both}
+.h-title .l1{font-size:clamp(2.4rem,5.6vw,6.4rem);color:var(--white);white-space:nowrap}
+.h-title .l3{font-size:clamp(1.5rem,3.6vw,3.8rem);color:var(--green);font-weight:300;white-space:nowrap;
   text-shadow:0 0 60px rgba(57,173,72,0.4),0 0 120px rgba(57,173,72,0.15)}
-.h-sub{font-family:'Montserrat',sans-serif;font-size:0.72rem;letter-spacing:0.28em;
-  color:var(--gold);margin-bottom:32px;animation:fu 0.8s ease 0.5s both}
-.h-desc{font-size:1.05rem;line-height:1.8;color:var(--muted);max-width:540px;
-  margin-bottom:40px;font-weight:400;animation:fu 0.8s ease 0.65s both}
+.h-sub{font-family:'Montserrat',sans-serif;font-size:0.85rem;letter-spacing:0.28em;
+  color:var(--gold);margin-bottom:36px;animation:fu 0.8s ease 0.5s both}
+.h-desc{font-size:1.2rem;line-height:1.8;color:var(--muted);max-width:600px;
+  margin-bottom:44px;font-weight:400;animation:fu 0.8s ease 0.65s both}
 .h-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fu 0.8s ease 0.8s both}
 .btn-p{display:inline-flex;align-items:center;gap:8px;
   padding:0 30px;height:46px;font-family:'Montserrat',sans-serif;
@@ -150,11 +150,11 @@ html[data-theme="light"] .n-wm-sub{color:rgba(0,0,0,0.45)}
 .hud-bar-r{display:flex;align-items:center;gap:7px;color:rgba(57,173,72,0.5)}
 .hud-bar-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 1.5s ease-in-out infinite}
 .hud-data{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:transparent}
-.hud-cell{padding:18px 16px;background:transparent;transition:background 0.3s}
+.hud-cell{padding:22px 20px;background:transparent;transition:background 0.3s}
 .hud-cell:hover{background:rgba(57,173,72,0.03)}
-.hud-val{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:700;
-  color:var(--green);line-height:1;margin-bottom:4px}
-.hud-key{font-family:'Montserrat',sans-serif;font-size:0.52rem;letter-spacing:0.12em;
+.hud-val{font-family:'Montserrat',sans-serif;font-size:1.55rem;font-weight:700;
+  color:var(--green);line-height:1;margin-bottom:4px;white-space:nowrap}
+.hud-key{font-family:'Montserrat',sans-serif;font-size:0.62rem;letter-spacing:0.12em;
   text-transform:uppercase;color:rgba(232,244,255,0.8)}
 .hud-bar2{height:2px;background:rgba(57,173,72,0.08);margin-top:8px;overflow:hidden;position:relative}
 .hud-fill{height:100%;background:linear-gradient(to right,var(--green-dim),var(--green));
@@ -2430,26 +2430,26 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
       xLeft:65, xRight:580, yTop:32, yBot:252,
       years:[2019,2020,2021,2022,2023,2024,2025,2026],
       series:[
-        {vals:[1625,2500,6000,10000,13500,16283,21113,25705], color:'#39AD48',            label:'Төслийн талбай (кг)'},
-        {vals:[1460,1200,750,430,280,217,212,208],            color:'rgba(232,244,255,0.6)', label:'Хяналтын талбай (кг)'}
+        {vals:[1625,2500,6000,10000,13500,16283,21113,25705], color:'#39AD48',            label:'Төслийн талбай'},
+        {vals:[1460,1200,750,430,280,217,212,208],            color:'rgba(232,244,255,0.6)', label:'Хяналтын талбай'}
       ]
     },
     'nasa-chart-2': {
       xLeft:58, xRight:580, yTop:32, yBot:252,
       years:[2020,2021,2022,2023,2024,2025,2026],
       series:[
-        {vals:[0.121,0.120,0.085,0.092,0.115,0.131,0.145], color:'#39AD48',            label:'NDVI — Төсөл', dec:3},
-        {vals:[0.065,0.063,0.060,0.062,0.064,0.064,0.064], color:'rgba(232,244,255,0.6)', label:'NDVI — Хяналт', dec:3},
-        {vals:[0.105,0.104,0.074,0.080,0.100,0.114,0.126], color:'#00D4FF',            label:'EVI — Төсөл', dec:3},
-        {vals:[0.056,0.055,0.052,0.054,0.056,0.056,0.056], color:'rgba(0,212,255,0.4)', label:'EVI — Хяналт', dec:3}
+        {vals:[0.121,0.120,0.085,0.092,0.115,0.131,0.145], color:'#39AD48',            label:'Төслийн талбай · NDVI', dec:3},
+        {vals:[0.065,0.063,0.060,0.062,0.064,0.064,0.064], color:'rgba(232,244,255,0.6)', label:'Хяналтын талбай · NDVI', dec:3},
+        {vals:[0.105,0.104,0.074,0.080,0.100,0.114,0.126], color:'#00D4FF',            label:'Төслийн талбай · EVI', dec:3},
+        {vals:[0.056,0.055,0.052,0.054,0.056,0.056,0.056], color:'rgba(0,212,255,0.4)', label:'Хяналтын талбай · EVI', dec:3}
       ]
     },
     'nasa-chart-3': {
       xLeft:70, xRight:580, yTop:32, yBot:252,
       years:[2019,2020,2021,2022,2023,2024,2025,2026],
       series:[
-        {vals:[764,1075,2913,4872,6460,7653,9642,11616], color:'#FFB800',               label:'Нүүрстөрөгч — Төсөл (кг)'},
-        {vals:[686,580,380,200,130,102,100,98],           color:'rgba(232,244,255,0.6)', label:'Нүүрстөрөгч — Хяналт (кг)'}
+        {vals:[764,1075,2913,4872,6460,7653,9642,11616], color:'#FFB800',               label:'Төслийн талбай'},
+        {vals:[686,580,380,200,130,102,100,98],           color:'rgba(232,244,255,0.6)', label:'Хяналтын талбай'}
       ]
     }
   };
@@ -2560,16 +2560,16 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     var yt = document.createElementNS(ns,'text');
     yt.setAttribute('class','ch-year');
     yt.setAttribute('font-size','8');
-    yt.setAttribute('font-family','monospace');
+    yt.setAttribute('font-family',"'Montserrat',sans-serif");
     yt.setAttribute('fill','rgba(57,173,72,0.85)');
-    yt.setAttribute('font-weight','bold');
+    yt.setAttribute('font-weight','700');
     g.appendChild(yt);
 
     c.series.forEach(function(s){
       var vt = document.createElementNS(ns,'text');
       vt.setAttribute('class','ch-val');
       vt.setAttribute('font-size','7.5');
-      vt.setAttribute('font-family','monospace');
+      vt.setAttribute('font-family',"'Montserrat',sans-serif");
       g.appendChild(vt);
     });
 
@@ -2921,24 +2921,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
   </div>
 </section>
 
-</div>
-
-
-
-<div id="panel-esg" class="overlay-panel">
-<div class="overlay-close">
-  <span class="overlay-close-title"><span class="overlay-close-back">←</span><span class="mn">ESG</span><span class="en">ESG</span></span>
-  <div class="overlay-close-right">
-    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
-</div>
-<!-- NASA DATA SECTION -->
-<section class="nasa-s reveal" id="esg">
+<!-- SATELLITE MONITORING -->
+<section class="nasa-s reveal" id="satellite">
   <div class="wrap">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
       <div>
@@ -2992,15 +2976,15 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div class="nasa-grid">
       <div class="nasa-card focused">
         <div class="nasa-label"><span class="mn">// ХУРИМТЛАГДСАН БИОМАСС</span><span class="en">// BIOMASS ACCUMULATION OVER TIME</span></div>
-        <svg id="nasa-chart-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="506.4" y="32" width="73.6" height="220" fill="rgba(57,173,72,0.03)"/><line x1="506.4" y1="32" x2="506.4" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="512.4" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" letter-spacing="1"></text><line x1="65" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0</text><line x1="65" y1="208.0" x2="580" y2="208.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="211.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">5,000</text><line x1="65" y1="164.0" x2="580" y2="164.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="167.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">10,000</text><line x1="65" y1="120.0" x2="580" y2="120.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="123.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">15,000</text><line x1="65" y1="76.0" x2="580" y2="76.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="79.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">20,000</text><line x1="65" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">25,000</text><text x="65.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2019</text><text x="138.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2020</text><text x="212.1" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2021</text><text x="285.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2022</text><text x="359.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2023</text><text x="432.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2024</text><text x="506.4" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2026*</text><polyline points="65.0,237.7 138.6,230.0 212.1,199.2 285.7,164.0 359.3,133.2 432.9,108.7 506.4,84.2 580.0,59.7" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="237.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="230.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="199.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="133.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="108.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="84.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="59.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="65.0,239.2 138.6,241.4 212.1,245.4 285.7,248.2 359.3,249.5 432.9,250.1 506.4,250.1 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="239.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="245.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="248.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="249.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="250.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="73" y="32" width="16" height="2" fill="#39AD48"/><text x="93" y="35" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Төслийн талбай (кг)</text><rect x="73" y="46" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="93" y="49" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Хяналтын талбай (кг)</text></svg>
+        <svg id="nasa-chart-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="506.4" y="32" width="73.6" height="220" fill="rgba(57,173,72,0.03)"/><line x1="506.4" y1="32" x2="506.4" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="512.4" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="65" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="65" y1="208.0" x2="580" y2="208.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="211.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">5,000</text><line x1="65" y1="164.0" x2="580" y2="164.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="167.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">10,000</text><line x1="65" y1="120.0" x2="580" y2="120.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="123.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">15,000</text><line x1="65" y1="76.0" x2="580" y2="76.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="79.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">20,000</text><line x1="65" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="59" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">25,000</text><text x="65.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2019</text><text x="138.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="212.1" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="285.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="359.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="432.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="506.4" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="65.0,237.7 138.6,230.0 212.1,199.2 285.7,164.0 359.3,133.2 432.9,108.7 506.4,84.2 580.0,59.7" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="237.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="230.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="199.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="133.2" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="108.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="84.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="59.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="65.0,239.2 138.6,241.4 212.1,245.4 285.7,248.2 359.3,249.5 432.9,250.1 506.4,250.1 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="65.0" cy="239.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="138.6" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="212.1" cy="245.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="285.7" cy="248.2" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="359.3" cy="249.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="432.9" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="506.4" cy="250.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="70" y="32" width="16" height="2" fill="#39AD48"/><text x="90" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай</text><rect x="180" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="200" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай</text></svg>
       </div>
       <div class="nasa-card">
         <div class="nasa-label"><span class="mn">// NDVI &amp; EVI ӨӨРЧЛӨЛТ</span><span class="en">// NDVI &amp; EVI TRENDS OVER TIME</span></div>
-        <svg id="nasa-chart-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="493.0" y="32" width="87.0" height="220" fill="rgba(57,173,72,0.03)"/><line x1="493.0" y1="32" x2="493.0" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="499.0" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" letter-spacing="1"></text><line x1="58" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0</text><line x1="58" y1="197.0" x2="580" y2="197.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="200.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.05</text><line x1="58" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.10</text><line x1="58" y1="87.0" x2="580" y2="87.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="90.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.15</text><line x1="58" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0.20</text><text x="58.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2020</text><text x="145.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2021</text><text x="232.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2022</text><text x="319.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2023</text><text x="406.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2024</text><text x="493.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2026*</text><polyline points="58.0,118.9 145.0,120.0 232.0,158.5 319.0,150.8 406.0,125.5 493.0,117.8 580.0,110.1" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="118.9" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="120.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="158.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="150.8" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="125.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="117.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="110.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,180.5 145.0,182.7 232.0,186.0 319.0,183.8 406.0,181.6 493.0,181.6 580.0,181.6" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="180.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="182.7" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="186.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="183.8" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="181.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,136.5 145.0,137.6 232.0,170.6 319.0,164.0 406.0,142.0 493.0,135.4 580.0,128.8" fill="none" stroke="#00D4FF" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="136.5" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="137.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="170.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="142.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="135.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="128.8" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,190.4 145.0,191.5 232.0,194.8 319.0,192.6 406.0,190.4 493.0,190.4 580.0,190.4" fill="none" stroke="rgba(0,212,255,0.4)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="191.5" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="194.8" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="192.6" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><rect x="66" y="32" width="16" height="2" fill="#39AD48"/><text x="86" y="35" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">NDVI — Төсөл</text><rect x="66" y="46" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="86" y="49" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">NDVI — Хяналт</text><rect x="66" y="60" width="16" height="2" fill="#00D4FF"/><text x="86" y="63" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">EVI — Төсөл</text><rect x="66" y="74" width="16" height="2" fill="rgba(0,212,255,0.4)"/><text x="86" y="77" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">EVI — Хяналт</text></svg>
+        <svg id="nasa-chart-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="493.0" y="32" width="87.0" height="220" fill="rgba(57,173,72,0.03)"/><line x1="493.0" y1="32" x2="493.0" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="499.0" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="58" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="58" y1="197.0" x2="580" y2="197.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="200.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.05</text><line x1="58" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.10</text><line x1="58" y1="87.0" x2="580" y2="87.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="90.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.15</text><line x1="58" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="52" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0.20</text><text x="58.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="145.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="232.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="319.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="406.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="493.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="58.0,118.9 145.0,120.0 232.0,158.5 319.0,150.8 406.0,125.5 493.0,117.8 580.0,110.1" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="118.9" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="120.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="158.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="150.8" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="125.5" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="117.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="110.1" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,180.5 145.0,182.7 232.0,186.0 319.0,183.8 406.0,181.6 493.0,181.6 580.0,181.6" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="180.5" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="182.7" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="186.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="183.8" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="181.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="181.6" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,136.5 145.0,137.6 232.0,170.6 319.0,164.0 406.0,142.0 493.0,135.4 580.0,128.8" fill="none" stroke="#00D4FF" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="136.5" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="137.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="170.6" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="164.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="142.0" r="2.5" fill="#00D4FF" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="135.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="128.8" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><polyline points="58.0,190.4 145.0,191.5 232.0,194.8 319.0,192.6 406.0,190.4 493.0,190.4 580.0,190.4" fill="none" stroke="rgba(0,212,255,0.4)" stroke-width="1.5" opacity="0.9" /><circle cx="58.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="145.0" cy="191.5" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="232.0" cy="194.8" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="319.0" cy="192.6" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="406.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.4)" stroke="#020810" stroke-width="1"/><circle cx="493.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="190.4" r="2.5" fill="rgba(0,212,255,0.7)" stroke="#020810" stroke-width="1"/><rect x="60" y="32" width="16" height="2" fill="#39AD48"/><text x="80" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай</text><rect x="170" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="190" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай</text><rect x="290" y="32" width="16" height="2" fill="#00D4FF"/><text x="310" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай · EVI</text><rect x="430" y="32" width="16" height="2" fill="rgba(0,212,255,0.4)"/><text x="450" y="35" fill="#E8F4FF" font-size="7.5" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай · EVI</text></svg>
       </div>
       <div class="nasa-card">
         <div class="nasa-label"><span class="mn">// NDWI  &amp; НИЙТ НҮҮРСТӨРӨГЧИЙН ШИНГЭЭЛТ</span><span class="en">// NDWI TRENDS &amp; CUMULATIVE CARBON SEQUESTRATION</span></div>
-        <svg id="nasa-chart-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="507.1" y="32" width="72.9" height="220" fill="rgba(57,173,72,0.03)"/><line x1="507.1" y1="32" x2="507.1" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="513.1" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" letter-spacing="1"></text><line x1="70" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">0</text><line x1="70" y1="215.3" x2="580" y2="215.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="218.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">2,000</text><line x1="70" y1="178.7" x2="580" y2="178.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="181.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">4,000</text><line x1="70" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">6,000</text><line x1="70" y1="105.3" x2="580" y2="105.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="108.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">8,000</text><line x1="70" y1="68.7" x2="580" y2="68.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="71.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">10,000</text><line x1="70" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="end">12,000</text><text x="70.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2019</text><text x="142.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2020</text><text x="215.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2021</text><text x="288.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2022</text><text x="361.4" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2023</text><text x="434.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="monospace" text-anchor="middle">2024</text><text x="507.1" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="monospace" text-anchor="middle">2026*</text><polyline points="70.0,238.0 142.9,232.3 215.7,198.6 288.6,162.7 361.4,133.6 434.3,111.7 507.1,101.7 580.0,79.8" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="238.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="232.3" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="198.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="162.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="133.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="111.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="101.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="79.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="70.0,239.4 142.9,241.4 215.7,245.0 288.6,248.3 361.4,249.6 434.3,250.1 507.1,250.2 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="239.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="245.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="248.3" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="249.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="78" y="32" width="16" height="2" fill="#39AD48"/><text x="98" y="35" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Нүүрстөрөгч — Төсөл (кг)</text><rect x="78" y="46" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="98" y="49" fill="#E8F4FF" font-size="8" font-family="monospace" opacity="0.7">Нүүрстөрөгч — Хяналт (кг)</text></svg>
+        <svg id="nasa-chart-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" style="width:100%;display:block;background:#020810"><rect x="507.1" y="32" width="72.9" height="220" fill="rgba(57,173,72,0.03)"/><line x1="507.1" y1="32" x2="507.1" y2="252" stroke="rgba(57,173,72,0.2)" stroke-width="1" stroke-dasharray="4,4"/><text x="513.1" y="46" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" letter-spacing="1"></text><line x1="70" y1="252.0" x2="580" y2="252.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="255.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">0</text><line x1="70" y1="215.3" x2="580" y2="215.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="218.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">2,000</text><line x1="70" y1="178.7" x2="580" y2="178.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="181.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">4,000</text><line x1="70" y1="142.0" x2="580" y2="142.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="145.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">6,000</text><line x1="70" y1="105.3" x2="580" y2="105.3" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="108.3" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">8,000</text><line x1="70" y1="68.7" x2="580" y2="68.7" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="71.7" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">10,000</text><line x1="70" y1="32.0" x2="580" y2="32.0" stroke="rgba(57,173,72,0.08)" stroke-width="1"/><text x="64" y="35.0" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="end">12,000</text><text x="70.0" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2019</text><text x="142.9" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2020</text><text x="215.7" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2021</text><text x="288.6" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2022</text><text x="361.4" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2023</text><text x="434.3" y="268" fill="rgba(232,244,255,0.35)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2024</text><text x="507.1" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2025*</text><text x="580.0" y="268" fill="rgba(57,173,72,0.5)" font-size="8" font-family="'Montserrat',sans-serif" text-anchor="middle">2026*</text><polyline points="70.0,238.0 142.9,232.3 215.7,198.6 288.6,162.7 361.4,133.6 434.3,111.7 507.1,101.7 580.0,79.8" fill="none" stroke="#39AD48" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="238.0" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="232.3" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="198.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="162.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="133.6" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="111.7" r="2.5" fill="#39AD48" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="101.7" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="79.8" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><polyline points="70.0,239.4 142.9,241.4 215.7,245.0 288.6,248.3 361.4,249.6 434.3,250.1 507.1,250.2 580.0,250.2" fill="none" stroke="rgba(232,244,255,0.35)" stroke-width="1.5" opacity="0.9" /><circle cx="70.0" cy="239.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="142.9" cy="241.4" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="215.7" cy="245.0" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="288.6" cy="248.3" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="361.4" cy="249.6" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="434.3" cy="250.1" r="2.5" fill="rgba(232,244,255,0.35)" stroke="#020810" stroke-width="1"/><circle cx="507.1" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><circle cx="580.0" cy="250.2" r="2.5" fill="rgba(57,173,72,0.7)" stroke="#020810" stroke-width="1"/><rect x="75" y="32" width="16" height="2" fill="#39AD48"/><text x="95" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Төслийн талбай</text><rect x="185" y="32" width="16" height="2" fill="rgba(232,244,255,0.35)"/><text x="205" y="35" fill="#E8F4FF" font-size="8" font-family="'Montserrat',sans-serif" opacity="0.7" font-weight="600">Хяналтын талбай</text></svg>
       </div>
     </div>
     <div class="nasa-partners">
@@ -3010,13 +2994,38 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <span class="nasa-badge">Martensite Analytica</span>
       <span class="nasa-badge"><span class="mn">NDVI · EVI · NDWI үзүүлэлтүүд</span><span class="en">NDVI · EVI · NDWI Indices</span></span>
     </div>
+  </div>
+</section>
+
+</div>
+
+
+
+<div id="panel-esg" class="overlay-panel">
+<div class="overlay-close">
+  <span class="overlay-close-title"><span class="overlay-close-back">←</span><span class="mn">ESG</span><span class="en">ESG</span></span>
+  <div class="overlay-close-right">
+    <button class="overlay-close-btn" onclick="closePanel()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="2" x2="2" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+<!-- ESG · TAX INCENTIVES -->
+<section class="nasa-s reveal" id="esg">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
+      <div>
+        <div class="sl"><span class="mn">Хуулийн зохицуулалт · Татварын хөнгөлөлт</span><span class="en">Legal Framework · Tax Incentives</span></div>
+        <h2 class="st"><span class="mn">ТАТВАРЫН <em>ХӨНГӨЛӨЛТ</em></span><span class="en">TAX <em>INCENTIVES</em></span></h2>
+      </div>
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;color:var(--muted);max-width:300px;text-align:right;line-height:1.7"><span class="mn">Хуулийн заалт 22.9-ийн дагуу нийгмийн хариуцлагын зорилгоор хийсэн хандивын зардлыг татвар ногдох орлогын 1% хүртэл татвараас хасна.</span><span class="en">Under Article 22.9, donations made for socially responsible activities are deductible from corporate income tax up to 1% of taxable income.</span></p>
+    </div>
 
     <!-- LEGAL / TAX INCENTIVES -->
-    <div style="margin-top:64px">
-      <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px">
-        <div class="sl" style="margin:0"><span class="mn">Хуулийн зохицуулалт · Татварын хөнгөлөлт</span><span class="en">Legal Framework · Tax Incentives</span></div>
-        <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(57,173,72,0.2),transparent)"></div>
-      </div>
+    <div style="margin-top:0">
 
 
       <!-- 1% TAX HIGHLIGHT -->
@@ -3353,7 +3362,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <div class="prod-grid cols-2">
         <div class="prod-card accent-cyan" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
           <div class="prod-tag lg">ART N TECH FESTIVAL 2022</div>
-          <video class="ate-video" controls preload="metadata" playsinline poster="assets/ate/festival-2022.jpg" style="width:100%;aspect-ratio:16/9;display:block;margin-top:14px;background:#000;object-fit:cover">
+          <video class="ate-video" controls preload="metadata" playsinline poster="assets/ate/festival-2022.jpg" style="width:100%;aspect-ratio:16/9;display:block;margin-top:14px;background:#000;object-fit:contain">
             <source src="assets/ate/green-land-in-gobi-2022.mp4" type="video/mp4">
           </video>
         </div>
@@ -3653,7 +3662,7 @@ function esgCalc(){
   var cfgs=[
     {sel:'.la-s',                clr:'0,255,136',n:20},
     {sel:'.seq-s',               clr:'0,255,136',n:18},
-    /* .nasa-s gets its own satellite orbit canvas below */
+    {sel:'.nasa-s',              clr:'0,212,255',n:18},
     /* .prod-s gets its own grid+pulse canvas below */
     {sel:'.tl-s',                clr:'0,255,136',n:16},
     {sel:'.cta-s',               clr:'0,255,136',n:18},
@@ -3707,64 +3716,6 @@ function esgCalc(){
   });
 })();
 
-/* ── ESG / NASA Section: data stream lines ───────────────────────────────── */
-(function(){
-  var sec=document.querySelector('.nasa-s');
-  if(!sec)return;
-  var mg=document.createElement('div');mg.className='sec-mg';sec.insertBefore(mg,sec.firstChild);
-  var cv=document.createElement('canvas');
-  cv.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0';
-  sec.insertBefore(cv,sec.firstChild);
-  var ctx=cv.getContext('2d'),W=0,H=0,lines=[];
-  var panel=sec.closest('.overlay-panel');
-  function visible(){return !panel||panel.classList.contains('open');}
-
-  function mkLine(){
-    return{
-      x: Math.random()*W*.25,
-      y: Math.random()*H,
-      w: W*(.45+Math.random()*.45),
-      vy: .18+Math.random()*.32,
-      a: .04+Math.random()*.13,
-      clr: Math.random()>.38?'0,212,255':'0,255,136'
-    };
-  }
-
-  function resize(){
-    var w=cv.offsetWidth,h=cv.offsetHeight;
-    if(w>10&&h>10){
-      W=cv.width=w;H=cv.height=h;
-      lines=[];for(var i=0;i<26;i++)lines.push(mkLine());
-    }
-  }
-
-  function draw(){
-    requestAnimationFrame(draw);
-    if(!W||!H||!visible())return;
-    ctx.clearRect(0,0,W,H);
-    ctx.lineWidth=1;ctx.setLineDash([]);
-
-    lines.forEach(function(l){
-      l.y-=l.vy;
-      if(l.y<-2){l.y=H+2;l.x=Math.random()*W*.25;l.w=W*(.45+Math.random()*.45);l.a=.04+Math.random()*.13;l.vy=.18+Math.random()*.32;}
-      var g=ctx.createLinearGradient(l.x,0,l.x+l.w,0);
-      g.addColorStop(0,'rgba('+l.clr+',0)');
-      g.addColorStop(.08,'rgba('+l.clr+','+l.a+')');
-      g.addColorStop(.92,'rgba('+l.clr+','+l.a+')');
-      g.addColorStop(1,'rgba('+l.clr+',0)');
-      ctx.beginPath();ctx.moveTo(l.x,l.y);ctx.lineTo(l.x+l.w,l.y);
-      ctx.strokeStyle=g;ctx.stroke();
-    });
-  }
-
-  resize();draw();
-  if(panel){
-    var ready=(W>0&&H>0);
-    new MutationObserver(function(){
-      if(!ready&&panel.classList.contains('open')){ready=true;resize();}
-    }).observe(panel,{attributes:true,attributeFilter:['class']});
-  }
-})();
 
 /* ── Products Section: glowing grid + node pulses (Vercel / Linear style) ── */
 (function(){
