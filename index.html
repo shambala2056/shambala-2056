@@ -623,6 +623,66 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
   .pil-head{flex-direction:column;align-items:flex-start}
   .pil-desc{text-align:left}
 }
+/* ═════ INTERACTIVE PILLAR DIAGRAM ═════ */
+.pil-stage{position:relative}
+.pil-diagram svg [data-pil]{cursor:pointer;transition:filter .35s ease,opacity .35s ease}
+.pil-diagram svg [data-pil]:hover{filter:drop-shadow(0 0 10px currentColor)}
+.pil-diagram svg [data-pil-active="true"]{filter:drop-shadow(0 0 16px currentColor) drop-shadow(0 0 6px currentColor)}
+.pil-edge[data-pil]{cursor:pointer;transition:stroke-width .25s ease,opacity .25s ease}
+.pil-edge-hit{stroke:transparent;stroke-width:30;cursor:pointer;fill:none;pointer-events:stroke}
+.pil-edge-hit:hover + .pil-edge,.pil-edge[data-pil-active="true"]{stroke-width:3.6;opacity:1!important}
+.pil-detail{margin:8px 0 56px;border:1px solid var(--border);background:var(--surface);position:relative;overflow:hidden;min-height:300px}
+.pil-detail::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:#39AD48;transition:background .45s ease}
+.pil-detail[data-active="solar"]::before{background:#F5C543}
+.pil-detail[data-active="carbon"]::before{background:#00D4FF}
+.pil-detail[data-active="agi-solar"]::before{background:linear-gradient(180deg,#39AD48,#F5C543)}
+.pil-detail[data-active="agi-carbon"]::before{background:linear-gradient(180deg,#39AD48,#00D4FF)}
+.pil-detail[data-active="solar-carbon"]::before{background:linear-gradient(180deg,#F5C543,#00D4FF)}
+.pil-detail[data-active="loop"]::before{background:linear-gradient(180deg,#39AD48,#F5C543,#00D4FF)}
+.pil-detail-prompt{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--muted);padding:14px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;text-transform:uppercase;gap:16px;flex-wrap:wrap}
+.pil-detail-prompt-key{color:var(--green);font-weight:600;letter-spacing:0.18em}
+.pil-detail-prompt-hint{opacity:0.55;font-size:0.5rem;font-weight:300}
+.pil-card-x{display:none;padding:32px 32px 36px;animation:pil-fade .55s cubic-bezier(.4,0,.2,1)}
+.pil-card-x.active{display:block}
+@keyframes pil-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.pil-card-x-head{display:flex;align-items:center;gap:18px;margin-bottom:12px;flex-wrap:wrap}
+.pil-card-x-num{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--muted);text-transform:uppercase}
+.pil-card-x-num em{font-style:normal;font-weight:700;color:#39AD48}
+.pil-card-x.solar .pil-card-x-num em{color:#F5C543}
+.pil-card-x.carbon .pil-card-x-num em{color:#00D4FF}
+.pil-card-x.agi-solar .pil-card-x-num em,.pil-card-x.agi-carbon .pil-card-x-num em,.pil-card-x.solar-carbon .pil-card-x-num em,.pil-card-x.loop .pil-card-x-num em{color:#E8F4FF}
+.pil-card-x-pill{font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.16em;padding:4px 10px;border:1px solid rgba(57,173,72,0.3);background:rgba(57,173,72,0.05);color:#39AD48;text-transform:uppercase}
+.pil-card-x.solar .pil-card-x-pill{border-color:rgba(245,197,67,0.3);background:rgba(245,197,67,0.05);color:#F5C543}
+.pil-card-x.carbon .pil-card-x-pill{border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.05);color:#00D4FF}
+.pil-card-x.agi-solar .pil-card-x-pill{border-color:rgba(245,197,67,0.3);background:linear-gradient(90deg,rgba(57,173,72,0.05),rgba(245,197,67,0.05));color:#F5C543}
+.pil-card-x.agi-carbon .pil-card-x-pill{border-color:rgba(0,212,255,0.3);background:linear-gradient(90deg,rgba(57,173,72,0.05),rgba(0,212,255,0.05));color:#00D4FF}
+.pil-card-x.solar-carbon .pil-card-x-pill{border-color:rgba(0,212,255,0.3);background:linear-gradient(90deg,rgba(245,197,67,0.05),rgba(0,212,255,0.05));color:#00D4FF}
+.pil-card-x.loop .pil-card-x-pill{border-color:rgba(232,244,255,0.25);background:rgba(232,244,255,0.04);color:#E8F4FF}
+.pil-card-x h3{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);letter-spacing:0.03em;line-height:1.25;margin:4px 0 4px}
+.pil-card-x-sub{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#39AD48;margin-bottom:22px}
+.pil-card-x.solar .pil-card-x-sub{color:#F5C543}
+.pil-card-x.carbon .pil-card-x-sub{color:#00D4FF}
+.pil-card-x.agi-solar .pil-card-x-sub,.pil-card-x.agi-carbon .pil-card-x-sub,.pil-card-x.solar-carbon .pil-card-x-sub,.pil-card-x.loop .pil-card-x-sub{color:rgba(232,244,255,0.55)}
+.pil-card-x-body{display:grid;grid-template-columns:1.35fr 1fr;gap:36px;align-items:start}
+.pil-card-x-body p{font-family:'Montserrat',sans-serif;font-size:0.72rem;color:rgba(232,244,255,0.74);line-height:1.85;margin:0}
+.pil-card-x-stats{font-family:'Montserrat',sans-serif;display:flex;flex-direction:column;gap:9px;padding:0;margin:0;list-style:none}
+.pil-card-x-stats li{font-size:0.63rem;color:rgba(232,244,255,0.62);line-height:1.6;padding-left:16px;position:relative}
+.pil-card-x-stats li::before{content:'▸';position:absolute;left:0;top:0;color:#39AD48;font-size:0.55rem;opacity:0.85}
+.pil-card-x.solar .pil-card-x-stats li::before{color:#F5C543}
+.pil-card-x.carbon .pil-card-x-stats li::before{color:#00D4FF}
+.pil-card-x.agi-solar .pil-card-x-stats li::before{color:#F5C543}
+.pil-card-x.agi-carbon .pil-card-x-stats li::before{color:#00D4FF}
+.pil-card-x.solar-carbon .pil-card-x-stats li::before{color:#F5C543}
+.pil-card-x.loop .pil-card-x-stats li::before{color:#39AD48}
+.pil-card-x-stats b{color:var(--white);font-weight:600}
+.pil-card-x-stats em{font-style:normal;color:#39AD48;font-weight:500}
+.pil-card-x.solar .pil-card-x-stats em{color:#F5C543}
+.pil-card-x.carbon .pil-card-x-stats em{color:#00D4FF}
+@media (max-width:880px){
+  .pil-card-x-body{grid-template-columns:1fr;gap:18px}
+  .pil-detail-prompt{flex-direction:column;align-items:flex-start;gap:4px}
+  .pil-card-x{padding:24px 22px 28px}
+}
 /* ESG framework cards — modern hover with glow & lift */
 .esg-fw-card{position:relative;overflow:hidden;cursor:default;transition:border-color .35s cubic-bezier(.4,0,.2,1),background .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s cubic-bezier(.4,0,.2,1);will-change:transform}
 .esg-fw-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(57,173,72,0.10),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:0}
@@ -2096,10 +2156,15 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             <circle cx="350" cy="320" r="270" fill="none" stroke="#00D4FF" stroke-width="0.6" stroke-dasharray="1 22"/>
           </g>
 
-          <!-- Edges with flowing dash -->
-          <line x1="350" y1="150" x2="170" y2="450" stroke="url(#pil-edge-as)" stroke-width="2" opacity="0.75" class="pil-edge"/>
-          <line x1="350" y1="150" x2="530" y2="450" stroke="url(#pil-edge-ac)" stroke-width="2" opacity="0.75" class="pil-edge rev"/>
-          <line x1="170" y1="490" x2="530" y2="490" stroke="url(#pil-edge-sc)" stroke-width="2" opacity="0.75" class="pil-edge"/>
+          <!-- Edge hit zones (wider, transparent — for easier clicking) -->
+          <line x1="350" y1="150" x2="170" y2="450" class="pil-edge-hit" data-pil="agi-solar" tabindex="0" role="button" aria-label="AGI × SOLAR synergy"/>
+          <line x1="350" y1="150" x2="530" y2="450" class="pil-edge-hit" data-pil="agi-carbon" tabindex="0" role="button" aria-label="AGI × CARBON synergy"/>
+          <line x1="170" y1="490" x2="530" y2="490" class="pil-edge-hit" data-pil="solar-carbon" tabindex="0" role="button" aria-label="SOLAR × CARBON synergy"/>
+
+          <!-- Edges with flowing dash (visible) -->
+          <line x1="350" y1="150" x2="170" y2="450" stroke="url(#pil-edge-as)" stroke-width="2" opacity="0.75" class="pil-edge" data-pil-edge="agi-solar"/>
+          <line x1="350" y1="150" x2="530" y2="450" stroke="url(#pil-edge-ac)" stroke-width="2" opacity="0.75" class="pil-edge rev" data-pil-edge="agi-carbon"/>
+          <line x1="170" y1="490" x2="530" y2="490" stroke="url(#pil-edge-sc)" stroke-width="2" opacity="0.75" class="pil-edge" data-pil-edge="solar-carbon"/>
 
           <!-- Edge labels -->
           <g font-family="Montserrat, sans-serif" font-size="10" letter-spacing="2" font-weight="500">
@@ -2116,17 +2181,19 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <circle class="pil-bead b2r" r="2.4" fill="#39AD48"/>
           <circle class="pil-bead b3r" r="2.4" fill="#F5C543"/>
 
-          <!-- Center hub: SHAMBALA 2056 -->
-          <circle cx="350" cy="320" r="105" fill="url(#pil-hub-bg)"/>
-          <circle class="pil-pulse" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
-          <circle class="pil-pulse d2" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
-          <circle class="pil-pulse d3" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
-          <circle cx="350" cy="320" r="62" fill="#020810" stroke="rgba(57,173,72,0.55)" stroke-width="1"/>
-          <text x="350" y="314" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="13" font-weight="700" fill="#E8F4FF" letter-spacing="3">SHAMBALA</text>
-          <text x="350" y="338" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" fill="#39AD48" letter-spacing="4" font-weight="700">2056</text>
+          <!-- Center hub: SHAMBALA 2056 (clickable — closed loop) -->
+          <g data-pil="loop" tabindex="0" role="button" aria-label="Closed-loop synergy" style="color:#39AD48">
+            <circle cx="350" cy="320" r="105" fill="url(#pil-hub-bg)"/>
+            <circle class="pil-pulse" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
+            <circle class="pil-pulse d2" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
+            <circle class="pil-pulse d3" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
+            <circle cx="350" cy="320" r="62" fill="#020810" stroke="rgba(57,173,72,0.55)" stroke-width="1"/>
+            <text x="350" y="314" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="13" font-weight="700" fill="#E8F4FF" letter-spacing="3" style="pointer-events:none">SHAMBALA</text>
+            <text x="350" y="338" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" fill="#39AD48" letter-spacing="4" font-weight="700" style="pointer-events:none">2056</text>
+          </g>
 
           <!-- Node: AGI (top) -->
-          <g class="pil-node-agi">
+          <g class="pil-node-agi" data-pil="agi" tabindex="0" role="button" aria-label="AGI pillar" style="color:#39AD48">
             <circle class="pil-node-ring" cx="350" cy="100" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
             <circle cx="350" cy="100" r="68" fill="none" stroke="#39AD48" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
             <text x="350" y="96" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#39AD48" letter-spacing="3">AGI</text>
@@ -2134,7 +2201,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           </g>
 
           <!-- Node: SOLAR (bottom-left) -->
-          <g class="pil-node-solar">
+          <g class="pil-node-solar" data-pil="solar" tabindex="0" role="button" aria-label="Solar pillar" style="color:#F5C543">
             <circle class="pil-node-ring" cx="170" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
             <circle cx="170" cy="490" r="68" fill="none" stroke="#F5C543" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
             <text x="170" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="16" font-weight="700" fill="#F5C543" letter-spacing="3">SOLAR</text>
@@ -2142,7 +2209,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           </g>
 
           <!-- Node: CARBON (bottom-right) -->
-          <g class="pil-node-carbon">
+          <g class="pil-node-carbon" data-pil="carbon" tabindex="0" role="button" aria-label="Carbon pillar" style="color:#00D4FF">
             <circle class="pil-node-ring" cx="530" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
             <circle cx="530" cy="490" r="68" fill="none" stroke="#00D4FF" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
             <text x="530" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="15" font-weight="700" fill="#00D4FF" letter-spacing="2">CARBON</text>
@@ -2151,56 +2218,2144 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
         </svg>
       </div>
 
-      <!-- 3 PILLAR CARDS -->
-      <div class="pil-cards" style="display:none" aria-hidden="true">
-        <div class="pil-card agi" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
-          <div class="pil-num">01 / <span>AGI</span></div>
-          <div class="pil-title"><span class="mn">Хиймэл оюун ухаан</span><span class="en">Artificial General Intelligence</span></div>
-          <div class="pil-sub"><span class="mn">Удирдлагын тархи</span><span class="en">The Operating Mind</span></div>
-          <div class="pil-body"><span class="mn">AGI нь эрчим хүчний оновчлол, шинжлэх ухааны нээлт, карбон зах зээлийн стратегийг нэгэн зэрэг удирддаг бодлогын давхарга.</span><span class="en">AGI is the policy layer that simultaneously runs energy optimization, scientific discovery, and carbon-market strategy.</span></div>
-          <ul class="pil-feats">
-            <li class="pil-feat"><span class="mn">72 цагийн нарийвчилсан таамаглал</span><span class="en">72-hour high-precision forecasting</span></li>
-            <li class="pil-feat"><span class="mn">Урьдчилсан засвар-үйлчилгээ</span><span class="en">Predictive maintenance</span></li>
-            <li class="pil-feat"><span class="mn">Шинэ материал автомат нээлт</span><span class="en">Autonomous materials discovery</span></li>
-            <li class="pil-feat"><span class="mn">MRV хяналтын автомат шалгалт</span><span class="en">Automated MRV verification</span></li>
-          </ul>
+      <!-- INTERACTIVE DETAIL PANEL -->
+      <div class="pil-detail" data-active="loop">
+        <div class="pil-detail-prompt">
+          <span class="pil-detail-prompt-key"><span class="mn">Схем дээрх 7 цэгийг сонгох</span><span class="en">Select any of 7 zones on the diagram</span></span>
+          <span class="pil-detail-prompt-hint"><span class="mn">3 ТУЛГУУР · 3 СИНЕРГИ · 1 ТӨВ ХААЛТТАЙ ГОГЦОО</span><span class="en">3 PILLARS · 3 SYNERGIES · 1 CENTRAL LOOP</span></span>
         </div>
-        <div class="pil-card solar" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
-          <div class="pil-num">02 / <span>SOLAR</span></div>
-          <div class="pil-title"><span class="mn">Нарны эрчим хүч</span><span class="en">Solar Energy</span></div>
-          <div class="pil-sub"><span class="mn">Үйлдвэрлэлийн суурь</span><span class="en">The Production Base</span></div>
-          <div class="pil-body"><span class="mn">Дорноговь — жилийн 300+ нартай өдөр. Энэ нь Шамбала кампусыг 100 МВт-аас 10,000+ МВт хүртэл өргөжүүлэх боломжийг олгоно.</span><span class="en">Dornogovi has 300+ sunny days per year, enabling the Shambala campus to scale from 100 MW to 10,000+ MW of photovoltaic capacity.</span></div>
-          <ul class="pil-feats">
-            <li class="pil-feat"><span class="mn">100 МВт → 10,000+ МВт PV</span><span class="en">100 MW → 10,000+ MW PV</span></li>
-            <li class="pil-feat"><span class="mn">100% сэргээгдэх эрчим хүч</span><span class="en">100% renewable energy</span></li>
-            <li class="pil-feat"><span class="mn">Ногоон устөрөгч (H₂)</span><span class="en">Green hydrogen (H₂)</span></li>
-            <li class="pil-feat"><span class="mn">Батерейн динамик оновчлол</span><span class="en">Dynamic battery optimization</span></li>
-          </ul>
-        </div>
-        <div class="pil-card carbon" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
-          <div class="pil-num">03 / <span>CARBON</span></div>
-          <div class="pil-title"><span class="mn">Карбон зах зээл</span><span class="en">Carbon Market</span></div>
-          <div class="pil-sub"><span class="mn">Үнэлэмжийн давхарга</span><span class="en">The Value Layer</span></div>
-          <div class="pil-body"><span class="mn">1 МВт нарны хүчин чадал жилд ~600–800 тонн CO₂ кредит үүсгэнэ. AGI-ийн баталгаажуулалт нь хамгийн ил тод, найдвартай кредит болгоно.</span><span class="en">Each MW of solar generates ~600–800 tCO₂ credits/year. AGI-verified credits become the most transparent and trusted issuance on global markets.</span></div>
-          <ul class="pil-feats">
-            <li class="pil-feat"><span class="mn">Хиймэл дагуулаар MRV хэмжилт</span><span class="en">Satellite-based MRV measurement</span></li>
-            <li class="pil-feat"><span class="mn">Давхар тоолохгүй блокчэйн бүртгэл</span><span class="en">Blockchain anti-double-counting</span></li>
-            <li class="pil-feat"><span class="mn">Direct Air Capture (DAC)</span><span class="en">Direct Air Capture (DAC)</span></li>
-            <li class="pil-feat"><span class="mn">Карбон-негатив технологи</span><span class="en">Carbon-negative tech</span></li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- CLOSED LOOP -->
-      <div class="pil-loop" style="display:none" aria-hidden="true">
-        <div class="pil-loop-head">// <span class="mn">Хаалттай гогцоо · <em>Шамбала 2056</em></span><span class="en">Closed feedback loop · <em>Shambala 2056</em></span></div>
-        <div class="pil-loop-text"><span class="mn"><b>AGI</b> нь нарны фермийн үр ашгийг нэмэгдүүлж → <b>илүү карбон кредит</b> үүсгэнэ → орлого нь <b>шинэ нарны хүчин чадал ба AGI-н сургалт</b>-д буцаж эргэлдэнэ. Гурван тулгуур нь өөрөө өөрийгөө санхүүжүүлэх, өөрөө өөрийгөө сайжруулах синергийн системийг бий болгоно.</span><span class="en"><b>AGI</b> raises solar-farm efficiency → produces <b>more carbon credits</b> → revenue cycles back into <b>new solar capacity and AGI training compute</b>. The three pillars form a self-funding, self-improving synergy system.</span></div>
+        <!-- ── AGI ── -->
+        <div class="pil-card-x agi" data-pil="agi">
+          <div class="pil-card-x-head">
+            <span class="pil-card-x-num">01 / <em>AGI</em></span>
+            <span class="pil-card-x-pill">PILLAR · COGNITIVE LAYER</span>
+          </div>
+          <h3><span class="mn">Хиймэл ерөнхий оюун ухаан</span><span class="en">Artificial General Intelligence</span></h3>
+          <div class="pil-card-x-sub"><span class="mn">Системийн ухаалаг удирдлагын давхарга</span><span class="en">Cognitive Control Plane</span></div>
+          <div class="pil-card-x-body">
+            <p><span class="mn">Шамбала 2056-ийн AGI давхарга нь нарны фермийн физик, материалын химийн судалгаа, дэлхийн карбон зах зээлийн стратеги — гэсэн гурван домэйнд нэгэн зэрэг тооцоолол явуулах бодлогын архитектур. Энэ нь тус тусдаа ажилладаг тусгай мэргэжлийн системүүдийн оронд физик ба эдийн засгийн зарчмын мэдлэгт суурилсан нэгдсэн удирдлагын давхарга үүсгэдэг. Бодит цаг хугацаанд гүйцэтгэх хяналт ба урт хугацааны стратегийн төлөвлөлтийг нэг шийдвэрийн архитектурт нэгтгэнэ.</span><span class="en">Shambala 2056's AGI layer is a unified policy architecture that reasons simultaneously across solar-farm physics, materials chemistry, and global carbon-market strategy. It replaces siloed domain-expert systems with a single decision plane grounded in physical and economic priors — integrating real-time control with long-horizon strategy in one reasoning architecture.</span></p>
+            <ul class="pil-card-x-stats">
+              <li><b><span class="mn">Олон домэйны суурь загвар</span><span class="en">Multi-domain foundation model</span></b> — <span class="mn">физик · цаг уур · зах зээлийн микроструктур</span><span class="en">physics · atmospheric science · market microstructure</span></li>
+              <li><b><span class="mn">Хаалттай гогцоо</span><span class="en">Closed-loop control</span></b> — <span class="mn">таамаглал → диспатч → тооцоо → суралцал</span><span class="en">forecast → dispatch → settlement → continual learning</span></li>
+              <li><b><span class="mn">Эрчим хүчтэй хослуулсан инференс</span><span class="en">PV-colocated inference compute</span></b> — <span class="mn">100% сэргээгдэх эрчим хүчээр тэжээгдэх</span><span class="en">100% renewable-powered training & serving</span></li>
+              <li><b><span class="mn">Аудитад зориулсан үндэслэлийн ул мөр</span><span class="en">Auditable reasoning traces</span></b> — <span class="mn">зохицуулагч байгууллагын нийцэлд</span><span class="en">regulatory & compliance verifiable</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── SOLAR ── -->
+        <div class="pil-card-x solar" data-pil="solar">
+          <div class="pil-card-x-head">
+            <span class="pil-card-x-num">02 / <em>SOLAR</em></span>
+            <span class="pil-card-x-pill">PILLAR · PRODUCTION LAYER</span>
+          </div>
+          <h3><span class="mn">Нарны сэргээгдэх эрчим хүч</span><span class="en">Solar Renewable Energy</span></h3>
+          <div class="pil-card-x-sub"><span class="mn">Үйлдвэрлэлийн суурь давхарга</span><span class="en">Production Foundation</span></div>
+          <div class="pil-card-x-body">
+            <p><span class="mn">Дорноговийн нарны тусгал ~5.5–6.0 кВт·ц/м²/өдөр буюу Азийн хамгийн өндөр илчлэгтэй бүсийн нэг. Газрын нөөц, газар хөдлөлийн тогтворжилт, ил гарсан өргөн нутаг дэвсгэр нь үндсэн хэмжээний фотовольтаик суурилуулалтад тохирно. Хүчин чадал нь 100 МВт (PHASE I) → 10 ГВт+ (PHASE IV) хүртэл шат шатаар өргөжих бөгөөд BESS батерейн нөөц, ногоон устөрөгчийн электролиз, бүс нутгийн электрон сүлжээний экспортыг хамарна.</span><span class="en">Dornogovi's irradiance of ~5.5–6.0 kWh/m²/day places it among Asia's highest insolation regions, with the land availability, seismic stability, and open terrain required for utility-scale PV. Capacity scales in phases from 100 MW (Phase I) toward 10 GW+ (Phase IV), integrated with BESS energy storage, green-hydrogen electrolysis, and regional grid-export pathways.</span></p>
+            <ul class="pil-card-x-stats">
+              <li><b><span class="mn">Битфэйшиал монокристалл цахиур</span><span class="en">Bifacial monocrystalline silicon</span></b> — <span class="mn">перовскит тандем эс рүү шилжих зам зураг</span><span class="en">perovskite/Si tandem cell roadmap</span></li>
+              <li><b><span class="mn">DC-нийлсэн BESS батерей</span><span class="en">DC-coupled BESS</span></b> — <span class="mn">налуу зөөлрүүлэлт ба нэмэлт үйлчилгээ</span><span class="en">ramp smoothing & ancillary services</span></li>
+              <li><b><span class="mn">100 МВт электролизийн туршилт</span><span class="en">100 MW electrolyzer pilot</span></b> — <span class="mn">ногоон H₂ / NH₃ экспорт</span><span class="en">green H₂ / NH₃ export pathway</span></li>
+              <li><b><span class="mn">Хүчин чадлын ашиглалт 24–28%</span><span class="en">Capacity factor 24–28%</span></b> — <span class="mn">Герман ~14% · Испани ~22% харьцуулбал</span><span class="en">vs. Germany ~14% · Spain ~22%</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── CARBON ── -->
+        <div class="pil-card-x carbon" data-pil="carbon">
+          <div class="pil-card-x-head">
+            <span class="pil-card-x-num">03 / <em>CARBON</em></span>
+            <span class="pil-card-x-pill">PILLAR · VALUE LAYER</span>
+          </div>
+          <h3><span class="mn">Карбон зах зээл, кредит</span><span class="en">Carbon Markets & Credits</span></h3>
+          <div class="pil-card-x-sub"><span class="mn">Үнэлэмжийн давхарга</span><span class="en">Monetization Layer</span></div>
+          <div class="pil-card-x-body">
+            <p><span class="mn">Монголын нүүрс давамгайлсан сүлжээний ялгаралтын коэффициент ~1.0 тCO₂e/МВт·ц нь Ази тивд хамгийн өндөр түвшинд тооцогддог. Эндээс үүсэх кредит нь Verra VCS, Gold Standard, Парисын хэлэлцээрийн 6.4-р зүйлийн ITMO механизмд тэнцэх ба AGI-аар явуулагдах dMRV нь ICVCM-ийн Core Carbon Principles стандартад нийцсэн өндөр нэгдмэл байдлын түвшинд үнэлэгдэнэ. Энэхүү additionality давуу тал нь цэвэр сүлжээтэй орнуудад давтан үүсгэх боломжгүй структуртай боломж юм.</span><span class="en">Mongolia's coal-heavy grid emissions factor of ~1.0 tCO₂e/MWh ranks among the highest in Asia, placing credits originating here in a structurally advantaged additionality tier. Issuances are eligible under Verra VCS, Gold Standard, and Article 6.4 ITMO pathways, with AGI-driven dMRV positioning them at the integrity tier defined by the ICVCM Core Carbon Principles — a structural opportunity that cleaner-grid jurisdictions cannot replicate.</span></p>
+            <ul class="pil-card-x-stats">
+              <li><b><span class="mn">VCS · Gold Standard · Article 6.4</span><span class="en">VCS · Gold Standard · Article 6.4</span></b> — <span class="mn">олон стандарт хосолсон баталгаажуулалт</span><span class="en">multi-standard issuance pathway</span></li>
+              <li><b><span class="mn">Тасралтгүй dMRV</span><span class="en">Continuous dMRV</span></b> — <span class="mn">сар хүрэхгүй нарийвчлалаар хиймэл дагуул + IoT</span><span class="en">satellite + IoT, sub-monthly granularity</span></li>
+              <li><b><span class="mn">Хамтран байрласан DAC модулиуд</span><span class="en">Co-located DAC modules</span></b> — <span class="mn">TRL 7–8 · нарны эрчим хүчээр тэжээгдэх</span><span class="en">TRL 7–8 · solar-powered</span></li>
+              <li><b><span class="mn">Корпорацийн форвард оффтэйк</span><span class="en">Corporate forward offtake</span></b> — <span class="mn">кредитийн урьдчилсан санхүүжилт</span><span class="en">pre-financed credit pipeline</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── AGI × SOLAR ── -->
+        <div class="pil-card-x agi-solar" data-pil="agi-solar">
+          <div class="pil-card-x-head">
+            <span class="pil-card-x-num">SYNERGY · <em>AGI × SOLAR</em></span>
+            <span class="pil-card-x-pill">YIELD AMPLIFICATION</span>
+          </div>
+          <h3><span class="mn">AGI × нарны эрчим хүч</span><span class="en">AGI × Solar Operations</span></h3>
+          <div class="pil-card-x-sub"><span class="mn">Үйл ажиллагааны үр ашгийн өсөлт</span><span class="en">Operating Yield Amplification</span></div>
+          <div class="pil-card-x-body">
+            <p><span class="mn">AGI нь нарны фермийг идэвхгүй активаас идэвхтэй оновчилсон активт хувиргана. Трансформерт суурилсан тусгалын таамаглал нь өдрөөс өмнөх зах зээл дэх диспатчийн саналыг бодит гаралттай нягт уялдуулна; бэхжүүлэх сурагч PV, BESS, электролизийн ачааллыг нэгдсэн байдлаар төлөвлөдөг; инвертерийн флот хэмжээний анмалын илрүүлэлт нь хүчин чадлын алдагдлаас өмнө доройтлыг ажиглана. Үр дүн нь хязгаарлалтын дараах бодит гаралтын мэдэгдэхүйц өсөлт ба LCOE-ийн доош чиглэсэн дарамт.</span><span class="en">AGI converts solar from a passive asset into an actively optimized one. Transformer-based irradiance forecasting tightens the gap between dispatch bids and realized output; reinforcement learning jointly schedules PV, BESS, and electrolyzer loads; fleet-wide anomaly detection on inverter telemetry catches degradation before it shows up as yield loss. The net effect is measurable curtailment-adjusted yield uplift and downward pressure on LCOE.</span></p>
+            <ul class="pil-card-x-stats">
+              <li><b>72h <span class="mn">тусгалын таамаглал</span><span class="en">irradiance forecasting</span></b> — <em>&lt;3% MAPE</em></li>
+              <li><b><span class="mn">PV + BESS + H₂ нэгдсэн диспатч</span><span class="en">Joint PV + BESS + H₂ dispatch</span></b> — <em><span class="mn">15–25% бодит гаралтын өсөлт</span><span class="en">15–25% yield lift</span></em></li>
+              <li><b><span class="mn">Инвертерийн анмалын илрүүлэлт</span><span class="en">Inverter anomaly detection</span></b> — <em><span class="mn">төлөвлөгөөгүй зогсолт 30–50% бууруулна</span><span class="en">30–50% unplanned-downtime reduction</span></em></li>
+              <li><b><span class="mn">Идэвхтэй сурах материалын нээлт</span><span class="en">Active-learning materials discovery</span></b> — <span class="mn">перовскит/Si тандем PCE өсгөх</span><span class="en">accelerating perovskite/Si tandem PCE gains</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── AGI × CARBON ── -->
+        <div class="pil-card-x agi-carbon" data-pil="agi-carbon">
+          <div class="pil-card-x-head">
+            <span class="pil-card-x-num">SYNERGY · <em>AGI × CARBON</em></span>
+            <span class="pil-card-x-pill">INTEGRITY · VERIFICATION</span>
+          </div>
+          <h3><span class="mn">AGI × карбон зах зээл</span><span class="en">AGI × Carbon Markets</span></h3>
+          <div class="pil-card-x-sub"><span class="mn">Баталгаажуулалт ба нэгдмэл байдал</span><span class="en">Verification & Credit Integrity</span></div>
+          <div class="pil-card-x-body">
+            <p><span class="mn">Сайн дурын карбон зах зээлийн хамгийн том сул тал нь баталгаажуулалтын зардал болон кредитийн нэгдмэл байдал. AGI нь хоёуланг нь нэгэн зэрэг хаана: парсель түвшний хиймэл дагуулд суурилсан dMRV, шалтгаант ML-ээр үндэслэсэн baseline ба additionality тооцоо, мэдлэгийн графын үндэслэлээр давхар бүртгэлийн илрүүлэлт. Үр дүн нь зохицуулагчийн нийцлийн оффтэйкэд тохирох, ICVCM-ийн стандартад нийцсэн integrity tier-ийн кредит.</span><span class="en">The voluntary carbon market's chronic weakness is verification cost and credit integrity. AGI closes both at once: parcel-resolution satellite-derived dMRV, causal-ML counterfactual baselines and additionality testing, and cross-registry double-counting prevention via knowledge-graph reasoning. The outcome is credits priced at the integrity tier — eligible for compliance-grade offtake and ICVCM Core Carbon Principles alignment.</span></p>
+            <ul class="pil-card-x-stats">
+              <li><b><span class="mn">Олон үе шатт хиймэл дагуул нэгтгэл</span><span class="en">Multi-sensor satellite fusion</span></b> — <span class="mn">Sentinel-2 · Sentinel-1 SAR · арилжааны нарийвчлалт</span><span class="en">Sentinel-2 · Sentinel-1 SAR · sub-meter commercial</span></li>
+              <li><b><span class="mn">Шалтгаант ML-ийн baseline</span><span class="en">Causal-ML baselines</span></b> — <span class="mn">additionality counterfactual тооцоо</span><span class="en">counterfactual additionality testing</span></li>
+              <li><b><span class="mn">Регистрийн хооронд тулгалт</span><span class="en">Cross-registry reconciliation</span></b> — <span class="mn">давхар бүртгэлээс хамгаалах графын үндэслэл</span><span class="en">knowledge-graph anti-double-counting</span></li>
+              <li><b><span class="mn">Бараг бодит цаг хугацааны MRV</span><span class="en">Near-real-time MRV</span></b> — <em><span class="mn">жил тутмын аудитын оронд</span><span class="en">replacing annual third-party visits</span></em></li>
+              <li><b><span class="mn">Аудитад нийцэх үндэслэлийн ул мөр</span><span class="en">Audit-grade reasoning traces</span></b></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── SOLAR × CARBON ── -->
+        <div class="pil-card-x solar-carbon" data-pil="solar-carbon">
+          <div class="pil-card-x-head">
+            <span class="pil-card-x-num">SYNERGY · <em>SOLAR × CARBON</em></span>
+            <span class="pil-card-x-pill">STRUCTURAL ADDITIONALITY</span>
+          </div>
+          <h3><span class="mn">Нарны эрчим хүч × карбон зах зээл</span><span class="en">Solar × Carbon Markets</span></h3>
+          <div class="pil-card-x-sub"><span class="mn">Хамгийн өндөр нөлөөтэй CO₂ бууруулалт</span><span class="en">Highest-Impact Mitigation per kWh</span></div>
+          <div class="pil-card-x-body">
+            <p><span class="mn">Монголын сүлжээний ялгаралтын коэффициент ~1.0 тCO₂e/МВт·ц нь Азийн хамгийн өндөр түвшний нэг бөгөөд энд гарсан нарны нэг МВт·ц нь цэвэр сүлжээнд гарсантай харьцуулахад 2–3 дахин их нүүрсийг түрж гарна. Парисын 6.4-р зүйлийн ITMO эрхтэй хосолсон энэ нь бусад орнуудыг давтан үүсгэх боломжгүй структуртай карбон арбитраж бий болгоно. Цаашлаад нарны эрчмээр явуулах green hydrogen болон Direct Air Capture (DAC) нь хатуу декарбоны секторт чиглэсэн экспортын зам нээж байна.</span><span class="en">Mongolia's grid emissions factor of ~1.0 tCO₂e/MWh ranks among the highest in Asia, meaning each solar MWh displaces 2–3× more carbon than in cleaner grids. Combined with Article 6.4 ITMO transferability, this geography produces a structural carbon arbitrage that cleaner jurisdictions cannot replicate. Solar-powered green hydrogen and Direct Air Capture (DAC) further open export pathways to hard-to-abate sectors.</span></p>
+            <ul class="pil-card-x-stats">
+              <li><b><span class="mn">МВт·ц-д ~1.0 тCO₂e тэгшилгээ</span><span class="en">~1.0 tCO₂e displaced per MWh</span></b> — <em><span class="mn">ЕС-д ~0.4 харьцуулбал</span><span class="en">EU avg. ~0.4</span></em></li>
+              <li><b><span class="mn">Article 6.4 ITMO эрх</span><span class="en">Article 6.4 ITMO eligibility</span></b> — <span class="mn">олон улсын шилжүүлэлт</span><span class="en">internationally transferable mitigation outcomes</span></li>
+              <li><b><span class="mn">Ногоон H₂ → NH₃ / метанол</span><span class="en">Green H₂ → NH₃ / methanol</span></b> — <span class="mn">ган · далайн тээвэр · бордоо</span><span class="en">steel · shipping · fertilizer decarbonization</span></li>
+              <li><b><span class="mn">Бага чийгшилт Гоби</span><span class="en">Low-humidity Gobi climate</span></b> — <span class="mn">TRL 7–8 DAC амжилттай ажиллах</span><span class="en">TRL 7–8 DAC technically viable</span></li>
+              <li><b><span class="mn">Карбон-сөрөг үйлдвэрлэлийн зам</span><span class="en">Carbon-negative manufacturing pathway</span></b></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── CLOSED LOOP (default active) ── -->
+        <div class="pil-card-x loop active" data-pil="loop">
+          <div class="pil-card-x-head">
+            <span class="pil-card-x-num">SHAMBALA 2056 · <em>CLOSED LOOP</em></span>
+            <span class="pil-card-x-pill">SELF-FUNDING FLYWHEEL</span>
+          </div>
+          <h3><span class="mn">Хаалттай гогцоо систем</span><span class="en">Closed-Loop System</span></h3>
+          <div class="pil-card-x-sub"><span class="mn">Өөрөө санхүүжих ба өөрөө сайжрах ээрэг</span><span class="en">Self-Funding, Self-Improving Flywheel</span></div>
+          <div class="pil-card-x-body">
+            <p><span class="mn">Гурван тулгуурын нэгдэл нь өөрийгөө бэхжүүлэх капиталын ээрэг үүсгэнэ: <b>карбон кредитийн орлого</b> нь AGI-ийн компьют ба дараагийн нарны үе шатыг санхүүжүүлж → <b>AGI</b> нь гаралтыг өсгөж илүү олон кредит үүсгэнэ → <b>хүчин чадлын тэлэлт</b> нь тэгшилгээний боломжийг улам нэмэгдүүлнэ. Тус бүрийн сайжруулалт нь нөгөөг үржүүлдэг — нэмэгдэх биш үржигдэх синерги. Цэвэр нарны, цэвэр AGI эсвэл цэвэр карбон төслүүд энэ структурыг давтан үүсгэх боломжгүй.</span><span class="en">The convergence of the three pillars produces a self-reinforcing capital flywheel: <b>carbon credit revenue</b> funds AGI compute and the next phase of solar build-out → <b>AGI</b> raises yield, producing more credits → <b>capacity expansion</b> further increases displacement potential. Each pillar's improvement multiplies the others — multiplicative synergy, not additive. Pure-play solar, pure-play AGI, or pure-play carbon projects cannot replicate this structure.</span></p>
+            <ul class="pil-card-x-stats">
+              <li><b><span class="mn">Үржлэг (нэмлэг биш) синерги</span><span class="en">Multiplicative (not additive) synergy</span></b></li>
+              <li><b><span class="mn">Капиталын эргэлт</span><span class="en">Capital recycling</span></b> — <em>credits → capacity → compute → credits</em></li>
+              <li><b><span class="mn">Нэг шүүхийн интеграц</span><span class="en">Single-jurisdiction integration</span></b> — <span class="mn">масштабтай зохицуулалтын тодорхой байдал</span><span class="en">regulatory clarity at scale</span></li>
+              <li><b><span class="mn">Хамгийн өндөр additionality геобайршил</span><span class="en">Highest-additionality geography</span></b> — <span class="mn">институцийн дархлаа</span><span class="en">institutional moat</span></li>
+              <li><b><span class="mn">32 жилийн хугацаа</span><span class="en">32-year horizon</span></b> — <span class="mn">2024–2056 · глобал нет-зерод уялдсан</span><span class="en">2024–2056 · aligned with global net-zero pathway</span></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
+      <!-- /INTERACTIVE DETAIL PANEL -->
+
+      <script>
+      (function(){
+        var stage=document.querySelector('.pil-wrap');
+        if(!stage) return;
+        var panel=stage.querySelector('.pil-detail');
+        var diagram=stage.querySelector('.pil-diagram');
+        if(!panel||!diagram) return;
+        function setActive(key){
+          if(!key) return;
+          var card=panel.querySelector('.pil-card-x[data-pil="'+key+'"]');
+          if(!card) return;
+          panel.querySelectorAll('.pil-card-x.active').forEach(function(c){c.classList.remove('active')});
+          card.classList.add('active');
+          panel.setAttribute('data-active',key);
+          diagram.querySelectorAll('[data-pil-active]').forEach(function(el){el.removeAttribute('data-pil-active')});
+          diagram.querySelectorAll('[data-pil="'+key+'"]').forEach(function(el){el.setAttribute('data-pil-active','true')});
+          var visEdge=diagram.querySelector('[data-pil-edge="'+key+'"]');
+          if(visEdge) visEdge.setAttribute('data-pil-active','true');
+        }
+        diagram.addEventListener('click',function(e){
+          var hot=e.target.closest('[data-pil]');
+          if(!hot||!hot.dataset.pil) return;
+          setActive(hot.dataset.pil);
+        });
+        diagram.addEventListener('keydown',function(e){
+          if(e.key!=='Enter'&&e.key!==' ') return;
+          var hot=e.target.closest('[data-pil]');
+          if(!hot||!hot.dataset.pil) return;
+          e.preventDefault();
+          setActive(hot.dataset.pil);
+        });
+      })();
+      </script>
 
     </div>
     <!-- ═════ /3 PILLARS ═════ -->
 
-    <!-- ═════ HIDDEN: 2016–2056 ROADMAP — reveal after milestone ═════ -->
+
+<!-- ═════ AGI.html EMBED — full content from /AGI.html, finance section excluded ═════ -->
+<style id="agi-embed-styles">
+.agi-embed {
+  --bg-0: #050508;
+  --bg-1: #0A0A12;
+  --bg-2: #11111C;
+  --bg-3: #1A1A28;
+  --border: #1F1F2E;
+  --border-hi: #2C2C42;
+  --text: #F5F5F7;
+  --text-2: #B8B8C8;
+  --muted: #6E6E80;
+  --dim: #3F3F52;
+  --green: #00FF94;
+  --green-dim: #00B86B;
+  --cyan: #00E5FF;
+  --cyan-dim: #00A8BD;
+  --amber: #FFB800;
+  --red: #FF4D6D;
+  --glow-g: 0 0 40px rgba(0, 255, 148, 0.35);
+  --glow-c: 0 0 40px rgba(0, 229, 255, 0.35);
+  --grad-1: linear-gradient(135deg, #00FF94 0%, #00E5FF 100%);
+  --grad-2: linear-gradient(135deg, #00E5FF 0%, #7B61FF 100%);
+}
+@keyframes orbit-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+.agi-embed ::selection { background: var(--green); color: var(--bg-0); }
+.agi-embed a { color: inherit; text-decoration: none; }
+.agi-embed button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+.agi-embed .display { font-family: 'Unbounded', sans-serif; font-weight: 700; letter-spacing: -0.03em; line-height: 0.95; }
+.agi-embed .mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: 'ss01', 'ss02'; }
+.agi-embed .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--green);
+}
+.agi-embed .eyebrow::before {
+  content: '◢ ';
+  color: var(--green);
+}
+.agi-embed .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+.agi-embed section {
+  padding: 120px 0;
+  position: relative;
+}
+.agi-embed nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5, 5, 8, 0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.agi-embed .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+}
+.agi-embed .logo-mark {
+  width: 32px; height: 32px;
+  border-radius: 6px;
+  background: var(--grad-1);
+  display: grid;
+  place-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--bg-0);
+  box-shadow: var(--glow-g);
+}
+.agi-embed .nav-links {
+  display: flex;
+  gap: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+}
+.agi-embed .nav-links a {
+  position: relative;
+  transition: color 0.2s;
+}
+.agi-embed .nav-links a::before {
+  content: '> ';
+  opacity: 0;
+  margin-right: 4px;
+  color: var(--green);
+  transition: opacity 0.2s;
+}
+.agi-embed .nav-links a:hover { color: var(--green); }
+.agi-embed .nav-links a:hover::before { opacity: 1; }
+.agi-embed .nav-cta {
+  padding: 8px 16px;
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+}
+.agi-embed .nav-cta:hover {
+  background: var(--green);
+  color: var(--bg-0);
+  box-shadow: var(--glow-g);
+}
+@media (max-width: 800px) {
+.agi-embed .nav-links { display: none; }
+}
+.agi-embed .hero {
+  padding-top: 180px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.agi-embed .hero-meta {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.agi-embed .hero-meta span::before { content: '/ '; color: var(--green); }
+.agi-embed .hero h1 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(48px, 11vw, 180px);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+}
+.agi-embed .hero h1 .gradient-text {
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.agi-embed .hero-sub {
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--text-2);
+  max-width: 720px;
+  margin-bottom: 60px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.agi-embed .hero-sub strong { color: var(--text); font-weight: 600; }
+.agi-embed .hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+  margin-bottom: 40px;
+}
+.agi-embed .hero-stat {
+  position: relative;
+  padding: 0 24px;
+}
+.agi-embed .hero-stat:not(:last-child) { border-right: 1px solid var(--border); }
+.agi-embed .hero-stat-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+}
+.agi-embed .hero-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+@media (max-width: 800px) {
+.agi-embed .hero-stats { grid-template-columns: repeat(2, 1fr); }
+.agi-embed .hero-stat { padding: 16px; }
+.agi-embed .hero-stat:nth-child(odd) { border-right: 1px solid var(--border); }
+.agi-embed .hero-stat:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+}
+.agi-embed .hero-cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.agi-embed .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: 1px solid var(--border-hi);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.agi-embed .btn-primary {
+  background: var(--green);
+  color: var(--bg-0);
+  border-color: var(--green);
+}
+.agi-embed .btn-primary:hover {
+  box-shadow: var(--glow-g);
+  transform: translateY(-2px);
+}
+.agi-embed .btn-ghost:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.agi-embed .btn-arrow { transition: transform 0.2s; }
+.agi-embed .btn:hover .btn-arrow { transform: translateX(4px); }
+.agi-embed .section-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+.agi-embed .section-head { grid-template-columns: 1fr; gap: 24px; }
+}
+.agi-embed .section-head-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--green);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+}
+.agi-embed .section-head h2 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.agi-embed .section-head-desc {
+  font-size: 18px;
+  color: var(--text-2);
+  font-weight: 300;
+  line-height: 1.55;
+}
+.agi-embed .pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+@media (max-width: 900px) {
+.agi-embed .pillars { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+.agi-embed .pillars { grid-template-columns: 1fr; }
+}
+.agi-embed .pillar {
+  background: var(--bg-1);
+  padding: 40px 28px;
+  position: relative;
+  transition: background 0.3s;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+.agi-embed .pillar:hover {
+  background: var(--bg-2);
+}
+.agi-embed .pillar-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+.agi-embed .pillar-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 24px;
+  color: var(--green);
+}
+.agi-embed .pillar h3 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.agi-embed .pillar p {
+  color: var(--text-2);
+  font-size: 14px;
+  line-height: 1.55;
+  flex: 1;
+}
+.agi-embed .pillar-stat {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border-hi);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.agi-embed .pillar-stat b {
+  color: var(--green);
+  font-weight: 500;
+}
+.agi-embed .synergy-diagram {
+  max-width: 720px;
+  margin: 0 auto 80px;
+  position: relative;
+}
+.agi-embed .synergy-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.agi-embed .syn-pulse {
+  stroke-dasharray: 4 6;
+  animation: pulse-ring 6s linear infinite;
+}
+@keyframes pulse-ring {
+  to { stroke-dashoffset: -200; }
+}
+.agi-embed .syn-edge {
+  stroke-dasharray: 6 4;
+  animation: edge-flow 8s linear infinite;
+}
+@keyframes edge-flow {
+  to { stroke-dashoffset: -200; }
+}
+.agi-embed .synergy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 800px) {
+.agi-embed .synergy-grid { grid-template-columns: 1fr; }
+}
+.agi-embed .syn-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 32px;
+  position: relative;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+.agi-embed .syn-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,255,148,.06), transparent 70%);
+  transform: translate(50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.agi-embed .syn-card:hover {
+  border-color: var(--border-hi);
+  background: var(--bg-2);
+  transform: translateY(-3px);
+}
+.agi-embed .syn-card:hover::after { opacity: 1; }
+.agi-embed .syn-card.triple {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,255,148,.05), transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(0,229,255,.05), transparent 50%),
+    var(--bg-1);
+  border-color: var(--border-hi);
+  position: relative;
+}
+.agi-embed .syn-card.triple::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--amber), var(--cyan));
+}
+.agi-embed .syn-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.agi-embed .syn-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid currentColor;
+  font-size: 10px;
+  font-weight: 700;
+}
+.agi-embed .syn-tag.agi { color: var(--green); }
+.agi-embed .syn-tag.solar { color: var(--amber); }
+.agi-embed .syn-tag.carbon { color: var(--cyan); }
+.agi-embed .syn-card h4 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.agi-embed .syn-card-intro {
+  color: var(--text-2);
+  font-size: 13px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.agi-embed .syn-card ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.agi-embed .syn-card li {
+  padding-left: 22px;
+  position: relative;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+.agi-embed .syn-card li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+.agi-embed .trends-timeline {
+  position: relative;
+}
+.agi-embed .trends-decade {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 60px;
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.agi-embed .trends-decade:last-child { border-bottom: 1px solid var(--border); }
+@media (max-width: 800px) {
+.agi-embed .trends-decade { grid-template-columns: 1fr; gap: 24px; padding: 32px 0; }
+}
+.agi-embed .trends-decade::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: 0;
+  width: 10px; height: 10px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--green);
+}
+.agi-embed .trends-decade-side {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+.agi-embed .trends-decade-year {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.03em;
+}
+.agi-embed .trends-decade-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+.agi-embed .trends-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 800px) {
+.agi-embed .trends-cards { grid-template-columns: 1fr; }
+}
+.agi-embed .trend-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  padding: 22px;
+  transition: all 0.3s;
+  position: relative;
+}
+.agi-embed .trend-card:hover {
+  background: var(--bg-2);
+  transform: translateX(4px);
+}
+.agi-embed .trend-card.agi { border-left-color: var(--green); }
+.agi-embed .trend-card.solar { border-left-color: var(--amber); }
+.agi-embed .trend-card.carbon { border-left-color: var(--cyan); }
+.agi-embed .trend-card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.agi-embed .trend-card.agi .trend-card-tag { color: var(--green); }
+.agi-embed .trend-card.solar .trend-card-tag { color: var(--amber); }
+.agi-embed .trend-card.carbon .trend-card-tag { color: var(--cyan); }
+.agi-embed .trend-card h5 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.agi-embed .trend-card p {
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+.agi-embed .timeline-wrap {
+  position: relative;
+}
+.agi-embed .timeline-line {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  opacity: 0.3;
+}
+.agi-embed .timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+@media (max-width: 900px) {
+.agi-embed .timeline { grid-template-columns: 1fr; }
+.agi-embed .timeline-line { display: none; }
+}
+.agi-embed .tl-phase {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 28px;
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.agi-embed .tl-phase:hover {
+  border-color: var(--green);
+  background: var(--bg-2);
+  transform: translateY(-4px);
+  box-shadow: var(--glow-g);
+}
+.agi-embed .tl-phase::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: 28px;
+  width: 12px; height: 12px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--green);
+}
+.agi-embed .tl-phase-id {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+}
+.agi-embed .tl-phase-years {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--green);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.agi-embed .tl-phase h4 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.agi-embed .tl-phase p {
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.agi-embed .tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+  overflow-x: auto;
+}
+.agi-embed .tab {
+  padding: 18px 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.agi-embed .tab:hover { color: var(--text-2); }
+.agi-embed .tab.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+.agi-embed .tab-content { display: none; }
+.agi-embed .tab-content.active { display: block; animation: fadeIn 0.4s; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.agi-embed .phase-detail {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+@media (max-width: 900px) {
+.agi-embed .phase-detail { grid-template-columns: 1fr; gap: 32px; }
+}
+.agi-embed .phase-side h3 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.agi-embed .phase-side-years {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--green);
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.agi-embed .phase-kpis {
+  display: grid;
+  gap: 16px;
+}
+.agi-embed .phase-kpi {
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--border-hi);
+}
+.agi-embed .phase-kpi-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.agi-embed .phase-kpi-val {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+}
+.agi-embed .phase-kpi-val .unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 6px;
+  font-weight: 400;
+}
+.agi-embed .phase-main h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  margin-bottom: 12px;
+  margin-top: 28px;
+}
+.agi-embed .phase-main h4:first-child { margin-top: 0; }
+.agi-embed .phase-main ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.agi-embed .phase-main li {
+  padding-left: 24px;
+  position: relative;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.agi-embed .phase-main li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.6em;
+  width: 12px;
+  height: 1px;
+  background: var(--green);
+}
+.agi-embed .growth {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 48px;
+}
+@media (max-width: 700px) {
+.agi-embed .growth { padding: 24px; }
+}
+.agi-embed .growth-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 40px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.agi-embed .growth-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+.agi-embed .growth-legend {
+  display: flex;
+  gap: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.agi-embed .lg-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.agi-embed .metric-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 80px;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 700px) {
+.agi-embed .metric-row { grid-template-columns: 120px 1fr 60px; }
+}
+.agi-embed .metric-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.agi-embed .metric-bar-track {
+  display: flex;
+  height: 28px;
+  gap: 2px;
+}
+.agi-embed .metric-bar {
+  background: var(--grad-1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--bg-0);
+  font-weight: 700;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 0;
+  min-width: 0;
+}
+.agi-embed .metric-bar.p2 { background: linear-gradient(90deg, #00B86B, #00FF94); opacity: 0.5; }
+.agi-embed .metric-bar.p3 { background: linear-gradient(90deg, #00FF94, #00E5FF); opacity: 0.7; }
+.agi-embed .metric-bar.p4 { background: linear-gradient(90deg, #00E5FF, #7B61FF); opacity: 0.85; }
+.agi-embed .metric-bar.p5 { background: linear-gradient(90deg, #7B61FF, #FF61D0); opacity: 1; box-shadow: var(--glow-c); }
+.agi-embed .metric-final {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  text-align: right;
+}
+.agi-embed .fin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'JetBrains Mono', monospace;
+}
+.agi-embed .fin-table th,
+.agi-embed .fin-table td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.agi-embed .fin-table th {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  background: var(--bg-1);
+}
+.agi-embed .fin-table tr:hover td {
+  background: var(--bg-1);
+}
+.agi-embed .fin-phase {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.agi-embed .fin-total td {
+  border-top: 1px solid var(--green);
+  border-bottom: 1px solid var(--green);
+  background: rgba(0, 255, 148, 0.05);
+  color: var(--green);
+  font-weight: 700;
+}
+.agi-embed .fin-total .fin-phase {
+  background: var(--green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.agi-embed .risks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.agi-embed .risk-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 28px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.agi-embed .risk-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--grad-1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.agi-embed .risk-card:hover {
+  border-color: var(--border-hi);
+  background: var(--bg-2);
+}
+.agi-embed .risk-card:hover::before { transform: scaleX(1); }
+.agi-embed .risk-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+.agi-embed .risk-card h4 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.agi-embed .risk-card p {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.agi-embed .risk-mitigation {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border-hi);
+  font-size: 12px;
+  color: var(--muted);
+}
+.agi-embed .risk-mitigation b {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--green);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.agi-embed .cta-banner {
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 148, 0.1), transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1), transparent 50%),
+    var(--bg-1);
+  padding: 80px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 700px) {
+.agi-embed .cta-banner { padding: 48px 24px; }
+}
+.agi-embed .cta-banner h2 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.agi-embed .cta-banner h2 .gradient-text {
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.agi-embed .cta-banner p {
+  font-size: 18px;
+  color: var(--text-2);
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+}
+.agi-embed .cta-banner .btn-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.agi-embed footer {
+  border-top: 1px solid var(--border);
+  padding: 60px 32px 40px;
+  position: relative;
+  z-index: 1;
+}
+.agi-embed .foot-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+@media (max-width: 800px) {
+.agi-embed .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+.agi-embed .foot-col h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.agi-embed .foot-col ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.agi-embed .foot-col a:hover { color: var(--green); }
+.agi-embed .foot-brand p {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-top: 12px;
+  max-width: 320px;
+  line-height: 1.6;
+}
+.agi-embed .foot-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.agi-embed .foot-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.agi-embed .status-dot {
+  width: 8px; height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.agi-embed .reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.agi-embed .reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.agi-embed .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.agi-embed .reveal-stagger.in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.agi-embed .reveal-stagger.in > *:nth-child(1) { transition-delay: 0.05s; }
+.agi-embed .reveal-stagger.in > *:nth-child(2) { transition-delay: 0.15s; }
+.agi-embed .reveal-stagger.in > *:nth-child(3) { transition-delay: 0.25s; }
+.agi-embed .reveal-stagger.in > *:nth-child(4) { transition-delay: 0.35s; }
+.agi-embed .reveal-stagger.in > *:nth-child(5) { transition-delay: 0.45s; }
+.agi-embed .type-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  background: var(--green);
+  margin-left: 4px;
+  animation: blink 1s steps(2) infinite;
+  vertical-align: text-bottom;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.agi-embed{font-family:'Manrope',system-ui,sans-serif;color:var(--text,#F5F5F7);background:transparent;display:block;margin-top:48px}
+.agi-embed *{box-sizing:border-box}
+.agi-embed section{padding:80px 0;border-bottom:1px solid #1F1F2E}
+.agi-embed .container{max-width:1200px;margin:0 auto;padding:0 24px}
+</style>
+<div class="agi-embed">
+<section id="agi-vision">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-head-num">/ 01 · Алсын хараа</div>
+        <h2>Дөрвөн<br>тулгуур</h2>
+      </div>
+      <p class="section-head-desc">
+        Шамбала 2056 нь дөрвөн стратегийн тулгуурыг нэг системд нэгтгэсэн. Тэдгээр нь бие даан ажиллахаас илүүтэй харилцан хүчирхэгжүүлж, нэг нь нөгөөгийнхөө үр дүнг үржүүлэх синергийн загвараар бүтнэ.
+      </p>
+    </div>
+
+    <div class="pillars reveal-stagger">
+      <div class="pillar">
+        <div class="pillar-num">01 / AGI</div>
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="6"/>
+          <circle cx="24" cy="8" r="3"/>
+          <circle cx="24" cy="40" r="3"/>
+          <circle cx="8" cy="24" r="3"/>
+          <circle cx="40" cy="24" r="3"/>
+          <path d="M24 14v4M24 30v4M14 24h4M30 24h4"/>
+        </svg>
+        <h3>Хиймэл оюун ухаан</h3>
+        <p>Ерөнхий зориулалтын AGI системийг эрчим хүчний удирдлага, эрдэм шинжилгээ, карбон зах зээлийн стратегид бодит хэрэглээнд оруулна.</p>
+        <div class="pillar-stat">→ <b>10⁸ PFLOPS</b> / 2056</div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">02 / SOLAR</div>
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="8"/>
+          <path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.5 9.5l4 4M34.5 34.5l4 4M9.5 38.5l4-4M34.5 13.5l4-4"/>
+        </svg>
+        <h3>Нарны эрчим хүч</h3>
+        <p>Дорноговийн жилийн 300+ нартай өдрийг ашиглан 100 МВт-аас 10,000+ МВт хүртэл өсөх нарны фотовольтаик систем барина.</p>
+        <div class="pillar-stat">→ <b>10,000+ МВт</b> / 2056</div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">03 / CARBON</div>
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M14 36c-4 0-8-3-8-8s4-8 8-8c0-6 5-12 12-12s12 5 12 12c4 0 6 3 6 8s-2 8-6 8H14z"/>
+          <path d="M20 28l4 4 8-8"/>
+        </svg>
+        <h3>Карбон зах зээл</h3>
+        <p>Verra VCS, Gold Standard стандарт дээр суурилсан өөрийн карбон биржийн платформ, Ази-Номхон далайн бүсийн арилжааны төв болно.</p>
+        <div class="pillar-stat">→ <b>500М т CO₂</b> / жил</div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">04 / EDUCATION</div>
+        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 16l20-8 20 8-20 8L4 16z"/>
+          <path d="M12 20v10c0 3 5 6 12 6s12-3 12-6V20"/>
+          <path d="M44 16v12"/>
+        </svg>
+        <h3>Элит сургууль</h3>
+        <p>Caltech, Rockefeller загвараар 1,000 өндөр чанартай оюутантай, AGI ба сэргээгдэх эрчим хүчинд төвлөрсөн судалгааны их сургууль.</p>
+        <div class="pillar-stat">→ <b>1,000 оюутан</b> / Top 50</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agi-synergy">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-head-num">/ 02 · Системийн уялдаа</div>
+        <h2>Гурвалсан<br>синерги</h2>
+      </div>
+      <p class="section-head-desc">
+        AGI, нарны эрчим хүч, карбон зах зээл — энэ гурав нь тус тусдаа биш, харин хаалттай гогцоо үүсгэн нэг нь нөгөөгийнхөө үр дүнг үржүүлдэг систем. Шамбала 2056 нь яг гурван талын давхцалын төв цэгт ажиллана.
+      </p>
+    </div>
+
+    <!-- Triangle Diagram -->
+    <div class="synergy-diagram reveal">
+      <svg viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" aria-label="Synergy diagram">
+        <defs>
+          <linearGradient id="edge-as" x1="350" y1="100" x2="130" y2="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#00FF94"/>
+            <stop offset="100%" stop-color="#FFB800"/>
+          </linearGradient>
+          <linearGradient id="edge-ac" x1="350" y1="100" x2="570" y2="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#00FF94"/>
+            <stop offset="100%" stop-color="#00E5FF"/>
+          </linearGradient>
+          <linearGradient id="edge-sc" x1="130" y1="480" x2="570" y2="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFB800"/>
+            <stop offset="100%" stop-color="#00E5FF"/>
+          </linearGradient>
+          <filter id="glow-svg" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <radialGradient id="hub-bg">
+            <stop offset="0%" stop-color="#00FF94" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#00FF94" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Edges -->
+        <line x1="350" y1="150" x2="170" y2="450" stroke="url(#edge-as)" stroke-width="2" opacity="0.7" class="syn-edge"/>
+        <line x1="350" y1="150" x2="530" y2="450" stroke="url(#edge-ac)" stroke-width="2" opacity="0.7" class="syn-edge"/>
+        <line x1="170" y1="490" x2="530" y2="490" stroke="url(#edge-sc)" stroke-width="2" opacity="0.7" class="syn-edge"/>
+
+        <!-- Edge labels -->
+        <g font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.5">
+          <text x="195" y="310" fill="#FFB800" text-anchor="middle" font-weight="500" transform="rotate(-55 195 310)">AGI × SOLAR</text>
+          <text x="505" y="310" fill="#00E5FF" text-anchor="middle" font-weight="500" transform="rotate(55 505 310)">AGI × CARBON</text>
+          <text x="350" y="525" fill="#B8B8C8" text-anchor="middle" font-weight="500">SOLAR × CARBON</text>
+        </g>
+
+        <!-- Center hub: SHAMBALA -->
+        <circle cx="350" cy="320" r="100" fill="url(#hub-bg)"/>
+        <circle cx="350" cy="320" r="60" fill="#0A0A12" stroke="#00FF94" stroke-width="1" opacity="0.5"/>
+        <circle cx="350" cy="320" r="60" fill="none" stroke="#00FF94" stroke-width="1" class="syn-pulse" opacity="0.6"/>
+        <text x="350" y="315" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" letter-spacing="2">SHAMBALA</text>
+        <text x="350" y="338" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#00FF94" letter-spacing="3" font-weight="700">2056</text>
+
+        <!-- Node: AGI (top) -->
+        <g filter="url(#glow-svg)">
+          <circle cx="350" cy="100" r="55" fill="#0A0A12" stroke="#00FF94" stroke-width="2"/>
+        </g>
+        <text x="350" y="96" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="20" font-weight="700" fill="#00FF94" letter-spacing="2">AGI</text>
+        <text x="350" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#B8B8C8" letter-spacing="1">Оюун ухаан</text>
+
+        <!-- Node: SOLAR (bottom-left) -->
+        <g filter="url(#glow-svg)">
+          <circle cx="130" cy="490" r="55" fill="#0A0A12" stroke="#FFB800" stroke-width="2"/>
+        </g>
+        <text x="130" y="486" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="17" font-weight="700" fill="#FFB800" letter-spacing="2">SOLAR</text>
+        <text x="130" y="508" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#B8B8C8" letter-spacing="1">Эрчим хүч</text>
+
+        <!-- Node: CARBON (bottom-right) -->
+        <g filter="url(#glow-svg)">
+          <circle cx="570" cy="490" r="55" fill="#0A0A12" stroke="#00E5FF" stroke-width="2"/>
+        </g>
+        <text x="570" y="486" text-anchor="middle" font-family="Unbounded, sans-serif" font-size="16" font-weight="700" fill="#00E5FF" letter-spacing="2">CARBON</text>
+        <text x="570" y="508" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#B8B8C8" letter-spacing="1">Зах зээл</text>
+      </svg>
+    </div>
+
+    <!-- Synergy detail cards -->
+    <div class="synergy-grid reveal-stagger">
+      <!-- AGI × SOLAR -->
+      <div class="syn-card">
+        <div class="syn-card-label">
+          <span class="syn-tag agi">AGI</span>
+          <span style="color:var(--muted)">×</span>
+          <span class="syn-tag solar">SOLAR</span>
+        </div>
+        <h4>Нарны эрчим хүчийг бодит цаг хугацаанд оновчилно</h4>
+        <p class="syn-card-intro">AGI нь зөвхөн өгөгдөл боловсруулдаг алгоритм биш, харин нарны фермийн физик, цаг агаар, эдийн засагт нэгэн зэрэг хариу өгдөг ухаалаг систем юм.</p>
+        <ul>
+          <li>Цаг агаар, үүлний хөдөлгөөнийг 72 цагийн өмнө 95%+ нарийвчлалтай таамаглах</li>
+          <li>Тоосны хуримтлал, эвдрэлийг урьдчилан илрүүлж засварын зардлыг 30–50% бууруулах</li>
+          <li>Батерейн цэнэг-задралыг динамикаар оновчилж нөөц цахилгааны ашиглалтыг 2 дахин нэмэгдүүлэх</li>
+          <li>Перовскит, тандем зэрэг шинэ материалуудыг автоматаар нээж LCOE-г $0.01/kWh хүртэл бууруулах</li>
+          <li>Жилийн засвар-үйлчилгээний хүний хүчийг 70%-аар хэмнэх</li>
+        </ul>
+      </div>
+
+      <!-- AGI × CARBON -->
+      <div class="syn-card">
+        <div class="syn-card-label">
+          <span class="syn-tag agi">AGI</span>
+          <span style="color:var(--muted)">×</span>
+          <span class="syn-tag carbon">CARBON</span>
+        </div>
+        <h4>Карбон зах зээлд итгэлцэл, ил тод байдал үүсгэнэ</h4>
+        <p class="syn-card-intro">Дэлхийн карбон зах зээлийн хамгийн том асуудал бол давхар тоолох ба хуурамч кредит. AGI үүнийг хиймэл дагуулын зураг, IoT, блокчэйнийг хослуулан шийдвэрлэнэ.</p>
+        <ul>
+          <li>Хиймэл дагуулын зургаар ой мод, нүүрстөрөгчийн шингээлтийг автомат хэмжих</li>
+          <li>MRV процессыг (Monitoring/Reporting/Verification) бараг зэрэг хугацаанд гүйцэтгэх</li>
+          <li>Карбон зах зээлийн арилжааны стратегийг хүний оролцоогүйгээр оновчилох</li>
+          <li>Хуурамч кредит, давхар бүртгэлийг шууд илрүүлж зах зээлийн нэр хүндийг хамгаалах</li>
+          <li>Нийлүүлэлтийн сүлжээний нүүрсний мөрийг бүх үе шатанд хянах</li>
+        </ul>
+      </div>
+
+      <!-- SOLAR × CARBON -->
+      <div class="syn-card">
+        <div class="syn-card-label">
+          <span class="syn-tag solar">SOLAR</span>
+          <span style="color:var(--muted)">×</span>
+          <span class="syn-tag carbon">CARBON</span>
+        </div>
+        <h4>Карбон кредитийн хамгийн найдвартай эх үүсвэр</h4>
+        <p class="syn-card-intro">Нарны цахилгаан станц ажиллах бүрд газрын тосны эрчим хүчийг орлуулж бодит CO₂ ялгаралтыг бууруулна. Энэ нь карбон кредитийн хамгийн ил тод, баталгаатай эх үүсвэр.</p>
+        <ul>
+          <li>1 МВт нарны хүчин чадал жилд ~600–800 тонн CO₂ кредит үүсгэнэ</li>
+          <li>Ногоон устөрөгч (Green Hydrogen) — үйлдвэрлэлийн декарбонжилтын түлхүүр</li>
+          <li>Нараар тэжээгдсэн Direct Air Capture (DAC) — агаараас CO₂ шингээх төхөөрөмж</li>
+          <li>Карбон негатив технологийн анхдагч эрчим хүчний суурь</li>
+          <li>Усны цэвэрлэгээ, аммиак үйлдвэрлэлд илүүдэл нарны эрчмийг чиглүүлэх</li>
+        </ul>
+      </div>
+
+      <!-- TRIPLE OVERLAP -->
+      <div class="syn-card triple">
+        <div class="syn-card-label">
+          <span class="syn-tag agi">AGI</span>
+          <span style="color:var(--muted)">×</span>
+          <span class="syn-tag solar">SOLAR</span>
+          <span style="color:var(--muted)">×</span>
+          <span class="syn-tag carbon">CARBON</span>
+        </div>
+        <h4>Гурвалсан давхцал — хаалттай гогцоо систем</h4>
+        <p class="syn-card-intro">Шамбала 2056 нь гурван талын нэгийг сонгохгүйгээр нэг нэгдсэн системд нэгтгэх замаар бусад төслүүдээс үндсээр нь ялгардаг.</p>
+        <ul>
+          <li>AGI удирдсан нарны ферм → дээд ашигтай үйлдвэрлэл → илүү карбон кредит</li>
+          <li>Карбон кредитийн орлого → шинэ нарны хүчин чадал → AGI-н сургалтын эрчим хүч</li>
+          <li>AGI нь шинэ материал нээх → нарны үр ашиг ↑ → карбон кредит ↑</li>
+          <li>Бүх систем өөрөө өөрийгөө санхүүжүүлэх, өөрөө өөрийгөө сайжруулах эргэлт</li>
+          <li>Дэлхийн ESG, ногоон шилжилтийн стандарт болох институцийн дархлаа</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agi-trends">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-head-num">/ 03 · Ирээдүйн боломж</div>
+        <h2>Технологийн<br>чиг хандлага</h2>
+      </div>
+      <p class="section-head-desc">
+        Дараагийн 30 жилд AGI, нарны эрчим хүч, карбон зах зээл хэрхэн хувьсах вэ? IEA, DOE, MIT, DeepMind, IRENA зэрэг олон улсын тэргүүлэгч төвүүдийн судалгаан дээр үндэслэсэн боломжит хүрэх амжилтыг үе үеэр харуулна.
+      </p>
+    </div>
+
+    <div class="trends-timeline reveal">
+      <!-- 2025-2030 -->
+      <div class="trends-decade">
+        <div class="trends-decade-side">
+          <div class="trends-decade-year">2025–2030</div>
+          <div class="trends-decade-label">// Суурийн үе</div>
+        </div>
+        <div class="trends-cards">
+          <div class="trend-card agi">
+            <div class="trend-card-tag">AGI / AI агент</div>
+            <h5>Автомат агентын үе</h5>
+            <p>GPT, Claude, Gemini зэрэг том загварууд бие даан зорилго хэрэгжүүлдэг агент болж хувирна. Хүний оролцоо багасна.</p>
+          </div>
+          <div class="trend-card solar">
+            <div class="trend-card-tag">SOLAR / Tandem PV</div>
+            <h5>Перовскит худалдаанд</h5>
+            <p>Перовскит/силиконы тандем зайны үр ашиг 30%+, LCOE $0.02/kWh-д хүрнэ. Дэлхийд жилд 600+ ГВт суурилуулна.</p>
+          </div>
+          <div class="trend-card carbon">
+            <div class="trend-card-tag">CARBON / Voluntary</div>
+            <h5>$100Б зах зээл</h5>
+            <p>Дэлхийн сайн дурын карбон зах зээл (VCM) $50–100 тэрбумд хүрнэ. EU CBAM хүчин төгөлдөр болно.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2030-2040 -->
+      <div class="trends-decade">
+        <div class="trends-decade-side">
+          <div class="trends-decade-year">2030–2040</div>
+          <div class="trends-decade-label">// AGI гарч ирэх үе</div>
+        </div>
+        <div class="trends-cards">
+          <div class="trend-card agi">
+            <div class="trend-card-tag">AGI / Emerging</div>
+            <h5>Анхдагч AGI</h5>
+            <p>Хүний түвшний AGI гарч ирж, шинжлэх ухааны нээлтийг бие даан хийж эхэлнэ. Материал, эм бүтээх хугацаа 10 дахин богсоно.</p>
+          </div>
+          <div class="trend-card solar">
+            <div class="trend-card-tag">SOLAR / Dominance</div>
+            <h5>Solar > Coal</h5>
+            <p>Нар дэлхийн анхдагч эрчим хүчний эх үүсвэр болж нүүрсийг бүрэн орлоно. Жилд 1,500+ ГВт суурилуулалт.</p>
+          </div>
+          <div class="trend-card carbon">
+            <div class="trend-card-tag">CARBON / DAC scale</div>
+            <h5>DAC массивжих</h5>
+            <p>Direct Air Capture-ийн зардал $100/т-аас доош унаж арилжааны хэмжээ авна. Жилд 100М тонн CO₂ шингээнэ.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2040-2050 -->
+      <div class="trends-decade">
+        <div class="trends-decade-side">
+          <div class="trends-decade-year">2040–2050</div>
+          <div class="trends-decade-label">// Шилжилтийн үе</div>
+        </div>
+        <div class="trends-cards">
+          <div class="trend-card agi">
+            <div class="trend-card-tag">AGI / Autonomous</div>
+            <h5>AGI шинжлэх ухаан</h5>
+            <p>AGI нь хүний оролцоогүйгээр шинэ материал, эм, эрчим хүчний шийдэл нээнэ. Шинжлэх ухааны прогресс 5-10 дахин хурдасна.</p>
+          </div>
+          <div class="trend-card solar">
+            <div class="trend-card-tag">SOLAR / SBSP</div>
+            <h5>Космост гарах</h5>
+            <p>Орбит дахь нарны эрчим хүч (Space-Based Solar Power) анхны арилжааны нэгжүүд эхэлнэ. 24/7 эрчим хүч.</p>
+          </div>
+          <div class="trend-card carbon">
+            <div class="trend-card-tag">CARBON / $1Т</div>
+            <h5>$1Т зах зээл</h5>
+            <p>Карбон зах зээл $1 их наяд хүрч, газрын тосны зах зээлтэй ойртоно. Карбон үнэ $200+/т.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2050-2056 -->
+      <div class="trends-decade">
+        <div class="trends-decade-side">
+          <div class="trends-decade-year">2050–2056</div>
+          <div class="trends-decade-label">// Шилжилт төгсөх үе</div>
+        </div>
+        <div class="trends-cards">
+          <div class="trend-card agi">
+            <div class="trend-card-tag">AGI / Integrated</div>
+            <h5>Эдийн засагт нэгдсэн AGI</h5>
+            <p>AGI нь эдийн засгийн системийн салшгүй хэсэг болж, хүний хийдэг танин мэдэхүйн ажлын 60%-ийг гүйцэтгэнэ.</p>
+          </div>
+          <div class="trend-card solar">
+            <div class="trend-card-tag">SOLAR / 50%+</div>
+            <h5>50%+ үр ашигтай зай</h5>
+            <p>AGI-р зохион бүтээгдсэн олон-таних зайнууд 50%+ онолын үр ашигтай болж нар бүхнийг тэжээнэ.</p>
+          </div>
+          <div class="trend-card carbon">
+            <div class="trend-card-tag">CARBON / Net-Negative</div>
+            <h5>Net-Negative дэлхий</h5>
+            <p>Дэлхий нь анх удаа карбон негатив байдалд шилжих анхны жилүүд. Шамбала 2056 — энэ шилжилтийн нэг гол тулгуур.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agi-timeline">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-head-num">/ 04 · Хугацааны зураглал</div>
+        <h2>32 жил<br>4 үе шат</h2>
+      </div>
+      <p class="section-head-desc">
+        Үе шат бүр 8 жилийн хугацаатай, өмнөх үеийн дэд бүтэц, технологи, мэдлэгийн суурин дээр өргөжих зарчмаар бүтнэ. Зүүн талаас баруун тийш — суурь тавихаас дэлхийн стандарт тогтоох хүртэл.
+      </p>
+    </div>
+
+    <div class="timeline-wrap reveal">
+      <div class="timeline-line"></div>
+      <div class="timeline">
+        <div class="tl-phase" onclick="showTab('p2')">
+          <div class="tl-phase-id">II</div>
+          <div class="tl-phase-years">2024 → 2032</div>
+          <h4>Суурь дэд бүтэц ба туршилт</h4>
+          <p>100 МВт нарны станц, AGI лаборатори, 100 элит оюутан, анхдагч карбон кредит.</p>
+        </div>
+
+        <div class="tl-phase" onclick="showTab('p3')">
+          <div class="tl-phase-id">III</div>
+          <div class="tl-phase-years">2032 → 2040</div>
+          <h4>Өргөтгөл ба боловсронгуй</h4>
+          <p>1,000 МВт, Smart Grid, AGI бодит хэрэглээ, 300 оюутан, олон улсын аккредитаци.</p>
+        </div>
+
+        <div class="tl-phase" onclick="showTab('p4')">
+          <div class="tl-phase-id">IV</div>
+          <div class="tl-phase-years">2040 → 2048</div>
+          <h4>Олон улсын тэргүүлэгч</h4>
+          <p>5,000 МВт, ExaFLOPS supercomputer, 600 оюутан, бүс нутгийн карбон төв.</p>
+        </div>
+
+        <div class="tl-phase" onclick="showTab('p5')">
+          <div class="tl-phase-id">V</div>
+          <div class="tl-phase-years">2048 → 2056</div>
+          <h4>Алсын хараа бүрэн хэрэгжих</h4>
+          <p>10,000+ МВт, AGI бие даасан судалгаа, 1,000 оюутан, дэлхийн стандарт тогтоогч.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agi-phases">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-head-num">/ 05 · Нарийвчилсан төлөвлөгөө</div>
+        <h2>Үе шатны<br>тайлбар</h2>
+      </div>
+      <p class="section-head-desc">
+        Үе шат бүрийн дэд бүтэц, боловсрол, AGI, карбон зах зээлийн зорилт, гүйцэтгэлийн үндсэн үзүүлэлтүүдийг (KPI) тус тусад нь үзнэ үү.
+      </p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="p2">II · 2024–2032</button>
+      <button class="tab" data-tab="p3">III · 2032–2040</button>
+      <button class="tab" data-tab="p4">IV · 2040–2048</button>
+      <button class="tab" data-tab="p5">V · 2048–2056</button>
+    </div>
+
+    <!-- PHASE II -->
+    <div class="tab-content active" id="agi-p2">
+      <div class="phase-detail">
+        <div class="phase-side">
+          <h3>II</h3>
+          <div class="phase-side-years">2024 – 2032 · 8 жил</div>
+          <div class="phase-kpis">
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Нарны эрчим хүч</div>
+              <div class="phase-kpi-val">100<span class="unit">МВт</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Оюутны тоо</div>
+              <div class="phase-kpi-val">100</div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Карбон кредит</div>
+              <div class="phase-kpi-val">500K<span class="unit">т CO₂/жил</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
+              <div class="phase-kpi-val">$200–300<span class="unit">сая</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-main">
+          <h4>// Дэд бүтэц</h4>
+          <ul>
+            <li>100 МВт-ийн нарны фотовольтаик цахилгаан станц (50+50 МВт, 2027 ба 2032 онд ашиглалтад орох)</li>
+            <li>Лити-ион батерейн агуулах (200 МВт·ц), цахилгаан тогтворжуулах систем</li>
+            <li>Шилэн кабелийн сүлжээ, өөрийн Tier III мэдээллийн төв (5 МВт ачаалал)</li>
+            <li>Туршилтын ногоон устөрөгчийн жижиг үйлдвэрлэлийн нэгж</li>
+          </ul>
+          <h4>// Боловсрол</h4>
+          <ul>
+            <li>Шамбала Технологийн Сургуулийн анхны байр, лаборатори, оюутны байр</li>
+            <li>Бакалаврын 3 хөтөлбөр: Нарны инженерчлэл, AGI үндэс, Тогтвортой эрчим хүчний эдийн засаг</li>
+            <li>100 элит оюутан, 20% гадаад элсэгч</li>
+            <li>MIT, Stanford, ETH Zürich, KAIST-тэй хамтын ажиллагааны санамж бичиг</li>
+          </ul>
+          <h4>// AGI хөгжүүлэлт</h4>
+          <ul>
+            <li>500 PFLOPS чадавхитай GPU/TPU кластер бүхий машин сургалтын лаборатори</li>
+            <li>Жилд 20–30 зочин судлаач хүлээн авах олон улсын хөтөлбөр</li>
+            <li>Эрчим хүч ба цаг агаарт зориулсан анхдагч AGI прототип</li>
+          </ul>
+          <h4>// Карбон зах зээл</h4>
+          <ul>
+            <li>Verra VCS, Gold Standard стандартаар анхны төслийн бүртгэл</li>
+            <li>Блокчэйнд суурилсан MRV (Monitoring, Reporting, Verification) платформ</li>
+            <li>Жилийн 500,000 тонн CO₂-ийн карбон кредит олон улсын зах зээлд</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE III -->
+    <div class="tab-content" id="agi-p3">
+      <div class="phase-detail">
+        <div class="phase-side">
+          <h3>III</h3>
+          <div class="phase-side-years">2032 – 2040 · 8 жил</div>
+          <div class="phase-kpis">
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Нарны эрчим хүч</div>
+              <div class="phase-kpi-val">1,000<span class="unit">МВт</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Оюутны тоо</div>
+              <div class="phase-kpi-val">300</div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Карбон кредит</div>
+              <div class="phase-kpi-val">10М<span class="unit">т CO₂/жил</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
+              <div class="phase-kpi-val">$1.0–1.5<span class="unit">тэрбум</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-main">
+          <h4>// Дэд бүтэц</h4>
+          <ul>
+            <li>Нарны хүчин чадлыг 1,000 МВт хүртэл өсгөх (10 дахин)</li>
+            <li>AGI-д суурилсан Smart Grid — бодит цаг хугацааны оновчлол</li>
+            <li>50 га талбайтай судалгааны кампус, 30+ барилга</li>
+            <li>Үйлдвэрлэлийн хэмжээний ногоон устөрөгчийн үйлдвэр (>50 МВт)</li>
+          </ul>
+          <h4>// Боловсрол</h4>
+          <ul>
+            <li>Магистр, докторын 10+ хөтөлбөр</li>
+            <li>300 оюутан, гадаадын эзлэх хувь 30–40%</li>
+            <li>ABET, EUR-ACE олон улсын аккредитаци</li>
+            <li>Жилд 100+ эрдэм шинжилгээний өгүүлэл олон улсын сэтгүүлд</li>
+          </ul>
+          <h4>// AGI бодит хэрэглээ</h4>
+          <ul>
+            <li>Цахилгаан станцын бүх операцийг AGI оновчлох систем</li>
+            <li>Цаг агаар, эрэлт-нийлүүлэлтийн 72 цагийн урьдчилсан таамаглал (>95%)</li>
+            <li>Карбон зах зээлийн автомат арилжааны стратеги</li>
+          </ul>
+          <h4>// Карбон зах зээл</h4>
+          <ul>
+            <li>Mongolia Carbon Exchange — өөрийн платформ нээх</li>
+            <li>Жилд 10 сая тонн CO₂-ийн арилжаа</li>
+            <li>Ази-Номхон далайн жижиг төслүүдийг нэвтрүүлэх үйлчилгээ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE IV -->
+    <div class="tab-content" id="agi-p4">
+      <div class="phase-detail">
+        <div class="phase-side">
+          <h3>IV</h3>
+          <div class="phase-side-years">2040 – 2048 · 8 жил</div>
+          <div class="phase-kpis">
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Нарны эрчим хүч</div>
+              <div class="phase-kpi-val">5,000<span class="unit">МВт</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Оюутны тоо</div>
+              <div class="phase-kpi-val">600</div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Карбон кредит</div>
+              <div class="phase-kpi-val">100М<span class="unit">т CO₂/жил</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
+              <div class="phase-kpi-val">$5.0–7.0<span class="unit">тэрбум</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-main">
+          <h4>// Дэд бүтэц</h4>
+          <ul>
+            <li>Нарны хүчин чадал 5,000 МВт — экспортын чадавхитай</li>
+            <li>AGI том загвар сургах өөрийн supercomputer (>10 ExaFLOPS)</li>
+            <li>Хятад, Орос, Япон, Солонгос руу дамжуулах шугам интеграци</li>
+            <li>Орбит дахь нарны эрчим хүчний (SBSP) туршилтын төсөл</li>
+          </ul>
+          <h4>// Боловсрол</h4>
+          <ul>
+            <li>QS World University Rankings — Top 100-д орох зорилт</li>
+            <li>600 өндөр шалгуурт оюутан, 30+ улсаас элсэлт</li>
+            <li>BP, Total, Sinopec, Equinor зэрэг корпорацуудтай R&D төв</li>
+            <li>Нобелийн шагналт зочин профессорын хөтөлбөр</li>
+          </ul>
+          <h4>// AGI бүрэн нэвтрэлт</h4>
+          <ul>
+            <li>Эрчим хүчний процессыг AGI бие даан удирдах</li>
+            <li>Шинжлэх ухааны нээлтийг AGI-р хийх систем</li>
+            <li>AGI ёс зүй, аюулгүй байдлын олон улсын стандартад манлайлах</li>
+          </ul>
+          <h4>// Карбон зах зээл</h4>
+          <ul>
+            <li>Ази-Номхон далайн бүсийн карбон арилжааны төв</li>
+            <li>Жилд 100 сая тонн CO₂-ийн арилжаа</li>
+            <li>Direct Air Capture технологийн арилжааны хэмжээний нэгж</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE V -->
+    <div class="tab-content" id="agi-p5">
+      <div class="phase-detail">
+        <div class="phase-side">
+          <h3>V</h3>
+          <div class="phase-side-years">2048 – 2056 · 8 жил</div>
+          <div class="phase-kpis">
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Нарны эрчим хүч</div>
+              <div class="phase-kpi-val">10,000+<span class="unit">МВт</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Оюутны тоо</div>
+              <div class="phase-kpi-val">1,000</div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Карбон кредит</div>
+              <div class="phase-kpi-val">500М<span class="unit">т CO₂/жил</span></div>
+            </div>
+            <div class="phase-kpi">
+              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
+              <div class="phase-kpi-val">$8.0–10.0<span class="unit">тэрбум</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-main">
+          <h4>// Дэд бүтэц</h4>
+          <ul>
+            <li>Нарны хүчин чадал 10,000+ МВт — бүс нутгийн экспортын тэргүүлэгч</li>
+            <li>AGI-н ёс зүй, аюулгүй байдлын олон улсын төв байнгын үйл ажиллагаа</li>
+            <li>Орбит дахь нарны эрчим хүчний эхний арилжааны нэгж (>100 МВт)</li>
+            <li>Карбон негатив (Carbon Negative) технологийн дэлхийн төв</li>
+          </ul>
+          <h4>// Боловсрол</h4>
+          <ul>
+            <li>QS World University Rankings — Top 50</li>
+            <li>1,000 оюутан, Caltech / Rockefeller загвар</li>
+            <li>Жилд 1,000+ эрдэм шинжилгээний өгүүлэл</li>
+            <li>Нобель, Тюрингийн шагналт судлаачдыг бэлтгэдэг нэр хүндтэй сургууль</li>
+          </ul>
+          <h4>// AGI бие даасан үе</h4>
+          <ul>
+            <li>AGI бие даан судалгаа явуулж, шинэ шинжлэх ухааны нээлт хийх</li>
+            <li>Хүний оролцоогүйгээр цогц системийг AGI удирдах</li>
+            <li>AGI хөгжлийн дэлхийн стандарт боловсруулах институци</li>
+          </ul>
+          <h4>// Карбон зах зээл</h4>
+          <ul>
+            <li>Жилд 500 сая тонн CO₂-ийн арилжаа</li>
+            <li>Дэлхийн карбон үнийн лавлагаа (benchmark) тогтоох төв</li>
+            <li>Карбон негатив технологийн экспорт</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agi-growth">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-head-num">/ 06 · Өсөлтийн зураглал</div>
+        <h2>Үе шатны<br>өсөлт</h2>
+      </div>
+      <p class="section-head-desc">
+        Үндсэн үзүүлэлтүүд II үе шатнаас V үе шат хүртэл хэрхэн өсөж буйг харьцангуй хэмжээгээр харуулна. Бүх үзүүлэлт V үе шатанд хүрэх дээд утгын хувийг харуулсан.
+      </p>
+    </div>
+
+    <div class="growth reveal">
+      <div class="growth-head">
+        <div class="growth-title">Нийт өсөлтийн динамик</div>
+        <div class="growth-legend">
+          <span><span class="lg-dot" style="background:#00B86B"></span>II</span>
+          <span><span class="lg-dot" style="background:#00FF94"></span>III</span>
+          <span><span class="lg-dot" style="background:#00E5FF"></span>IV</span>
+          <span><span class="lg-dot" style="background:#7B61FF"></span>V</span>
+        </div>
+      </div>
+
+      <div class="metric-row">
+        <div class="metric-name">Нарны МВт</div>
+        <div class="metric-bar-track">
+          <div class="metric-bar p2" data-width="1">100</div>
+          <div class="metric-bar p3" data-width="9">1K</div>
+          <div class="metric-bar p4" data-width="40">5K</div>
+          <div class="metric-bar p5" data-width="50">10K</div>
+        </div>
+        <div class="metric-final">10,000+</div>
+      </div>
+
+      <div class="metric-row">
+        <div class="metric-name">Карбон М т</div>
+        <div class="metric-bar-track">
+          <div class="metric-bar p2" data-width="0.1">0.5</div>
+          <div class="metric-bar p3" data-width="1.9">10</div>
+          <div class="metric-bar p4" data-width="18">100</div>
+          <div class="metric-bar p5" data-width="80">500</div>
+        </div>
+        <div class="metric-final">500М</div>
+      </div>
+
+      <div class="metric-row">
+        <div class="metric-name">Оюутан</div>
+        <div class="metric-bar-track">
+          <div class="metric-bar p2" data-width="10">100</div>
+          <div class="metric-bar p3" data-width="20">300</div>
+          <div class="metric-bar p4" data-width="30">600</div>
+          <div class="metric-bar p5" data-width="40">1K</div>
+        </div>
+        <div class="metric-final">1,000</div>
+      </div>
+
+      <div class="metric-row">
+        <div class="metric-name">AGI PFLOPS</div>
+        <div class="metric-bar-track">
+          <div class="metric-bar p2" data-width="0.5">500</div>
+          <div class="metric-bar p3" data-width="9.5">10K</div>
+          <div class="metric-bar p4" data-width="40">1M</div>
+          <div class="metric-bar p5" data-width="50">100M</div>
+        </div>
+        <div class="metric-final">100M+</div>
+      </div>
+
+      <div class="metric-row">
+        <div class="metric-name">USD Тэрбум</div>
+        <div class="metric-bar-track">
+          <div class="metric-bar p2" data-width="1.5">0.25</div>
+          <div class="metric-bar p3" data-width="7.5">1.25</div>
+          <div class="metric-bar p4" data-width="36">6</div>
+          <div class="metric-bar p5" data-width="55">9</div>
+        </div>
+        <div class="metric-final">$16.5Б</div>
+      </div>
+
+      <div class="metric-row" style="border-bottom:none">
+        <div class="metric-name">Улс / Хамтын ажиллагаа</div>
+        <div class="metric-bar-track">
+          <div class="metric-bar p2" data-width="10">10</div>
+          <div class="metric-bar p3" data-width="20">30</div>
+          <div class="metric-bar p4" data-width="30">60</div>
+          <div class="metric-bar p5" data-width="40">100</div>
+        </div>
+        <div class="metric-final">100+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agi-risks">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-head-num">/ 08 · Эрсдэлийн удирдлага</div>
+        <h2>5 эрсдэл<br>5 шийдэл</h2>
+      </div>
+      <p class="section-head-desc">
+        Урт хугацааны төслийн хувьд эрсдэлийг тогтмол хянах нь чухал. Доорх таван үндсэн эрсдэлд тус бүрд нь бууруулах тодорхой арга хэмжээ боловсруулсан.
+      </p>
+    </div>
+
+    <div class="risks-grid reveal-stagger">
+      <div class="risk-card">
+        <div class="risk-num">RISK-01</div>
+        <h4>Технологийн эрсдэл</h4>
+        <p>AGI-н хөгжил хүлээснээс удаашрах эсвэл хүрсэн чанарын түвшин шаардлагад нийцэхгүй байх магадлал.</p>
+        <div class="risk-mitigation">
+          <b>// Шийдэл</b> Олон стратегийн түнштэй ажиллах, бэлэн загварыг үргэлж нөөц байлгах.
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-num">RISK-02</div>
+        <h4>Зах зээлийн эрсдэл</h4>
+        <p>Карбон кредитийн үнэ огцом унах, дэлхийн эрэлт буурах магадлал.</p>
+        <div class="risk-mitigation">
+          <b>// Шийдэл</b> Урт хугацааны offtake гэрээ, үнийн доод хязгаартай форвард худалдаа.
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-num">RISK-03</div>
+        <h4>Геополитикийн эрсдэл</h4>
+        <p>Бүсийн нөхцөл байдал, гадаад худалдааны хязгаарлалт, экспортын замын блок.</p>
+        <div class="risk-mitigation">
+          <b>// Шийдэл</b> Олон тал руу чиглэсэн экспортын стратеги, олон улсын байгууллагуудтай хүчтэй харилцаа.
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-num">RISK-04</div>
+        <h4>Цаг уурын эрсдэл</h4>
+        <p>Шороон шуурга, ган, температурын хэлбэлзэл нарны зайн үр ашигт нөлөөлөх.</p>
+        <div class="risk-mitigation">
+          <b>// Шийдэл</b> Автомат цэвэрлэх систем, олон жилийн статистик дээр суурилсан байршил сонголт.
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-num">RISK-05</div>
+        <h4>Санхүүгийн эрсдэл</h4>
+        <p>Хүүгийн өсөлт, валютын ханшийн савлагаа, олон улсын хөрөнгийн зах зээлийн шок.</p>
+        <div class="risk-mitigation">
+          <b>// Шийдэл</b> Олон валютаар орлого олох, төгрөг-доллар хедж стратеги.
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-num">RISK-06</div>
+        <h4>Ёс зүйн эрсдэл</h4>
+        <p>AGI хяналт, өгөгдлийн нууцлал, эрчим хүчний шударга хуваарилалттай холбоотой ёс зүйн асуудлууд.</p>
+        <div class="risk-mitigation">
+          <b>// Шийдэл</b> Хараат бус ёс зүйн зөвлөл, олон улсын аудит, ил тод тайлагнал.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<!-- ═════ /AGI.html EMBED ═════ -->
+<style id="agi-embed-fallbacks">
+.agi-embed .reveal,.agi-embed .reveal-stagger{opacity:1!important;transform:none!important}
+.agi-embed .reveal-stagger > *{opacity:1!important;transform:none!important}
+</style>
+<script>
+(function(){
+  var root=document.querySelector('.agi-embed');
+  if(!root) return;
+  var tabs=root.querySelectorAll('.tab[data-tab]');
+  var contents=root.querySelectorAll('.tab-content');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var id=tab.dataset.tab;
+      tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});
+      contents.forEach(function(c){c.classList.toggle('active',c.id==='agi-'+id)});
+    });
+  });
+  if('IntersectionObserver' in window){
+    var revealIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');revealIO.unobserve(en.target)}});
+    },{threshold:0.12});
+    root.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){revealIO.observe(el)});
+    var counterIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){animateCounter(en.target);counterIO.unobserve(en.target)}});
+    },{threshold:0.3});
+    root.querySelectorAll('.counter').forEach(function(c){counterIO.observe(c)});
+    var barIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var bars=en.target.querySelectorAll('.metric-bar');
+          var total=Array.from(bars).reduce(function(s,b){return s+parseFloat(b.dataset.width||0)},0)||1;
+          bars.forEach(function(bar,i){
+            var pct=(parseFloat(bar.dataset.width||0)/total)*100;
+            setTimeout(function(){bar.style.flexBasis=pct+'%'},i*120);
+          });
+          barIO.unobserve(en.target);
+        }
+      });
+    },{threshold:0.3});
+    root.querySelectorAll('.metric-row').forEach(function(r){barIO.observe(r)});
+  }
+  function animateCounter(el){
+    var target=parseFloat(el.dataset.target);
+    var suffix=el.dataset.suffix||'';
+    var dur=2000,start=performance.now();
+    function fmt(n){if(n>=1000)return Math.round(n).toLocaleString('en-US');if(n%1===0)return Math.round(n).toString();return n.toFixed(1)}
+    function step(now){
+      var p=Math.min((now-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*eased)+suffix;
+      if(p<1)requestAnimationFrame(step); else el.textContent=fmt(target)+suffix;
+    }
+    requestAnimationFrame(step);
+  }
+})();
+</script>
+
+        <!-- ═════ HIDDEN: 2016–2056 ROADMAP — reveal after milestone ═════ -->
     <div id="yr-hidden-wrap" style="display:none" aria-hidden="true">
 
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px">
