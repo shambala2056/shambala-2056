@@ -543,6 +543,86 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
 .flip-hint::before{content:'';display:inline-block;width:14px;height:1px;background:currentColor}
 .flip-hint::after{content:'ДЭЛГЭРЭНГҮЙ'}
 
+/* ═════ 3 PILLARS / AGI · SOLAR ENERGY · CARBON CREDIT synergy ═════ */
+.pil-wrap{position:relative;padding:24px 0 0}
+.pil-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;gap:32px;flex-wrap:wrap}
+.pil-head .sl{margin:0}
+.pil-tag{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--green);padding:5px 12px;background:rgba(57,173,72,0.06);border:1px solid rgba(57,173,72,0.25);display:inline-block;margin-bottom:10px;text-transform:uppercase}
+.pil-desc{font-family:'Montserrat',sans-serif;font-size:0.65rem;color:var(--muted);max-width:380px;line-height:1.75;text-align:right}
+.pil-diagram{position:relative;width:100%;max-width:780px;margin:0 auto 56px;padding:8px;background:radial-gradient(ellipse 70% 60% at 50% 55%,rgba(57,173,72,0.05),transparent 70%)}
+.pil-diagram svg{width:100%;height:auto;display:block;overflow:visible}
+@keyframes pil-flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-44}}
+@keyframes pil-flow-rev{from{stroke-dashoffset:0}to{stroke-dashoffset:44}}
+@keyframes pil-pulse-ring{0%{transform:scale(1);opacity:0.6}80%{opacity:0}100%{transform:scale(2.4);opacity:0}}
+@keyframes pil-orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes pil-orbit-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes pil-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes pil-glow{0%,100%{filter:drop-shadow(0 0 6px currentColor)}50%{filter:drop-shadow(0 0 14px currentColor)}}
+@keyframes pil-bead{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.pil-edge{stroke-dasharray:14 8;animation:pil-flow 1.8s linear infinite}
+.pil-edge.rev{animation:pil-flow-rev 2.2s linear infinite}
+.pil-pulse{transform-origin:center;transform-box:fill-box;animation:pil-pulse-ring 2.6s ease-out infinite}
+.pil-pulse.d2{animation-delay:0.9s}
+.pil-pulse.d3{animation-delay:1.7s}
+.pil-orbit{transform-origin:350px 320px;transform-box:view-box;animation:pil-orbit 24s linear infinite}
+.pil-orbit-rev{transform-origin:350px 320px;transform-box:view-box;animation:pil-orbit-rev 36s linear infinite}
+.pil-node-agi,.pil-node-solar,.pil-node-carbon{animation:pil-float 4s ease-in-out infinite}
+.pil-node-solar{animation-delay:1.3s}
+.pil-node-carbon{animation-delay:2.6s}
+.pil-node-agi text,.pil-node-solar text,.pil-node-carbon text{pointer-events:none}
+.pil-node-ring{animation:pil-glow 3.4s ease-in-out infinite;color:#39AD48}
+.pil-node-solar .pil-node-ring{color:#F5C543;animation-delay:1s}
+.pil-node-carbon .pil-node-ring{color:#00D4FF;animation-delay:2s}
+.pil-bead{offset-rotate:0deg;animation:pil-bead 3.2s linear infinite}
+.pil-bead.b1{offset-path:path('M 350 150 L 170 450');animation-delay:0s}
+.pil-bead.b2{offset-path:path('M 350 150 L 530 450');animation-delay:1.1s}
+.pil-bead.b3{offset-path:path('M 170 490 L 530 490');animation-delay:2.2s}
+.pil-bead.b1r{offset-path:path('M 170 450 L 350 150');animation-delay:1.6s}
+.pil-bead.b2r{offset-path:path('M 530 450 L 350 150');animation-delay:2.7s}
+.pil-bead.b3r{offset-path:path('M 530 490 L 170 490');animation-delay:0.5s}
+.pil-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:48px}
+.pil-card{position:relative;padding:32px 28px 30px;background:var(--surface);border:1px solid var(--border);overflow:hidden;cursor:default;transition:border-color .4s cubic-bezier(.4,0,.2,1),background .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1)}
+.pil-card:not(:first-child){border-left:none}
+.pil-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%),rgba(57,173,72,0.08),transparent 60%);opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:0}
+.pil-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#39AD48,transparent);transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.4,0,.2,1);opacity:0.9;pointer-events:none}
+.pil-card > *{position:relative;z-index:1}
+.pil-card:hover{border-color:rgba(57,173,72,0.5);background:rgba(57,173,72,0.04);transform:translateY(-4px);box-shadow:0 14px 36px -14px rgba(57,173,72,0.3),0 0 0 1px rgba(57,173,72,0.1)}
+.pil-card:hover::before{opacity:1}
+.pil-card:hover::after{transform:scaleX(1)}
+.pil-card.solar::before{background:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%),rgba(245,197,67,0.08),transparent 60%)}
+.pil-card.solar::after{background:linear-gradient(90deg,transparent,#F5C543,transparent)}
+.pil-card.solar:hover{border-color:rgba(245,197,67,0.5);background:rgba(245,197,67,0.04);box-shadow:0 14px 36px -14px rgba(245,197,67,0.3),0 0 0 1px rgba(245,197,67,0.1)}
+.pil-card.carbon::before{background:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%),rgba(0,212,255,0.08),transparent 60%)}
+.pil-card.carbon::after{background:linear-gradient(90deg,transparent,#00D4FF,transparent)}
+.pil-card.carbon:hover{border-color:rgba(0,212,255,0.5);background:rgba(0,212,255,0.04);box-shadow:0 14px 36px -14px rgba(0,212,255,0.3),0 0 0 1px rgba(0,212,255,0.1)}
+.pil-num{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--muted);margin-bottom:14px}
+.pil-card.agi .pil-num span{color:#39AD48}
+.pil-card.solar .pil-num span{color:#F5C543}
+.pil-card.carbon .pil-num span{color:#00D4FF}
+.pil-title{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);letter-spacing:0.06em;margin-bottom:6px;line-height:1.2}
+.pil-sub{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:18px;color:var(--muted)}
+.pil-card.agi .pil-sub{color:#39AD48}
+.pil-card.solar .pil-sub{color:#F5C543}
+.pil-card.carbon .pil-sub{color:#00D4FF}
+.pil-body{font-family:'Montserrat',sans-serif;font-size:0.7rem;color:rgba(232,244,255,0.7);line-height:1.75;margin-bottom:14px}
+.pil-feats{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.pil-feat{font-family:'Montserrat',sans-serif;font-size:0.62rem;color:var(--muted);line-height:1.5;padding-left:14px;position:relative}
+.pil-feat::before{content:'▸';position:absolute;left:0;top:0;color:#39AD48;opacity:0.7;font-size:0.55rem}
+.pil-card.solar .pil-feat::before{color:#F5C543}
+.pil-card.carbon .pil-feat::before{color:#00D4FF}
+.pil-loop{margin-top:8px;padding:24px 28px;border:1px solid rgba(57,173,72,0.2);background:linear-gradient(90deg,rgba(57,173,72,0.03),transparent 60%);position:relative;overflow:hidden}
+.pil-loop::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#39AD48,#F5C543,#00D4FF)}
+.pil-loop-head{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--muted);margin-bottom:10px;text-transform:uppercase}
+.pil-loop-head em{font-style:normal;color:#39AD48}
+.pil-loop-text{font-family:'Montserrat',sans-serif;font-size:0.72rem;color:rgba(232,244,255,0.75);line-height:1.8}
+.pil-loop-text b{color:#39AD48;font-weight:600}
+@media (max-width:880px){
+  .pil-cards{grid-template-columns:1fr}
+  .pil-card{border:1px solid var(--border)!important}
+  .pil-card:not(:first-child){border-top:none!important}
+  .pil-head{flex-direction:column;align-items:flex-start}
+  .pil-desc{text-align:left}
+}
 /* ESG framework cards — modern hover with glow & lift */
 .esg-fw-card{position:relative;overflow:hidden;cursor:default;transition:border-color .35s cubic-bezier(.4,0,.2,1),background .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s cubic-bezier(.4,0,.2,1);will-change:transform}
 .esg-fw-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(57,173,72,0.10),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:0}
@@ -1967,9 +2047,161 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   </div>
 </section>
 
-<!-- TIMELINE 2016–2056 — temporarily hidden -->
-<section class="tl-s reveal" id="timeline" style="display:none">
+<!-- TIMELINE / DEVELOPMENT PILLARS — pillars visible; year carousel hidden until milestone reveal -->
+<section class="tl-s reveal" id="timeline">
   <div class="wrap">
+
+    <!-- ═════ 3 PILLARS / SYNERGY ═════ -->
+    <div class="pil-wrap">
+      <div class="pil-head">
+        <div>
+          <div class="pil-tag"><span class="mn"> Хөгжлийн схем</span><span class="en"> Development diagram  </span></div>
+          <div class="sl"><span class="mn">Хөгжлийн 3 тулгуур</span><span class="en">3 Pillars of Development</span></div>
+          <h2 class="st"><span class="mn">AGI · СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧ · <em>КАРБОН КРЕДИТ</em></span><span class="en">AGI · SOLAR ENERGY · <em>CARBON CREDIT</em></span></h2>
+        </div>
+      </div>
+
+      <!-- TRIANGLE DIAGRAM -->
+      <div class="pil-diagram">
+        <svg viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" aria-label="AGI · Solar · Carbon synergy">
+          <defs>
+            <linearGradient id="pil-edge-as" x1="350" y1="150" x2="170" y2="450" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#39AD48"/>
+              <stop offset="100%" stop-color="#F5C543"/>
+            </linearGradient>
+            <linearGradient id="pil-edge-ac" x1="350" y1="150" x2="530" y2="450" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#39AD48"/>
+              <stop offset="100%" stop-color="#00D4FF"/>
+            </linearGradient>
+            <linearGradient id="pil-edge-sc" x1="170" y1="490" x2="530" y2="490" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#F5C543"/>
+              <stop offset="100%" stop-color="#00D4FF"/>
+            </linearGradient>
+            <radialGradient id="pil-hub-bg">
+              <stop offset="0%" stop-color="#39AD48" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#39AD48" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="pil-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Decorative outer orbital rings (counter-rotating) -->
+          <g class="pil-orbit" opacity="0.18">
+            <circle cx="350" cy="320" r="230" fill="none" stroke="#39AD48" stroke-width="0.8" stroke-dasharray="2 14"/>
+            <circle cx="350" cy="100" r="6" fill="none" stroke="#39AD48" stroke-width="1"/>
+          </g>
+          <g class="pil-orbit-rev" opacity="0.14">
+            <circle cx="350" cy="320" r="270" fill="none" stroke="#00D4FF" stroke-width="0.6" stroke-dasharray="1 22"/>
+          </g>
+
+          <!-- Edges with flowing dash -->
+          <line x1="350" y1="150" x2="170" y2="450" stroke="url(#pil-edge-as)" stroke-width="2" opacity="0.75" class="pil-edge"/>
+          <line x1="350" y1="150" x2="530" y2="450" stroke="url(#pil-edge-ac)" stroke-width="2" opacity="0.75" class="pil-edge rev"/>
+          <line x1="170" y1="490" x2="530" y2="490" stroke="url(#pil-edge-sc)" stroke-width="2" opacity="0.75" class="pil-edge"/>
+
+          <!-- Edge labels -->
+          <g font-family="Montserrat, sans-serif" font-size="10" letter-spacing="2" font-weight="500">
+            <text x="195" y="305" fill="#F5C543" text-anchor="middle" transform="rotate(-55 195 305)" opacity="0.9">AGI × SOLAR</text>
+            <text x="505" y="305" fill="#00D4FF" text-anchor="middle" transform="rotate(55 505 305)" opacity="0.9">AGI × CARBON</text>
+            <text x="350" y="528" fill="rgba(232,244,255,0.6)" text-anchor="middle" opacity="0.9">SOLAR × CARBON</text>
+          </g>
+
+          <!-- Flowing beads along edges -->
+          <circle class="pil-bead b1" r="3" fill="#F5C543"/>
+          <circle class="pil-bead b2" r="3" fill="#00D4FF"/>
+          <circle class="pil-bead b3" r="3" fill="rgba(232,244,255,0.7)"/>
+          <circle class="pil-bead b1r" r="2.4" fill="#39AD48"/>
+          <circle class="pil-bead b2r" r="2.4" fill="#39AD48"/>
+          <circle class="pil-bead b3r" r="2.4" fill="#F5C543"/>
+
+          <!-- Center hub: SHAMBALA 2056 -->
+          <circle cx="350" cy="320" r="105" fill="url(#pil-hub-bg)"/>
+          <circle class="pil-pulse" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
+          <circle class="pil-pulse d2" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
+          <circle class="pil-pulse d3" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
+          <circle cx="350" cy="320" r="62" fill="#020810" stroke="rgba(57,173,72,0.55)" stroke-width="1"/>
+          <text x="350" y="314" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="13" font-weight="700" fill="#E8F4FF" letter-spacing="3">SHAMBALA</text>
+          <text x="350" y="338" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" fill="#39AD48" letter-spacing="4" font-weight="700">2056</text>
+
+          <!-- Node: AGI (top) -->
+          <g class="pil-node-agi">
+            <circle class="pil-node-ring" cx="350" cy="100" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
+            <circle cx="350" cy="100" r="68" fill="none" stroke="#39AD48" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
+            <text x="350" y="96" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#39AD48" letter-spacing="3">AGI</text>
+            <text x="350" y="115" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn-sw">ОЮУН УХААН</tspan></text>
+          </g>
+
+          <!-- Node: SOLAR (bottom-left) -->
+          <g class="pil-node-solar">
+            <circle class="pil-node-ring" cx="170" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
+            <circle cx="170" cy="490" r="68" fill="none" stroke="#F5C543" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
+            <text x="170" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="16" font-weight="700" fill="#F5C543" letter-spacing="3">SOLAR</text>
+            <text x="170" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn-sw">ЭРЧИМ ХҮЧ</tspan></text>
+          </g>
+
+          <!-- Node: CARBON (bottom-right) -->
+          <g class="pil-node-carbon">
+            <circle class="pil-node-ring" cx="530" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
+            <circle cx="530" cy="490" r="68" fill="none" stroke="#00D4FF" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
+            <text x="530" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="15" font-weight="700" fill="#00D4FF" letter-spacing="2">CARBON</text>
+            <text x="530" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn-sw">ЗАХ ЗЭЭЛ</tspan></text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 3 PILLAR CARDS -->
+      <div class="pil-cards" style="display:none" aria-hidden="true">
+        <div class="pil-card agi" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
+          <div class="pil-num">01 / <span>AGI</span></div>
+          <div class="pil-title"><span class="mn">Хиймэл оюун ухаан</span><span class="en">Artificial General Intelligence</span></div>
+          <div class="pil-sub"><span class="mn">Удирдлагын тархи</span><span class="en">The Operating Mind</span></div>
+          <div class="pil-body"><span class="mn">AGI нь эрчим хүчний оновчлол, шинжлэх ухааны нээлт, карбон зах зээлийн стратегийг нэгэн зэрэг удирддаг бодлогын давхарга.</span><span class="en">AGI is the policy layer that simultaneously runs energy optimization, scientific discovery, and carbon-market strategy.</span></div>
+          <ul class="pil-feats">
+            <li class="pil-feat"><span class="mn">72 цагийн нарийвчилсан таамаглал</span><span class="en">72-hour high-precision forecasting</span></li>
+            <li class="pil-feat"><span class="mn">Урьдчилсан засвар-үйлчилгээ</span><span class="en">Predictive maintenance</span></li>
+            <li class="pil-feat"><span class="mn">Шинэ материал автомат нээлт</span><span class="en">Autonomous materials discovery</span></li>
+            <li class="pil-feat"><span class="mn">MRV хяналтын автомат шалгалт</span><span class="en">Automated MRV verification</span></li>
+          </ul>
+        </div>
+        <div class="pil-card solar" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
+          <div class="pil-num">02 / <span>SOLAR</span></div>
+          <div class="pil-title"><span class="mn">Нарны эрчим хүч</span><span class="en">Solar Energy</span></div>
+          <div class="pil-sub"><span class="mn">Үйлдвэрлэлийн суурь</span><span class="en">The Production Base</span></div>
+          <div class="pil-body"><span class="mn">Дорноговь — жилийн 300+ нартай өдөр. Энэ нь Шамбала кампусыг 100 МВт-аас 10,000+ МВт хүртэл өргөжүүлэх боломжийг олгоно.</span><span class="en">Dornogovi has 300+ sunny days per year, enabling the Shambala campus to scale from 100 MW to 10,000+ MW of photovoltaic capacity.</span></div>
+          <ul class="pil-feats">
+            <li class="pil-feat"><span class="mn">100 МВт → 10,000+ МВт PV</span><span class="en">100 MW → 10,000+ MW PV</span></li>
+            <li class="pil-feat"><span class="mn">100% сэргээгдэх эрчим хүч</span><span class="en">100% renewable energy</span></li>
+            <li class="pil-feat"><span class="mn">Ногоон устөрөгч (H₂)</span><span class="en">Green hydrogen (H₂)</span></li>
+            <li class="pil-feat"><span class="mn">Батерейн динамик оновчлол</span><span class="en">Dynamic battery optimization</span></li>
+          </ul>
+        </div>
+        <div class="pil-card carbon" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')">
+          <div class="pil-num">03 / <span>CARBON</span></div>
+          <div class="pil-title"><span class="mn">Карбон зах зээл</span><span class="en">Carbon Market</span></div>
+          <div class="pil-sub"><span class="mn">Үнэлэмжийн давхарга</span><span class="en">The Value Layer</span></div>
+          <div class="pil-body"><span class="mn">1 МВт нарны хүчин чадал жилд ~600–800 тонн CO₂ кредит үүсгэнэ. AGI-ийн баталгаажуулалт нь хамгийн ил тод, найдвартай кредит болгоно.</span><span class="en">Each MW of solar generates ~600–800 tCO₂ credits/year. AGI-verified credits become the most transparent and trusted issuance on global markets.</span></div>
+          <ul class="pil-feats">
+            <li class="pil-feat"><span class="mn">Хиймэл дагуулаар MRV хэмжилт</span><span class="en">Satellite-based MRV measurement</span></li>
+            <li class="pil-feat"><span class="mn">Давхар тоолохгүй блокчэйн бүртгэл</span><span class="en">Blockchain anti-double-counting</span></li>
+            <li class="pil-feat"><span class="mn">Direct Air Capture (DAC)</span><span class="en">Direct Air Capture (DAC)</span></li>
+            <li class="pil-feat"><span class="mn">Карбон-негатив технологи</span><span class="en">Carbon-negative tech</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CLOSED LOOP -->
+      <div class="pil-loop" style="display:none" aria-hidden="true">
+        <div class="pil-loop-head">// <span class="mn">Хаалттай гогцоо · <em>Шамбала 2056</em></span><span class="en">Closed feedback loop · <em>Shambala 2056</em></span></div>
+        <div class="pil-loop-text"><span class="mn"><b>AGI</b> нь нарны фермийн үр ашгийг нэмэгдүүлж → <b>илүү карбон кредит</b> үүсгэнэ → орлого нь <b>шинэ нарны хүчин чадал ба AGI-н сургалт</b>-д буцаж эргэлдэнэ. Гурван тулгуур нь өөрөө өөрийгөө санхүүжүүлэх, өөрөө өөрийгөө сайжруулах синергийн системийг бий болгоно.</span><span class="en"><b>AGI</b> raises solar-farm efficiency → produces <b>more carbon credits</b> → revenue cycles back into <b>new solar capacity and AGI training compute</b>. The three pillars form a self-funding, self-improving synergy system.</span></div>
+      </div>
+
+    </div>
+    <!-- ═════ /3 PILLARS ═════ -->
+
+    <!-- ═════ HIDDEN: 2016–2056 ROADMAP — reveal after milestone ═════ -->
+    <div id="yr-hidden-wrap" style="display:none" aria-hidden="true">
 
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px">
       <div>
@@ -2132,6 +2364,9 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 
       </div>
     </div><!-- /yr-wrap -->
+
+    </div>
+    <!-- ═════ /HIDDEN ROADMAP ═════ -->
 
   </div>
 </section>
