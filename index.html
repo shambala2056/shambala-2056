@@ -654,9 +654,10 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
 .agi-embed .tl-expand-inner:has(.p1-pano){padding:0}
 /* ═════ INTERACTIVE PILLAR DIAGRAM ═════ */
 .pil-stage{position:relative}
-.pil-diagram svg [data-pil]{cursor:pointer;transition:filter .35s ease,opacity .35s ease}
-.pil-diagram svg [data-pil]:hover{filter:drop-shadow(0 0 10px currentColor)}
-.pil-diagram svg [data-pil-active="true"]{filter:drop-shadow(0 0 16px currentColor) drop-shadow(0 0 6px currentColor)}
+.pil-diagram svg [data-pil]{cursor:pointer;transition:filter .35s ease,opacity .35s ease;outline:none;-webkit-tap-highlight-color:transparent}
+.pil-diagram svg [data-pil]:focus,.pil-diagram svg [data-pil]:focus-visible{outline:none}
+.pil-diagram svg [data-pil]:hover,.pil-diagram svg [data-pil]:focus-visible{filter:drop-shadow(0 0 12px currentColor) drop-shadow(0 0 4px currentColor)}
+.pil-diagram svg [data-pil-active="true"],.pil-diagram svg [data-pil]:active{filter:drop-shadow(0 0 24px currentColor) drop-shadow(0 0 10px currentColor) drop-shadow(0 0 4px currentColor)}
 .pil-edge[data-pil]{cursor:pointer;transition:stroke-width .25s ease,opacity .25s ease}
 .pil-edge-hit{stroke:transparent;stroke-width:30;cursor:pointer;fill:none;pointer-events:stroke}
 .pil-edge-hit:hover + .pil-edge,.pil-edge[data-pil-active="true"]{stroke-width:3.6;opacity:1!important}
@@ -2286,15 +2287,15 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   --text-2: #B8B8C8;
   --muted: #6E6E80;
   --dim: #3F3F52;
-  --green: #00FF94;
-  --green-dim: #00B86B;
+  --green: #39AD48;
+  --green-dim: #2D8A39;
   --cyan: #00E5FF;
   --cyan-dim: #00A8BD;
   --amber: #FFB800;
   --red: #FF4D6D;
-  --glow-g: 0 0 40px rgba(0, 255, 148, 0.35);
+  --glow-g: 0 0 40px rgba(57, 173, 72, 0.35);
   --glow-c: 0 0 40px rgba(0, 229, 255, 0.35);
-  --grad-1: linear-gradient(135deg, #00FF94 0%, #00E5FF 100%);
+  --grad-1: linear-gradient(135deg, #39AD48 0%, #00E5FF 100%);
   --grad-2: linear-gradient(135deg, #00E5FF 0%, #7B61FF 100%);
 }
 @keyframes orbit-pulse {
@@ -2538,11 +2539,12 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 }
 .agi-embed .section-head h2 {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(36px, 5vw, 72px);
+  font-size: clamp(2rem, 4vw, 3.8rem);
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.03em;
 }
+.agi-embed .section-head h2 em { color: var(--green); font-style: normal; }
 .agi-embed .section-head-desc {
   font-size: 18px;
   color: var(--text-2);
@@ -2659,7 +2661,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   position: absolute;
   top: 0; right: 0;
   width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(0,255,148,.06), transparent 70%);
+  background: radial-gradient(circle, rgba(57,173,72,.06), transparent 70%);
   transform: translate(50%, -50%);
   pointer-events: none;
   transition: opacity 0.3s;
@@ -2673,7 +2675,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 .agi-embed .syn-card:hover::after { opacity: 1; }
 .agi-embed .syn-card.triple {
   background:
-    radial-gradient(circle at 100% 0%, rgba(0,255,148,.05), transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(57,173,72,.05), transparent 50%),
     radial-gradient(circle at 0% 100%, rgba(0,229,255,.05), transparent 50%),
     var(--bg-1);
   border-color: var(--border-hi);
@@ -2870,24 +2872,13 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   transform: translateY(-4px);
   box-shadow: var(--glow-g);
 }
-.agi-embed .tl-phase::before {
-  content: '';
-  position: absolute;
-  top: -6px; left: 28px;
-  width: 12px; height: 12px;
-  background: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--green);
-}
+.agi-embed .tl-phase::before { display: none; }
 .agi-embed .tl-phase-id {
   font-family: 'Unbounded', sans-serif;
   font-size: 72px;
   font-weight: 700;
   line-height: 1;
-  background: var(--grad-1);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--green);
   margin-bottom: 8px;
 }
 .agi-embed .tl-phase-years {
@@ -2922,33 +2913,33 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 @keyframes tl-station-pulse{0%{r:6;opacity:.7}80%{r:18;opacity:0}100%{r:18;opacity:0}}
 .agi-embed .tl-seg{transition:opacity .5s ease;filter:drop-shadow(0 0 6px currentColor)}
 .agi-embed .tl-seg.lit{opacity:.9}
-.agi-embed .tl-pulse-bead{animation:tl-bead 6.5s ease-in-out infinite;opacity:.85;filter:drop-shadow(0 0 5px #00FF94)}
+.agi-embed .tl-pulse-bead{animation:tl-bead 6.5s ease-in-out infinite;opacity:.85;filter:drop-shadow(0 0 5px #39AD48)}
 @keyframes tl-bead{0%{cx:100;cy:30;opacity:0}5%{opacity:1}25%{cx:300;cy:30;opacity:1}50%{cx:500;cy:30;opacity:1}75%{cx:700;cy:30;opacity:1}95%{cx:900;cy:30;opacity:1}100%{cx:900;cy:30;opacity:0}}
-.agi-embed .tl-phase-past::before{background:#F5C543!important;box-shadow:0 0 12px #F5C543!important}
-.agi-embed .tl-phase-past:hover{border-color:#F5C543}
-.agi-embed .tl-phase-past[aria-expanded="true"]{border-color:#F5C543;box-shadow:0 12px 36px -12px rgba(245,197,67,.28),0 0 0 1px rgba(245,197,67,.2)}
-.agi-embed .tl-phase-past[aria-expanded="true"]::before{box-shadow:0 0 18px #F5C543}
-.agi-embed .tl-phase-past[aria-expanded="true"] .tl-phase-cue{color:#F5C543}
-.agi-embed .tl-phase-past .tl-phase-id{background:linear-gradient(135deg,#F5C543,#F0A04B);-webkit-background-clip:text;background-clip:text;color:transparent}
-.agi-embed .tl-phase-past .tl-phase-years{color:#F5C543}
-.agi-embed .tl-phase-status{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:#F5C543;padding:4px 8px;background:rgba(245,197,67,.06);border:1px solid rgba(245,197,67,.25);display:inline-block;text-transform:uppercase}
+.agi-embed .tl-phase-past::before{background:var(--green)!important;box-shadow:0 0 12px var(--green)!important}
+.agi-embed .tl-phase-past:hover{border-color:var(--green)}
+.agi-embed .tl-phase-past[aria-expanded="true"]{border-color:var(--green);box-shadow:0 12px 36px -12px rgba(57,173,72,.28),0 0 0 1px rgba(57,173,72,.2)}
+.agi-embed .tl-phase-past[aria-expanded="true"]::before{box-shadow:0 0 18px var(--green)}
+.agi-embed .tl-phase-past[aria-expanded="true"] .tl-phase-cue{color:var(--green)}
+.agi-embed .tl-phase-past .tl-phase-id{color:var(--green)}
+.agi-embed .tl-phase-past .tl-phase-years{color:var(--green)}
+.agi-embed .tl-phase-status{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:var(--green);padding:4px 8px;background:rgba(57,173,72,.06);border:1px solid rgba(57,173,72,.25);display:inline-block;text-transform:uppercase}
 .agi-embed .tl-phase{cursor:pointer;user-select:none;outline:none}
-.agi-embed .tl-phase:focus-visible{outline:1px dashed #00FF94;outline-offset:4px}
-.agi-embed .tl-phase[aria-expanded="true"]{border-color:#00FF94;background:var(--bg-2);box-shadow:0 12px 36px -12px rgba(0,255,148,.28),0 0 0 1px rgba(0,255,148,.2)}
-.agi-embed .tl-phase[aria-expanded="true"]::before{transform:scale(1.6);box-shadow:0 0 18px #00FF94}
-.agi-embed .tl-phase[aria-expanded="true"] .tl-phase-cue{opacity:1;color:#00FF94}
+.agi-embed .tl-phase:focus-visible{outline:1px dashed #39AD48;outline-offset:4px}
+.agi-embed .tl-phase[aria-expanded="true"]{border-color:#39AD48;background:var(--bg-2);box-shadow:0 12px 36px -12px rgba(57,173,72,.28),0 0 0 1px rgba(57,173,72,.2)}
+.agi-embed .tl-phase[aria-expanded="true"]::before{transform:scale(1.6);box-shadow:0 0 18px #39AD48}
+.agi-embed .tl-phase[aria-expanded="true"] .tl-phase-cue{opacity:1;color:#39AD48}
 .agi-embed .tl-phase[aria-expanded="true"] .tl-phase-cue-arr{transform:rotate(180deg)}
 .agi-embed .tl-phase-cue{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--muted);opacity:.6;text-transform:uppercase;transition:opacity .3s,color .3s}
 .agi-embed .tl-phase:hover .tl-phase-cue{opacity:1}
 .agi-embed .tl-phase-cue-arr{display:inline-block;transition:transform .35s cubic-bezier(.4,0,.2,1);font-size:12px}
-.agi-embed .tl-drop{position:absolute;left:12.5%;top:calc(100% - 64px - 64px);transform:translateX(-50%);width:2px;height:64px;background:linear-gradient(180deg,#00FF94,rgba(0,255,148,0));opacity:0;transition:left .55s cubic-bezier(.4,0,.2,1),opacity .35s ease,top .35s ease;z-index:1;pointer-events:none}
-.agi-embed .tl-drop::before{content:'';position:absolute;left:50%;top:0;width:8px;height:8px;background:#00FF94;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 16px #00FF94;animation:tl-drop-blink 1.4s ease-in-out infinite}
-.agi-embed .tl-drop::after{content:'';position:absolute;left:50%;bottom:-4px;width:6px;height:6px;border-right:2px solid #00FF94;border-bottom:2px solid #00FF94;transform:translateX(-50%) rotate(45deg);filter:drop-shadow(0 0 6px #00FF94)}
+.agi-embed .tl-drop{position:absolute;left:12.5%;top:calc(100% - 64px - 64px);transform:translateX(-50%);width:2px;height:64px;background:linear-gradient(180deg,#39AD48,rgba(57,173,72,0));opacity:0;transition:left .55s cubic-bezier(.4,0,.2,1),opacity .35s ease,top .35s ease;z-index:1;pointer-events:none}
+.agi-embed .tl-drop::before{content:'';position:absolute;left:50%;top:0;width:8px;height:8px;background:#39AD48;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 16px #39AD48;animation:tl-drop-blink 1.4s ease-in-out infinite}
+.agi-embed .tl-drop::after{content:'';position:absolute;left:50%;bottom:-4px;width:6px;height:6px;border-right:2px solid #39AD48;border-bottom:2px solid #39AD48;transform:translateX(-50%) rotate(45deg);filter:drop-shadow(0 0 6px #39AD48)}
 @keyframes tl-drop-blink{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}}
 .agi-embed .timeline-wrap.open .tl-drop{opacity:1}
 .agi-embed .tl-expand{margin-top:80px;border:1px solid var(--border);background:var(--bg-1);max-height:0;overflow:hidden;opacity:0;transition:max-height .65s cubic-bezier(.4,0,.2,1),opacity .4s ease,margin-top .4s,border-color .4s;position:relative}
-.agi-embed .tl-expand::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00FF94,#00E5FF);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.4,0,.2,1)}
-.agi-embed .timeline-wrap.open .tl-expand{max-height:3200px;opacity:1;border-color:#00FF94}
+.agi-embed .tl-expand::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#39AD48,#00E5FF);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.agi-embed .timeline-wrap.open .tl-expand{max-height:3200px;opacity:1;border-color:#39AD48}
 .agi-embed .timeline-wrap.open .tl-expand::before{transform:scaleX(1)}
 .agi-embed .tl-expand-inner{padding:40px 40px 48px;animation:tl-cascade .55s cubic-bezier(.4,0,.2,1)}
 @keyframes tl-cascade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -3160,8 +3151,8 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   width: 0;
   min-width: 0;
 }
-.agi-embed .metric-bar.p2 { background: linear-gradient(90deg, #00B86B, #00FF94); opacity: 0.5; }
-.agi-embed .metric-bar.p3 { background: linear-gradient(90deg, #00FF94, #00E5FF); opacity: 0.7; }
+.agi-embed .metric-bar.p2 { background: linear-gradient(90deg, #2D8A39, #39AD48); opacity: 0.5; }
+.agi-embed .metric-bar.p3 { background: linear-gradient(90deg, #39AD48, #00E5FF); opacity: 0.7; }
 .agi-embed .metric-bar.p4 { background: linear-gradient(90deg, #00E5FF, #7B61FF); opacity: 0.85; }
 .agi-embed .metric-bar.p5 { background: linear-gradient(90deg, #7B61FF, #FF61D0); opacity: 1; box-shadow: var(--glow-c); }
 .agi-embed .metric-final {
@@ -3206,7 +3197,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 .agi-embed .fin-total td {
   border-top: 1px solid var(--green);
   border-bottom: 1px solid var(--green);
-  background: rgba(0, 255, 148, 0.05);
+  background: rgba(57, 173, 72, 0.05);
   color: var(--green);
   font-weight: 700;
 }
@@ -3280,7 +3271,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 .agi-embed .cta-banner {
   border: 1px solid var(--border);
   background:
-    radial-gradient(circle at 80% 20%, rgba(0, 255, 148, 0.1), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(57, 173, 72, 0.1), transparent 50%),
     radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1), transparent 50%),
     var(--bg-1);
   padding: 80px 60px;
@@ -3439,56 +3430,19 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     <div class="section-head reveal">
       <div>
         <div class="section-head-num">2016-2056</div>
-        <h2><span class="mn">ХӨГЖҮҮЛЭЛТИЙН<br>үе шатУУД</span><span class="en">DEVELOPMENT<br>PHASES</span></h2>
+        <h2><span class="mn">ХӨГЖҮҮЛЭЛТИЙН<br><em>үе шатУУД</em></span><span class="en">DEVELOPMENT<br><em>PHASES</em></span></h2>
       </div>
       <p class="section-head-desc">
       </p>
     </div>
 
     <div class="timeline-wrap reveal">
-      <!-- Motion-graphic connector: animated horizontal line + 5 dots over the cards -->
-      <svg class="tl-connector" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="tl-grad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#F5C543"/>
-            <stop offset="22%" stop-color="#00FF94"/>
-            <stop offset="60%" stop-color="#00E5FF"/>
-            <stop offset="100%" stop-color="#00E5FF"/>
-          </linearGradient>
-          <filter id="tl-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <!-- base track -->
-        <line x1="100" y1="30" x2="900" y2="30" stroke="url(#tl-grad)" stroke-width="1" opacity="0.25"/>
-        <!-- flowing dashed overlay -->
-        <line x1="100" y1="30" x2="900" y2="30" stroke="url(#tl-grad)" stroke-width="1.5" opacity="0.85" stroke-dasharray="14 8" class="tl-flow-line"/>
-        <!-- segment highlights between dots — light up when adjacent dots are active -->
-        <line class="tl-seg" data-seg="1-2" x1="100" y1="30" x2="300" y2="30" stroke="#F5C543" stroke-width="2.4" opacity="0"/>
-        <line class="tl-seg" data-seg="2-3" x1="300" y1="30" x2="500" y2="30" stroke="#00FF94" stroke-width="2.4" opacity="0"/>
-        <line class="tl-seg" data-seg="3-4" x1="500" y1="30" x2="700" y2="30" stroke="#00E5FF" stroke-width="2.4" opacity="0"/>
-        <line class="tl-seg" data-seg="4-5" x1="700" y1="30" x2="900" y2="30" stroke="#00E5FF" stroke-width="2.4" opacity="0"/>
-        <!-- traveling bead pulse -->
-        <circle r="3" fill="#fff" class="tl-pulse-bead"/>
-        <!-- 5 station dots -->
-        <g filter="url(#tl-glow)">
-          <circle class="tl-station" data-phase="p1" cx="100" cy="30" r="6" fill="#0A0A12" stroke="#F5C543" stroke-width="1.5"/>
-          <circle class="tl-station" data-phase="p2" cx="300" cy="30" r="6" fill="#0A0A12" stroke="#00FF94" stroke-width="1.5"/>
-          <circle class="tl-station" data-phase="p3" cx="500" cy="30" r="6" fill="#0A0A12" stroke="#00FF94" stroke-width="1.5"/>
-          <circle class="tl-station" data-phase="p4" cx="700" cy="30" r="6" fill="#0A0A12" stroke="#00E5FF" stroke-width="1.5"/>
-          <circle class="tl-station" data-phase="p5" cx="900" cy="30" r="6" fill="#0A0A12" stroke="#00E5FF" stroke-width="1.5"/>
-        </g>
-        <!-- pulse ring around active station (positioned via JS) -->
-        <circle class="tl-station-pulse" cx="100" cy="30" r="6" fill="none" stroke="#00FF94" stroke-width="1.5" opacity="0"/>
-      </svg>
-
       <div class="timeline">
         <div class="tl-phase tl-phase-past" data-phase="p1" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">I</div>
           <div class="tl-phase-years">2016 → 2024</div>
           <h4><span class="mn">Хамгаалах зурвас байгуулах</span><span class="en">Shelterbelt Establishment</span></h4>
-          <p><span class="mn">166,857 хайлаас, 108,970 м² нөхөн сэргээлт, NASA + Martensite Analytica хяналт.</span><span class="en">166,857 elm trees, 108,970 m² restoration, NASA + Martensite Analytica monitoring.</span></p>
+          <p><span class="mn">166,857 хайлаас мод, 108,970 м² нөхөн сэргээлт, хиймэл дагуулын хяналт.</span><span class="en">166,857 elm trees, 108,970 m² restoration, satellite monitoring.</span></p>
           <div class="tl-phase-status">COMPLETED · ХЭРЭГЖСЭН</div>
           <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
@@ -3497,7 +3451,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="tl-phase-id">II</div>
           <div class="tl-phase-years">2024 → 2032</div>
           <h4><span class="mn">Суурь дэд бүтэц ба туршилт</span><span class="en">Foundational Infrastructure & Pilot</span></h4>
-          <p><span class="mn">100 МВт нарны станц, AGI лаборатори, анхны 100 оюутан, анхдагч карбон кредит.</span><span class="en">100 MW solar plant, AGI laboratory, first 100 students, pilot carbon credits.</span></p>
+          <p><span class="mn">100 оюутны элсэлт, карбон зах зээл.</span><span class="en">100 student enrollment, carbon market.</span></p>
           <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
@@ -3505,7 +3459,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="tl-phase-id">III</div>
           <div class="tl-phase-years">2032 → 2040</div>
           <h4><span class="mn">Өргөтгөл ба сайжруулалт</span><span class="en">Expansion & Refinement</span></h4>
-          <p><span class="mn">1,000 МВт, Smart Grid, AGI бодит хэрэглээ, 300 оюутан.</span><span class="en">1,000 MW, Smart Grid, AGI deployment, 300 students.</span></p>
+          <p><span class="mn">1,000 МВт нарны станц, Smart Grid, AGI бодит хэрэглээ, 300 оюутны элсэлт.</span><span class="en">1,000 MW solar plant, Smart Grid, AGI deployment, 300 student enrollment.</span></p>
           <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
@@ -3513,15 +3467,15 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="tl-phase-id">IV</div>
           <div class="tl-phase-years">2040 → 2048</div>
           <h4><span class="mn">Олон улсын тэргүүлэгч</span><span class="en">International Leadership</span></h4>
-          <p><span class="mn">5,000 МВт, ExaFLOPS supercomputer, 600 оюутан, бүс нутгийн карбон төв.</span><span class="en">5,000 MW, ExaFLOPS supercomputer, 600 students, regional carbon hub.</span></p>
+          <p><span class="mn">5,000 МВт, ExaFLOPS supercomputer, 600 оюутны элсэлт, Бүс нутгийн карбон төв.</span><span class="en">5,000 MW, ExaFLOPS supercomputer, 600 student enrollment, regional carbon hub.</span></p>
           <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
         <div class="tl-phase" data-phase="p5" tabindex="0" role="button" aria-expanded="false" aria-controls="tl-expand">
           <div class="tl-phase-id">V</div>
           <div class="tl-phase-years">2048 → 2056</div>
-          <h4><span class="mn">Алсын хараа бүрэн хэрэгжих</span><span class="en">Vision Fully Realized</span></h4>
-          <p><span class="mn">10,000+ МВт, AGI бие даасан судалгаа, 1,000 оюутан, дэлхийн стандарт тогтоогч.</span><span class="en">10,000+ MW, autonomous AGI research, 1,000 students, global standard-setter.</span></p>
+          <h4><span class="mn">Олон улсын зах зээл</span><span class="en">International Market</span></h4>
+          <p><span class="mn">+10,000 МВт, AGI бие даасан судалгаа, 1,000 оюутны элсэлт, «Карбон Негатив» (Carbon Negative) технологиудыг олон улсын зах зээлд экспортлогч орон болох.</span><span class="en">+10,000 MW, autonomous AGI research, 1,000 student enrollment, exporter of «Carbon Negative» technologies to international markets.</span></p>
           <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
       </div>
@@ -3585,11 +3539,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             </div>
             <div class="phase-kpi">
               <div class="phase-kpi-label">Карбон кредит</div>
-              <div class="phase-kpi-val">500K<span class="unit">т CO₂/жил</span></div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
-              <div class="phase-kpi-val">$200–300<span class="unit">сая</span></div>
+              <div class="phase-kpi-val">500,000<span class="unit">т CO₂/жил</span></div>
             </div>
           </div>
         </div>
@@ -3641,11 +3591,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             </div>
             <div class="phase-kpi">
               <div class="phase-kpi-label">Карбон кредит</div>
-              <div class="phase-kpi-val">10М<span class="unit">т CO₂/жил</span></div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
-              <div class="phase-kpi-val">$1.0–1.5<span class="unit">тэрбум</span></div>
+              <div class="phase-kpi-val">10,000,000<span class="unit">т CO₂/жил</span></div>
             </div>
           </div>
         </div>
@@ -3698,11 +3644,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             </div>
             <div class="phase-kpi">
               <div class="phase-kpi-label">Карбон кредит</div>
-              <div class="phase-kpi-val">100М<span class="unit">т CO₂/жил</span></div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
-              <div class="phase-kpi-val">$5.0–7.0<span class="unit">тэрбум</span></div>
+              <div class="phase-kpi-val">100,000,000<span class="unit">т CO₂/жил</span></div>
             </div>
           </div>
         </div>
@@ -3753,11 +3695,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             </div>
             <div class="phase-kpi">
               <div class="phase-kpi-label">Карбон кредит</div>
-              <div class="phase-kpi-val">500М<span class="unit">т CO₂/жил</span></div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Хөрөнгө оруулалт</div>
-              <div class="phase-kpi-val">$8.0–10.0<span class="unit">тэрбум</span></div>
+              <div class="phase-kpi-val">500,000,000<span class="unit">т CO₂/жил</span></div>
             </div>
           </div>
         </div>
@@ -3777,7 +3715,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <p class="phase-intro">ОЛОН УЛСЫН нүүрстөрөгчийн эдийн засагт томоохон тоглогч болох:</p>
           <ul>
             <li><strong>Арилжааны хэмжээ:</strong> Жил бүр 500 сая тонн CO₂-той тэнцэх хэмжээний нүүрстөрөгчийн кредитийн арилжааг өөрийн платформоор гүйцэтгэх.</li>
-            <li><strong>Дэлхийн үнийн жишиг:</strong> Олон улсын карбон зах зээл дээрх үнийн лавлагаа буюу жишгийг (benchmark) тогтоодог ази тивийн төв (hub) болох.</li>
             <li><strong>Технологийн экспорт:</strong> Нүүрстөрөгчийг бууруулах, агаараас шүүх «Карбон негатив» (Carbon Negative) технологиудыг олон улсын зах зээлд экспортлогч орон болох.</li>
           </ul>
         </div>
