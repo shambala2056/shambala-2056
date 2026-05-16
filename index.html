@@ -631,11 +631,24 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
 .agi-embed > section#agi-phases,
 .agi-embed > section#agi-growth,
 .agi-embed > section#agi-risks{display:none!important}
-/* Phase I — feature image (Dari's shambala-timeline-2024 panorama) */
-.agi-embed .p1-feature{display:block;width:100%;margin:0 0 24px;border:1px solid #1F1F2E;background:#0A0A12;overflow:hidden;position:relative}
-.agi-embed .p1-feature img{display:block;width:100%;height:auto;object-fit:cover}
-.agi-embed .p1-feature::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#F5C543,#F0A04B,transparent);z-index:2}
-.agi-embed .p1-feature-cap{position:absolute;left:14px;bottom:12px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#F5C543;background:rgba(10,10,18,.85);padding:6px 12px;border:1px solid rgba(245,197,67,.3);text-transform:uppercase;z-index:2}
+/* Phase I — horizontal-scroll panorama (Dari's shambala-timeline-2024.jpg, 14998×2143) */
+.agi-embed .p1-pano{position:relative;background:var(--bg-0);border:1px solid #1F1F2E;margin:0;overflow:hidden}
+.agi-embed .p1-pano::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#F5C543,#F0A04B,transparent);z-index:3}
+.agi-embed .p1-pano-scroll{overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar{height:6px}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar-thumb{background:rgba(245,197,67,0.45);border-radius:3px}
+.agi-embed .p1-pano-scroll::-webkit-scrollbar-thumb:hover{background:rgba(245,197,67,0.7)}
+.agi-embed .p1-pano-img{height:520px;width:auto;display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.agi-embed .p1-pano-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(2,8,16,.82);backdrop-filter:blur(6px);border:1px solid rgba(245,197,67,.4);color:#F5C543;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .2s;z-index:5;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.agi-embed .p1-pano-arrow:hover{background:rgba(245,197,67,.18);border-color:#F5C543;color:#fff;transform:translateY(-50%) scale(1.05)}
+.agi-embed .p1-pano-arrow.left{left:18px}
+.agi-embed .p1-pano-arrow.right{right:18px}
+.agi-embed .p1-pano-arrow svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.agi-embed .p1-pano-cap{position:absolute;left:18px;bottom:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;color:#F5C543;background:rgba(2,8,16,.88);padding:7px 14px;border:1px solid rgba(245,197,67,.35);text-transform:uppercase;z-index:4}
+@media(max-width:768px){.agi-embed .p1-pano-img{height:340px}.agi-embed .p1-pano-arrow{width:38px;height:38px}.agi-embed .p1-pano-arrow svg{width:15px;height:15px}.agi-embed .p1-pano-cap{font-size:9px;padding:5px 10px}}
+/* Cascade drawer padding override when Phase I is active — let the panorama go edge-to-edge */
+.agi-embed .tl-expand-inner:has(.p1-pano){padding:0}
 /* ═════ INTERACTIVE PILLAR DIAGRAM ═════ */
 .pil-stage{position:relative}
 .pil-diagram svg [data-pil]{cursor:pointer;transition:filter .35s ease,opacity .35s ease}
@@ -4072,63 +4085,18 @@ function hTlScroll(dir){
 
     <!-- PHASE I (hidden source — revealed only via timeline card click) -->
     <div class="tab-content" id="agi-p1" hidden>
-      <figure class="p1-feature">
-        <img src="assets/timeline/shambala-timeline-2024.jpg" alt="Shambala 2056 · 2016–2024 timeline panorama" loading="lazy">
-        <figcaption class="p1-feature-cap">2016 → 2024 · PHASE I · COMPLETED</figcaption>
-      </figure>
-      <div class="phase-detail">
-        <div class="phase-side">
-          <h3 style="background:linear-gradient(135deg,#F5C543,#F0A04B);-webkit-background-clip:text;background-clip:text;color:transparent">I</h3>
-          <div class="phase-side-years" style="color:#F5C543">2016 – 2024 · 8 жил · ХЭРЭГЖСЭН</div>
-          <div class="phase-kpis">
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Тарьсан мод</div>
-              <div class="phase-kpi-val">166,857</div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Сэргээгдсэн талбай</div>
-              <div class="phase-kpi-val">108,970<span class="unit">м²</span></div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">CO₂ шингээлт</div>
-              <div class="phase-kpi-val">33,603<span class="unit">кг/жил</span></div>
-            </div>
-            <div class="phase-kpi">
-              <div class="phase-kpi-label">Биомасс</div>
-              <div class="phase-kpi-val">114,906<span class="unit">тонн</span></div>
-            </div>
-          </div>
+      <section class="p1-pano" aria-label="Shambala 2016–2024 timeline panorama">
+        <button class="p1-pano-arrow left" type="button" data-p1-scroll="-1" aria-label="Scroll left">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="p1-pano-scroll">
+          <img class="p1-pano-img" src="assets/timeline/shambala-timeline-2024.jpg" alt="Shambala 2056 · 2016–2024 timeline panorama" loading="lazy">
         </div>
-        <div class="phase-main">
-          <h4>// Нөхөн сэргээлт ба хамгаалах зурвас</h4>
-          <ul>
-            <li>166,857 хайлаас (Ulmus pumila) ба тарваган хайлаасыг 108,970 м² талбайд тарьж, говийн цөлжилттэй тэмцэх хамгаалах зурвасыг бий болгосон</li>
-            <li>"BE HUMAN" Лэнд Арт — Монгол дахь анхны Land Art (21,857 мод, 30,000 м²), "Лантуун дохио" ТББ-тай хамтран бүтээсэн</li>
-            <li>"ART N TECH FESTIVAL" — 36,000 мод, 38,970 м², 10 кВт нарны хүчин чадал</li>
-            <li>"MONGOLZ#1" — 100,000 мод, 40,000 м², 20 кВт — анхны корпорацийн стратегийн хамтрагч</li>
-          </ul>
-          <h4>// Дэд бүтэц</h4>
-          <ul>
-            <li>18,000 м дусаагуурын усалгааны систем, нараар тэжээгдэх насос</li>
-            <li>Анхны 3 кВт нарны панел (2020) → нийт 35 кВт суурилуулсан хүчин чадал</li>
-            <li>Талбайн бүх үйл ажиллагаа 100% сэргээгдэх эрчим хүчээр</li>
-            <li>Шамбала инженеринг кампусын анхны байр (Эрдэнэ сум, Дорноговь · УБ-аас 584 км)</li>
-          </ul>
-          <h4>// Хяналт ба баталгаажуулалт</h4>
-          <ul>
-            <li>NASA MODIS, Sentinel-2, Sentinel-5P хиймэл дагуулын тогтмол мониторинг</li>
-            <li>NDVI · EVI · NDWI үзүүлэлтүүдээр ургамалжилт, биомасс, чийгшилийг хянах</li>
-            <li>Martensite Analytica хөндлөнгийн аудит — биомасс, CO₂ шингээлтийн баталгаажсан жилийн тайлан</li>
-            <li>Жилийн 33,603 кг CO₂ шингээлт, нийт 114,906 тонн биомасс — бүртгэгдсэн</li>
-          </ul>
-          <h4>// Хамтрагчид</h4>
-          <ul>
-            <li>"Лантуун дохио" ТББ, Nomin Holding, MONGOLZ, Timberland Mongolia, MIG Даатгал, Yvesrocher, Efes Group · 20+ байгууллага</li>
-            <li>Татварын тухай хуулийн 22.9 (1% хөнгөлөлт)-д нийцсэн хандивын бүтэц</li>
-            <li>Карбон стандартын бэлтгэлийн үе шат (Verra VCS, Gold Standard)</li>
-          </ul>
-        </div>
-      </div>
+        <button class="p1-pano-arrow right" type="button" data-p1-scroll="1" aria-label="Scroll right">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="p1-pano-cap">2016 → 2024 · PHASE I · COMPLETED</div>
+      </section>
     </div>
 
     <!-- PHASE II -->
@@ -4478,6 +4446,16 @@ function hTlScroll(dir){
       if(er.bottom>window.innerHeight){expand.scrollIntoView({behavior:'smooth',block:'nearest'})}
     },420);
   }
+
+  // Phase I panorama arrows — delegated so cloned buttons still work
+  expandInner.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-p1-scroll]');
+    if(!btn) return;
+    var scroller=expandInner.querySelector('.p1-pano-scroll');
+    if(!scroller) return;
+    var dir=parseInt(btn.dataset.p1Scroll,10)||1;
+    scroller.scrollBy({left:dir*scroller.clientWidth*0.85,behavior:'smooth'});
+  });
 
   // Click handlers
   phases.forEach(function(c){c.addEventListener('click',function(){activate(c.dataset.phase)})});
