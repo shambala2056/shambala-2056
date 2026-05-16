@@ -541,6 +541,28 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
 .flip-hint::before{content:'';display:inline-block;width:14px;height:1px;background:currentColor}
 .flip-hint::after{content:'ДЭЛГЭРЭНГҮЙ'}
 
+/* ESG framework cards — modern hover with glow & lift */
+.esg-fw-card{position:relative;overflow:hidden;cursor:default;transition:border-color .35s cubic-bezier(.4,0,.2,1),background .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s cubic-bezier(.4,0,.2,1);will-change:transform}
+.esg-fw-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(57,173,72,0.10),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:0}
+.esg-fw-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.4,0,.2,1);opacity:0.7;pointer-events:none}
+.esg-fw-card > *{position:relative;z-index:1}
+.esg-fw-card:hover{border-color:rgba(57,173,72,0.5)!important;background:rgba(57,173,72,0.04)!important;transform:translateY(-3px);box-shadow:0 12px 32px -12px rgba(57,173,72,0.25),0 0 0 1px rgba(57,173,72,0.1)}
+.esg-fw-card:hover::before{opacity:1}
+.esg-fw-card:hover::after{transform:scaleX(1)}
+.esg-fw-card.cyan:hover{border-color:rgba(0,212,255,0.5)!important;background:rgba(0,212,255,0.04)!important;box-shadow:0 12px 32px -12px rgba(0,212,255,0.25),0 0 0 1px rgba(0,212,255,0.1)}
+.esg-fw-card.cyan::before{background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(0,212,255,0.10),transparent 60%)}
+.esg-fw-card.cyan::after{background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.esg-fw-card.gold:hover{border-color:rgba(245,197,67,0.5)!important;background:rgba(245,197,67,0.04)!important;box-shadow:0 12px 32px -12px rgba(245,197,67,0.25),0 0 0 1px rgba(245,197,67,0.1)}
+.esg-fw-card.gold::before{background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(245,197,67,0.10),transparent 60%)}
+.esg-fw-card.gold::after{background:linear-gradient(90deg,transparent,#F5C543,transparent)}
+.esg-fw-card.muted:hover{border-color:rgba(232,244,255,0.25)!important;background:rgba(232,244,255,0.03)!important;box-shadow:0 12px 32px -12px rgba(232,244,255,0.18)}
+.esg-fw-card.muted::before{background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(232,244,255,0.06),transparent 60%)}
+.esg-fw-card.muted::after{background:linear-gradient(90deg,transparent,rgba(232,244,255,0.5),transparent)}
+.esg-fw-law{position:relative;transition:background .35s cubic-bezier(.4,0,.2,1)}
+.esg-fw-law::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--cyan);transform:scaleY(0);transform-origin:top;transition:transform .4s cubic-bezier(.4,0,.2,1);opacity:0.6}
+.esg-fw-law:hover{background:rgba(0,212,255,0.025)}
+.esg-fw-law:hover::before{transform:scaleY(1)}
+.esg-fw-law:hover .esg-law-pill{background:rgba(0,212,255,0.18);border-color:rgba(0,212,255,0.45);color:#9be8ff}
 /* ESG benefit cards */
 .esg-benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:2px}
 .esg-b-card{padding:16px 14px;background:var(--surface);border:1px solid var(--border);border-left:none;transition:border-color .25s,background .25s}
@@ -1957,39 +1979,24 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     <div class="yr-wrap" id="yr-wrap">
       <div class="owl-carousel owl-theme" id="yr-owl">
 
-        <!-- 2016 -->
-        <div class="yr-slide yr-pre">
-          <div class="yr-year-num">2016</div>
-          <div class="yr-phase">ҮНДЭСЛЭЛ · INCEPTION</div>
-          <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-title"><span class="mn">Шамбала 2056 Инженерийн Суурин үүсгэн байгуулах</span><span class="en">Shambala 2056 Engineering Campus Founded</span></div>
-          <div class="yr-desc"><span class="mn">Монгол улсын нийгэм, хүрээлэн буй орчин, эдийн засгийн тулгамдсан асуудлыг инженерчлэлийн аргаар шийдвэрлэх зорилготой Шамбала 2056 төсөл байгуулагдав.</span><span class="en">Shambala 2056 was founded with the mission to solve Mongolia's pressing social, environmental and economic challenges through engineering.</span></div>
-        </div>
-
-        <!-- 2018 -->
-        <div class="yr-slide yr-pre">
-          <div class="yr-year-num">2018</div>
-          <div class="yr-phase">СУДАЛГАА · RESEARCH</div>
-          <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-title"><span class="mn">Мастер план боловсруулах, газар олж авах</span><span class="en">Master Plan Development & Land Acquisition</span></div>
-          <div class="yr-desc"><span class="mn">Кампусын ерөнхий мастер планыг боловсруулж, Монгол орны байгалийн нөхцөл, цаг уурт тохирсон инженерийн шийдлийг судлан тогтоов.</span><span class="en">The campus master plan was developed, with engineering solutions tailored to Mongolia's natural conditions and climate.</span></div>
-        </div>
-
-        <!-- 2020 -->
+        <!-- 2016-2020 -->
         <div class="yr-slide yr-p1">
-          <div class="yr-year-num">2020</div>
-          <div class="yr-phase">PHASE I · ЛЭНД АРТ ЭХЛЭЛ</div>
+          <div class="yr-year-num">2016–2020</div>
+          <div class="yr-phase">2016–2020 · PHASE I · ЭХЛЭЛ</div>
           <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-title"><span class="mn">Анхны мод тарилт — Суурь тавих</span><span class="en">First Tree Planting — Foundation</span></div>
-          <div class="yr-desc"><span class="mn">5 сарын 29 өдөр анхны тарваган хайлаас модыг тарив. Нарны эрчим хүч, дуслын усалгааны системийн суурийг тавив.</span><span class="en">The first saxaul tree was planted on May 29. Solar energy and drip irrigation systems were established.</span></div>
           <div class="yr-events">
-            <div class="yr-event">5 сарын 29 — төслийн анхны <strong>тарваган хайлаас</strong> тарив.</div>
-            <div class="yr-event">"Грийн дрилл" ХХК анхны <strong>1,500 нүх</strong> ухав. 1,500 модонд нийт <strong>7,500 литр ус</strong> зарцуулна.</div>
-            <div class="yr-event">Шамбала кампус дахь <strong>анхны гэр</strong> — "Гэр 2 төсөл"-өөс хүлээн авав.</div>
-            <div class="yr-event">"Грийн солар энержи" ХХК <strong>3кВт нарны панел</strong> угсарч 100% сэргээгдэх эрчим хүчээр шийдэв.</div>
-            <div class="yr-event">"Пластик центр" ХХК төслийн талбайд <strong>био 00</strong> барив.</div>
-            <div class="yr-event">Анхны <strong>147 мод</strong> — "I love planet" хамтын ажиллагаа · Yvesrocher брэнд авлаа.</div>
-            <div class="yr-event">"Timberland Mongolia" 147м · "MIG даатгал" 147м · "Efes group" 147м · "Ойм" 10м · "Jack's coffee" 10м · "UNREAD" 10м · "Лантуун дохио" 10м</div>
+            <div class="yr-event">5 сарын 29 өдөр төслийн талбайн анхны <strong>тарваган хайлаас мод</strong>ыг тарив.</div>
+            <div class="yr-event">"Грийн дрилл" ХХК төслийн талбай дээрх мод тарилтын анхны <strong>1,500 нүх</strong> ухав.</div>
+            <div class="yr-event">1 модны нэг удаагийн усалгаанд 3-5 литр ус шаарддаг бөгөөд 1,500 модонд нийт <strong>7,500 литр ус</strong> зарцуулна. 1,500 модыг нэг удаа гараар усалгаанд 2-4 цаг шаарддаг.</div>
+            <div class="yr-event">Шамбала инженеринг кампус дахь <strong>анхны гэр</strong>ийг "Гэр 2 төсөл" өгөв.</div>
+            <div class="yr-event">"Пластик центр" ХХК төслийн талбай дээрх <strong>био 00</strong> барьсан.</div>
+            <div class="yr-event">"Грийн солар энержи" ХХК төслийн талбайн тог цахилгааны хангаж <strong>3кВт-ын нарны панел</strong> угсарч, бүх тогны хэрэгцээг <strong>100% сэргээгдэх эрчим хүч</strong>ээр шийдэж өгөв.</div>
+            <div class="yr-event">Хамгийн анхны <strong>147 мод</strong>ыг "I love planet" компанит ажлын хүрээнд "Yvesrocher" брэнд авлаа.</div>
+            <div class="yr-event">"Efes group" "Eco Home" брэндийн ахуйн хэрэгсэл буюу халуун сав, хулсан аяга, хулсан таваг болон хүнсний хэрэгцээг хангаж, <strong>147 мод</strong>.</div>
+            <div class="yr-event">"Зөвхөн түүнд" ХХК Модны анхны пайзыг хийж гүйцэтгэсэн. <strong>10 мод</strong></div>
+            <div class="yr-event">"Molpedia" нь төслийн анхны мод тарилтын явц болон бусад бүтээн байгуулалтын үеэр видео контент хийж цацсан. <strong>10 мод</strong></div>
+            <div class="yr-event">"UB comedy" нь төслийн анхны мод тарилтын явц болон бусад бүтээн байгуулалтын үеэр видео контент хийж цацсан. <strong>10 мод</strong></div>
+            <div class="yr-event">"Timberland Mongolia" 147 мод · "MIG даатгал" ХХК 147 мод · "Ойм" 10 мод · "Jack's coffee" 10 мод · "UNREAD" 10 мод · "Лантуун дохио" ТББ 10 мод</div>
           </div>
         </div>
 
@@ -1998,16 +2005,21 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="yr-year-num">2021</div>
           <div class="yr-phase">PHASE I · BE HUMAN LAND ART</div>
           <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-title"><span class="mn">"BE HUMAN" — Монгол дахь анхны Лэнд Арт</span><span class="en">"BE HUMAN" — Mongolia's First Land Art</span></div>
-          <div class="yr-desc"><span class="mn">"Лантуун дохио" ТББ-тай хамтран 21,857 модтой анхны LAND ART бүтээсэн. 7,287 нүх ухаж <strong>27,857 мод</strong> тарьсан. Дуслын усалгааны систем бүрэн автоматжсан.</span><span class="en">Created "BE HUMAN" — Mongolia's first Land Art with 21,857 trees. 7,287 holes dug, 27,857 trees planted. Drip irrigation fully automated.</span></div>
           <div class="yr-events">
-            <div class="yr-event"><strong>27,857 мод</strong> тарьсан — 7,287 нүх ухаж · 4,500 орчим хувь хэрэглэгчид модтой.</div>
-            <div class="yr-event">Дуслын усалгааны систем хийгдэж бүрэн <strong>автоматжсан</strong>.</div>
-            <div class="yr-event">"Call pro" 100м · "Human network" 100м · "UNREAD" 100м · "REMAX" 50м · "Цоба" 50м · "SCC" 20м</div>
-            <div class="yr-event">"RIO TINTO" 176м · "Тод оймс" 108м · "Чихэрлэг залуусын нэгдэл" 44м</div>
-            <div class="yr-event">"MSM Групп" 286м · "Нароба Институт" 145м · "Тойрог" 10м</div>
-            <div class="yr-event">"Улз Групп" 77м · "Улз Гол" 77м · "Улз Дриллинг" 77м · "Улз Финнанс" 77м · "Голден Хаммер" 77м · "Ар Эс И" 77м · "Хөөсгөл" 77м</div>
-            <div class="yr-event">Италийн элчин сайдын яам 100м · "Түмэн шувуут" 100м · "Ланд Бридж" 18м · "Наран Шиггтээ" 44м</div>
+            <div class="yr-event">"Лантуун дохио" ТББ-тай хамтран "BE HUMAN" <strong>21,857 мод</strong>той анхны LAND ART бүтээсэн</div>
+            <div class="yr-event"><strong>7,287 нүх</strong> ухаж <strong>27,857 мод</strong> тарьсан.</div>
+            <div class="yr-event">"Call pro" ХХК <strong>100 мод</strong></div>
+            <div class="yr-event">4500 орчим хувь хэрэглэгчид модтой</div>
+            <div class="yr-event">"Human network" <strong>100 мод</strong></div>
+            <div class="yr-event">Дуслын усалгааны систем хийгдэж <strong>бүрэн автоматжсан</strong>.</div>
+            <div class="yr-event">"UNREAD" 100 мод · "REMAX" 50 мод · "Цоба" 50 мод · "Ач тусын үлгэрүүд" ХХК 10 мод · "SCC" ХХК 20 мод</div>
+            <div class="yr-event">"Чихэрлэг залуусын нэгдэл" 44 мод · "Тод оймс" ХХК 108 мод · "RIO TINTO" ХХК 176 мод</div>
+            <div class="yr-event">Анхны ажилчдын хувцсыг "Наран Шиггтээ" ХХК хийсэн. <strong>44 мод</strong></div>
+            <div class="yr-event">"Түмэн шувуут" ХХК хонины ноосон бордоогоор хангасан. <strong>100 мод</strong></div>
+            <div class="yr-event">Италийн элчин сайдын яам 100 мод · "Ланд Бридж" ХХК 18 мод</div>
+            <div class="yr-event">"Улс Групп" ХХК 77 мод · "Улз Гол" ХХК 77 мод · "Улз Дриллинг" ХХК 77 мод · "Улз Финнанс" ББСБ 77 мод</div>
+            <div class="yr-event">"Голден Хаммер" ХХК 77 мод · "Ар Эс И" ХХК 77 мод · "Хөөсгөл" ХХК 77 мод</div>
+            <div class="yr-event">"MSM Групп" ХХК <strong>286 мод</strong> · "Тойрог" 10 мод · "Нароба Институт" 145 мод</div>
           </div>
         </div>
 
@@ -2016,14 +2028,13 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="yr-year-num">2022</div>
           <div class="yr-phase">PHASE I · ART'N TECH FESTIVAL · GO ZERO</div>
           <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-title"><span class="mn">Олон Улсын Урлаг Технологийн Наадам</span><span class="en">International Art & Technology Festival</span></div>
-          <div class="yr-desc"><span class="mn">"ЦОЙЛОГСОZ"-той хамтран анхны Art'n Tech Festival (ATE)-г 200 хүний оролцоотойгоор зохион байгуулав. "Go zero 2022" карбон хий ялгаруулахгүй байх зорилгыг тавив.</span><span class="en">Organized the first Art'n Tech Festival with 200 participants. Go Zero 2022 launched with zero-carbon emission goals.</span></div>
           <div class="yr-events">
-            <div class="yr-event">"Грийн дрилл" ХХК ATE лэнд артын <strong>12,000 модны нүх</strong> ухаж дуусгав.</div>
-            <div class="yr-event">Art'n Tech Festival — 7 сарын 15–16 · 200 оролцогч · "CRM" 50м · "Hicharge" · "Ger internet"</div>
-            <div class="yr-event">"Go zero 2022" — 11 сарын 25 · Улаанбаатар инновацын төв · 100 оролцогч</div>
-            <div class="yr-event">"ЭМ ПИ ЭС СИ" "Токи" OXYGEN хөтөлбөр — цөлжилтийн эсрэг мод тарих · <strong>500 мод</strong></div>
-            <div class="yr-event">"Treelings" компани модыг <strong>хяналтын удирдагуйн системд</strong> бүртгэж эхэлсэн.</div>
+            <div class="yr-event">"Грийн дрилл" ХХК 2022 оны 5 сард Art'n tech (ATE) лэнд артын <strong>12,000 модны нүх</strong>ийг ухаж дуусгасан.</div>
+            <div class="yr-event">"ЦОЙЛОГСОZ" залуусын нэгдэлтэй хамтран анхны "Олон Улсын Урлаг Технологийн наадам"-г <strong>200 хүний оролцоотойгоор</strong> 7 сарын 15, 16-ны өдөр зохион байгуулав.</div>
+            <div class="yr-event">Уг наадамд "CRM", "Hicharge", "Ger internet" байгууллагуүд оролцов. <strong>"CRM" 50 мод</strong></div>
+            <div class="yr-event">Анхны "Go zero 2022" (0 хүлэмжийн хий ялгаруулах) арга хэмжээ нь 2022 оны <strong>11 сарын 25</strong>-нд "Улаанбаатар инновацын төв"-д <strong>100 хүний оролцоотойгоор</strong> зохион байгуулав.</div>
+            <div class="yr-event">"ЭМ ПИ ЭС СИ" ББСБ-ийн "Токи" байгальд ээлтэй үйлдэл бүрийг урамшуулах OXYGEN хөтөлбөр. OXYGEN нь цөлжилтийн эсрэг хувь нэмрээ оруулж говийн бүсэд мод тарих бөгөөд хэрхэн тарьж арчлах талаар мэдлэгийг хөгжилтэй, сонирхолтой аргаар олж авах урамшуулалт хөтөлбөр юм. <strong>500 мод</strong></div>
+            <div class="yr-event">"Treelings" компани Шамбала инженеринг кампусын модыг <strong>хяналтын удирдагуйн систем</strong>ээр бүртгэж эхэлсэн.</div>
           </div>
         </div>
 
@@ -2032,14 +2043,13 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="yr-year-num">2023</div>
           <div class="yr-phase">PHASE I · ATE · GO ZERO 2023</div>
           <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-title"><span class="mn">Art'n Tech Festival — Номин Холдингийн ивээлтэйгээр</span><span class="en">Art'n Tech Festival — Nomin Holding Sponsorship</span></div>
-          <div class="yr-desc"><span class="mn">"Номин Холдинг" ATE-ийн ерөнхий ивээн тэтгэгч болж 1,000 мод бэлэглэв. "Go zero 2023" — хорт хавдар ба хүлэмжийн хийн хамаарлын талаар 200 оролцогчтой мэдлэглэх арга хэмжээ болов.</span><span class="en">Nomin Holding became main ATE sponsor with 1,000 trees. Go Zero 2023 held with 200 participants exploring the link between cancer and greenhouse gases.</span></div>
           <div class="yr-events">
-            <div class="yr-event">"Номин Холдинг" ATE ерөнхий ивээн тэтгэгч — <strong>1,000 мод</strong></div>
-            <div class="yr-event">"ЭМ ПИ ЭС СИ" "Токи" — <strong>1,000 мод</strong></div>
-            <div class="yr-event">"UB CAB" 101м · "MKY Cashmere" 100м · "Monlogistic" 100м · "Storepay" 100м · "GGI" 108м</div>
-            <div class="yr-event">"Ардын тэтгэврийн данс" 60м · "Ард БИТ" 60м · "Ард кредит" 60м · "Ард актив" 60м</div>
-            <div class="yr-event">Go zero 2023 — 12 сарын 1 · Улаанбаатар инновацын төв · <strong>200 оролцогч</strong></div>
+            <div class="yr-event">Art'n tech (ATE) лэнд артын ерөнхий ивээн тэтгэгч <strong>"Номин холдинг" 1000 мод</strong></div>
+            <div class="yr-event">"ЭМ ПИ ЭС СИ" ББСБ-ийн <strong>"Токи" 1000 мод</strong></div>
+            <div class="yr-event">"UB CAB" 101 мод · "MKY Cashmere" 100 мод · "Monlogistic" 100 мод</div>
+            <div class="yr-event">"Ардын тэтгэврийн данс" 60 мод · "Ард БИТ" 60 мод · "Ард кредит" 60 мод · "Ард актив" 60 мод</div>
+            <div class="yr-event">"Storepay" 100 мод · "GGI" 108 мод</div>
+            <div class="yr-event">Go zero 2023 — Хорт хавдар ба хүлэмжийн хийн хамаарлын талаар мэдлэглэх арга хэмжээ. <strong>2023 оны 12 сарын 1</strong>-нд "Улаанбаатар инновацын төв"-д байгуулагдаж <strong>200 хүний оролцоотойгоор</strong> Улаанбаатарт зохион байгуулаа.</div>
           </div>
         </div>
 
@@ -2048,17 +2058,21 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="yr-year-num">2024</div>
           <div class="yr-phase">PHASE I · 4 ЖИЛИЙН ОЙ · КАРБОН ОФФСЕТС</div>
           <div class="yr-status s-done">COMPLETED</div>
-          <div class="yr-title"><span class="mn">28,000м Усалгааны Систем · Хиймэл Дагуулын Хяналт</span><span class="en">28,000m Irrigation · Satellite Monitoring</span></div>
-          <div class="yr-desc"><span class="mn">"Номин Даатгал" лэнд артын бүх модыг 2056 он хүртэл даатгав. "Шамбала Карбон Оффсетс" ХХК охин компани байгуулагдав. ART'N TECH баримтат кино ep1 бүтээв.</span><span class="en">Nomin Daatgal insured all land art trees until 2056. Shambala Carbon Offsets LLC established. ART'N TECH documentary ep1 produced.</span></div>
           <div class="yr-events">
-            <div class="yr-event">"ART'N TECH" лэнд артын 6,000 нүх дахин ухаж <strong>15,000 хайлаас</strong> тарив.</div>
-            <div class="yr-event"><strong>28,000 метр</strong> усалгааны систем угсарсан · Талбайг <strong>хиймэл дагуулаас</strong> хардаг болов.</div>
-            <div class="yr-event">"Шамбала Карбон Оффсетс" ХХК байгуулагдав · Сайншанд суманд оффис нээгдэв.</div>
-            <div class="yr-event">Шамбала 2056 — <strong>PARIS 2024</strong> олимпод тамирчиддаа нэрийн мод бэлэглэв.</div>
-            <div class="yr-event">ATE брэндийн анхны <strong>NFC тагтай цамц</strong> хөгжүүлэлт хийгдэв.</div>
-            <div class="yr-event">"Номин Даатгал" 151м · "Номин электроникс" 500м · "Pizza hut" 700м · "Дорноговь" аймаг 305м</div>
-            <div class="yr-event">"Номин моторс" 301м · "Номин карт" 100м · "Номин юнион" 150м · "Номин хоумстайл" 200м</div>
-            <div class="yr-event">"ЭМ ПИ ЭС СИ" "Токи" 500м · "Starchase" 135м · "BU properties" 50м · "G&M Star" 45м</div>
+            <div class="yr-event">"Номин Даатгал" "Be Human", "ATE" лэнд артын бүх модыг <strong>2056 он хүртэл даатгасан</strong>. "Номин Даатгал" нь 151 мод</div>
+            <div class="yr-event">"Номин электроникс" "HITACHI brand" хамтран Шамбала 2056 — оффис тохижилт дээр хамтран ажиллаж контент хийсэн. <strong>500 мод</strong></div>
+            <div class="yr-event">ART'N TECH land art documentary ep1 "Номин Холдинг"-той хамтран бүтээв. "Номин моторс" 301 мод, "Номин карт" 100 мод, "Номин юнион" 150 мод, "Номин хоумстайл" 200 мод</div>
+            <div class="yr-event">"BE HUMAN" лэнд артын 21,857 модны зургийг нэг бүрчлэн авч, <strong>модны эздэд ургалтын явц харуулсан зургийг илгээв</strong>.</div>
+            <div class="yr-event">"ART'N TECH" лэнд артын элс шороо дүүрсэн <strong>6000 нүх</strong>ийг дахин ухаж, <strong>15,000 хайлаас</strong> тарив.</div>
+            <div class="yr-event"><strong>28,000 метр усалгааны систем</strong> угсарсан.</div>
+            <div class="yr-event">Төслийн талбайг <strong>хиймэл дагуулаас хардаг</strong> болов.</div>
+            <div class="yr-event">"ЭМ ПИ ЭС СИ" ББСБ-ийн "Токи" 500 мод · "UB print" 100 мод · "Pizza hut" 700 мод · "Zangia" 50 мод</div>
+            <div class="yr-event">"Starchase" 135 мод · "Дорноговь" аймаг 305 мод · "G&M Star" 45 мод · "BU properties" 50 мод · "Monlogistic" 100 мод</div>
+            <div class="yr-event">Төслийн талбайн нийт модны хүчилтөрөгч ялгаруулж буй хэмжээ, нүүрстөрөгчийн давхар ислэл шингээж буй хэмжээ, үүсгэж буй биомассыг <strong>"Martensite Analytica"</strong> компанитай хамтран гаргав.</div>
+            <div class="yr-event">"Шамбала Карбон Оффсетс" ХХК охин компани байгуулагдав. Шамбала А/2 оффис <strong>Дорноговь аймаг Сайншанд суманд</strong> байгуулагдав.</div>
+            <div class="yr-event">Шамбала 2056 <strong>"PARIS 2024"</strong> олимпод оролцож буй тамирчиддаа амжилт хүсэн нэрийн мод бэлэглэв.</div>
+            <div class="yr-event">ATE брэндийн анхны <strong>NFC тагтай цамц</strong>ыг хөгжүүлэлт хийн танилцуулав.</div>
+            <div class="yr-event">2020 онд эхлүүлсэн бидний төслийн <strong>нэгдүгээр 4 жил</strong> амжилтай дуусаж хоёрдугаар 4 жилээ эхлүүлж байна.</div>
           </div>
         </div>
 
@@ -2067,8 +2081,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="yr-year-num">2026</div>
           <div class="yr-phase">PHASE I · ОДОО · NOW</div>
           <div class="yr-status s-now">NOW · 2026</div>
-          <div class="yr-title"><span class="mn">Ногоон Зурвас Дуусгавар + CS2 Boot Camp Эхлэл</span><span class="en">Green Belt Complete + CS2 Boot Camp Launch</span></div>
-          <div class="yr-desc"><span class="mn">16 га ногоон зурвас дуусгавар болж, Шамбала CS2 Boot Camp-ийн эхний элсэлтийг зарлаж байна. Богино хугацааны вакум сургалтууд эхлэх гарааны цэг болж байна.</span><span class="en">The 16-hectare green belt is complete. Shambala CS2 Boot Camp opens its first enrollment with short-term intensive courses.</span></div>
         </div>
 
         <!-- 2028 -->
@@ -2940,6 +2952,138 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
 <!-- NASA DATA SECTION -->
 <section class="nasa-s reveal" id="esg">
   <div class="wrap">
+
+    <!-- ESG SUSTAINABILITY FRAMEWORK -->
+    <div style="margin-bottom:72px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px">
+        <div>
+          <div class="sl"><span class="mn">Тогтвортой байдлын тайлагналын стандарт </span><span class="en">Sustainability Framework</span></div>
+          <h2 class="st"><span class="mn">ESG- <em>БОНЗ</em></span><span class="en">ESG · <em>FRAMEWORK</em></span></h2>
+        </div>
+      </div>
+
+      <!-- GOAL & COMMITMENT -->
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2px;margin-bottom:2px">
+        <div style="padding:28px 28px;background:rgba(57,173,72,0.04);border:1px solid rgba(57,173,72,0.25);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:14px">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent)"></div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:4.2rem;font-weight:700;color:var(--green);line-height:1">22.7%</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;padding:5px 12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan);width:fit-content">2030 · GHG REDUCTION</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">ЗОРИЛТ · АМЛАЛТ</span><span class="en">GOAL · COMMITMENT</span></div>
+        </div>
+        <div style="padding:28px 28px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;gap:14px">
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;color:var(--cyan)"><span class="mn">АЛСЫН ХАРАА-2050 · ПАРИСЫН ХЭЛЭЛЦЭЭР</span><span class="en">VISION-2050 · PARIS AGREEMENT</span></div>
+          <div style="font-size:0.72rem;line-height:1.8;color:rgba(232,244,255,0.75)">
+            <span class="mn">Монгол Улс "Алсын хараа-2050" болон Парисын хэлэлцээрийн хүрээнд <strong style="color:var(--green)">2030 он гэхэд хүлэмжийн хийн ялгарлыг 22.7%-аар бууруулах</strong> зорилт тавьсан бөгөөд үүнийг дэмжих зорилгоор "Үндэсний Тогтвортой Санхүүжилтийн Замын Зураг"-ыг баталсан. Энэ хүрээнд хөрөнгийн зах зээлд <strong style="color:var(--white)">БОНЗ-ын стандартыг нэвтрүүлж байна</strong>.</span>
+            <span class="en">Under Mongolia's "Vision-2050" and the Paris Agreement, the country committed to <strong style="color:var(--green)">reducing greenhouse gas emissions by 22.7% by 2030</strong>, and adopted the National Sustainable Finance Roadmap to support this. As part of this, <strong style="color:var(--white)">BONZ sustainable bond standards</strong> are being introduced in the capital markets.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 REPORTING STEPS -->
+      <div style="margin-top:32px">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:14px">// <span class="mn">ТОГТВОРТОЙ БАЙДЛЫН ТАЙЛАГНАХ 8 АЛХАМ</span><span class="en">SUSTAINABILITY REPORTING · 8 STEPS</span></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:2px">
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">01</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Удирдлагын дэмжлэг авах</span><span class="en">Secure leadership support</span></div>
+          </div>
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">02</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Хариуцах ажилтнуудыг томилох</span><span class="en">Assign responsible staff</span></div>
+          </div>
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">03</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Материаллаг асуудлуудыг тодорхойлох</span><span class="en">Identify material issues</span></div>
+          </div>
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">04</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Үзүүлэлтүүдийг тодорхойлох</span><span class="en">Define indicators</span></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px">
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border);border-top:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">05</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Мэдээлэл цуглуулах, төлөвлөх</span><span class="en">Collect data &amp; plan</span></div>
+          </div>
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border);border-left:none;border-top:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">06</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Баталгаа гаргуулах</span><span class="en">Obtain assurance</span></div>
+          </div>
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border);border-left:none;border-top:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">07</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Тайланг боловсруулах</span><span class="en">Prepare the report</span></div>
+          </div>
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:18px 16px;background:var(--surface);border:1px solid var(--border);border-left:none;border-top:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">08</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Тасралтгүй сайжруулах төлөвлөгөө</span><span class="en">Continuous improvement plan</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INDICATOR CATEGORIES -->
+      <div style="margin-top:32px">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:14px">// <span class="mn">ТАЙЛАГНАХ ҮЗҮҮЛЭЛТҮҮДИЙН АНГИЛАЛ</span><span class="en">REPORTING INDICATOR CATEGORIES</span></div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px">
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:22px 18px;background:var(--surface);border:1px solid var(--border)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">MS</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Удирдлагын тогтолцоо</span><span class="en">Management System</span></div>
+          </div>
+          <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:22px 18px;background:var(--surface);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:10px">E</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Байгаль орчин</span><span class="en">Environment</span></div>
+          </div>
+          <div class="esg-fw-card cyan" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:22px 18px;background:var(--surface);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--cyan);line-height:1;margin-bottom:10px">S</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Нийгэм</span><span class="en">Social</span></div>
+          </div>
+          <div class="esg-fw-card gold" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:22px 18px;background:var(--surface);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:10px">G</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Засаглал</span><span class="en">Governance</span></div>
+          </div>
+          <div class="esg-fw-card muted" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:22px 18px;background:var(--surface);border:1px solid var(--border);border-left:none">
+            <div style="font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;color:var(--muted);line-height:1;margin-bottom:10px">+</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.04em;color:var(--muted);line-height:1.55"><span class="mn">Салбарын онцлог</span><span class="en">Sector-specific</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEGAL PROVISIONS -->
+      <div style="margin-top:32px">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.18em;color:var(--cyan);margin-bottom:14px">// <span class="mn">ХУУЛЬ ЭРХ ЗҮЙН ЗААЛТ · ДҮРЭМ ЖУРАМ · СТАНДАРТУУД</span><span class="en">LAWS · REGULATIONS · STANDARDS</span></div>
+        <div style="border:1px solid var(--border)">
+          <div class="esg-info-block esg-fw-law">
+            <div class="esg-info-title">
+              <span class="esg-law-pill"><span class="mn">КОМПАНИЙН ЗАСАГЛАЛЫН КОДЕКС · 145</span><span class="en">CORPORATE GOVERNANCE CODE · 145</span></span>
+            </div>
+            <div class="esg-info-body">
+              <span class="mn">Санхүүгийн зохицуулах хорооноос баталсан <strong>(145 дугаар тогтоол)</strong> шинэчилсэн кодексийг компаниуд <strong>"Хэрэгжүүл, эсвэл тайлбарла"</strong> гэсэн зарчмаар дагаж мөрдөх ёстой бөгөөд үүнд ТУЗ-ийн бүтэц, тайлагнал, ил тод байдал, хувьцаа эзэмшигчдийн эрх зэрэг <strong>9 үндсэн зарчим</strong> багтсан байдаг.</span>
+              <span class="en">The Revised Corporate Governance Code adopted by the Financial Regulatory Commission <strong>(Resolution №145)</strong> must be followed by companies on a <strong>"Comply or Explain"</strong> basis. It contains <strong>9 core principles</strong> covering board structure, reporting, transparency and shareholder rights.</span>
+            </div>
+          </div>
+          <div class="esg-info-block esg-fw-law">
+            <div class="esg-info-title">
+              <span class="esg-law-pill"><span class="mn">НОГООН БАЙГУУЛАМЖИЙН ХУУЛЬ ТОГТООМЖ</span><span class="en">GREEN AREA REGULATION</span></span>
+            </div>
+            <div class="esg-info-body">
+              <span class="mn">Үндэсний хууль тогтоомжийн дагуу компаниуд өөрийн үйл ажиллагаа явуулж буй талбайнхаа <strong>20-оос доошгүй хувийг</strong> ногоон байгууламж, нийтийн эзэмшлийн талбай болгон барьж тохижуулах үүрэг хүлээсэн байдаг.</span>
+              <span class="en">Under national legislation, companies are required to develop <strong>no less than 20%</strong> of their operational land as green spaces and public-use areas.</span>
+            </div>
+          </div>
+          <div class="esg-info-block esg-fw-law">
+            <div class="esg-info-title">
+              <span class="esg-law-pill"><span class="mn">МОНГОЛ УЛСЫН НОГООН ТАКСОНОМИ · ТХЗ ТАКСОНОМИ</span><span class="en">MONGOLIA GREEN TAXONOMY · SDG TAXONOMY</span></span>
+            </div>
+            <div class="esg-info-body">
+              <span class="mn">Энэ нь байгаль орчинд ээлтэй болон нийгмийн зорилтод нийцсэн <strong>"ногоон" эдийн засгийн үйл ажиллагааны жагсаалт</strong>ыг тогтоодог ангиллын систем бөгөөд санхүүгийн байгууллагууд <strong>ногоон зээлийн багцаа үүгээр үнэлдэг</strong>.</span>
+              <span class="en">A classification system that defines a list of <strong>"green" economic activities</strong> aligned with environmental and social goals — used by financial institutions to <strong>evaluate their green lending portfolios</strong>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /ESG FRAMEWORK -->
+
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
       <div>
         <div class="sl"><span class="mn">Хиймэл дагуулын хяналт</span><span class="en">Satellite Analysis</span></div>
@@ -3022,14 +3166,14 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       <!-- 1% TAX HIGHLIGHT -->
       <div style="display:grid;grid-template-columns:1fr 2fr;gap:2px;margin-bottom:0">
         <!-- LEFT: visual highlight -->
-        <div style="padding:28px 28px;background:rgba(57,173,72,0.04);border:1px solid rgba(57,173,72,0.25);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:14px">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent)"></div>
+        <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:28px 28px;background:rgba(57,173,72,0.04);border:1px solid rgba(57,173,72,0.25);display:flex;flex-direction:column;justify-content:center;gap:14px">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent);z-index:2"></div>
           <div style="font-family:'Montserrat',sans-serif;font-size:5rem;font-weight:700;color:var(--green);line-height:1">1%</div>
           <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;padding:5px 12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan);width:fit-content">ААНОАТ · 22.9</div>
           <div style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">ТАТВАРЫН ХӨНГӨЛӨЛТ</span><span class="en">TAX DEDUCTION</span></div>
         </div>
         <!-- RIGHT: legal text -->
-        <div style="padding:28px 28px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;gap:16px">
+        <div class="esg-fw-card" onmousemove="this.style.setProperty('--mx',event.offsetX+'px');this.style.setProperty('--my',event.offsetY+'px')" style="padding:28px 28px;background:var(--surface);border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;gap:16px">
           <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.14em;color:var(--cyan)">ААНОАТ · 22.9 — <span class="mn">ХУУЛИЙН ЗААЛТ</span><span class="en">LEGAL PROVISION</span></div>
           <div class="legal-body" style="font-size:0.72rem;line-height:1.8;color:rgba(232,244,255,0.75)">
             <span class="mn">22.9.Албан татвар төлөгчийн орлого олох үйл ажиллагаатай хамааралгүй доор дурдсан үйл ажиллагааг нийгмийн хариуцлагын хүрээнд дэмжих зорилгоор элэгдэл тооцох үндсэн хөрөнгөд оруулсан хөрөнгө оруулалт, харилцан хамааралгүй бусад этгээдэд олгосон санхүүгийн дэмжлэг, хандивын зардлыг энэ хуулийн 20.1-д заасны дагуу ногдуулсан албан татвараас хасаж хөнгөлнө. Хөнгөлөх дүн нь тухайн татварын жилийн <strong style="color:var(--green)">татвар ногдох орлогын 1 хувь хүртэл</strong> хэмжээнээс хэтрэхгүй байна.</span>
@@ -3984,7 +4128,7 @@ window.closeMobMenu = function(){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
 $(function(){
-  var nowIndex = 7; // 2026 slide (0-based)
+  var nowIndex = 5; // 2026 slide (0-based)
   $('#yr-owl').owlCarousel({
     items: 1,
     loop: false,
