@@ -623,6 +623,16 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
   .pil-head{flex-direction:column;align-items:flex-start}
   .pil-desc{text-align:left}
 }
+/* ═════ DIAGRAM-ONLY MODE — explanations hidden until milestone reveal ═════ */
+.pil-detail{display:none!important}
+.agi-embed .tl-expand,.agi-embed .tl-drop{display:none!important}
+.agi-embed .tl-phase-cue{display:none!important}
+.agi-embed > section#agi-vision,
+.agi-embed > section#agi-synergy,
+.agi-embed > section#agi-trends,
+.agi-embed > section#agi-phases,
+.agi-embed > section#agi-growth,
+.agi-embed > section#agi-risks{display:none!important}
 /* ═════ INTERACTIVE PILLAR DIAGRAM ═════ */
 .pil-stage{position:relative}
 .pil-diagram svg [data-pil]{cursor:pointer;transition:filter .35s ease,opacity .35s ease}
