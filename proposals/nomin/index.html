@@ -1426,6 +1426,16 @@
 
 
 
+
+  /* ═════ Left-align all card content site-wide ═════ */
+  .benefit-card,
+  .benefit-card .benefit-head,
+  .benefit-card .benefit-title,
+  .benefit-card .benefit-text,
+  .benefit-card .benefit-list,
+  .benefit-card .benefit-list li{
+    text-align:left!important;
+  }
   /* ═════ IMPACT section · smaller card titles ═════ */
   #impact .benefit-title{
     font-size:14px;
@@ -1578,11 +1588,12 @@
     border: 1px solid rgba(0, 229, 255, 0.18);
     background:
       linear-gradient(135deg, rgba(0,229,255,0.05), rgba(0,255,166,0.02));
-    
     overflow: hidden;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
     gap: 10px;
     min-height: unset;
   }
@@ -1670,14 +1681,14 @@
   .benefit-list {
     list-style: none;
     padding: 0;
-    margin-top: auto;
+    margin: 4px 0 0;
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
   .benefit-list li {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 15px;
     letter-spacing: 0.03em;
     color: var(--text-dim);
@@ -2160,7 +2171,7 @@
       </div>
       <h4 class="benefit-title">CO₂ ШИНГЭЭЛТ — <span class="tr-counter" data-target="9104.7" data-dec="1">0</span> Т</h4>
       <ul class="benefit-list">
-        <li>Нийт <strong>нүүрс хүчлийн давхар ислийг</strong> шингээсэн</li>
+        <li>Нийт нүүрс хүчлийн давхар ислийг шингээсэн</li>
       </ul>
     </div>
 
@@ -2200,9 +2211,9 @@
         <span class="benefit-metric">НОМИН ДААТГАЛ</span>
       </div>
       <ul class="benefit-list">
-        <li><strong><span class="tr-counter" data-target="3150">0</span> хувь хэрэглэгч</strong></li>
-        <li><strong><span class="tr-counter" data-target="24">0</span> байгууллагад</strong></li>
-        <li>Номин Даатгалын <strong>тамгатай зургийг</strong> мэйлээр илгээсэн</li>
+        <li><strong><span class="tr-counter" data-target="3150">0</span></strong> хувь хэрэглэгч</li>
+        <li><strong><span class="tr-counter" data-target="24">0</span></strong> байгууллагад</li>
+        <li>Номин Даатгалын тамгатай зургийг мэйлээр илгээсэн</li>
       </ul>
     </div>
 
@@ -2617,7 +2628,6 @@
       <h4 class="benefit-title">Ургамлын эрүүл мэнд ба тархалтын үзүүлэлт</h4>
       <ul class="benefit-list">
         <li>Ургамлын <strong>эрүүл мэнд, тархалт</strong>-ыг хэмжсэн стандарт индекс.</li>
-        <li>NASA MODIS + Sentinel-2-аас тооцоолсон цаг хугацааны өөрчлөлт.</li>
       </ul>
     </div>
 
@@ -2629,7 +2639,6 @@
       <h4 class="benefit-title">ургамлын нягтаршил ба биомассын үзүүлэлт</h4>
       <ul class="benefit-list">
         <li>Ургамлын <strong>нягтаршил, биомасс</strong>-ыг илүү нарийвчлалтай хэмжсэн индекс.</li>
-        <li>Уур амьсгалын нөлөөллөөс хамаарал багатай.</li>
       </ul>
     </div>
 
@@ -2638,10 +2647,9 @@
         <span class="benefit-num">03</span>
         <span class="benefit-metric">NDWI</span>
       </div>
-      <h4 class="benefit-title"></h4>
+      <h4 class="benefit-title">ургамалд агуулагдах чийгийн үзүүлэлт</h4>
       <ul class="benefit-list">
         <li>Ургамлын <strong>чийгийн агууламж, гадаргын ус</strong>-ны хэмжилт.</li>
-        <li>Дусаагуурын системийн үр ашгийн хяналтад.</li>
       </ul>
     </div>
 
@@ -2651,39 +2659,22 @@
 
     <div class="benefit-card">
       <div class="benefit-head">
-        <span class="benefit-num">A</span>
-        <span class="benefit-metric">SATELLITE</span>
+        <span class="benefit-metric">хиймэл дагуулын хяналт</span>
       </div>
-      <h4 class="benefit-title">САНСРЫН ЭХ СУРВАЛЖ</h4>
       <ul class="benefit-list">
         <li>NASA MODIS · Sentinel-2 · Sentinel-5P 3 хиймэл дагуулын мэдээллийн нэгтгэл.</li>
-        <li>2019 оноос эхлэн <strong>тасралтгүй хяналт</strong>.</li>
       </ul>
     </div>
 
     <div class="benefit-card">
       <div class="benefit-head">
-        <span class="benefit-num">B</span>
-        <span class="benefit-metric">AUDIT</span>
+        <span class="benefit-metric">ХӨНДЛӨНГИЙН АУДИТ</span>
       </div>
-      <h4 class="benefit-title">ХӨНДЛӨНГИЙН АУДИТ</h4>
       <ul class="benefit-list">
         <li><strong>Martensite Analytica</strong> — гуравдагч талын ML-суурьт remote-sensing аудитор.</li>
-        <li>Биомасс, нүүрстөрөгчийн нөөцийг бодит хэмжилттэй баталгаажуулна.</li>
       </ul>
     </div>
 
-    <div class="benefit-card" style="border: 1px solid var(--neon); background: rgba(0, 255, 166, 0.04);">
-      <div class="benefit-head">
-        <span class="benefit-num">★</span>
-        <span class="benefit-metric" style="color: var(--neon);">DELIVERABLE</span>
-      </div>
-      <h4 class="benefit-title">ANNUAL PDF REPORT</h4>
-      <ul class="benefit-list">
-        <li>Бүрэн форматтай <strong>PDF тайлан</strong> — Номин Холдингийн брэндтэй.</li>
-        <li>Жил тутмын cycle-аар хүргэгдэнэ.</li>
-      </ul>
-    </div>
 
   </div>
 </section>
