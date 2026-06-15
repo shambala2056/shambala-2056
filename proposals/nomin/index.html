@@ -61,6 +61,7 @@
     font-family: 'Orbitron', 'Montserrat', sans-serif;
   }
   .boot-logo {
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(40px, 7vw, 88px);
     font-weight: 900;
     letter-spacing: 0.1em;
@@ -295,7 +296,8 @@
     50%      { opacity: 0.4; transform: scale(0.8); }
   }
 
-  .hud-coord { color: var(--text-dim); }
+  .hud-coord {
+    font-family: 'Montserrat', 'Orbitron', sans-serif; color: var(--text-dim); }
 
   /* Section base */
   section {
@@ -312,7 +314,7 @@
   .corner { display: none; }
 
   .section-tag {
-    font-family: 'Orbitron', 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Orbitron', sans-serif;
     font-size: 12px;
     letter-spacing: 0.4em;
     color: var(--neon);
@@ -386,11 +388,7 @@
     color: var(--neon);
     
     line-height: 1;
-    animation: x-pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes x-pulse {
-    0%, 100% { transform: rotate(0deg) scale(1); filter: drop-shadow(0 0 8px var(--neon)); }
-    50%      { transform: rotate(90deg) scale(1.05); filter: drop-shadow(0 0 18px var(--neon)); }
+    filter: drop-shadow(0 0 12px var(--neon));
   }
 
   /* Partner half of the title — cyan-themed */
@@ -462,16 +460,20 @@
   }
 
   .pillar {
-    font-family: 'Orbitron', 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Orbitron', sans-serif;
     font-size: clamp(14px, 1.4vw, 20px);
     letter-spacing: 0.2em;
-    color: var(--text);
+    color: var(--neon);
     padding: 14px 24px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.03);
-    
+    border: 1px solid rgba(0,255,166,0.25);
+    background: rgba(0,255,166,0.03);
     position: relative;
     transition: all 0.3s;
+    animation: pillar-blink 5s ease-in-out infinite;
+  }
+  @keyframes pillar-blink {
+    0%, 100% { opacity: 1; text-shadow: 0 0 14px rgba(0,255,166,0.55); }
+    50%      { opacity: 0.45; text-shadow: 0 0 4px rgba(0,255,166,0.2); }
   }
   .pillar:hover {
     border-color: var(--neon);
@@ -1613,6 +1615,7 @@
     line-height: 1.2;
   }
   footer .footer-text {
+    font-family: 'Montserrat', 'Orbitron', sans-serif;
     font-size: 12px;
     color: var(--text-dim);
     letter-spacing: 0.15em;
@@ -1930,13 +1933,16 @@
 <!-- Side navigation -->
 <nav class="side-nav">
   <a href="#hero"><span class="dot-mark"></span><span class="label">INTRO</span></a>
-  <a href="#tree-tag"><span class="dot-mark"></span><span class="label">TAG</span></a>
-  <a href="#documentary"><span class="dot-mark"></span><span class="label">FILM</span></a>
-  <a href="#insured-trees"><span class="dot-mark"></span><span class="label">INSURED</span></a>
-  <a href="#anniversary"><span class="dot-mark"></span><span class="label">GROVE</span></a>
-  <a href="#esg-report"><span class="dot-mark"></span><span class="label">ESG</span></a>
+  <a href="#track-record"><span class="dot-mark"></span><span class="label">TRACK</span></a>
+  <a href="#lesson"><span class="dot-mark"></span><span class="label">LESSON</span></a>
+  <a href="#goal"><span class="dot-mark"></span><span class="label">GOAL</span></a>
+  <a href="#objectives"><span class="dot-mark"></span><span class="label">OBJECTIVES</span></a>
+  <a href="#mongolz-n"><span class="dot-mark"></span><span class="label">N LETTER</span></a>
   <a href="#airline"><span class="dot-mark"></span><span class="label">AIRLINE</span></a>
-  <a href="#merch"><span class="dot-mark"></span><span class="label">MERCH</span></a>
+  <a href="#film"><span class="dot-mark"></span><span class="label">FILM</span></a>
+  <a href="#insured"><span class="dot-mark"></span><span class="label">INSURED</span></a>
+  <a href="#tag"><span class="dot-mark"></span><span class="label">TAG</span></a>
+  <a href="#impact"><span class="dot-mark"></span><span class="label">IMPACT</span></a>
 </nav>
 
 <!-- HERO -->
@@ -1975,40 +1981,371 @@
   </div>
 </section>
 
-<!-- TREE TAG UPGRADE -->
-<section id="tree-tag">
+<!-- TRACK RECORD 2023-2026 -->
+<section id="track-record">
   <div class="section-num">01</div>
   <div class="corner tl"></div>
   <div class="corner br"></div>
 
-  <div class="section-tag reveal">// PROJECT 01 — TREE TAG UPGRADE</div>
-  <h2 class="grid-title reveal">МОДНЫ ХАЯГЖУУЛАЛТЫН ПАЙЗ 2.0</h2>
-  <p class="grid-subtitle reveal">12,000 МОДНЫ ЭЗЭМШИГЧ · <span style="color: var(--neon);">5 ЖИЛИЙН ШУУД ХАРИЛЦААНЫ СУВАГ</span></p>
+  <div class="section-tag reveal">// PROJECT 01 — TRACK RECORD · 2023-2026</div>
+  <h2 class="grid-title reveal">ХАМТЫН АЖИЛЛАГААНЫ ҮР ДҮН</h2>
+  <p class="grid-subtitle reveal">3 ЖИЛИЙН <span style="color: var(--neon);">БОДИТ НӨЛӨӨ</span></p>
 
   <div class="anniv-text reveal" style="margin-top:40px;">
-    Шамбалын <strong>BE HUMAN, ART'N TECH FESTIVAL, MONGOLZ#1</strong> төслүүдэд мод тариулсан <strong>12,000 хувь хүн, байгууллага</strong> нь жил тутам модныхоо ургалтын мэдээллийг и-мэйлээр хүлээн авч ирсэн идэвхтэй сегмент юм. Бид эдгээр хэрэглэгчдийг Номин Холдингтэй холбогдох <strong>5 жилийн хугацаатай, 60,000 шууд хүргэлттэй</strong> брэндийн платформыг танай байгууллагад санал болгож байна.
+    Шамбала х Номин Холдингийн хамтын ажиллагаа 2023 онд эхэлснээс хойш Номин Холдингийн брэнд тус бүр өөрийн нэр дээр мод тарьж, говийн нөхөн сэргээлтэд бодит хувь нэмэр оруулсаар ирлээ. Доорх 3 жилийн нэгдсэн дүгнэлт.
+  </div>
+
+  <!-- 4 headline metrics -->
+  <div class="stats" style="margin-top: 60px;">
+    <div class="stat reveal">
+      <span class="stat-index">01</span>
+      <div class="stat-label">НИЙТ БИОМАСС</div>
+      <div class="stat-value accent">19,371.8<span style="font-size:0.5em"> Т</span></div>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-index">02</span>
+      <div class="stat-label">CO₂ ШИНГЭЭЛТ</div>
+      <div class="stat-value">9,104.7<span style="font-size:0.5em"> Т</span></div>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-index">03</span>
+      <div class="stat-label">МОД ЭЗЭМШИГЧИД</div>
+      <div class="stat-value">3,150</div>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-index">04</span>
+      <div class="stat-label">БАЙГУУЛЛАГЫН ТҮНШ</div>
+      <div class="stat-value">24</div>
+    </div>
+  </div>
+
+  <!-- Brand contribution -->
+  <div class="benefits-grid" style="margin-top: 40px;">
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">A</span>
+        <span class="benefit-metric">CORPORATE</span>
+      </div>
+      <h4 class="benefit-title">КОРПОРАЦИЙН БРЭНДҮҮД</h4>
+      <ul class="benefit-list">
+        <li>Холдинг — <strong>1,000 мод</strong></li>
+        <li>Даатгал — <strong>551 мод</strong></li>
+        <li>Моторс — <strong>301 мод</strong></li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">B</span>
+        <span class="benefit-metric">RETAIL</span>
+      </div>
+      <h4 class="benefit-title">РИТЭЙЛ БРЭНДҮҮД</h4>
+      <ul class="benefit-list">
+        <li>Электроникс — <strong>500 мод</strong></li>
+        <li>Хомстайл — <strong>200 мод</strong></li>
+        <li>Юнити — <strong>150 мод</strong></li>
+        <li>Карт — <strong>100 мод</strong></li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">C</span>
+        <span class="benefit-metric">SPECIAL</span>
+      </div>
+      <h4 class="benefit-title">ТУСГАЙ НЭГЖҮҮД</h4>
+      <ul class="benefit-list">
+        <li>Номин Даатгал — <strong>63 мод</strong></li>
+        <li>Номин Карт төв — <strong>83 мод</strong></li>
+        <li>MONGOLZ#1 — стратегийн хамтрагч</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="benefits-grid" style="margin-top: 40px; grid-template-columns: repeat(2, 1fr);">
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">★</span>
+        <span class="benefit-metric">CONTENT</span>
+      </div>
+      <h4 class="benefit-title">ART N TECH БАРИМТАТ КИНО</h4>
+      <ul class="benefit-list">
+        <li>Хамтын ажиллагааны хүрээнд бүтсэн анхны media asset.</li>
+      </ul>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">★</span>
+        <span class="benefit-metric">CRM</span>
+      </div>
+      <h4 class="benefit-title">3,150 ХЭРЭГЛЭГЧТЭЙ БРЭНД ХАРИЛЦАА</h4>
+      <ul class="benefit-list">
+        <li>Номин Даатгалын <strong>тамгатай зургийг</strong> 3,150 хэрэглэгч, 24 байгууллагад жил тутам мэйлээр илгээсэн.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LESSON -->
+<section id="lesson">
+  <div class="section-num">02</div>
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+
+  <div class="section-tag reveal">// PROJECT 02 — LESSON LEARNED</div>
+  <h2 class="grid-title reveal">АЛДАА</h2>
+  <p class="grid-subtitle reveal">ӨМНӨХ ЦИКЛЭЭС <span style="color: var(--neon);">СУРСАН ЗҮЙЛ</span></p>
+
+  <div class="anniv-text reveal" style="margin-top:40px;">
+    Шударгаар хэлэхэд, өмнөх 3 жилийн хамтын ажиллагаанд нэг гол сул тал илэрсэн — <strong>Art N Tech-ийн хүрээнд бүтээсэн баримтат киноны түгээлт, маркетингийн ажил хангалттай түвшинд хийгдээгүй</strong>. Үр дүнд нь үнэ цэнтэй контент зорилтот үзэгчдэд бүрэн хүрсэнгүй. Бид энэхүү алдаагаа хүлээн зөвшөөрөн, дараагийн циклд 35 жилийн ойн баримтат киноны түгээлт-маркетингийг анхнаас нь стратегитайгаар төлөвлөнө.
+  </div>
+
+  <div class="benefits-grid" style="margin-top: 60px; grid-template-columns: repeat(2, 1fr);">
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">01</span>
+        <span class="benefit-metric">ALdaa</span>
+      </div>
+      <h4 class="benefit-title">ЯМАР АЛДАА БАЙСАН</h4>
+      <ul class="benefit-list">
+        <li>Кино бүтсэн ч <strong>түгээлтийн стратеги дутагдсан</strong>.</li>
+        <li>Маркетингийн бюджет, кампанит ажил тус бүр бие даан төлөвлөгдсөнгүй.</li>
+        <li>Зорилтот үзэгч сегментэд хүрэх KPI байгаагүй.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">02</span>
+        <span class="benefit-metric">SOLUTION</span>
+      </div>
+      <h4 class="benefit-title">ЯАЖ ЗАСАХ</h4>
+      <ul class="benefit-list">
+        <li>35 жилийн ойн киноны <strong>түгээлт-маркетингийн төлөвлөгөөг</strong> анхнаас нь оруулна.</li>
+        <li>Festival · streaming · in-flight · corporate event — олон сувгаар нэгэн зэрэг түгээх.</li>
+        <li>Хэмжих KPI: үзэгчийн тоо, engagement rate, media reach.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GOAL -->
+<section id="goal">
+  <div class="section-num">03</div>
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+
+  <div class="section-tag reveal">// PROJECT 03 — STRATEGIC GOAL</div>
+  <h2 class="grid-title reveal">ЗОРИЛГО</h2>
+  <p class="grid-subtitle reveal">2026 → 2031 · <span style="color: var(--neon);">5 ЖИЛИЙН СТРАТЕГИ</span></p>
+
+  <div class="anniv-text reveal" style="margin-top:40px;">
+    <strong>"Номин Холдинг"</strong> группийн үүсэн байгуулагдсаны <strong>35 жилийн ойн</strong> хүрээнд корпорацын ESG бодлогыг <strong>соёлын бүтээлч үйлдвэрлэл</strong> (лэнд арт), <strong>дэвшилтэт технологи</strong> болон <strong>тогтвортой хамтын ажиллагаа</strong>-тай хослуулан хэрэгжүүлэх. Ингэснээр ногоон хөрөнгө оруулалтын <strong>урт хугацааны үнэ цэнийг</strong> харилцагчдад санал болгож, группийн <strong>тогтвортой хөгжлийн манлайллыг</strong> олон нийтэд таниулахад оршино.
+  </div>
+
+  <div class="benefits-grid" style="margin-top: 60px;">
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">I</span>
+        <span class="benefit-metric">CULTURE</span>
+      </div>
+      <h4 class="benefit-title">СОЁЛЫН БҮТЭЭЛЧ ҮЙЛДВЭРЛЭЛ</h4>
+      <ul class="benefit-list">
+        <li>Лэнд арт — модноос бүтсэн биет бэлгэдэл.</li>
+        <li>MONGOLZ#1 N үсэг, Chinggis Airline лэнд арт.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">II</span>
+        <span class="benefit-metric">TECH</span>
+      </div>
+      <h4 class="benefit-title">ДЭВШИЛТЭТ ТЕХНОЛОГИ</h4>
+      <ul class="benefit-list">
+        <li>NASA satellite + Martensite Analytica MRV.</li>
+        <li>NDVI · EVI · NDWI vegetation index.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">III</span>
+        <span class="benefit-metric">PARTNERSHIP</span>
+      </div>
+      <h4 class="benefit-title">ТОГТВОРТОЙ ХАМТЫН АЖИЛЛАГАА</h4>
+      <ul class="benefit-list">
+        <li>5+ жилийн стратегийн платформ.</li>
+        <li>Холдингийн бүх брэндийг хамарсан synergy.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OBJECTIVES -->
+<section id="objectives">
+  <div class="section-num">04</div>
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+
+  <div class="section-tag reveal">// PROJECT 04 — KEY OBJECTIVES</div>
+  <h2 class="grid-title reveal">ЗОРИЛТ</h2>
+  <p class="grid-subtitle reveal">5 ҮНДСЭН <span style="color: var(--neon);">ЧИГЛЭЛ</span></p>
+
+  <div class="benefits-grid" style="margin-top: 60px;">
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">01</span>
+        <span class="benefit-metric">AIRLINE</span>
+      </div>
+      <h4 class="benefit-title">AIRLINE БРЭНДИНГ</h4>
+      <ul class="benefit-list">
+        <li>Лэнд арт байгуулах замаар <strong>Chinggis Airline-ийн брэндинг</strong> үүсгэх.</li>
+        <li>Үйлчлүүлэгчдийн ялгаруулсан <strong>нүүрс хүчлийн хийн тодорхой хувийг шингээх</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">02</span>
+        <span class="benefit-metric">MEDIA</span>
+      </div>
+      <h4 class="benefit-title">МЕДИА КОНТЕНТ, СУРТАЛЧИЛГАА</h4>
+      <ul class="benefit-list">
+        <li>35 жилийн ойн <strong>медиа контентийг</strong> олон сувгаар хүргэх.</li>
+        <li>Стратегийн түгээлт + маркетингийн төлөвлөгөөтэйгөөр.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">03</span>
+        <span class="benefit-metric">INSURANCE</span>
+      </div>
+      <h4 class="benefit-title">ДААТГАЛ INTEGRATION</h4>
+      <ul class="benefit-list">
+        <li>Шамбала 2056 төслийн хүрээнд хийсэн лэнд артуудын модыг <strong>Номин Даатгалд бүрэн хамруулах</strong>.</li>
+        <li>Даатгалын <strong>баталгаажсан тамгатай зургийг</strong> эзэмшигчдэд мэйлээр илгээх.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">04</span>
+        <span class="benefit-metric">INFRA</span>
+      </div>
+      <h4 class="benefit-title">ДЭД БҮТЭЦ ШИНЭЧЛЭЛ</h4>
+      <ul class="benefit-list">
+        <li>Мод <strong>хаягжуулалтын пайз</strong>-ыг шинэчлэх.</li>
+        <li>Талбайн дэд бүтэц.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">05</span>
+        <span class="benefit-metric">REPORT</span>
+      </div>
+      <h4 class="benefit-title">НӨЛӨӨЛЛИЙН ТАЙЛАН</h4>
+      <ul class="benefit-list">
+        <li>Тогтвортой ногоон байгууламжийн <strong>байгальд үзүүлэх нөлөөллийн тайланг</strong> боловсруулах.</li>
+        <li>Хүлэмжийн хийн шингээлт + биомассын өсөлтийг <strong>шинжлэх ухааны үндэслэлтэйгээр</strong> тодорхойлох.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MONGOLZ N -->
+<section id="mongolz-n">
+  <div class="section-num">05</div>
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+
+  <div class="section-tag reveal">// PROJECT 05 — MONGOLZ#1 LAND ART · N LETTER</div>
+  <h2 class="grid-title reveal">MONGOLZ#1 — N ҮСЭГ</h2>
+  <p class="grid-subtitle reveal">НОМИНЫ "N" ҮСГИЙГ <span style="color: var(--neon);">МОДНООС БҮТЭЭХ</span></p>
+
+  <div class="anniv-text reveal" style="margin-top:40px;">
+    MONGOLZ#1 лэнд артын <strong>төв хэсэгт</strong> Номин Холдингийн брэндийн <strong>"N" үсгийг</strong> модноос бүрдсэн дизайнаар бүтээх. Тус "N" нь сансрын зургаас тод харагдах хэмжээтэй, лэнд артын нэгдсэн бэлэгдэлд цохолт болж орох ба Номин Холдингийн <strong>биет бэлгэдлийг говьд тогтоох</strong> ач холбогдолтой.
   </div>
 
   <div class="stats" style="margin-top: 60px;">
     <div class="stat reveal">
       <span class="stat-index">01</span>
-      <div class="stat-label">BE HUMAN</div>
-      <div class="stat-value">4,000</div>
+      <div class="stat-label">ХАМРАХ МОД</div>
+      <div class="stat-value accent">1,800</div>
     </div>
     <div class="stat reveal">
       <span class="stat-index">02</span>
-      <div class="stat-label">ART'N TECH FESTIVAL</div>
-      <div class="stat-value">7,000</div>
+      <div class="stat-label">БАЙРШИЛ</div>
+      <div class="stat-value">MONGOLZ#1 ЛЭНД АРТЫН ТӨВ</div>
     </div>
     <div class="stat reveal">
       <span class="stat-index">03</span>
-      <div class="stat-label">MONGOLZ#1</div>
-      <div class="stat-value">1,000</div>
+      <div class="stat-label">САНСРААС</div>
+      <div class="stat-value">ТОД ХАРАГДАНА</div>
+    </div>
+  </div>
+
+  <div class="coord-bar reveal" style="margin-top:32px;">
+    <span>ДОРНОГОВЬ АЙМАГ, ЭРДЭНЭ СУМ</span>
+    <span>44°04'34.69"N · 111°11'41.40"E</span>
+    <span>STATUS: PROPOSED</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHINGGIS AIRLINE -->
+<section id="airline">
+  <div class="section-num">06</div>
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+
+  <div class="section-tag reveal">// PROJECT 06 — CHINGGIS AIRLINE</div>
+  <h2 class="grid-title reveal">CHINGGIS AIRLINE</h2>
+  <p class="grid-subtitle reveal">ЛЭНД АРТ + <span style="color: var(--neon);">ГИШҮҮНЧЛЭЛИЙН КАРТ</span></p>
+
+  <div class="anniv-text reveal" style="margin-top:40px;">
+    Chinggis Airline-ийн <strong>гишүүнчлэлийн карттай уялдсан лэнд арт</strong> төсөл. Гишүүн нь нислэгээс үүсэх carbon footprint-аа Номин 35 төгөлд хадгалуулж шингээх ба цуглуулсан offset point-оо <strong>membership tier-эд хувиргах</strong> carbon loyalty platform.
+  </div>
+
+  <div class="stats" style="margin-top: 60px;">
+    <div class="stat reveal">
+      <span class="stat-index">01</span>
+      <div class="stat-label">НИСЛЭГ</div>
+      <div class="stat-value">CO₂ ХЭМЖИЛТ</div>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-index">02</span>
+      <div class="stat-label">OFFSET POINT</div>
+      <div class="stat-value">1 КГ = 1 POINT</div>
+    </div>
+    <div class="stat reveal">
+      <span class="stat-index">03</span>
+      <div class="stat-label">МОД</div>
+      <div class="stat-value accent">POINT → ШИНГЭЭЛТ</div>
     </div>
     <div class="stat reveal">
       <span class="stat-index">04</span>
-      <div class="stat-label">5 ЖИЛИЙН НИЙТ ХҮРГЭЛТ</div>
-      <div class="stat-value accent">60,000</div>
+      <div class="stat-label">TIER</div>
+      <div class="stat-value">STATUS UPGRADE</div>
     </div>
   </div>
 
@@ -2017,62 +2354,57 @@
     <div class="benefit-card">
       <div class="benefit-head">
         <span class="benefit-num">01</span>
-        <span class="benefit-metric">PHYSICAL</span>
+        <span class="benefit-metric">LAND ART</span>
       </div>
-      <h4 class="benefit-title">ЛАЗЕР СИЙЛБЭРТЭЙ МЕТАЛЛ ПАЙЗ</h4>
+      <h4 class="benefit-title">CHINGGIS AIRLINE ЛЭНД АРТ</h4>
       <ul class="benefit-list">
-        <li>Анодизатлагдсан алюмин эсвэл зэвэрдэггүй гангаар хийсэн пайз дээр <strong>Номин Холдингийн лого</strong> лазерээр сийлэгдэнэ.</li>
-        <li>Говийн нар, салхи, хэлбэлзэлд тэсвэртэй — <strong>10 гаруй жилийн тэсвэрлэх хугацаатай</strong> өндөр чанарын материал.</li>
+        <li>Айрлайны брэндийн <strong>геометрийн дизайны</strong> лэнд арт говьд бүтээх.</li>
+        <li>In-flight magazine, route map дээр featured destination.</li>
       </ul>
     </div>
 
     <div class="benefit-card">
       <div class="benefit-head">
         <span class="benefit-num">02</span>
-        <span class="benefit-metric">DIGITAL</span>
+        <span class="benefit-metric">CARD</span>
       </div>
-      <h4 class="benefit-title">ЖИЛ ТУТМЫН ТАЙЛАН ХҮРГЭЛТ</h4>
+      <h4 class="benefit-title">CARBON LOYALTY КАРТ</h4>
       <ul class="benefit-list">
-        <li>Хэрэглэгч тус бүрд модны <strong>байршлын зураг</strong>, ургалтын явц, <strong>NASA-ийн хиймэл дагуулаар баталгаажсан</strong> тоон үзүүлэлтийг жил бүр и-мэйлээр илгээнэ.</li>
-        <li>Тайлангийн дизайн нь Номин Холдингийн брэндийн стандартыг бүрэн дагана.</li>
+        <li>Гишүүн нислэг бүрээс <strong>CO₂ offset point</strong> цуглуулна.</li>
+        <li>Цуглуулсан point-оо <strong>Номин 35 төгөлд</strong> модной хэлбэрээр шингээнэ.</li>
       </ul>
     </div>
 
     <div class="benefit-card">
       <div class="benefit-head">
         <span class="benefit-num">03</span>
-        <span class="benefit-metric">REACH</span>
+        <span class="benefit-metric">STATUS</span>
       </div>
-      <h4 class="benefit-title">ХЭМЖИХ БОЛОМЖТОЙ 60,000 ХҮРГЭЛТ</h4>
+      <h4 class="benefit-title">TIER UPGRADE</h4>
       <ul class="benefit-list">
-        <li>12,000 хэрэглэгч × 5 жил = <strong>60,000 шууд и-мэйл хүргэлт</strong>. Уламжлалт PR-ээс ялгаатай нь open-rate, click-through үзүүлэлтээр <strong>хэмжих боломжтой</strong>.</li>
-        <li>Кампанит ажлын үр дүнг Номины <strong>жилийн ESG тайланд</strong> бэлэн форматаар оруулна.</li>
+        <li>Шингээсэн CO₂-ийн хэмжээгээр <strong>гишүүнчлэлийн зэрэглэл өснө</strong>.</li>
+        <li>Lounge access, priority boarding, дашка benefits.</li>
       </ul>
     </div>
 
-  </div>
-
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 01 — ӨРТӨГ · ЛАЗЕР МАШИН + ПАЙЗНЫ МАТЕРИАЛ</div>
-    <div class="budget-total-amount">50,000,000 ₮</div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- DOCUMENTARY -->
-<section id="documentary">
-  <div class="section-num">02</div>
+<section id="film">
+  <div class="section-num">07</div>
   <div class="corner tl"></div>
   <div class="corner br"></div>
 
-  <div class="section-tag reveal">// PROJECT 02 — DOCUMENTARY FILM</div>
+  <div class="section-tag reveal">// PROJECT 07 — 35 ANNIVERSARY DOCUMENTARY</div>
 
   <div class="doc-wrap">
     <div>
       <h2 class="doc-title reveal">БАРИМТАТ<br/>КИНО</h2>
       <p class="doc-text reveal">
-        <strong>Номин Холдинг</strong>-ийн 35 жилийн ойд зориулсан 30–40 минутын олон улсын стандартад нийцсэн баримтат кино. Монголын хувийн хэвшилд легенд болсон компанийн түүхийг говийн цөлжилттэй тэмцэх бодит хувь нэмэртэй холбож, олон сувгаар түгээнэ.
+        <strong>Номин Холдинг</strong>-ийн 35 жилийн ойд зориулсан 30–40 минутын олон улсын стандартад нийцсэн баримтат кино. Монголын хувийн хэвшилд легенд болсон Номин Холдингийн домог зүйг говийн нөхөн сэргээлтэд оруулсан бодит хувь нэмэртэй нэгтгэх. <strong>Өмнөх алдааг арилгахын тулд anhnaasaa стратегийн түгээлт + маркетингийн төлөвлөгөөтэйгөөр</strong> хэрэгжүүлнэ.
       </p>
       <div class="doc-meta reveal">
         <div class="doc-meta-row"><span>● REC</span><span>4K · 60FPS</span></div>
@@ -2085,7 +2417,7 @@
 
     <div class="doc-visual reveal">
       <div class="doc-frame">
-        <img src="assets/documentary.jpg" alt="Documentary — Aerial View" />
+        <img src="assets/documentary.jpg" alt="Documentary" />
         <span class="doc-corner tl"></span>
         <span class="doc-corner tr"></span>
         <span class="doc-corner bl"></span>
@@ -2094,236 +2426,166 @@
       </div>
     </div>
   </div>
-
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 02 — ӨРТӨГ (ТҮГЭЭЛТИЙН ЗАРДАЛ)</div>
-    <div class="budget-total-amount">40,000,000 ₮</div>
-  </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- INSURED TREES -->
-<section id="insured-trees">
-  <div class="section-num">03</div>
+<!-- INSURED FOREST -->
+<section id="insured">
+  <div class="section-num">08</div>
   <div class="corner tl"></div>
   <div class="corner br"></div>
 
-  <div class="section-tag reveal">// PROJECT 03 — INSURED FOREST</div>
+  <div class="section-tag reveal">// PROJECT 08 — INSURED FOREST</div>
   <h2 class="grid-title reveal">ДААТГАГДСАН МОД</h2>
-  <p class="grid-subtitle reveal">НОМИН ДААТГАЛЫН <span style="color: var(--neon);">5 ЖИЛИЙН BRAND TOUCHPOINT</span></p>
+  <p class="grid-subtitle reveal">BE HUMAN · ATE · MONGOLZ#1 · <span style="color: var(--neon);">НОМИН ДААТГАЛЫН ТАМГА</span></p>
 
   <div class="anniv-text reveal" style="margin-top:40px;">
-    Өмнөх <strong>2 жилийн</strong> хугацаанд BE HUMAN төслийн моднуудыг <strong>Номин Даатгалаар</strong> даатгуулж, тус модны ургалтын явцыг Номин Даатгалын логотой зураг хэлбэрээр хэрэглэгчдэд жил бүр илгээж байсан. Энэхүү амжилттай уламжлалыг ирэх 5 жил өргөжүүлж, <strong>BE HUMAN · ATE · MONGOLZ#1</strong> төслийн нийт моднуудыг хамруулна.
+    Шамбала 2056 төслийн хүрээнд бүтсэн <strong>BE HUMAN, ATE, MONGOLZ#1</strong> лэнд артуудын нийт модыг Номин Даатгалаар <strong>бүрэн хамруулна</strong>. Мод эзэмшигч тус бүр өөрийн модныхоо ургалтын явцын зургийг <strong>Номин Даатгалын баталгаажсан тамгатайгаар</strong> жил тутам мэйлээр хүлээн авна.
   </div>
 
   <div class="stats" style="margin-top: 60px;">
     <div class="stat reveal">
       <span class="stat-index">01</span>
-      <div class="stat-label">ХАМРАХ МОД</div>
-      <div class="stat-value accent">12,000+</div>
+      <div class="stat-label">BE HUMAN</div>
+      <div class="stat-value">~4,000</div>
     </div>
     <div class="stat reveal">
       <span class="stat-index">02</span>
-      <div class="stat-label">ХУГАЦАА</div>
-      <div class="stat-value">5 ЖИЛ</div>
+      <div class="stat-label">ATE LAND ART</div>
+      <div class="stat-value">~7,000</div>
     </div>
     <div class="stat reveal">
       <span class="stat-index">03</span>
-      <div class="stat-label">BRAND IMPRESSION / ЖИЛД</div>
-      <div class="stat-value">12,000+</div>
-    </div>
-  </div>
-
-  <div class="benefits-grid" style="margin-top: 40px;">
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">01</span>
-        <span class="benefit-metric">ECO-INSURANCE</span>
-      </div>
-      <h4 class="benefit-title">МОНГОЛЫН АНХНЫ НӨХӨН СЭРГЭЭЛТИЙН ДААТГАЛ</h4>
-      <ul class="benefit-list">
-        <li>Ургаагүй мод болон цаг агаарын эрсдэлийг даатгана.</li>
-        <li>Жил бүр <strong>нөхөн тариа</strong>лтын баталгаа.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">02</span>
-        <span class="benefit-metric">BRANDED</span>
-      </div>
-      <h4 class="benefit-title">5 ЖИЛИЙН ШУУД ХАРИЛЦАА</h4>
-      <ul class="benefit-list">
-        <li>Жил бүр Номин Даатгалын логотой <strong>ургалтын зураг</strong> и-мэйлээр.</li>
-        <li>5 жилийн нийт <strong>60,000+ brand impressions</strong>.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">03</span>
-        <span class="benefit-metric">ESG ASSET</span>
-      </div>
-      <h4 class="benefit-title">ДААТГАЛЫН ESG REPORT-Д ОРНО</h4>
-      <ul class="benefit-list">
-        <li>Номин Даатгалын <strong>жилийн ESG тайланд</strong> бие даасан хэсэг.</li>
-        <li>Climate-related underwriting case study.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 03 — ӨРТӨГ</div>
-    <div class="budget-total-amount">ХЭЛЦЭН ТОГТООНО</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ANNIVERSARY GROVE -->
-<section id="anniversary">
-  <div class="section-num" style="-webkit-text-stroke-color: rgba(201,168,120,0.12);">04</div>
-  <div class="corner tl"></div>
-  <div class="corner br"></div>
-
-  <div class="section-tag reveal" style="color: var(--sand);">// PROJECT 04 — ANNIVERSARY GROVE</div>
-
-  <div class="anniv-wrap">
-    <div class="reveal">
-      <div class="anniv-number">35,000</div>
-      <div class="anniv-label">ХАЙЛААС · 35 ЖИЛ</div>
-    </div>
-    <div class="anniv-text reveal">
-      <strong>"НОМИН ХОЛДИНГ" ХХК</strong>-ийн 35 жилийн ойг тэмдэглэн Дорноговийн говьд <strong>35,000 хайлаас модноос бүрдсэн амьд төгөл</strong> байгуулна. Урлагийн инсталяци бус — цөлжилттэй тэмцэх биет, <strong>30+ жилийн eco-legacy asset.</strong>
-    </div>
-  </div>
-
-  <div class="stats" style="margin-top: 60px;">
-    <div class="stat reveal">
-      <span class="stat-index">01</span>
-      <div class="stat-label">МОДНЫ ТОО</div>
-      <div class="stat-value accent">35,000</div>
-    </div>
-    <div class="stat reveal">
-      <span class="stat-index">02</span>
-      <div class="stat-label">СЭРГЭЭГДЭХ ТАЛБАЙ</div>
-      <div class="stat-value">35,000 м²</div>
-    </div>
-    <div class="stat reveal">
-      <span class="stat-index">03</span>
-      <div class="stat-label">CO₂ ШИНГЭЭЛТ</div>
-      <div class="stat-value">~14 Т / ЖИЛ</div>
+      <div class="stat-label">MONGOLZ#1</div>
+      <div class="stat-value">~1,000</div>
     </div>
     <div class="stat reveal">
       <span class="stat-index">04</span>
-      <div class="stat-label">АРЧИЛГАА</div>
-      <div class="stat-value">30 ЖИЛ</div>
+      <div class="stat-label">НИЙТ ХАМРАХ МОД</div>
+      <div class="stat-value accent">12,000+</div>
     </div>
-  </div>
-
-  <!-- TWO SUB-SECTIONS: Employees + Partners -->
-  <div class="benefits-grid" style="margin-top: 40px; grid-template-columns: repeat(2, 1fr);">
-
-    <div class="benefit-card sand">
-      <div class="benefit-head">
-        <span class="benefit-num">A</span>
-        <span class="benefit-metric">EMPLOYEES</span>
-      </div>
-      <h4 class="benefit-title">НОМИНЫ АЖИЛЧДЫН ХЭСЭГ</h4>
-      <ul class="benefit-list">
-        <li>Холдингийн ажилтан бүрд <strong>"Миний мод" гэрчилгээ</strong> + GPS координат.</li>
-        <li>Жил тутмын employee event-ийн анкер.</li>
-        <li>2028 онд тарьсан мод 2063 онд <strong>35 настай ой</strong> үүсгэнэ.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card sand">
-      <div class="benefit-head">
-        <span class="benefit-num">B</span>
-        <span class="benefit-metric">PARTNERS</span>
-      </div>
-      <h4 class="benefit-title">ХАРИЛЦАГЧ БАЙГУУЛЛАГУУДЫН ХЭСЭГ</h4>
-      <ul class="benefit-list">
-        <li>Стратегийн харилцагч тус бүрд <strong>тусгай brand pavilion</strong>.</li>
-        <li>B2B engagement event-ийн анкер цэг.</li>
-        <li>Annual partnership ESG report-д бие даасан хэсэг.</li>
-      </ul>
-    </div>
-
   </div>
 
   <div class="benefits-grid" style="margin-top: 40px;">
 
-    <div class="benefit-card sand">
+    <div class="benefit-card">
       <div class="benefit-head">
         <span class="benefit-num">01</span>
-        <span class="benefit-metric">FOREST</span>
+        <span class="benefit-metric">PROTECT</span>
       </div>
-      <h4 class="benefit-title">АМЬД ТӨГӨЛ — БИОЛОГИЙН ЗАГВАРААР</h4>
+      <h4 class="benefit-title">МОДНЫ ДААТГАЛЫН ХАМРАЛТ</h4>
       <ul class="benefit-list">
-        <li>Хайлаас (Ulmus pumila), тарваган хайлаас, харгана — говийн зүйлүүд.</li>
-        <li>Хатуу геометр бус, байгалийн өсөлтийн загвар.</li>
+        <li>Ургаагүй мод, цаг агаарын эрсдэлийг даатгана.</li>
+        <li>Жил тутмын <strong>нөхөн тариа</strong>лтын баталгаа.</li>
       </ul>
     </div>
 
-    <div class="benefit-card sand">
+    <div class="benefit-card">
       <div class="benefit-head">
         <span class="benefit-num">02</span>
-        <span class="benefit-metric">MRV</span>
+        <span class="benefit-metric">BRAND</span>
       </div>
-      <h4 class="benefit-title">ХӨНДЛӨНГИЙН АУДИТ</h4>
+      <h4 class="benefit-title">ТАМГАТАЙ ЗУРГИЙН ИЛГЭЭЛТ</h4>
       <ul class="benefit-list">
-        <li>NASA MODIS · Sentinel-2/5P жил тутмын <strong>сансрын хяналт</strong>.</li>
-        <li>Martensite Analytica — биомасс, CO₂ баталгаажсан тайлан.</li>
+        <li>12,000 хэрэглэгчид жил тутам <strong>Номин Даатгалын логотой</strong> модны зураг.</li>
+        <li>5 жилийн нийт <strong>60,000+ хүргэлт</strong>.</li>
       </ul>
     </div>
 
-    <div class="benefit-card sand">
+    <div class="benefit-card">
       <div class="benefit-head">
         <span class="benefit-num">03</span>
-        <span class="benefit-metric">CARBON</span>
+        <span class="benefit-metric">CASE</span>
       </div>
-      <h4 class="benefit-title">НҮҮРСТӨРӨГЧИЙН ШИНГЭЭЛТ</h4>
+      <h4 class="benefit-title">CLIMATE INSURANCE CASE STUDY</h4>
       <ul class="benefit-list">
-        <li>30 жилийн хугацаанд ойролцоогоор <strong>10,500 тонн CO₂</strong> шингээх боломжтой.</li>
-        <li>Martensite Analytica хиймэл дагуулын аудитаар жил тутам баталгаажуулна.</li>
+        <li>Монголын <strong>анхны нөхөн сэргээлтийн даатгал</strong>-ын кэйс.</li>
+        <li>Номин Даатгалын жилийн тайланд бие даасан хэсэг.</li>
       </ul>
     </div>
 
-  </div>
-
-  <div class="coord-bar reveal" style="margin-top:32px;">
-    <span>ДОРНОГОВЬ АЙМАГ, ЭРДЭНЭ СУМ</span>
-    <span>44°04'34.69"N · 111°11'41.40"E</span>
-    <span>STATUS: PROPOSED</span>
-  </div>
-
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 04 — ӨРТӨГ</div>
-    <div class="budget-total-amount">ХЭЛЦЭН ТОГТООНО</div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ENVIRONMENTAL IMPACT ASSESSMENT (Martensite scope) -->
-<section id="esg-report">
-  <div class="section-num">05</div>
+<!-- TREE TAG -->
+<section id="tag">
+  <div class="section-num">09</div>
   <div class="corner tl"></div>
   <div class="corner br"></div>
 
-  <div class="section-tag reveal">// PROJECT 05 — ENVIRONMENTAL IMPACT ASSESSMENT</div>
-  <h2 class="grid-title reveal">НӨЛӨӨЛЛИЙН ТАЙЛАН</h2>
-  <p class="grid-subtitle reveal">ТОГТВОРТОЙ НОГООН БАЙГУУЛАМЖИЙН БАЙГАЛЬ ОРЧИНД ҮЗҮҮЛЭХ <span style="color: var(--neon);">НӨЛӨӨЛЛИЙГ ТООЦОХ</span></p>
+  <div class="section-tag reveal">// PROJECT 09 — TREE TAG UPGRADE</div>
+  <h2 class="grid-title reveal">МОДНЫ ХАЯГЖУУЛАЛТ</h2>
+  <p class="grid-subtitle reveal">ПАЙЗ <span style="color: var(--neon);">2.0</span></p>
 
   <div class="anniv-text reveal" style="margin-top:40px;">
-    Шамбалаас санал болгож буй <strong>Carbon Sequestration Analysis Report</strong> нь NASA-ийн MODIS · Sentinel-2 · Sentinel-5P хиймэл дагуулын мэдээлэлд суурилсан 3 ургамал-усны индекс, тус талбайн модны болон ургамлын нүүрстөрөгчийн хэмжилт, төслийн өмнө/дараах хуримтлалын харьцуулсан анализыг агуулна. Уг тайланг <strong>Martensite Analytica</strong> гуравдагч талын аудитор гаргаж баталгаажуулна.
+    Шамбалын лэнд артуудын одоогийн модны хаягжуулалтын пайзыг бүхэлд нь шинэчилнэ. <strong>Илүү бат бөх материал</strong>, говийн уур амьсгалд тэсвэртэй <strong>лазер сийлбэр</strong>, мөн хэрэглэгч ажиглаж скан хийх боломжтой <strong>QR/NFC холбоост</strong> систем рүү шилжүүлэх.
   </div>
 
-  <!-- Actual Martensite metric strip -->
+  <div class="benefits-grid" style="margin-top: 60px;">
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">01</span>
+        <span class="benefit-metric">БИЕТ</span>
+      </div>
+      <h4 class="benefit-title">МАТЕРИАЛ — МЕТАЛЛ ПАЙЗ</h4>
+      <ul class="benefit-list">
+        <li>Анодизатлагдсан алюмин эсвэл зэвэрдэггүй ган.</li>
+        <li>Говийн нар, салхи, хэлбэлзэлд <strong>10+ жил тэсвэртэй</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">02</span>
+        <span class="benefit-metric">ДИЗАЙН</span>
+      </div>
+      <h4 class="benefit-title">ЛАЗЕР СИЙЛБЭР</h4>
+      <ul class="benefit-list">
+        <li>Номин Холдингийн <strong>лого + хэрэглэгчийн нэр</strong>.</li>
+        <li>QR код · NFC чип.</li>
+      </ul>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-head">
+        <span class="benefit-num">03</span>
+        <span class="benefit-metric">ЦАХИМ</span>
+      </div>
+      <h4 class="benefit-title">DIGITAL TWIN INTEGRATION</h4>
+      <ul class="benefit-list">
+        <li>Тагийг scan → <strong>tree-tracking page</strong> руу шилжинэ.</li>
+        <li>Ургалтын зураг, NDVI үзүүлэлт, эзэмшигчийн гэрчилгээ.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="budget-total reveal" style="margin-top:48px;">
+    <div class="budget-total-label">PROJECT 09 — ӨРТӨГ · ЛАЗЕР МАШИН + МАТЕРИАЛ</div>
+    <div class="budget-total-amount">50,000,000 ₮</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- IMPACT ASSESSMENT -->
+<section id="impact">
+  <div class="section-num">10</div>
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+
+  <div class="section-tag reveal">// PROJECT 10 — ENVIRONMENTAL IMPACT ASSESSMENT</div>
+  <h2 class="grid-title reveal">НӨЛӨӨЛЛИЙН ТАЙЛАН</h2>
+  <p class="grid-subtitle reveal">ТОГТВОРТОЙ НОГООН БАЙГУУЛАМЖИЙН БАЙГАЛЬД ҮЗҮҮЛЭХ <span style="color: var(--neon);">НӨЛӨӨЛЛИЙГ ТООЦОХ</span></p>
+
+  <div class="anniv-text reveal" style="margin-top:40px;">
+    Шамбалаас санал болгож буй <strong>Carbon Sequestration Analysis Report</strong> нь NASA-ийн <strong>MODIS, Sentinel-2, Sentinel-5P</strong> хиймэл дагуулын мэдээлэлд суурилсан 3 ургамал-усны индекс, тус талбайн модны болон ургамлын нүүрстөрөгчийн хэмжилт, төслийн өмнө/дараах хуримтлалын харьцуулсан анализыг агуулна. Уг тайланг <strong>Martensite Analytica</strong> гуравдагч талын аудиторын баталгаажуулалттайгаар жил тутам гаргана.
+  </div>
+
   <div class="stats" style="margin-top: 60px;">
     <div class="stat reveal">
       <span class="stat-index">01</span>
@@ -2347,7 +2609,6 @@
     </div>
   </div>
 
-  <!-- 3 vegetation indices that Martensite actually computes -->
   <div class="benefits-grid" style="margin-top: 40px;">
 
     <div class="benefit-card">
@@ -2388,7 +2649,6 @@
 
   </div>
 
-  <!-- Methodology + deliverable -->
   <div class="benefits-grid" style="margin-top: 40px;">
 
     <div class="benefit-card">
@@ -2415,244 +2675,22 @@
       </ul>
     </div>
 
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">C</span>
-        <span class="benefit-metric">COMPARISON</span>
-      </div>
-      <h4 class="benefit-title">ТӨСЛИЙН ӨМНӨ / ДАРААХ ХАРЬЦУУЛАЛТ</h4>
-      <ul class="benefit-list">
-        <li>Төслийн талбай vs <strong>хяналтын талбай</strong>-н хуримтлалын ялгаа.</li>
-        <li>Нөхөн сэргээлтийн бодит нэмэлтийг тоогоор харуулна.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Deliverable -->
-  <div class="benefits-grid" style="margin-top: 40px;">
     <div class="benefit-card" style="border: 1px solid var(--neon); background: rgba(0, 255, 166, 0.04);">
       <div class="benefit-head">
         <span class="benefit-num">★</span>
         <span class="benefit-metric" style="color: var(--neon);">DELIVERABLE</span>
       </div>
-      <h4 class="benefit-title">CARBON SEQUESTRATION ANALYSIS REPORT</h4>
+      <h4 class="benefit-title">ANNUAL PDF REPORT</h4>
       <ul class="benefit-list">
-        <li>Бүрэн форматтай <strong>PDF тайлан</strong> — Номин Холдингийн брэндтэйгээр.</li>
-        <li>NDVI · EVI · NDWI цаг хугацааны графикууд, тоон хүснэгт, харьцуулсан анализ.</li>
-        <li>Жил тутмын тайлан гаргах боломжтой (одоогийн one-off PDF-аас annual cycle-руу шилжих).</li>
+        <li>Бүрэн форматтай <strong>PDF тайлан</strong> — Номин Холдингийн брэндтэй.</li>
+        <li>Жил тутмын cycle-аар хүргэгдэнэ.</li>
       </ul>
     </div>
-  </div>
 
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 05 — ӨРТӨГ</div>
-    <div class="budget-total-amount">ХЭЛЦЭН ТОГТООНО</div>
   </div>
 </section>
 
 <div class="divider"></div>
-
-<!-- CHINGGIS AIRLINE LOYALTY -->
-<section id="airline">
-  <div class="section-num">06</div>
-  <div class="corner tl"></div>
-  <div class="corner br"></div>
-
-  <div class="section-tag reveal">// PROJECT 06 — CARBON LOYALTY PROGRAM</div>
-  <h2 class="grid-title reveal">CHINGGIS AIRLINE × НОМИН 35</h2>
-  <p class="grid-subtitle reveal">НИСЛЭГ → КАРБОН ШИНГЭЭЛТ → <span style="color: var(--neon);">STATUS UPGRADE</span></p>
-
-  <div class="anniv-text reveal" style="margin-top:40px;">
-    <strong>Chinggis Airline</strong>-ийн membership program-тэй нэгтгэн, гишүүдийн нислэгийн карбон мөрийг <strong>Номин 35 төгөлд</strong> шингээх gamified loyalty хөтөлбөр. Гишүүн нь нислэг бүрээс carbon offset point цуглуулж, тэдгээрийг шууд modны хэлбэртэйгээр төгөлд хадгалуулан, шингээсэн CO₂-ийн хэмжээгээр membership tier-ээ өргөнө.
-  </div>
-
-  <!-- Mechanism flow -->
-  <div class="stats" style="margin-top: 60px;">
-    <div class="stat reveal">
-      <span class="stat-index">01</span>
-      <div class="stat-label">НИСЛЭГ</div>
-      <div class="stat-value">CO₂ ИЗМЕРЕНИЕ</div>
-    </div>
-    <div class="stat reveal">
-      <span class="stat-index">02</span>
-      <div class="stat-label">OFFSET POINT</div>
-      <div class="stat-value">1 КГ = 1 POINT</div>
-    </div>
-    <div class="stat reveal">
-      <span class="stat-index">03</span>
-      <div class="stat-label">МОД</div>
-      <div class="stat-value accent">POINT → ШИНГЭЭЛТ</div>
-    </div>
-    <div class="stat reveal">
-      <span class="stat-index">04</span>
-      <div class="stat-label">TIER</div>
-      <div class="stat-value">STATUS UPGRADE</div>
-    </div>
-  </div>
-
-  <!-- 5-tier system -->
-  <div class="benefits-grid" style="margin-top: 40px;">
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">I</span>
-        <span class="benefit-metric">100 KG</span>
-      </div>
-      <h4 class="benefit-title">SEEDLING</h4>
-      <ul class="benefit-list">
-        <li>Шинэ гишүүний эхлэлийн tier.</li>
-        <li>Анхны offset гэрчилгээ.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">II</span>
-        <span class="benefit-metric">500 KG</span>
-      </div>
-      <h4 class="benefit-title">SAPLING</h4>
-      <ul class="benefit-list">
-        <li>Priority check-in.</li>
-        <li>Extra baggage allowance.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">III</span>
-        <span class="benefit-metric">2,000 KG</span>
-      </div>
-      <h4 class="benefit-title">CANOPY</h4>
-      <ul class="benefit-list">
-        <li>Lounge access.</li>
-        <li>Тусгай carbon hero дөмүх.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">IV</span>
-        <span class="benefit-metric">10,000 KG</span>
-      </div>
-      <h4 class="benefit-title">OLD-GROWTH</h4>
-      <ul class="benefit-list">
-        <li>Business class upgrade воwк.</li>
-        <li>Anniversary grove pavilion-д нэр бүхий card.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">V</span>
-        <span class="benefit-metric">25,000+ KG</span>
-      </div>
-      <h4 class="benefit-title">GUARDIAN</h4>
-      <ul class="benefit-list">
-        <li>Holdings-ийн VIP event-ийн заавал invited.</li>
-        <li>Дугаар бүхий <strong>carbon legacy</strong> бичээс.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 06 — ӨРТӨГ (CHINGGIS AIRLINE-ТАЙ ХАМТЫН СТРУКТУР)</div>
-    <div class="budget-total-amount">ХЭЛЦЭН ТОГТООНО</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SHAMBALA × NOMIN 35 MERCH -->
-<section id="merch">
-  <div class="section-num">07</div>
-  <div class="corner tl"></div>
-  <div class="corner br"></div>
-
-  <div class="section-tag reveal">// PROJECT 07 — LIMITED EDITION MERCH</div>
-  <h2 class="grid-title reveal">ШАМБАЛА × НОМИН 35</h2>
-  <p class="grid-subtitle reveal">LIMITED EDITION <span style="color: var(--neon);">CO-BRAND MERCHANDISE</span></p>
-
-  <div class="anniv-text reveal" style="margin-top:40px;">
-    Номин Холдингийн 35 жилийн ойн тэмдэглэлийн хүрээнд <strong>Шамбала × Номин 35</strong> хамтын лимит хэвлэлийн eco-conscious бэлгэдлийн бүтээгдэхүүн. Ажилтан, стратегийн харилцагч, болон Anniversary event-ийн оролцогчдод зориулсан numbered edition.
-  </div>
-
-  <div class="benefits-grid" style="margin-top: 60px;">
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">01</span>
-        <span class="benefit-metric">APPAREL</span>
-      </div>
-      <h4 class="benefit-title">PREMIUM HOODIE / JERSEY</h4>
-      <ul class="benefit-list">
-        <li>Organic cotton, биодеградаддаг материал.</li>
-        <li>Numbered limited edition (1/350).</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">02</span>
-        <span class="benefit-metric">NFC CARD</span>
-      </div>
-      <h4 class="benefit-title">ECO-NFC BUSINESS CARD</h4>
-      <ul class="benefit-list">
-        <li>Бамбук / нөхөн сэргээгдсэн материал.</li>
-        <li>Tap → tree-tracking page руу шилжинэ.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">03</span>
-        <span class="benefit-metric">GIFT BOX</span>
-      </div>
-      <h4 class="benefit-title">35 ANNIVERSARY GIFT BOX</h4>
-      <ul class="benefit-list">
-        <li>Мод гэрчилгээ + GPS tag + seed packet.</li>
-        <li>Партнер VIP gift, employee welcome pack.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">04</span>
-        <span class="benefit-metric">CRAFT</span>
-      </div>
-      <h4 class="benefit-title">SUSTAINABLE WOOD GOODS</h4>
-      <ul class="benefit-list">
-        <li>Хайлаасны үлдсэн материалаас гарын авлага бүтээгдэхүүн.</li>
-        <li>Local craftsmanship · Mongolian artisan partnership.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 07 — ӨРТӨГ</div>
-    <div class="budget-total-amount">ХЭЛЦЭН ТОГТООНО</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-
-<!-- TOTAL BUDGET SUMMARY -->
-<section id="total-budget" style="padding:80px 0;">
-  <div class="container" style="max-width:1100px;margin:0 auto;padding:0 24px;">
-    <div class="budget-total reveal">
-      <div class="budget-total-label" style="font-size:13px; letter-spacing:0.35em;">ТОДОРХОЙ БЮДЖЕТ · PROJECT 01 + 02</div>
-      <div class="budget-total-amount">90,000,000 ₮</div>
-    </div>
-
-    <div class="budget-total reveal" style="margin-top:16px; border-top: 2px solid rgba(0,179,101,0.6); background: rgba(0,179,101,0.08);">
-      <div class="budget-total-label" style="font-size:15px; letter-spacing:0.35em;">PROJECT 03 – 07 · ХЭЛЦЭН ТОГТООНО</div>
-      <div class="budget-total-amount" style="font-size:clamp(20px,2.4vw,28px);">INSURED · GROVE · ESG · AIRLINE · MERCH</div>
-    </div>
-  </div>
-</section>
 
 <!-- Footer -->
 <footer>
