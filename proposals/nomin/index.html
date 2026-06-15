@@ -1443,36 +1443,8 @@
     transform:translateY(-4px);
     box-shadow:0 18px 48px -16px rgba(0,255,166,.18), 0 0 0 1px rgba(0,255,166,.08);
   }
-  #track-record .benefit-card:hover .card-icon{
-    transform:scale(1.08) rotate(-2deg);
-    filter:drop-shadow(0 0 14px rgba(0,255,166,.5));
-  }
 
-  /* Flat SVG icon — top-right corner of each card */
-  .card-icon{
-    position:absolute;top:18px;right:18px;
-    width:42px;height:42px;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--neon);
-    transition:all .4s cubic-bezier(.4,0,.2,1);
-    filter:drop-shadow(0 0 8px rgba(0,255,166,.3));
-    animation:icon-breath 4s ease-in-out infinite;
-  }
-  .card-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-  @keyframes icon-breath{
-    0%,100%{opacity:.85;transform:scale(1)}
     50%{opacity:1;transform:scale(1.04)}
-  }
-
-  /* Card 2 (CO₂) — cyan accent */
-  #track-record .benefit-card:nth-of-type(2) .card-icon{
-    color:var(--neon-2);
-    filter:drop-shadow(0 0 8px rgba(0,229,255,.3));
-  }
-  /* Card 5 (MAIL) — slight warm tint */
-  #track-record .benefits-grid:nth-of-type(3) .benefit-card:nth-of-type(1) .card-icon{
-    color:var(--neon-2);
-    filter:drop-shadow(0 0 8px rgba(0,229,255,.3));
   }
 
   /* Counter — keep monospace look as it animates */
@@ -1489,11 +1461,8 @@
   }
 
   /* Make benefit-head sit beside the icon (give title space on the right) */
-  #track-record .benefit-title{padding-right:56px}
 
   @media(max-width:720px){
-    .card-icon{width:32px;height:32px;top:14px;right:14px}
-    #track-record .benefit-title{padding-right:42px}
   }
   /* ═════ /TRACK-RECORD polish ═════ */
   .benefit-card {
@@ -2068,7 +2037,6 @@
   <div class="benefits-grid" style="margin-top: 60px; grid-template-columns: repeat(2, 1fr);">
 
     <div class="benefit-card">
-      <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22V10"/><path d="M12 12c-4-2-6-6-6-10 4 0 8 2 10 6"/><path d="M12 14c4-2 6-6 6-10-4 0-8 2-10 6"/></svg></div>
       <div class="benefit-head">
         <span class="benefit-num">01</span>
         <span class="benefit-metric">BIOMASS</span>
@@ -2080,7 +2048,6 @@
     </div>
 
     <div class="benefit-card">
-      <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="12" r="3.2"/><circle cx="17" cy="7"  r="2.2"/><circle cx="17" cy="17" r="2.2"/><line x1="10" y1="11" x2="15" y2="8"/><line x1="10" y1="13" x2="15" y2="16"/></svg></div>
       <div class="benefit-head">
         <span class="benefit-num">02</span>
         <span class="benefit-metric">CO₂</span>
@@ -2097,7 +2064,6 @@
   <div class="benefits-grid" style="margin-top: 24px; grid-template-columns: repeat(2, 1fr);">
 
     <div class="benefit-card">
-      <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l5-10 4 6 3-4 6 8z"/><line x1="3" y1="20" x2="21" y2="20"/><circle cx="14" cy="10" r="0.6" fill="currentColor"/></svg></div>
       <div class="benefit-head">
         <span class="benefit-num">A</span>
         <span class="benefit-metric">ATE LAND ART</span>
@@ -2115,7 +2081,6 @@
     </div>
 
     <div class="benefit-card">
-      <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20V4l12 16V4"/><circle cx="6"  cy="4"  r="0.8" fill="currentColor"/><circle cx="18" cy="20" r="0.8" fill="currentColor"/></svg></div>
       <div class="benefit-head">
         <span class="benefit-num">B</span>
         <span class="benefit-metric">MONGOLZ#1 LAND ART</span>
@@ -2133,7 +2098,6 @@
   <div class="benefits-grid" style="margin-top: 24px; grid-template-columns: repeat(2, 1fr);">
 
     <div class="benefit-card">
-      <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><polyline points="3,8 12,14 21,8"/><circle cx="18" cy="6" r="2.5" stroke-width="1.6" fill="rgba(0,229,255,0.15)"/></svg></div>
       <div class="benefit-head">
         <span class="benefit-num">C</span>
         <span class="benefit-metric">НОМИН ДААТГАЛ</span>
@@ -2147,7 +2111,6 @@
     </div>
 
     <div class="benefit-card">
-      <div class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 9h3M3 15h3M18 9h3M18 15h3"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></div>
       <div class="benefit-head">
         <span class="benefit-num">D</span>
         <span class="benefit-metric">CONTENT</span>
