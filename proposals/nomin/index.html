@@ -774,6 +774,264 @@
     place-items: center;
   }
 
+  /* ═════ Chingis Airline hero land-art frame ═════ */
+  .airline-hero{
+    margin:64px auto 0;
+    max-width:1100px;
+    display:flex;flex-direction:column;gap:0;
+  }
+  .airline-hero-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio: 21 / 9;
+    overflow:hidden;
+    border:1px solid rgba(0,229,255,0.4);
+    background:#000;
+    box-shadow:0 30px 80px -32px rgba(0,255,166,0.18), 0 0 0 1px rgba(0,229,255,0.08);
+  }
+  .airline-hero-frame img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:contrast(1.06) saturate(1.08);
+    transition:transform 8s ease;
+  }
+  .airline-hero-frame:hover img{transform:scale(1.04)}
+  /* scan-line overlay */
+  .airline-hero-frame::before{
+    content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:repeating-linear-gradient(
+      0deg,
+      transparent 0,transparent 3px,
+      rgba(0,229,255,0.045) 3px,rgba(0,229,255,0.045) 4px);
+  }
+  /* vignette */
+  .airline-hero-frame::after{
+    content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.65) 100%);
+  }
+  .ahero-corner{
+    position:absolute;width:22px;height:22px;
+    border:2px solid var(--neon-2);z-index:3;
+  }
+  .ahero-corner.tl{top:10px;left:10px;border-right:none;border-bottom:none}
+  .ahero-corner.tr{top:10px;right:10px;border-left:none;border-bottom:none}
+  .ahero-corner.bl{bottom:10px;left:10px;border-right:none;border-top:none}
+  .ahero-corner.br{bottom:10px;right:10px;border-left:none;border-top:none}
+  .ahero-rec{
+    position:absolute;top:18px;left:24px;z-index:4;
+    display:flex;align-items:center;gap:8px;
+    padding:5px 12px;
+    background:rgba(0,0,0,0.7);
+    border:1px solid rgba(255,68,68,0.5);
+    font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+    letter-spacing:0.22em;color:#fff;text-transform:uppercase;
+  }
+  .ahero-dot{
+    width:8px;height:8px;border-radius:50%;background:#ff4444;
+    animation:ahero-blink 1.2s ease-in-out infinite;
+  }
+  @keyframes ahero-blink{0%,100%{opacity:1}50%{opacity:0.2}}
+  .ahero-coord{
+    position:absolute;bottom:18px;right:24px;z-index:4;
+    padding:5px 12px;
+    background:rgba(0,0,0,0.7);
+    border:1px solid rgba(0,229,255,0.4);
+    font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;
+    letter-spacing:0.22em;color:var(--neon-2);
+    font-variant-numeric:tabular-nums;
+  }
+  /* slow sweeping scan line */
+  .ahero-scan{
+    position:absolute;left:0;right:0;height:2px;top:0;z-index:3;
+    background:linear-gradient(90deg,transparent,rgba(0,255,166,0.5),transparent);
+    animation:ahero-sweep 9s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes ahero-sweep{0%{top:-2%}100%{top:100%}}
+
+  /* Meta bar under image */
+  .airline-hero-meta{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border:1px solid rgba(0,229,255,0.18);
+    border-top:none;
+    background:linear-gradient(180deg, rgba(0,229,255,0.025), rgba(0,255,166,0.012));
+  }
+  .ahero-meta-row{
+    display:flex;flex-direction:column;gap:6px;
+    padding:14px 18px;
+    border-right:1px solid rgba(0,229,255,0.12);
+    font-family:'Montserrat',sans-serif;
+  }
+  .ahero-meta-row:last-child{border-right:none}
+  .ahero-meta-row span:first-child{
+    font-size:10px;font-weight:500;letter-spacing:0.22em;
+    color:var(--neon-2);text-transform:uppercase;
+  }
+  .ahero-meta-row span:last-child{
+    font-size:13px;font-weight:700;letter-spacing:0.06em;
+    color:var(--text);
+    font-variant-numeric:tabular-nums;
+  }
+  @media(max-width:720px){
+    .airline-hero-frame{aspect-ratio:16 / 10}
+    .ahero-corner{width:16px;height:16px}
+    .ahero-rec,.ahero-coord{font-size:8px;padding:3px 8px;letter-spacing:0.16em}
+    .ahero-rec{top:10px;left:12px}
+    .ahero-coord{bottom:10px;right:12px}
+    .airline-hero-meta{grid-template-columns:repeat(2, 1fr)}
+    .ahero-meta-row{padding:10px 12px}
+    .ahero-meta-row:nth-child(2){border-right:none}
+    .ahero-meta-row:nth-child(1),
+    .ahero-meta-row:nth-child(2){border-bottom:1px solid rgba(0,229,255,0.12)}
+    .ahero-meta-row span:first-child{font-size:9px;letter-spacing:0.16em}
+    .ahero-meta-row span:last-child{font-size:11px}
+  }
+  /* ═════ /Chingis Airline hero ═════ */
+
+  /* ═════ Tag (хаягжуулалт) product + equipment showcase ═════ */
+  .tag-showcase{
+    margin:64px auto 0;
+    max-width:1100px;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:32px;
+  }
+  .tag-show-item{
+    position:relative;
+    display:flex;flex-direction:column;
+  }
+  .tag-show-tag{
+    position:absolute;top:14px;left:14px;z-index:5;
+    padding:4px 10px;
+    background:rgba(0,0,0,0.7);
+    border:1px solid rgba(0,229,255,0.4);
+    font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;
+    letter-spacing:0.26em;text-transform:uppercase;
+    color:var(--neon-2);
+  }
+  .tag-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/10;
+    overflow:hidden;
+    border:1px solid rgba(0,229,255,0.3);
+    box-shadow:0 24px 60px -28px rgba(0,255,166,0.16);
+  }
+  .tag-frame img{
+    width:100%;height:100%;
+    object-fit:contain;
+    display:block;
+    transition:transform 6s ease;
+  }
+  .tag-frame:hover img{transform:scale(1.03)}
+
+  /* Dark background for the metal tag (its own bg is already black) */
+  .tag-frame-dark{background:#0a0a0a}
+  .tag-frame-dark img{object-fit:cover}
+  .tag-frame-dark::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(
+      0deg, transparent 0, transparent 3px,
+      rgba(0,229,255,0.035) 3px, rgba(0,229,255,0.035) 4px);
+    z-index:2;
+  }
+
+  /* Light background for the machine (it's on white) */
+  .tag-frame-light{
+    background:linear-gradient(180deg, #f5f7f9, #e1e5ea);
+    padding:24px;
+  }
+  .tag-frame-light img{object-fit:contain}
+
+  .tag-corner{
+    position:absolute;width:18px;height:18px;
+    border:2px solid var(--neon-2);z-index:3;
+  }
+  .tag-corner.tl{top:8px;left:8px;border-right:none;border-bottom:none}
+  .tag-corner.tr{top:8px;right:8px;border-left:none;border-bottom:none}
+  .tag-corner.bl{bottom:8px;left:8px;border-right:none;border-top:none}
+  .tag-corner.br{bottom:8px;right:8px;border-left:none;border-top:none}
+
+  .tag-meta{
+    border:1px solid rgba(0,229,255,0.18);
+    border-top:none;
+    background:linear-gradient(180deg, rgba(0,229,255,0.025), rgba(0,255,166,0.012));
+  }
+  .tag-meta-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:11px 16px;
+    border-bottom:1px solid rgba(0,229,255,0.08);
+    font-family:'Montserrat',sans-serif;
+  }
+  .tag-meta-row:last-child{border-bottom:none}
+  .tag-meta-row span:first-child{
+    font-size:10px;font-weight:500;letter-spacing:0.22em;
+    color:var(--neon-2);text-transform:uppercase;
+  }
+  .tag-meta-row span:last-child{
+    font-size:12px;font-weight:700;letter-spacing:0.04em;
+    color:var(--text);text-align:right;
+    font-variant-numeric:tabular-nums;
+  }
+  @media(max-width:720px){
+    .tag-showcase{grid-template-columns:1fr;gap:24px;margin-top:40px}
+    .tag-frame{aspect-ratio:16/9}
+    .tag-corner{width:14px;height:14px}
+    .tag-show-tag{font-size:8px;letter-spacing:0.18em;padding:3px 8px}
+    .tag-meta-row{padding:9px 12px}
+    .tag-meta-row span:first-child{font-size:9px;letter-spacing:0.16em}
+    .tag-meta-row span:last-child{font-size:10.5px}
+  }
+  /* ═════ /Tag showcase ═════ */
+
+  /* ═════ MONGOLZ#1 hero land-art ═════ */
+  .mz-hero{margin:56px auto 0;max-width:1100px;}
+  .mz-hero-frame{
+    position:relative;width:100%;
+    aspect-ratio:32 / 8;overflow:hidden;
+    border:1px solid rgba(0,229,255,0.35);background:#0a0a0a;
+    box-shadow:0 30px 80px -28px rgba(0,255,166,0.18), 0 0 0 1px rgba(0,229,255,0.08);
+  }
+  .mz-hero-frame img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:contrast(1.08) saturate(1.1);
+    transition:transform 9s ease;
+  }
+  .mz-hero-frame:hover img{transform:scale(1.04)}
+  .mz-hero-frame::before{
+    content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:repeating-linear-gradient(0deg, transparent 0, transparent 3px,
+      rgba(0,229,255,0.04) 3px, rgba(0,229,255,0.04) 4px);
+  }
+  .mz-hero-frame::after{
+    content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+  }
+  .mz-corner{position:absolute;width:22px;height:22px;border:2px solid var(--neon);z-index:3;}
+  .mz-corner.tl{top:10px;left:10px;border-right:none;border-bottom:none}
+  .mz-corner.tr{top:10px;right:10px;border-left:none;border-bottom:none}
+  .mz-corner.bl{bottom:10px;left:10px;border-right:none;border-top:none}
+  .mz-corner.br{bottom:10px;right:10px;border-left:none;border-top:none}
+  .mz-tag{
+    position:absolute;top:18px;left:24px;z-index:4;padding:5px 12px;
+    background:rgba(0,0,0,0.7);border:1px solid rgba(0,255,166,0.45);
+    font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+    letter-spacing:0.26em;color:var(--neon);text-transform:uppercase;
+  }
+  .mz-scan{
+    position:absolute;left:0;right:0;height:2px;top:0;z-index:3;
+    background:linear-gradient(90deg,transparent,rgba(0,255,166,0.55),transparent);
+    animation:mz-sweep 10s linear infinite;pointer-events:none;
+  }
+  @keyframes mz-sweep{0%{top:-2%}100%{top:100%}}
+  @media(max-width:720px){
+    .mz-hero-frame{aspect-ratio:16/7}
+    .mz-corner{width:16px;height:16px}
+    .mz-tag{font-size:8.5px;letter-spacing:0.16em;padding:3px 8px;top:10px;left:12px}
+  }
+  /* ═════ /MONGOLZ#1 hero ═════ */
+
+
   /* Documentary photo viewport (aerial land art) */
   .doc-frame {
     position: relative;
@@ -1427,6 +1685,337 @@
 
 
 
+
+  /* ═════ Санхүүгийн задаргаа · footer band + Excel modal ═════ */
+  .fin-trigger-band{
+    margin:72px auto 0;
+    padding:28px 0 6px;
+    border-top:1px solid rgba(0,229,255,0.16);
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:24px;
+    max-width:1100px;
+  }
+
+  .fin-trigger{
+    display:inline-flex;align-items:center;gap:16px;
+    padding:16px 24px;
+    background:linear-gradient(135deg, rgba(0,255,166,0.06), rgba(0,229,255,0.025));
+    border:1px solid rgba(0,229,255,0.28);
+    color:var(--text);
+    font-family:'Montserrat',sans-serif;
+    cursor:pointer;
+    transition:all .35s cubic-bezier(.4,0,.2,1);
+    text-align:left;
+    position:relative;overflow:hidden;
+    margin:0;
+  }
+  .fin-trigger::before{
+    content:'';position:absolute;top:0;left:-100%;width:60%;height:1px;
+    background:linear-gradient(90deg,transparent,var(--neon),transparent);
+    animation:fin-tr-sweep 5s linear infinite;
+  }
+  @keyframes fin-tr-sweep{0%{left:-60%}100%{left:160%}}
+  .fin-trigger:hover{
+    border-color:var(--neon);
+    background:linear-gradient(135deg, rgba(0,255,166,0.1), rgba(0,229,255,0.05));
+    transform:translateY(-2px);
+    box-shadow:0 14px 36px -16px rgba(0,255,166,0.4), 0 0 0 1px rgba(0,255,166,0.12);
+  }
+  .fin-trigger:hover .fin-trigger-icon{
+    color:var(--neon);
+    filter:drop-shadow(0 0 12px rgba(0,255,166,0.6));
+  }
+  .fin-trigger:hover .fin-trigger-arr{transform:translateX(4px);color:var(--neon)}
+  .fin-trigger-icon{
+    width:32px;height:32px;color:var(--neon-2);
+    filter:drop-shadow(0 0 6px rgba(0,229,255,0.3));
+    transition:all .35s;
+    flex-shrink:0;
+  }
+  .fin-trigger-icon svg{width:100%;height:100%}
+  .fin-trigger-body{display:flex;flex-direction:column;gap:3px}
+  .fin-trigger-label{
+    font-size:13px;font-weight:700;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--text);
+  }
+  .fin-trigger-sub{
+    font-size:11px;font-weight:400;letter-spacing:0.12em;
+    color:var(--text-dim);font-variant-numeric:tabular-nums;
+  }
+  .fin-trigger-arr{
+    margin-left:8px;font-size:14px;color:var(--text-dim);
+    transition:all .3s;
+  }
+
+
+  /* ── Modal overlay ── */
+  .fin-modal{
+    position:fixed;inset:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;
+    padding:40px 24px;
+    animation:fin-modal-fade .3s ease;
+  }
+  .fin-modal[hidden]{display:none}
+  @keyframes fin-modal-fade{from{opacity:0}to{opacity:1}}
+  .fin-modal-backdrop{
+    position:absolute;inset:0;
+    background:rgba(0,0,0,0.78);
+    backdrop-filter:blur(8px);
+    cursor:pointer;
+  }
+  .fin-modal-frame{
+    position:relative;z-index:1;
+    width:100%;max-width:1100px;
+    max-height:calc(100vh - 80px);
+    display:flex;
+    animation:fin-modal-pop .4s cubic-bezier(.4,0,.2,1);
+  }
+  @keyframes fin-modal-pop{
+    from{opacity:0;transform:scale(0.94) translateY(20px)}
+    to{opacity:1;transform:scale(1) translateY(0)}
+  }
+  .fin-modal .fin-wrap{
+    margin-top:0;
+    background:#ffffff;
+    border:1px solid #b0b8c0;
+    border-radius:4px;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,0.9), 0 0 0 1px rgba(0,229,255,0.2);
+    overflow:hidden;
+    font-family:'Calibri','Segoe UI','Arial',sans-serif;
+    color:#000;
+    display:flex;flex-direction:column;
+    width:100%;max-height:calc(100vh - 80px);
+  }
+  .fin-modal .fin-grid-wrap{
+    flex:1;
+    max-height:none;
+    overflow-y:auto;
+  }
+
+  /* X button: make obvious as clickable */
+  .fin-titlebar-right .fin-titlebar-btn:last-child{
+    cursor:pointer;
+    transition:background .15s;
+    padding:0 6px;
+  }
+  .fin-titlebar-right .fin-titlebar-btn:last-child:hover{
+    background:#e81123;color:#fff;
+  }
+
+  @media(max-width:720px){
+    .fin-trigger-band{
+      flex-direction:column;
+      align-items:stretch;gap:14px;
+      margin-top:48px;padding-top:20px;
+    }
+    .fin-trigger{padding:12px 16px;gap:12px;width:100%;justify-content:flex-start}
+    .fin-trigger-icon{width:26px;height:26px}
+    .fin-trigger-label{font-size:11px;letter-spacing:0.14em}
+    .fin-trigger-sub{font-size:9.5px}
+    .fin-modal{padding:16px 8px}
+    .fin-modal-frame{max-height:calc(100vh - 32px)}
+    .fin-modal .fin-wrap{max-height:calc(100vh - 32px)}
+  }
+  /* ═════ /Санхүүгийн задаргаа ═════ */
+
+  /* ═════ Excel sheet styles (kept) ═════ */
+
+
+  .fin-wrap{
+    margin-top:14px;
+    background:#ffffff;
+    border:1px solid #b0b8c0;
+    border-radius:4px;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,229,255,0.2);
+    overflow:hidden;
+    animation:fin-slide .45s cubic-bezier(.4,0,.2,1);
+    font-family:'Calibri','Segoe UI','Arial',sans-serif;
+    color:#000;
+  }
+  @keyframes fin-slide{
+    from{opacity:0;transform:translateY(-10px) scale(0.98)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+  }
+  .fin-wrap[hidden]{display:none}
+
+  /* ── Title bar (Excel-like) ── */
+  .fin-titlebar{
+    display:flex;align-items:center;justify-content:space-between;
+    background:linear-gradient(180deg, #2b7a3d, #217346);
+    color:#fff;padding:8px 14px;
+    font-size:12px;font-weight:600;letter-spacing:0.02em;
+    border-bottom:1px solid #1a5631;
+  }
+  .fin-titlebar-left{display:flex;align-items:center;gap:10px}
+  .fin-titlebar-icon{
+    width:18px;height:18px;background:#fff;color:#217346;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Times New Roman',serif;font-style:italic;font-weight:900;
+    font-size:14px;border-radius:2px;
+  }
+  .fin-titlebar-right{display:flex;gap:14px;color:rgba(255,255,255,0.85);font-size:11px}
+  .fin-titlebar-btn{cursor:default;font-family:'Segoe UI',sans-serif}
+
+  /* ── Formula bar ── */
+  .fin-toolbar{
+    display:flex;align-items:stretch;
+    background:#f3f3f3;
+    border-bottom:1px solid #d4d4d4;
+    font-size:12px;
+  }
+  .fin-name-box{
+    width:80px;padding:6px 10px;
+    border-right:1px solid #d4d4d4;
+    background:#fff;
+    font-family:'Calibri',sans-serif;color:#000;
+    display:flex;align-items:center;
+  }
+  .fin-fx{
+    width:36px;padding:6px;
+    border-right:1px solid #d4d4d4;
+    color:#666;font-style:italic;font-family:'Times New Roman',serif;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .fin-formula{
+    flex:1;padding:6px 12px;
+    background:#fff;color:#000;
+    display:flex;align-items:center;
+  }
+
+  /* ── Spreadsheet grid ── */
+  .fin-grid-wrap{
+    background:#fff;overflow-x:auto;
+    max-height:560px;overflow-y:auto;
+  }
+  .fin-grid{
+    width:100%;border-collapse:collapse;
+    font-family:'Calibri','Segoe UI',sans-serif;font-size:12px;color:#000;
+    table-layout:fixed;
+  }
+  /* Column letters row (A B C D E F) */
+  .fin-grid thead .fin-col-row td,
+  .fin-grid thead .fin-col-row th{
+    background:#f0f0f0;color:#444;
+    font-weight:400;font-size:11px;text-align:center;
+    border:1px solid #d4d4d4;border-top:none;
+    padding:3px 6px;height:20px;
+  }
+  .fin-grid thead .fin-col-row .fin-corner{
+    background:#e1e1e1;width:42px;
+  }
+  /* Row numbers (left gutter) */
+  .fin-grid .fin-rownum{
+    background:#f0f0f0;color:#444;
+    font-weight:400;font-size:11px;text-align:center;
+    border:1px solid #d4d4d4;
+    padding:3px 6px;width:42px;
+    user-select:none;
+  }
+  /* Column widths */
+  .fin-grid col.col-a{width:42px}
+  .fin-grid col.col-b{width:24%}
+  .fin-grid col.col-c{width:30%}
+  .fin-grid col.col-d{width:12%}
+  .fin-grid col.col-e{width:16%}
+  .fin-grid col.col-f{width:18%}
+
+  /* Header row 1 (sheet title) */
+  .fin-grid .fin-title-row td{
+    background:#fff2cc;color:#000;
+    font-weight:700;font-size:14px;text-align:center;
+    border:1px solid #d4d4d4;
+    padding:10px 12px;
+  }
+  /* Header row 2 (column headers) */
+  .fin-grid .fin-head-row td{
+    background:#d9e1f2;color:#000;
+    font-weight:700;font-size:12px;text-align:center;
+    border:1px solid #d4d4d4;
+    padding:8px 10px;
+  }
+  /* Data cells */
+  .fin-grid tbody td{
+    background:#fff;color:#000;font-weight:400;
+    border:1px solid #d4d4d4;
+    padding:5px 10px;height:22px;
+    vertical-align:middle;
+  }
+  /* Number columns: right-aligned tabular */
+  .fin-grid tbody td.fin-num,
+  .fin-grid .fin-head-row td.fin-num{
+    text-align:right;font-variant-numeric:tabular-nums;
+  }
+  /* Group header rows (Excel green-tint) */
+  .fin-grid tbody .fin-group td{
+    background:#e2efda!important;color:#375623;
+    font-weight:700;font-size:12px;
+    padding:6px 10px;text-align:left;
+  }
+  .fin-grid tbody .fin-group .fin-rownum{background:#f0f0f0!important;color:#444}
+  /* Subtotal rows */
+  .fin-grid tbody .fin-subtotal td{
+    background:#fce4d6!important;color:#000;
+    font-weight:700;
+  }
+  .fin-grid tbody .fin-subtotal .fin-rownum{background:#f0f0f0!important;color:#444}
+  .fin-grid tbody .fin-subtotal td.fin-subtotal-label{text-align:right;text-transform:none}
+  /* Grand total */
+  .fin-grid tbody .fin-total td{
+    background:#ffd966!important;color:#000;
+    font-weight:800;font-size:13px;
+    border:2px solid #bf8f00!important;
+  }
+  .fin-grid tbody .fin-total .fin-rownum{background:#f0f0f0!important;color:#444;border:1px solid #d4d4d4!important}
+  .fin-grid tbody .fin-total td.fin-subtotal-label{text-align:right}
+
+  /* Hover row highlight */
+  .fin-grid tbody tr:hover td:not(.fin-rownum){
+    box-shadow:inset 0 0 0 1px #217346;
+  }
+
+  /* ── Sheet tabs (bottom) ── */
+  .fin-tabs{
+    display:flex;align-items:center;
+    background:#f3f3f3;border-top:1px solid #d4d4d4;
+    padding:0 4px;font-size:11px;
+    font-family:'Calibri','Segoe UI',sans-serif;
+  }
+  .fin-tab{
+    padding:7px 18px;color:#000;background:#fff;
+    border:1px solid #d4d4d4;border-bottom:none;
+    margin-right:2px;cursor:default;
+    border-radius:0 0 3px 3px;
+    font-weight:700;
+  }
+  .fin-tab:not(.active){background:#e1e1e1;color:#555;font-weight:400}
+  .fin-tab-add{
+    padding:6px 10px;color:#666;font-size:14px;
+    cursor:default;
+  }
+  .fin-tabs-spacer{flex:1}
+  .fin-tabs-ready{
+    padding:7px 14px;color:#555;font-size:11px;
+  }
+  .fin-tabs-ready::before{
+    content:'';display:inline-block;width:6px;height:6px;
+    background:#22c55e;border-radius:50%;margin-right:6px;
+    vertical-align:1px;
+  }
+
+  @media(max-width:720px){
+    .fin-toggle{padding:16px 18px;gap:12px;flex-wrap:wrap}
+    .fin-toggle-num{font-size:18px}
+    .fin-toggle-label{font-size:10px;letter-spacing:0.18em}
+    .fin-grid{font-size:10px}
+    .fin-grid tbody td{padding:4px 6px}
+    .fin-grid .fin-title-row td{font-size:12px;padding:8px}
+    .fin-grid .fin-head-row td{font-size:10px;padding:6px 4px}
+    .fin-name-box{width:60px;font-size:10px}
+    .fin-formula{font-size:10px}
+  }
+  /* ═════ /Санхүүгийн задаргаа ═════ */
   /* ═════ Left-align all card content site-wide ═════ */
   .benefit-card,
   .benefit-card .benefit-head,
@@ -2392,6 +2981,16 @@
   <div class="section-tag reveal">// PROJECT 02 — MONGOLZ#1 ЛЭНД АРТ · N ҮСЭГ</div>
   <h2 class="grid-title reveal">MONGOLZ#1 — N ҮСЭГ</h2>
 
+  <div class="mz-hero reveal">
+    <div class="mz-hero-frame">
+      <img src="assets/mongolz-landart.png" alt="MONGOLZ#1 Land Art — aerial view" loading="lazy" />
+      <span class="mz-corner tl"></span>
+      <span class="mz-corner tr"></span>
+      <span class="mz-corner bl"></span>
+      <span class="mz-corner br"></span>
+      <div class="mz-tag">MONGOLZ#1 · LAND ART</div>
+      <div class="mz-scan"></div>
+    </div>
   </div>
 
   <div class="stats" style="margin-top: 60px;">
@@ -2427,10 +3026,27 @@
   <p class="grid-subtitle reveal">ЛЭНД АРТ + <span style="color: var(--neon);">ГИШҮҮНЧЛЭЛИЙН КАРТ</span></p>
 
   <div class="anniv-text reveal" style="margin-top:40px;">
-    Chingis Airline-ийн <strong>гишүүнчлэлийн карттай уялдсан орон зайн урлаг.</strong>  Гишүүн нь ХУДАЛДАН АВСАН ТАСАЛБАР БҮРТЭЭ ОНОО ЦУГЛУУЛАХ БА НИСЛЭГЭЭС үүсэх НҮҮРС ХҮЧЛИЙН ДАВХАР ИСЛЭЭ ЛЭНД АРТАД МОДТОЙ БОЛОХ ЗАМААР шингээнэ.  <strong></strong> 
+    Chingis Airline-ийн <strong>гишүүнчлэлийн карттай уялдсан орон зайн урлаг.</strong>  Гишүүн нь ХУДАЛДАН АВСАН ТАСАЛБАР БҮРТЭЭ ОНОО ЦУГЛУУЛАХ БА НИСЛЭГЭЭС үүсэх НҮҮРС ХҮЧЛИЙН ДАВХАР ИСЛЭЭ ЛЭНД АРТАД МОДТОЙ БОЛОХ ЗАМААР шингээнэ.  <strong></strong>
   </div>
 
-  
+  <div class="airline-hero reveal">
+    <div class="airline-hero-frame">
+      <img src="assets/chingis-airline-landart.jpg" alt="Chingis Airline Land Art — Aerial view" loading="lazy" />
+      <span class="ahero-corner tl"></span>
+      <span class="ahero-corner tr"></span>
+      <span class="ahero-corner bl"></span>
+      <span class="ahero-corner br"></span>
+      <div class="ahero-rec"><span class="ahero-dot"></span>DRONE · <span id="airTime">00:00:00</span></div>
+      <div class="ahero-coord">N 42°48′ · E 105°33′ · GOBI</div>
+      <div class="ahero-scan"></div>
+    </div>
+    <div class="airline-hero-meta">
+      <div class="ahero-meta-row"><span>SUBJECT</span><span>CHINGIS AIRLINE LAND ART</span></div>
+      <div class="ahero-meta-row"><span>SCALE</span><span>⌀ 60 M · 2,000 МОД</span></div>
+      <div class="ahero-meta-row"><span>BIOMASS</span><span>~7.4 Т / ЖИЛ</span></div>
+      <div class="ahero-meta-row"><span>CO₂ SINK</span><span>~3.5 Т / ЖИЛ</span></div>
+    </div>
+  </div>
 
   <div class="benefits-grid" style="margin-top: 40px;">
 
@@ -2466,6 +3082,25 @@
       </ul>
     </div>
 
+  </div>
+
+  <div class="fin-trigger-band reveal">
+  <button class="fin-trigger reveal" type="button" data-fin-open="fin-modal">
+    <span class="fin-trigger-icon">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="1"/>
+        <line x1="3" y1="9" x2="21" y2="9"/>
+        <line x1="3" y1="15" x2="21" y2="15"/>
+        <line x1="9" y1="3" x2="9" y2="21"/>
+        <line x1="15" y1="3" x2="15" y2="21"/>
+      </svg>
+    </span>
+    <span class="fin-trigger-body">
+      <span class="fin-trigger-label">САНХҮҮГИЙН ЗАДАРГАА</span>
+      <span class="fin-trigger-sub">ТУСГАЙ ТӨГӨЛ · ₮98,640,800</span>
+    </span>
+    <span class="fin-trigger-arr">▸</span>
+  </button>
   </div>
 </section>
 
@@ -2504,6 +3139,25 @@
         <div class="rec-badge"><span class="rec-dot"></span>REC · <span id="recTime">00:00:00</span></div>
       </div>
     </div>
+  </div>
+
+  <div class="fin-trigger-band reveal">
+  <button class="fin-trigger reveal" type="button" data-fin-open="fin-modal-film">
+    <span class="fin-trigger-icon">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="1"/>
+        <line x1="3" y1="9" x2="21" y2="9"/>
+        <line x1="3" y1="15" x2="21" y2="15"/>
+        <line x1="9" y1="3" x2="9" y2="21"/>
+        <line x1="15" y1="3" x2="15" y2="21"/>
+      </svg>
+    </span>
+    <span class="fin-trigger-body">
+      <span class="fin-trigger-label">САНХҮҮГИЙН ЗАДАРГАА</span>
+      <span class="fin-trigger-sub">БАРИМТАТ КИНО · ₮40,000,000</span>
+    </span>
+    <span class="fin-trigger-arr">▸</span>
+  </button>
   </div>
 </section>
 
@@ -2563,41 +3217,70 @@
   <h2 class="grid-title reveal">МОДНЫ ХАЯГЖУУЛАЛТ</h2>
 
   <div class="anniv-text reveal" style="margin-top:40px;">
-     Лэнд артуудын одоогийн модны хаягжуулалтын пайзыг бүхэлд нь шинэчилнэ. <strong>Илүү бат бөх материал</strong>, говийн уур амьсгалд тэсвэртэй <strong>лазер сийбэр.</strong> 
+     Лэнд артуудын одоогийн модны хаягжуулалтын пайзыг бүхэлд нь шинэчилнэ. <strong>Илүү бат бөх материал</strong>, говийн уур амьсгалд тэсвэртэй <strong>лазер сийбэр.</strong>
+  </div>
+
+  <div class="tag-showcase reveal">
+    <div class="tag-show-item">
+      <div class="tag-show-tag">PRODUCT</div>
+      <div class="tag-frame tag-frame-dark">
+        <img src="assets/metal-tag.png" alt="Шамбала 2056 Engineering Campus metal tag" loading="lazy" />
+        <span class="tag-corner tl"></span>
+        <span class="tag-corner tr"></span>
+        <span class="tag-corner bl"></span>
+        <span class="tag-corner br"></span>
+      </div>
+      <div class="tag-meta">
+        <div class="tag-meta-row"><span>MATERIAL</span><span>ХӨНГӨН ЦАГААН</span></div>
+        <div class="tag-meta-row"><span>FINISH</span><span>МАТТЭ ХАР · АНОДЛОСОН</span></div>
+        <div class="tag-meta-row"><span>ENGRAVING</span><span>ЛАЗЕР СИЙЛБЭР</span></div>
+        <div class="tag-meta-row"><span>DURABILITY</span><span>UV · ХУР · ЦАСНЫ ТЭСВЭРТЭЙ</span></div>
+      </div>
+    </div>
+
+    <div class="tag-show-item">
+      <div class="tag-show-tag">EQUIPMENT</div>
+      <div class="tag-frame tag-frame-light">
+        <img src="assets/xtool-f2-ultra.jpg" alt="xTOOL F2 Ultra Fiber Laser" loading="lazy" />
+        <span class="tag-corner tl"></span>
+        <span class="tag-corner tr"></span>
+        <span class="tag-corner bl"></span>
+        <span class="tag-corner br"></span>
+      </div>
+      <div class="tag-meta">
+        <div class="tag-meta-row"><span>MODEL</span><span>xTOOL F2 ULTRA</span></div>
+        <div class="tag-meta-row"><span>TYPE</span><span>FIBER LASER ENGRAVER</span></div>
+        <div class="tag-meta-row"><span>OUTPUT</span><span>60 W · 4 000 mm/s</span></div>
+        <div class="tag-meta-row"><span>USE</span><span>МЕТАЛЛ ПАЙЗ СИЙЛБЭР</span></div>
+      </div>
+    </div>
   </div>
 
   <div class="benefits-grid" style="margin-top: 60px;">
 
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">01</span>
-        <span class="benefit-metric">БИЕТ</span>
-      </div>
-      <h4 class="benefit-title">МАТЕРИАЛ — МЕТАЛЛ ПАЙЗ</h4>
-      <ul class="benefit-list">
-        <li>Хөнгөн цагаан</li>
-        <li>Говийн цаг агаар <strong>усанд тэсвэртэй</strong>.</li>
-      </ul>
-    </div>
-
-    <div class="benefit-card">
-      <div class="benefit-head">
-        <span class="benefit-num">02</span>
-        <span class="benefit-metric">ДИЗАЙН</span>
-      </div>
-      <h4 class="benefit-title">ЛАЗЕР СИЙЛБЭР</h4>
-      <ul class="benefit-list">
-        <li>Номин Холдингийн <strong>лого + хэрэглэгчийн нэр</strong>.</li>
-      </ul>
-    </div>
 
     
 
   </div>
 
-  <div class="budget-total reveal" style="margin-top:48px;">
-    <div class="budget-total-label">PROJECT 09 — ӨРТӨГ · ЛАЗЕР МАШИН + МАТЕРИАЛ</div>
-    <div class="budget-total-amount">50,000,000 ₮</div>
+
+  <div class="fin-trigger-band reveal">
+  <button class="fin-trigger reveal" type="button" data-fin-open="fin-modal-tag">
+    <span class="fin-trigger-icon">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="1"/>
+        <line x1="3" y1="9" x2="21" y2="9"/>
+        <line x1="3" y1="15" x2="21" y2="15"/>
+        <line x1="9" y1="3" x2="9" y2="21"/>
+        <line x1="15" y1="3" x2="15" y2="21"/>
+      </svg>
+    </span>
+    <span class="fin-trigger-body">
+      <span class="fin-trigger-label">САНХҮҮГИЙН ЗАДАРГАА</span>
+      <span class="fin-trigger-sub">ПАЙЗ ШИНЭЧЛЭЛТ · ₮50,000,000</span>
+    </span>
+    <span class="fin-trigger-arr">▸</span>
+  </button>
   </div>
 </section>
 
@@ -2774,20 +3457,349 @@
   }, { threshold: 0.4 });
   sections.forEach((s) => navObs.observe(s));
 
-  // REC running timer
+  // REC + DRONE running timers
   (() => {
-    const el = document.getElementById('recTime');
-    if (!el) return;
-    let seconds = 0;
+    const els = ['recTime', 'airTime'].map(id => document.getElementById(id)).filter(Boolean);
+    if (!els.length) return;
     const pad = (n) => n.toString().padStart(2, '0');
+    const starts = els.map((_, i) => i * 1287); // stagger so timers don't sync
     setInterval(() => {
-      seconds = (seconds + 1) % (100 * 3600);
-      const h = Math.floor(seconds / 3600);
-      const m = Math.floor((seconds % 3600) / 60);
-      const s = seconds % 60;
-      el.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+      els.forEach((el, i) => {
+        starts[i] = (starts[i] + 1) % (100 * 3600);
+        const h = Math.floor(starts[i] / 3600);
+        const m = Math.floor((starts[i] % 3600) / 60);
+        const s = starts[i] % 60;
+        el.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+      });
     }, 1000);
   })();
+</script>
+
+
+
+<!-- FINANCIAL MODAL -->
+<div class="fin-modal" id="fin-modal" hidden aria-hidden="true">
+  <div class="fin-modal-backdrop" data-fin-close></div>
+  <div class="fin-modal-frame">
+    <div class="fin-wrap">
+
+      <!-- Title bar -->
+      <div class="fin-titlebar">
+        <div class="fin-titlebar-left">
+          <div class="fin-titlebar-icon">X</div>
+          <span>Тусгай төгөлийн санхүүгийн задаргаа — Excel</span>
+        </div>
+        <div class="fin-titlebar-right">
+          <span class="fin-titlebar-btn">⎯</span>
+          <span class="fin-titlebar-btn">▢</span>
+          <span class="fin-titlebar-btn">✕</span>
+        </div>
+      </div>
+
+      <!-- Formula bar -->
+      <div class="fin-toolbar">
+        <div class="fin-name-box">A1</div>
+        <div class="fin-fx">ƒx</div>
+        <div class="fin-formula">Тусгай төгөлийн санхүүгийн задаргаа</div>
+      </div>
+
+      <!-- Spreadsheet grid -->
+      <div class="fin-grid-wrap">
+        <table class="fin-grid">
+          <colgroup>
+            <col class="col-a"><col class="col-b"><col class="col-c"><col class="col-d"><col class="col-e"><col class="col-f">
+          </colgroup>
+          <thead>
+            <tr class="fin-col-row">
+              <th class="fin-corner"></th>
+              <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>
+            </tr>
+            <tr class="fin-title-row">
+              <td class="fin-rownum">1</td>
+              <td colspan="5">Тусгай төгөлийн санхүүгийн задаргаа</td>
+            </tr>
+            <tr class="fin-head-row">
+              <td class="fin-rownum">2</td>
+              <td>Арга хэмжээний төрөл</td>
+              <td>Авч хэрэгжүүлэх арга хэмжээний тайлбар</td>
+              <td class="fin-num">Тоо ширхэг</td>
+              <td class="fin-num">Нэгж үнэ</td>
+              <td class="fin-num">Нийт үнэ</td>
+            </tr>
+          </thead>
+          <tbody>
+        <tr class="fin-group"><td class="fin-rownum">3</td><td colspan="5">Үйл ажиллагаа 1: Зураг төсөл боловсруулах</td></tr>
+        <tr><td class="fin-rownum">4</td><td>Зураг төсөл боловсруулах</td><td>Талбайн хэмжилт</td><td class="fin-num">1</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮1,000,000</td></tr>
+        <tr><td class="fin-rownum">5</td><td></td><td>Дендроплан</td><td class="fin-num">1</td><td class="fin-num">₮2,000,000</td><td class="fin-num">₮2,000,000</td></tr>
+        <tr><td class="fin-rownum">6</td><td></td><td>Хөрсний дээж авах</td><td class="fin-num">1</td><td class="fin-num">—</td><td class="fin-num">₮0</td></tr>
+        <tr><td class="fin-rownum">7</td><td></td><td>Хөрсний шинжилгээ</td><td class="fin-num">1</td><td class="fin-num">₮500,000</td><td class="fin-num">₮500,000</td></tr>
+        <tr><td class="fin-rownum">8</td><td></td><td>Усны дээж авах</td><td class="fin-num">1</td><td class="fin-num">—</td><td class="fin-num">₮0</td></tr>
+        <tr><td class="fin-rownum">9</td><td></td><td>Усны шинжилгээ</td><td class="fin-num">1</td><td class="fin-num">₮500,000</td><td class="fin-num">₮500,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">10</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮4,000,000</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">11</td><td colspan="5">Үйл ажиллагаа 2: Хөрс боловсруулалт</td></tr>
+        <tr><td class="fin-rownum">12</td><td>Хөрс боловсруулалт</td><td>Органик хаягдлыг цуглуулах</td><td class="fin-num">1</td><td class="fin-num">—</td><td class="fin-num">₮0</td></tr>
+        <tr><td class="fin-rownum">13</td><td></td><td>Хөрс боловсруулалт</td><td class="fin-num">1</td><td class="fin-num">—</td><td class="fin-num">₮0</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">14</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮0</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">15</td><td colspan="5">Үйл ажиллагаа 3: Нүх ухалт</td></tr>
+        <tr><td class="fin-rownum">16</td><td>Нүх ухалт</td><td>Нүх ухах байршлын хэмжилт</td><td class="fin-num">1</td><td class="fin-num">₮1,500,000</td><td class="fin-num">₮1,500,000</td></tr>
+        <tr><td class="fin-rownum">17</td><td></td><td>Модны нүх ухалт (м)</td><td class="fin-num">600</td><td class="fin-num">₮10,000</td><td class="fin-num">₮6,000,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">18</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮7,500,000</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">19</td><td colspan="5">Үйл ажиллагаа 4: Усны нөөц сав</td></tr>
+        <tr><td class="fin-rownum">20</td><td>Усны нөөц сав</td><td>Усалгааны танк</td><td class="fin-num">1</td><td class="fin-num">₮1,958,000</td><td class="fin-num">₮1,958,000</td></tr>
+        <tr><td class="fin-rownum">21</td><td></td><td>Өндөрлөгөө хийх ажил</td><td class="fin-num">1</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮1,000,000</td></tr>
+        <tr><td class="fin-rownum">22</td><td></td><td>Тээвэрлэлт</td><td class="fin-num">1</td><td class="fin-num">₮800,000</td><td class="fin-num">₮800,000</td></tr>
+        <tr><td class="fin-rownum">23</td><td></td><td>Угсралтын ажил</td><td class="fin-num">1</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮1,000,000</td></tr>
+        <tr><td class="fin-rownum">24</td><td></td><td>Шугам хоолойн ажил</td><td class="fin-num">1</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮1,000,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">25</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮5,758,000</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">26</td><td colspan="5">Үйл ажиллагаа 5: Хашаажуулалт</td></tr>
+        <tr><td class="fin-rownum">27</td><td>Хашаажуулалт</td><td>Хэмжилтийн ажил</td><td class="fin-num">1</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮1,000,000</td></tr>
+        <tr><td class="fin-rownum">28</td><td></td><td>Хашаа (м)</td><td class="fin-num">400</td><td class="fin-num">₮2,030</td><td class="fin-num">₮812,000</td></tr>
+        <tr><td class="fin-rownum">29</td><td></td><td>Шон</td><td class="fin-num">200</td><td class="fin-num">₮4,240</td><td class="fin-num">₮848,000</td></tr>
+        <tr><td class="fin-rownum">30</td><td></td><td>Тээвэр</td><td class="fin-num">1</td><td class="fin-num">₮800,000</td><td class="fin-num">₮800,000</td></tr>
+        <tr><td class="fin-rownum">31</td><td></td><td>Шон ухалтын ажил</td><td class="fin-num">2</td><td class="fin-num">₮1,500,000</td><td class="fin-num">₮3,000,000</td></tr>
+        <tr><td class="fin-rownum">32</td><td></td><td>Угсралтын ажил</td><td class="fin-num">2</td><td class="fin-num">—</td><td class="fin-num">₮0</td></tr>
+        <tr><td class="fin-rownum">33</td><td></td><td>Суурилуулалтын ажил</td><td class="fin-num">2</td><td class="fin-num">—</td><td class="fin-num">₮0</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">34</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮6,460,000</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">35</td><td colspan="5">Үйл ажиллагаа 6: Мод суулгалтын ажил</td></tr>
+        <tr><td class="fin-rownum">36</td><td>Мод суулгалтын ажил</td><td>Мод</td><td class="fin-num">35,000</td><td class="fin-num">₮700</td><td class="fin-num">₮24,500,000</td></tr>
+        <tr><td class="fin-rownum">37</td><td></td><td>Мод тарих</td><td class="fin-num">35,000</td><td class="fin-num">₮500</td><td class="fin-num">₮17,500,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">38</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮42,000,000</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">39</td><td colspan="5">Үйл ажиллагаа 7: Усалгааны систем</td></tr>
+        <tr><td class="fin-rownum">40</td><td>Усалгааны систем</td><td>Дуслын усалгааны хоолой (Вотерлайн)</td><td class="fin-num">900</td><td class="fin-num">₮424</td><td class="fin-num">₮381,600</td></tr>
+        <tr><td class="fin-rownum">41</td><td></td><td>Үндсэн хоолой (Полиэтилен)</td><td class="fin-num">100</td><td class="fin-num">₮4,240</td><td class="fin-num">₮424,000</td></tr>
+        <tr><td class="fin-rownum">42</td><td></td><td>Эрвээхэй хаалт</td><td class="fin-num">100</td><td class="fin-num">₮200</td><td class="fin-num">₮20,000</td></tr>
+        <tr><td class="fin-rownum">43</td><td></td><td>Резватай булан</td><td class="fin-num">4</td><td class="fin-num">₮4,250</td><td class="fin-num">₮17,000</td></tr>
+        <tr><td class="fin-rownum">44</td><td></td><td>Тройник</td><td class="fin-num">5</td><td class="fin-num">₮10,600</td><td class="fin-num">₮53,000</td></tr>
+        <tr><td class="fin-rownum">45</td><td></td><td>Резватай тройник</td><td class="fin-num">4</td><td class="fin-num">₮10,600</td><td class="fin-num">₮42,400</td></tr>
+        <tr><td class="fin-rownum">46</td><td></td><td>Хаалт</td><td class="fin-num">1</td><td class="fin-num">₮26,500</td><td class="fin-num">₮26,500</td></tr>
+        <tr><td class="fin-rownum">47</td><td></td><td>Нүхлэгч</td><td class="fin-num">10</td><td class="fin-num">₮5,300</td><td class="fin-num">₮53,000</td></tr>
+        <tr><td class="fin-rownum">48</td><td></td><td>Гоожуур</td><td class="fin-num">100</td><td class="fin-num">₮53</td><td class="fin-num">₮5,300</td></tr>
+        <tr><td class="fin-rownum">49</td><td></td><td>Тээвэрлэлт</td><td class="fin-num">1</td><td class="fin-num">₮1,400,000</td><td class="fin-num">₮1,400,000</td></tr>
+        <tr><td class="fin-rownum">50</td><td></td><td>Хэмжилтийн ажил</td><td class="fin-num">2</td><td class="fin-num">₮1,500,000</td><td class="fin-num">₮3,000,000</td></tr>
+        <tr><td class="fin-rownum">51</td><td></td><td>Таслах ажил</td><td class="fin-num">1</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮1,000,000</td></tr>
+        <tr><td class="fin-rownum">52</td><td></td><td>Төв магистрал холболтын ажил</td><td class="fin-num">2</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮2,000,000</td></tr>
+        <tr><td class="fin-rownum">53</td><td></td><td>Угсралтын ажил</td><td class="fin-num">3</td><td class="fin-num">₮1,500,000</td><td class="fin-num">₮4,500,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">54</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮12,922,800</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">55</td><td colspan="5">Үйл ажиллагаа 8: Гишүүнчлэлийн карт</td></tr>
+        <tr><td class="fin-rownum">56</td><td>Карт</td><td>Гишүүнчлэлийн карт</td><td class="fin-num">1,000</td><td class="fin-num">₮20,000</td><td class="fin-num">₮20,000,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">57</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮20,000,000</td></tr>
+        <tr class="fin-total"><td class="fin-rownum">58</td><td class="fin-subtotal-label" colspan="4">НИЙТ ДҮН</td><td class="fin-num">₮98,640,800</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sheet tabs -->
+      <div class="fin-tabs">
+        <div class="fin-tab active">Тусгай төгөл</div>
+        <div class="fin-tab-add">＋</div>
+        <div class="fin-tabs-spacer"></div>
+        <div class="fin-tabs-ready">READY</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FILM FINANCIAL MODAL -->
+<div class="fin-modal" id="fin-modal-film" hidden aria-hidden="true">
+  <div class="fin-modal-backdrop" data-fin-close></div>
+  <div class="fin-modal-frame">
+    <div class="fin-wrap">
+
+      <!-- Title bar -->
+      <div class="fin-titlebar">
+        <div class="fin-titlebar-left">
+          <div class="fin-titlebar-icon">X</div>
+          <span>Баримтат кино — санхүүгийн задаргаа — Excel</span>
+        </div>
+        <div class="fin-titlebar-right">
+          <span class="fin-titlebar-btn">⎯</span>
+          <span class="fin-titlebar-btn">▢</span>
+          <span class="fin-titlebar-btn">✕</span>
+        </div>
+      </div>
+
+      <!-- Formula bar -->
+      <div class="fin-toolbar">
+        <div class="fin-name-box">A1</div>
+        <div class="fin-fx">ƒx</div>
+        <div class="fin-formula">Баримтат кино санхүүгийн задаргаа</div>
+      </div>
+
+      <!-- Spreadsheet grid -->
+      <div class="fin-grid-wrap">
+        <table class="fin-grid">
+          <colgroup>
+            <col class="col-a"><col class="col-b"><col class="col-c"><col class="col-d"><col class="col-e"><col class="col-f">
+          </colgroup>
+          <thead>
+            <tr class="fin-col-row">
+              <th class="fin-corner"></th>
+              <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>
+            </tr>
+            <tr class="fin-title-row">
+              <td class="fin-rownum">1</td>
+              <td colspan="5">Баримтат кино санхүүгийн задаргаа</td>
+            </tr>
+            <tr class="fin-head-row">
+              <td class="fin-rownum">2</td>
+              <td>Арга хэмжээний төрөл</td>
+              <td>Авч хэрэгжүүлэх арга хэмжээний тайлбар</td>
+              <td class="fin-num">Тоо ширхэг</td>
+              <td class="fin-num">Нэгж үнэ</td>
+              <td class="fin-num">Нийт үнэ</td>
+            </tr>
+          </thead>
+          <tbody>
+        <tr class="fin-group"><td class="fin-rownum">3</td><td colspan="5">Үйл ажиллагаа 1: Pre-production</td></tr>
+        <tr><td class="fin-rownum">4</td><td>Pre-production</td><td>Зохиол, сценари бичих</td><td class="fin-num">1</td><td class="fin-num">₮2,000,000</td><td class="fin-num">₮2,000,000</td></tr>
+        <tr><td class="fin-rownum">5</td><td></td><td>Найруулагчийн төлөвлөлт</td><td class="fin-num">1</td><td class="fin-num">₮1,500,000</td><td class="fin-num">₮1,500,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">6</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮3,500,000</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">7</td><td colspan="5">Үйл ажиллагаа 2: Production</td></tr>
+        <tr><td class="fin-rownum">8</td><td>Production</td><td>Камер, оператор баг</td><td class="fin-num">1</td><td class="fin-num">₮9,000,000</td><td class="fin-num">₮9,000,000</td></tr>
+        <tr><td class="fin-rownum">9</td><td></td><td>Дрон зураг авалт</td><td class="fin-num">1</td><td class="fin-num">₮3,500,000</td><td class="fin-num">₮3,500,000</td></tr>
+        <tr><td class="fin-rownum">10</td><td></td><td>Тоног төхөөрөмжийн түрээс</td><td class="fin-num">1</td><td class="fin-num">₮5,000,000</td><td class="fin-num">₮5,000,000</td></tr>
+        <tr><td class="fin-rownum">11</td><td></td><td>Найруулагч + туслахууд</td><td class="fin-num">1</td><td class="fin-num">₮3,500,000</td><td class="fin-num">₮3,500,000</td></tr>
+        <tr><td class="fin-rownum">12</td><td></td><td>Тээвэр, түлш (Говь)</td><td class="fin-num">1</td><td class="fin-num">₮2,500,000</td><td class="fin-num">₮2,500,000</td></tr>
+        <tr><td class="fin-rownum">13</td><td></td><td>Байр, хоол (баг)</td><td class="fin-num">1</td><td class="fin-num">₮2,500,000</td><td class="fin-num">₮2,500,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">14</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮26,000,000</td></tr>
+        <tr class="fin-group"><td class="fin-rownum">15</td><td colspan="5">Үйл ажиллагаа 3: Post-production</td></tr>
+        <tr><td class="fin-rownum">16</td><td>Post-production</td><td>Найруулга, монтаж</td><td class="fin-num">1</td><td class="fin-num">₮5,000,000</td><td class="fin-num">₮5,000,000</td></tr>
+        <tr><td class="fin-rownum">17</td><td></td><td>Дуу, хөгжим</td><td class="fin-num">1</td><td class="fin-num">₮2,000,000</td><td class="fin-num">₮2,000,000</td></tr>
+        <tr><td class="fin-rownum">18</td><td></td><td>Өгүүлэгч (narrator)</td><td class="fin-num">1</td><td class="fin-num">₮1,200,000</td><td class="fin-num">₮1,200,000</td></tr>
+        <tr><td class="fin-rownum">19</td><td></td><td>Дуу авианы засвар</td><td class="fin-num">1</td><td class="fin-num">₮1,300,000</td><td class="fin-num">₮1,300,000</td></tr>
+        <tr><td class="fin-rownum">20</td><td></td><td>График, текст</td><td class="fin-num">1</td><td class="fin-num">₮1,000,000</td><td class="fin-num">₮1,000,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">21</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮10,500,000</td></tr>
+        <tr class="fin-total"><td class="fin-rownum">22</td><td class="fin-subtotal-label" colspan="4">НИЙТ ДҮН</td><td class="fin-num">₮40,000,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sheet tabs -->
+      <div class="fin-tabs">
+        <div class="fin-tab active">Баримтат кино</div>
+        <div class="fin-tab-add">＋</div>
+        <div class="fin-tabs-spacer"></div>
+        <div class="fin-tabs-ready">READY</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TAG (PAIZ) FINANCIAL MODAL -->
+<div class="fin-modal" id="fin-modal-tag" hidden aria-hidden="true">
+  <div class="fin-modal-backdrop" data-fin-close></div>
+  <div class="fin-modal-frame">
+    <div class="fin-wrap">
+
+      <!-- Title bar -->
+      <div class="fin-titlebar">
+        <div class="fin-titlebar-left">
+          <div class="fin-titlebar-icon">X</div>
+          <span>Пайз шинэчлэлт — санхүүгийн задаргаа — Excel</span>
+        </div>
+        <div class="fin-titlebar-right">
+          <span class="fin-titlebar-btn">⎯</span>
+          <span class="fin-titlebar-btn">▢</span>
+          <span class="fin-titlebar-btn">✕</span>
+        </div>
+      </div>
+
+      <!-- Formula bar -->
+      <div class="fin-toolbar">
+        <div class="fin-name-box">A1</div>
+        <div class="fin-fx">ƒx</div>
+        <div class="fin-formula">Пайз шинэчлэлтийн санхүүгийн задаргаа</div>
+      </div>
+
+      <!-- Spreadsheet grid -->
+      <div class="fin-grid-wrap">
+        <table class="fin-grid">
+          <colgroup>
+            <col class="col-a"><col class="col-b"><col class="col-c"><col class="col-d"><col class="col-e"><col class="col-f">
+          </colgroup>
+          <thead>
+            <tr class="fin-col-row">
+              <th class="fin-corner"></th>
+              <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>
+            </tr>
+            <tr class="fin-title-row">
+              <td class="fin-rownum">1</td>
+              <td colspan="5">Пайз шинэчлэлтийн санхүүгийн задаргаа</td>
+            </tr>
+            <tr class="fin-head-row">
+              <td class="fin-rownum">2</td>
+              <td>Арга хэмжээний төрөл</td>
+              <td>Авч хэрэгжүүлэх арга хэмжээний тайлбар</td>
+              <td class="fin-num">Тоо ширхэг</td>
+              <td class="fin-num">Нэгж үнэ</td>
+              <td class="fin-num">Нийт үнэ</td>
+            </tr>
+          </thead>
+          <tbody>
+        <tr class="fin-group"><td class="fin-rownum">3</td><td colspan="5">Үйл ажиллагаа 1: Пайз хэвлэл</td></tr>
+        <tr><td class="fin-rownum">4</td><td>Пайз хэвлэл</td><td>Хөнгөн цагаан материал</td><td class="fin-num">30,000</td><td class="fin-num">₮1,325</td><td class="fin-num">₮39,750,000</td></tr>
+        <tr><td class="fin-rownum">5</td><td></td><td>Fiber laser машин</td><td class="fin-num">1</td><td class="fin-num">₮10,250,000</td><td class="fin-num">₮10,250,000</td></tr>
+        <tr class="fin-subtotal"><td class="fin-rownum">6</td><td class="fin-subtotal-label" colspan="4">Нийт</td><td class="fin-num">₮50,000,000</td></tr>
+        <tr class="fin-total"><td class="fin-rownum">7</td><td class="fin-subtotal-label" colspan="4">НИЙТ ДҮН</td><td class="fin-num">₮50,000,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sheet tabs -->
+      <div class="fin-tabs">
+        <div class="fin-tab active">Пайз шинэчлэлт</div>
+        <div class="fin-tab-add">＋</div>
+        <div class="fin-tabs-spacer"></div>
+        <div class="fin-tabs-ready">READY</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var modals=document.querySelectorAll('.fin-modal');
+  if(!modals.length) return;
+  function open(modal){
+    modal.hidden=false;
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(modal){
+    modal.hidden=true;
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  // Triggers: data-fin-open="<modal-id>"
+  document.querySelectorAll('[data-fin-open]').forEach(function(t){
+    t.addEventListener('click',function(){
+      var id=t.getAttribute('data-fin-open');
+      var m=document.getElementById(id);
+      if(m) open(m);
+    });
+  });
+  // Closers: backdrop or any [data-fin-close]
+  modals.forEach(function(modal){
+    modal.querySelectorAll('[data-fin-close]').forEach(function(c){
+      c.addEventListener('click',function(){close(modal);});
+    });
+    // Title bar X button
+    var xBtn=modal.querySelector('.fin-titlebar-right .fin-titlebar-btn:last-child');
+    if(xBtn){
+      xBtn.style.cursor='pointer';
+      xBtn.addEventListener('click',function(){close(modal);});
+    }
+  });
+  // Esc closes whichever is open
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      modals.forEach(function(m){if(!m.hidden) close(m);});
+    }
+  });
+})();
 </script>
 
 </body>
