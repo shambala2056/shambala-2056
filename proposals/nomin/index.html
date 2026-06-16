@@ -848,7 +848,7 @@
     animation:ahero-sweep 9s linear infinite;
     pointer-events:none;
   }
-  @keyframes ahero-sweep{0%{top:-2%}100%{top:100%}}
+  100%{top:100%}}
 
   /* Meta bar under image */
   .airline-hero-meta{
@@ -1025,7 +1025,7 @@
     background:linear-gradient(90deg,transparent,rgba(0,255,166,0.55),transparent);
     animation:mz-sweep 10s linear infinite;pointer-events:none;
   }
-  @keyframes mz-sweep{0%{top:-2%}100%{top:100%}}
+  100%{top:100%}}
   @media(max-width:720px){
     .mz-hero-frame{aspect-ratio:16/7}
     .mz-corner{width:16px;height:16px}
@@ -1038,9 +1038,11 @@
     margin:40px auto 0;
     max-width:760px;
     display:grid;
-    grid-template-columns: 280px 1fr;
-    gap:28px;
-    align-items:start;
+    grid-template-columns: 1fr 320px;
+    gap:40px;
+    margin-top:48px;
+    max-width:1000px;
+    align-items:center;
   }
   .ip-photo{
     position:relative;
@@ -3084,7 +3086,7 @@
       <span class="mz-corner bl"></span>
       <span class="mz-corner br"></span>
       <div class="mz-tag">MONGOLZ#1 · LAND ART</div>
-      <div class="mz-scan"></div>
+      
     </div>
   </div>
 
@@ -3133,7 +3135,7 @@
       <span class="ahero-corner br"></span>
       <div class="ahero-rec"><span class="ahero-dot"></span>DRONE · <span id="airTime">00:00:00</span></div>
       <div class="ahero-coord">N 42°48′ · E 105°33′ · GOBI</div>
-      <div class="ahero-scan"></div>
+      
     </div>
     <div class="airline-hero-meta">
       <div class="ahero-meta-row"><span>SUBJECT</span><span>CHINGIS AIRLINE LAND ART</span></div>
@@ -3268,28 +3270,16 @@
   <h2 class="grid-title reveal">ДААТГАГДСАН МОД</h2>
   <p class="grid-subtitle reveal">BE HUMAN · ATE · MONGOLZ#1 · <span style="color: var(--neon);"></span></p>
 
-  <div class="anniv-text reveal" style="margin-top:40px;">
-    Шамбала 2056 төслийн хүрээнд бүтсэн <strong>BE HUMAN, ATE, MONGOLZ#1</strong> лэнд артуудын нийт модыг Номин Даатгалаар <strong>бүрэн хамруулна</strong>. Мод эзэмшигч тус бүр өөрийн модныхоо ургалтын явцын зургийг <strong>Номин Даатгалын баталгаажсан тамгатайгаар</strong> жил тутам мэйлээр хүлээн авна.
-  </div>
-
   <div class="insured-proof reveal">
+    <div class="anniv-text" style="margin-top:0;">
+      Шамбала 2056 төслийн хүрээнд бүтсэн <strong>BE HUMAN, ATE, MONGOLZ#1</strong> лэнд артуудын нийт модыг Номин Даатгалаар <strong>бүрэн хамруулна</strong>. Мод эзэмшигч тус бүр өөрийн модныхоо ургалтын явцын зургийг <strong>Номин Даатгалын баталгаажсан тамгатайгаар</strong> жил тутам мэйлээр хүлээн авна.
+    </div>
     <div class="ip-photo">
-      <img src="assets/insured-tree.jpg" alt="Даатгагдсан мод — G2-F5" loading="lazy" />
+      <img src="assets/insured-tree.jpg" alt="Даатгагдсан мод" loading="lazy" />
       <span class="ip-corner tl"></span>
       <span class="ip-corner tr"></span>
       <span class="ip-corner bl"></span>
       <span class="ip-corner br"></span>
-      <div class="ip-tag-badge">G2-F5</div>
-    </div>
-    <div class="ip-meta">
-      <div class="ip-meta-head">
-        <span class="ip-meta-dot"></span>
-        ЖИШЭЭ — ДААТГАГДСАН МОД
-      </div>
-      <div class="ip-meta-row"><span>TREE ID</span><span>G2-F5</span></div>
-      <div class="ip-meta-row"><span>SAMPLE</span><span>ATE ЛЭНД АРТ</span></div>
-      <div class="ip-meta-row"><span>INSURER</span><span>НОМИН ДААТГАЛ</span></div>
-      <div class="ip-meta-row"><span>STATUS</span><span>VERIFIED</span></div>
     </div>
   </div>
 
