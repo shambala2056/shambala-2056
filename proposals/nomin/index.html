@@ -465,8 +465,8 @@
     letter-spacing: 0.2em;
     color: var(--neon);
     padding: 14px 24px;
-    border: 1px solid rgba(0,255,166,0.25);
-    background: rgba(0,255,166,0.03);
+    border: none;
+    background: transparent;
     position: relative;
     transition: all 0.3s;
     animation: pillar-blink 5s ease-in-out infinite;
@@ -490,6 +490,8 @@
     margin-left: 4px;
     vertical-align: middle;
   }
+
+
 
   .grid-title {
     font-size: clamp(40px, 8vw, 96px);
@@ -1030,6 +1032,99 @@
     .mz-tag{font-size:8.5px;letter-spacing:0.16em;padding:3px 8px;top:10px;left:12px}
   }
   /* ═════ /MONGOLZ#1 hero ═════ */
+
+  /* ═════ Insured tree proof photo (small inset) ═════ */
+  .insured-proof{
+    margin:40px auto 0;
+    max-width:760px;
+    display:grid;
+    grid-template-columns: 280px 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .ip-photo{
+    position:relative;
+    aspect-ratio: 3 / 4;
+    overflow:hidden;
+    border:1px solid rgba(0,229,255,0.3);
+    background:#0a0a0a;
+    box-shadow:0 18px 40px -22px rgba(0,255,166,0.18);
+  }
+  .ip-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:contrast(1.05) saturate(1.05);
+    transition:transform 6s ease;
+  }
+  .ip-photo:hover img{transform:scale(1.03)}
+  .ip-photo::before{
+    content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:repeating-linear-gradient(0deg, transparent 0, transparent 3px,
+      rgba(0,229,255,0.035) 3px, rgba(0,229,255,0.035) 4px);
+  }
+  .ip-corner{
+    position:absolute;width:14px;height:14px;
+    border:2px solid var(--neon-2);z-index:3;
+  }
+  .ip-corner.tl{top:8px;left:8px;border-right:none;border-bottom:none}
+  .ip-corner.tr{top:8px;right:8px;border-left:none;border-bottom:none}
+  .ip-corner.bl{bottom:8px;left:8px;border-right:none;border-top:none}
+  .ip-corner.br{bottom:8px;right:8px;border-left:none;border-top:none}
+  .ip-tag-badge{
+    position:absolute;bottom:14px;right:14px;z-index:4;
+    padding:5px 11px;
+    background:rgba(0,0,0,0.78);
+    border:1px solid rgba(0,229,255,0.5);
+    font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+    letter-spacing:0.18em;color:var(--neon-2);
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* Meta panel (right side) */
+  .ip-meta{
+    display:flex;flex-direction:column;
+    border:1px solid rgba(0,229,255,0.18);
+    background:linear-gradient(180deg, rgba(0,229,255,0.025), rgba(0,255,166,0.012));
+  }
+  .ip-meta-head{
+    display:flex;align-items:center;gap:8px;
+    padding:14px 16px;
+    border-bottom:1px solid rgba(0,229,255,0.18);
+    font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
+    letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--neon);
+    background:rgba(0,255,166,0.04);
+  }
+  .ip-meta-dot{
+    width:7px;height:7px;border-radius:50%;background:var(--neon);
+    animation:ip-blink 1.6s ease-in-out infinite;
+    box-shadow:0 0 8px var(--neon);
+  }
+  @keyframes ip-blink{0%,100%{opacity:1}50%{opacity:0.3}}
+  .ip-meta-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:11px 16px;
+    border-bottom:1px solid rgba(0,229,255,0.08);
+    font-family:'Montserrat',sans-serif;
+  }
+  .ip-meta-row:last-child{border-bottom:none}
+  .ip-meta-row span:first-child{
+    font-size:10px;font-weight:500;letter-spacing:0.22em;
+    color:var(--neon-2);text-transform:uppercase;
+  }
+  .ip-meta-row span:last-child{
+    font-size:12px;font-weight:700;letter-spacing:0.04em;
+    color:var(--text);text-align:right;
+  }
+
+  @media(max-width:720px){
+    .insured-proof{grid-template-columns:1fr;gap:18px;max-width:90%;margin-top:28px}
+    .ip-photo{max-width:280px;margin:0 auto}
+    .ip-meta-head{font-size:10px;letter-spacing:0.16em}
+    .ip-meta-row{padding:9px 12px}
+    .ip-meta-row span:first-child{font-size:9px;letter-spacing:0.16em}
+    .ip-meta-row span:last-child{font-size:11px}
+  }
+  /* ═════ /Insured tree proof photo ═════ */
 
 
   /* Documentary photo viewport (aerial land art) */
@@ -3175,6 +3270,27 @@
 
   <div class="anniv-text reveal" style="margin-top:40px;">
     Шамбала 2056 төслийн хүрээнд бүтсэн <strong>BE HUMAN, ATE, MONGOLZ#1</strong> лэнд артуудын нийт модыг Номин Даатгалаар <strong>бүрэн хамруулна</strong>. Мод эзэмшигч тус бүр өөрийн модныхоо ургалтын явцын зургийг <strong>Номин Даатгалын баталгаажсан тамгатайгаар</strong> жил тутам мэйлээр хүлээн авна.
+  </div>
+
+  <div class="insured-proof reveal">
+    <div class="ip-photo">
+      <img src="assets/insured-tree.jpg" alt="Даатгагдсан мод — G2-F5" loading="lazy" />
+      <span class="ip-corner tl"></span>
+      <span class="ip-corner tr"></span>
+      <span class="ip-corner bl"></span>
+      <span class="ip-corner br"></span>
+      <div class="ip-tag-badge">G2-F5</div>
+    </div>
+    <div class="ip-meta">
+      <div class="ip-meta-head">
+        <span class="ip-meta-dot"></span>
+        ЖИШЭЭ — ДААТГАГДСАН МОД
+      </div>
+      <div class="ip-meta-row"><span>TREE ID</span><span>G2-F5</span></div>
+      <div class="ip-meta-row"><span>SAMPLE</span><span>ATE ЛЭНД АРТ</span></div>
+      <div class="ip-meta-row"><span>INSURER</span><span>НОМИН ДААТГАЛ</span></div>
+      <div class="ip-meta-row"><span>STATUS</span><span>VERIFIED</span></div>
+    </div>
   </div>
 
   <div class="stats" style="margin-top: 60px;">
