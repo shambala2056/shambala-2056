@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
 <meta charset="UTF-8">
 <script>
@@ -11,15 +11,18 @@ document.documentElement.removeAttribute('data-theme');
 <meta property="og:title" content="Shambala 2056 — Engineering Campus Mongolia">
 <meta property="og:description" content="Halting desertification in Mongolia's Gobi Desert. 3 Land Arts, 166,857 trees, NASA satellite monitoring.">
 <meta property="og:url" content="https://shambala.today">
+<meta property="og:image" content="https://shambala.today/hero-bg.webp">
+<meta name="twitter:image" content="https://shambala.today/hero-bg.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Shambala 2056 — Engineering Campus Mongolia">
 <meta name="twitter:description" content="Halting desertification in Mongolia's Gobi Desert. 166,857 trees, NASA satellite monitoring.">
 <meta name="theme-color" content="#020810">
-<link rel="icon" type="image/png" href="shambala-symbol-white.png">
+<link rel="icon" type="image/png" href="shambala-symbol-white.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="shambala-symbol.png" media="(prefers-color-scheme: light)">
 <link rel="apple-touch-icon" href="shambala-symbol-white.png">
 <title>Shambala 2056 — Engineering Campus Mongolia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Chakra+Petch:wght@400;700&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Chakra+Petch:wght@400;700&family=Unbounded:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:'ChakraNums';src:url('https://fonts.gstatic.com/s/chakrapetch/v13/cIf6MapbsEk7TDLdtEz1BwkmmA.ttf') format('truetype');font-weight:400;unicode-range:U+0030-0039,U+002E,U+002C}
 @font-face{font-family:'ChakraNums';src:url('https://fonts.gstatic.com/s/chakrapetch/v13/cIflMapbsEk7TDLdtEz1BwkeQI5FQA.ttf') format('truetype');font-weight:600;unicode-range:U+0030-0039,U+002E,U+002C}
@@ -546,88 +549,64 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
 .flip-hint::before{content:'';display:inline-block;width:14px;height:1px;background:currentColor}
 .flip-hint::after{content:'ДЭЛГЭРЭНГҮЙ'}
 
-/* ═════ 3 PILLARS / AGI · SOLAR ENERGY · CARBON CREDIT synergy ═════ */
-.pil-wrap{position:relative;padding:24px 0 0}
-.pil-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;gap:32px;flex-wrap:wrap}
-.pil-head .sl{margin:0}
-.pil-tag{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--green);padding:5px 12px;background:rgba(57,173,72,0.06);border:1px solid rgba(57,173,72,0.25);display:inline-block;margin-bottom:10px;text-transform:uppercase}
-.pil-desc{font-family:'Montserrat',sans-serif;font-size:0.65rem;color:var(--muted);max-width:380px;line-height:1.75;text-align:right}
-.pil-diagram{position:relative;width:100%;max-width:780px;margin:0 auto 56px;padding:8px;background:radial-gradient(ellipse 70% 60% at 50% 55%,rgba(57,173,72,0.05),transparent 70%)}
-.pil-diagram svg{width:100%;height:auto;display:block;overflow:visible}
-@keyframes pil-flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-44}}
-@keyframes pil-flow-rev{from{stroke-dashoffset:0}to{stroke-dashoffset:44}}
-@keyframes pil-pulse-ring{0%{transform:scale(1);opacity:0.6}80%{opacity:0}100%{transform:scale(2.4);opacity:0}}
-@keyframes pil-orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes pil-orbit-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-@keyframes pil-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes pil-glow{0%,100%{filter:drop-shadow(0 0 6px currentColor)}50%{filter:drop-shadow(0 0 14px currentColor)}}
-@keyframes pil-bead{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
-.pil-edge{stroke-dasharray:14 8;animation:pil-flow 1.8s linear infinite}
-.pil-edge.rev{animation:pil-flow-rev 2.2s linear infinite}
-.pil-pulse{transform-origin:center;transform-box:fill-box;animation:pil-pulse-ring 2.6s ease-out infinite}
-.pil-pulse.d2{animation-delay:0.9s}
-.pil-pulse.d3{animation-delay:1.7s}
-.pil-orbit{transform-origin:350px 320px;transform-box:view-box;animation:pil-orbit 24s linear infinite}
-.pil-orbit-rev{transform-origin:350px 320px;transform-box:view-box;animation:pil-orbit-rev 36s linear infinite}
-.pil-node-agi,.pil-node-solar,.pil-node-carbon{animation:pil-float 4s ease-in-out infinite}
-.pil-node-solar{animation-delay:1.3s}
-.pil-node-carbon{animation-delay:2.6s}
-.pil-node-agi text,.pil-node-solar text,.pil-node-carbon text{pointer-events:none}
-.pil-node-ring{animation:pil-glow 3.4s ease-in-out infinite;color:#39AD48}
-.pil-node-solar .pil-node-ring{color:#F5C543;animation-delay:1s}
-.pil-node-carbon .pil-node-ring{color:#00D4FF;animation-delay:2s}
-.pil-bead{offset-rotate:0deg;animation:pil-bead 3.2s linear infinite}
-.pil-bead.b1{offset-path:path('M 350 150 L 170 450');animation-delay:0s}
-.pil-bead.b2{offset-path:path('M 350 150 L 530 450');animation-delay:1.1s}
-.pil-bead.b3{offset-path:path('M 170 490 L 530 490');animation-delay:2.2s}
-.pil-bead.b1r{offset-path:path('M 170 450 L 350 150');animation-delay:1.6s}
-.pil-bead.b2r{offset-path:path('M 530 450 L 350 150');animation-delay:2.7s}
-.pil-bead.b3r{offset-path:path('M 530 490 L 170 490');animation-delay:0.5s}
-.pil-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:48px}
-.pil-card{position:relative;padding:32px 28px 30px;background:var(--surface);border:1px solid var(--border);overflow:hidden;cursor:default;transition:border-color .4s cubic-bezier(.4,0,.2,1),background .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1)}
-.pil-card:not(:first-child){border-left:none}
-.pil-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%),rgba(57,173,72,0.08),transparent 60%);opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:0}
-.pil-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#39AD48,transparent);transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.4,0,.2,1);opacity:0.9;pointer-events:none}
-.pil-card > *{position:relative;z-index:1}
-.pil-card:hover{border-color:rgba(57,173,72,0.5);background:rgba(57,173,72,0.04);transform:translateY(-4px);box-shadow:0 14px 36px -14px rgba(57,173,72,0.3),0 0 0 1px rgba(57,173,72,0.1)}
-.pil-card:hover::before{opacity:1}
-.pil-card:hover::after{transform:scaleX(1)}
-.pil-card.solar::before{background:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%),rgba(245,197,67,0.08),transparent 60%)}
-.pil-card.solar::after{background:linear-gradient(90deg,transparent,#F5C543,transparent)}
-.pil-card.solar:hover{border-color:rgba(245,197,67,0.5);background:rgba(245,197,67,0.04);box-shadow:0 14px 36px -14px rgba(245,197,67,0.3),0 0 0 1px rgba(245,197,67,0.1)}
-.pil-card.carbon::before{background:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%),rgba(0,212,255,0.08),transparent 60%)}
-.pil-card.carbon::after{background:linear-gradient(90deg,transparent,#00D4FF,transparent)}
-.pil-card.carbon:hover{border-color:rgba(0,212,255,0.5);background:rgba(0,212,255,0.04);box-shadow:0 14px 36px -14px rgba(0,212,255,0.3),0 0 0 1px rgba(0,212,255,0.1)}
-.pil-num{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--muted);margin-bottom:14px}
-.pil-card.agi .pil-num span{color:#39AD48}
-.pil-card.solar .pil-num span{color:#F5C543}
-.pil-card.carbon .pil-num span{color:#00D4FF}
-.pil-title{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);letter-spacing:0.06em;margin-bottom:6px;line-height:1.2}
-.pil-sub{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:18px;color:var(--muted)}
-.pil-card.agi .pil-sub{color:#39AD48}
-.pil-card.solar .pil-sub{color:#F5C543}
-.pil-card.carbon .pil-sub{color:#00D4FF}
-.pil-body{font-family:'Montserrat',sans-serif;font-size:0.7rem;color:rgba(232,244,255,0.7);line-height:1.75;margin-bottom:14px}
-.pil-feats{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-.pil-feat{font-family:'Montserrat',sans-serif;font-size:0.62rem;color:var(--muted);line-height:1.5;padding-left:14px;position:relative}
-.pil-feat::before{content:'▸';position:absolute;left:0;top:0;color:#39AD48;opacity:0.7;font-size:0.55rem}
-.pil-card.solar .pil-feat::before{color:#F5C543}
-.pil-card.carbon .pil-feat::before{color:#00D4FF}
-.pil-loop{margin-top:8px;padding:24px 28px;border:1px solid rgba(57,173,72,0.2);background:linear-gradient(90deg,rgba(57,173,72,0.03),transparent 60%);position:relative;overflow:hidden}
-.pil-loop::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#39AD48,#F5C543,#00D4FF)}
-.pil-loop-head{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--muted);margin-bottom:10px;text-transform:uppercase}
-.pil-loop-head em{font-style:normal;color:#39AD48}
-.pil-loop-text{font-family:'Montserrat',sans-serif;font-size:0.72rem;color:rgba(232,244,255,0.75);line-height:1.8}
-.pil-loop-text b{color:#39AD48;font-weight:600}
-@media (max-width:880px){
-  .pil-cards{grid-template-columns:1fr}
-  .pil-card{border:1px solid var(--border)!important}
-  .pil-card:not(:first-child){border-top:none!important}
-  .pil-head{flex-direction:column;align-items:flex-start}
-  .pil-desc{text-align:left}
+/* GO ZERO — next event strip */
+.gz-next{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap;padding:20px 0;margin-bottom:28px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.gz-next-tag{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;color:var(--green);font-weight:500}
+.gz-next-title{font-size:1.4rem;font-weight:900;letter-spacing:0.06em;color:var(--white)}
+.gz-next-date{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;color:var(--white);margin-left:auto}
+/* ═════ 3 PILLARS — SI · SOLAR · CARBON ═════ */
+body .nc{text-transform:none!important}
+.px{--c-si:var(--green);--c-solar:#F5C543;--c-carbon:#00D4FF;padding:24px 0 72px}
+html[data-theme="light"] .px{--c-solar:#8A5F00;--c-carbon:#0070A8}
+.px-head{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;margin-bottom:24px}
+.px-intro{font-size:0.72rem;line-height:1.85;color:var(--muted);max-width:420px;justify-self:end}
+.pd .c-si{color:var(--c-si)}.pd .c-solar{color:var(--c-solar)}.pd .c-carbon{color:var(--c-carbon)}
+.pd-stage{max-width:960px;margin:0 auto}
+.pd-svg{width:100%;height:auto;display:block;overflow:visible;font-family:'Montserrat',sans-serif}
+.pd-edge{fill:none;stroke:currentColor;stroke-width:1.6;transition:opacity .3s,stroke-width .3s}
+.pd-head{fill:currentColor}
+.pd-ring{fill:var(--surface);stroke:currentColor;stroke-width:1.5;transition:stroke-width .3s}
+.pd-nt{fill:var(--white);font-size:24px;font-weight:800;letter-spacing:.06em}
+.pd-ns{fill:currentColor;font-size:8.5px;font-weight:600;letter-spacing:.16em}
+.pd-badge{fill:var(--void);stroke:currentColor;stroke-width:1.2}
+.pd-badge-n{fill:var(--white);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500}
+.pd-lt{fill:var(--white);font-size:13px;font-weight:700;letter-spacing:.12em}
+.pd-ls{fill:var(--muted);font-size:11px;font-weight:400;letter-spacing:.04em}
+.pd-hub-t{fill:var(--white);font-size:13px;font-weight:700;letter-spacing:.28em;opacity:.9}
+.pd-hub-s{fill:var(--muted);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em}
+.pd-node,.pd-lbl{cursor:pointer;outline:none}
+.pd-node,.pd-lbl,.pd-li{transition:opacity .3s}
+/* highlight: dim everything, then re-light what belongs to the hovered item */
+.pd:not([data-hl=""]) .pd-edge,.pd:not([data-hl=""]) .pd-lbl,.pd:not([data-hl=""]) .pd-node,.pd:not([data-hl=""]) .pd-li{opacity:.22}
+.pd[data-hl="e1"] .e1,.pd[data-hl="e1"] .n-solar,.pd[data-hl="e1"] .n-si,.pd[data-hl="e1"] .pd-li[data-e="e1"],
+.pd[data-hl="e2"] .e2,.pd[data-hl="e2"] .n-si,.pd[data-hl="e2"] .n-carbon,.pd[data-hl="e2"] .pd-li[data-e="e2"],
+.pd[data-hl="e3"] .e3,.pd[data-hl="e3"] .n-carbon,.pd[data-hl="e3"] .n-solar,.pd[data-hl="e3"] .pd-li[data-e="e3"],
+.pd[data-hl="n-si"] .n-si,.pd[data-hl="n-si"] .e1,.pd[data-hl="n-si"] .e2,.pd[data-hl="n-si"] .pd-li[data-e="e1"],.pd[data-hl="n-si"] .pd-li[data-e="e2"],
+.pd[data-hl="n-solar"] .n-solar,.pd[data-hl="n-solar"] .e1,.pd[data-hl="n-solar"] .e3,.pd[data-hl="n-solar"] .pd-li[data-e="e1"],.pd[data-hl="n-solar"] .pd-li[data-e="e3"],
+.pd[data-hl="n-carbon"] .n-carbon,.pd[data-hl="n-carbon"] .e2,.pd[data-hl="n-carbon"] .e3,.pd[data-hl="n-carbon"] .pd-li[data-e="e2"],.pd[data-hl="n-carbon"] .pd-li[data-e="e3"]{opacity:1}
+.pd[data-hl^="e"] .pd-edge{stroke-width:1.6}
+.pd[data-hl="e1"] .pd-edge.e1,.pd[data-hl="e2"] .pd-edge.e2,.pd[data-hl="e3"] .pd-edge.e3{stroke-width:2.6}
+.pd-legend{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border)}
+.pd-li{display:grid;grid-template-columns:28px 1fr;gap:6px 12px;padding:20px 28px 4px;border-left:1px solid var(--border);cursor:default;outline:none}
+.pd-li:first-child{border-left:none;padding-left:0}
+.pd-li-n{grid-row:span 2;width:24px;height:24px;border:1px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:0.6rem}
+.pd-li-n{color:inherit}.pd-li-n.c-si{color:var(--c-si)}.pd-li-n.c-solar{color:var(--c-solar)}.pd-li-n.c-carbon{color:var(--c-carbon)}
+.pd-li-pair{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:.14em;color:var(--muted)}
+.pd-li-t{font-size:0.66rem;line-height:1.75;color:var(--muted)}
+@media (max-width:980px){
+  .px-head{grid-template-columns:1fr;gap:20px}
+  .px-intro{justify-self:start}
+  .pd-legend{grid-template-columns:1fr}
+  .pd-li{border-left:none;padding-left:0;padding-right:0}
+  .pd-li+.pd-li{border-top:1px solid var(--border)}
+}
+@media (max-width:640px){
+  .pd-lt,.pd-ls{display:none}   /* numbered badges + legend carry the labels on phones */
+  .pd-nt{font-size:30px}.pd-ns{font-size:11px}
+  .pd-badge{r:18px}.pd-badge-n{font-size:16px}
+}
 }
 /* ═════ DIAGRAM + PHASE-CLICK CASCADE mode — 3-pillars explanations hidden, phase cards reveal detail on click ═════ */
-.pil-detail{display:none!important}
 .agi-embed > section#agi-vision,
 .agi-embed > section#agi-synergy,
 .agi-embed > section#agi-trends,
@@ -652,67 +631,6 @@ footer{background:rgba(0,0,0,0.65);border-top:1px solid rgba(57,173,72,0.08);pad
 @media(max-width:768px){.agi-embed .p1-pano-img{height:340px}.agi-embed .p1-pano-arrow{width:38px;height:38px}.agi-embed .p1-pano-arrow svg{width:15px;height:15px}.agi-embed .p1-pano-cap{font-size:9px;padding:5px 10px}}
 /* Cascade drawer padding override when Phase I is active — let the panorama go edge-to-edge */
 .agi-embed .tl-expand-inner:has(.p1-pano){padding:0}
-/* ═════ INTERACTIVE PILLAR DIAGRAM ═════ */
-.pil-stage{position:relative}
-.pil-diagram svg [data-pil]{cursor:pointer;transition:filter .35s ease,opacity .35s ease;outline:none;-webkit-tap-highlight-color:transparent}
-.pil-diagram svg [data-pil]:focus,.pil-diagram svg [data-pil]:focus-visible{outline:none}
-.pil-diagram svg [data-pil]:hover,.pil-diagram svg [data-pil]:focus-visible{filter:drop-shadow(0 0 12px currentColor) drop-shadow(0 0 4px currentColor)}
-.pil-diagram svg [data-pil-active="true"],.pil-diagram svg [data-pil]:active{filter:drop-shadow(0 0 24px currentColor) drop-shadow(0 0 10px currentColor) drop-shadow(0 0 4px currentColor)}
-.pil-edge[data-pil]{cursor:pointer;transition:stroke-width .25s ease,opacity .25s ease}
-.pil-edge-hit{stroke:transparent;stroke-width:30;cursor:pointer;fill:none;pointer-events:stroke}
-.pil-edge-hit:hover + .pil-edge,.pil-edge[data-pil-active="true"]{stroke-width:3.6;opacity:1!important}
-.pil-detail{margin:8px 0 56px;border:1px solid var(--border);background:var(--surface);position:relative;overflow:hidden;min-height:300px}
-.pil-detail::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:#39AD48;transition:background .45s ease}
-.pil-detail[data-active="solar"]::before{background:#F5C543}
-.pil-detail[data-active="carbon"]::before{background:#00D4FF}
-.pil-detail[data-active="agi-solar"]::before{background:linear-gradient(180deg,#39AD48,#F5C543)}
-.pil-detail[data-active="agi-carbon"]::before{background:linear-gradient(180deg,#39AD48,#00D4FF)}
-.pil-detail[data-active="solar-carbon"]::before{background:linear-gradient(180deg,#F5C543,#00D4FF)}
-.pil-detail[data-active="loop"]::before{background:linear-gradient(180deg,#39AD48,#F5C543,#00D4FF)}
-.pil-detail-prompt{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--muted);padding:14px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;text-transform:uppercase;gap:16px;flex-wrap:wrap}
-.pil-detail-prompt-key{color:var(--green);font-weight:600;letter-spacing:0.18em}
-.pil-detail-prompt-hint{opacity:0.55;font-size:0.5rem;font-weight:300}
-.pil-card-x{display:none;padding:32px 32px 36px;animation:pil-fade .55s cubic-bezier(.4,0,.2,1)}
-.pil-card-x.active{display:block}
-@keyframes pil-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.pil-card-x-head{display:flex;align-items:center;gap:18px;margin-bottom:12px;flex-wrap:wrap}
-.pil-card-x-num{font-family:'Montserrat',sans-serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--muted);text-transform:uppercase}
-.pil-card-x-num em{font-style:normal;font-weight:700;color:#39AD48}
-.pil-card-x.solar .pil-card-x-num em{color:#F5C543}
-.pil-card-x.carbon .pil-card-x-num em{color:#00D4FF}
-.pil-card-x.agi-solar .pil-card-x-num em,.pil-card-x.agi-carbon .pil-card-x-num em,.pil-card-x.solar-carbon .pil-card-x-num em,.pil-card-x.loop .pil-card-x-num em{color:#E8F4FF}
-.pil-card-x-pill{font-family:'Montserrat',sans-serif;font-size:0.48rem;letter-spacing:0.16em;padding:4px 10px;border:1px solid rgba(57,173,72,0.3);background:rgba(57,173,72,0.05);color:#39AD48;text-transform:uppercase}
-.pil-card-x.solar .pil-card-x-pill{border-color:rgba(245,197,67,0.3);background:rgba(245,197,67,0.05);color:#F5C543}
-.pil-card-x.carbon .pil-card-x-pill{border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.05);color:#00D4FF}
-.pil-card-x.agi-solar .pil-card-x-pill{border-color:rgba(245,197,67,0.3);background:linear-gradient(90deg,rgba(57,173,72,0.05),rgba(245,197,67,0.05));color:#F5C543}
-.pil-card-x.agi-carbon .pil-card-x-pill{border-color:rgba(0,212,255,0.3);background:linear-gradient(90deg,rgba(57,173,72,0.05),rgba(0,212,255,0.05));color:#00D4FF}
-.pil-card-x.solar-carbon .pil-card-x-pill{border-color:rgba(0,212,255,0.3);background:linear-gradient(90deg,rgba(245,197,67,0.05),rgba(0,212,255,0.05));color:#00D4FF}
-.pil-card-x.loop .pil-card-x-pill{border-color:rgba(232,244,255,0.25);background:rgba(232,244,255,0.04);color:#E8F4FF}
-.pil-card-x h3{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);letter-spacing:0.03em;line-height:1.25;margin:4px 0 4px}
-.pil-card-x-sub{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#39AD48;margin-bottom:22px}
-.pil-card-x.solar .pil-card-x-sub{color:#F5C543}
-.pil-card-x.carbon .pil-card-x-sub{color:#00D4FF}
-.pil-card-x.agi-solar .pil-card-x-sub,.pil-card-x.agi-carbon .pil-card-x-sub,.pil-card-x.solar-carbon .pil-card-x-sub,.pil-card-x.loop .pil-card-x-sub{color:rgba(232,244,255,0.55)}
-.pil-card-x-body{display:grid;grid-template-columns:1.35fr 1fr;gap:36px;align-items:start}
-.pil-card-x-body p{font-family:'Montserrat',sans-serif;font-size:0.72rem;color:rgba(232,244,255,0.74);line-height:1.85;margin:0}
-.pil-card-x-stats{font-family:'Montserrat',sans-serif;display:flex;flex-direction:column;gap:9px;padding:0;margin:0;list-style:none}
-.pil-card-x-stats li{font-size:0.63rem;color:rgba(232,244,255,0.62);line-height:1.6;padding-left:16px;position:relative}
-.pil-card-x-stats li::before{content:'▸';position:absolute;left:0;top:0;color:#39AD48;font-size:0.55rem;opacity:0.85}
-.pil-card-x.solar .pil-card-x-stats li::before{color:#F5C543}
-.pil-card-x.carbon .pil-card-x-stats li::before{color:#00D4FF}
-.pil-card-x.agi-solar .pil-card-x-stats li::before{color:#F5C543}
-.pil-card-x.agi-carbon .pil-card-x-stats li::before{color:#00D4FF}
-.pil-card-x.solar-carbon .pil-card-x-stats li::before{color:#F5C543}
-.pil-card-x.loop .pil-card-x-stats li::before{color:#39AD48}
-.pil-card-x-stats b{color:var(--white);font-weight:600}
-.pil-card-x-stats em{font-style:normal;color:#39AD48;font-weight:500}
-.pil-card-x.solar .pil-card-x-stats em{color:#F5C543}
-.pil-card-x.carbon .pil-card-x-stats em{color:#00D4FF}
-@media (max-width:880px){
-  .pil-card-x-body{grid-template-columns:1fr;gap:18px}
-  .pil-detail-prompt{flex-direction:column;align-items:flex-start;gap:4px}
-  .pil-card-x{padding:24px 22px 28px}
-}
 /* ESG framework cards — modern hover with glow & lift */
 .esg-fw-card{position:relative;overflow:hidden;cursor:default;transition:border-color .35s cubic-bezier(.4,0,.2,1),background .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s cubic-bezier(.4,0,.2,1);will-change:transform}
 .esg-fw-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(57,173,72,0.10),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:0}
@@ -787,8 +705,6 @@ input.esg-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height
 .stagger-child{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .stagger-child.on{opacity:1;transform:none}
 /* ── Live CO2 pulse ────────────────────────────────────────────────────── */
-#co2-live{position:relative}
-#co2-live::after{content:'';position:absolute;top:4px;right:-10px;width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 1s ease-in-out infinite}
 /* ── Progress bar reset for animation ─────────────────────────────────── */
 .la-prog-f{width:0!important;transition:width 1.6s cubic-bezier(.4,0,.2,1)!important}
 
@@ -1818,7 +1734,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 
 /* ═══ OWL CAROUSEL YEAR SLIDER ══════════════════════════════════════════ */
 .yr-wrap{margin-top:48px}
-.yr-wrap .owl-carousel{padding:0 0 56px}
 .yr-slide{
   background:var(--surface);
   border:1px solid var(--border);
@@ -1858,25 +1773,10 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 .yr-event strong{color:rgba(232,244,255,0.9);font-weight:600}
 
 /* Owl nav */
-.yr-wrap .owl-nav{position:absolute;top:50%;transform:translateY(-50%);width:100%;left:0;pointer-events:none}
-.yr-wrap .owl-prev,.yr-wrap .owl-next{
-  position:absolute;pointer-events:all;
-  width:44px;height:44px;border-radius:4px;
-  background:var(--surface)!important;
-  border:1px solid var(--border)!important;
-  display:flex!important;align-items:center;justify-content:center;
-  color:var(--green)!important;font-size:1.2rem!important;
-  transition:border-color .25s,background .25s;
-  top:-22px;
-}
-.yr-wrap .owl-prev{left:-8px}
-.yr-wrap .owl-next{right:-8px}
-.yr-wrap .owl-prev:hover,.yr-wrap .owl-next:hover{background:rgba(0,255,136,0.08)!important;border-color:rgba(0,255,136,0.4)!important}
-.yr-wrap .owl-dots{margin-top:24px;text-align:center}
-.yr-wrap .owl-dot span{width:6px!important;height:6px!important;background:rgba(255,255,255,0.15)!important;margin:0 4px!important;border-radius:50%!important;transition:background .25s,width .25s!important}
-.yr-wrap .owl-dot.active span{background:var(--green)!important;width:20px!important;border-radius:3px!important}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Shambala 2056 Engineering Campus","url":"https://shambala.today","logo":"https://shambala.today/shambala-logo.png","foundingDate":"2016","email":"hello@shambala.today","description":"Gobi Desert restoration and engineering campus in Mongolia: shelterbelts, solar energy, satellite monitoring and carbon credits.","address":{"@type":"PostalAddress","addressLocality":"Erdene soum","addressRegion":"Dornogovi","addressCountry":"MN"},"location":{"@type":"Place","geo":{"@type":"GeoCoordinates","latitude":44.07,"longitude":111.18}}}
+</script>
 </head>
 <body>
 
@@ -1941,14 +1841,14 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
       </div>
       <div class="h-title">
         <div class="l1"><span class="mn">ШАМБАЛА 2056</span><span class="en">SHAMBALA 2056</span></div>
-        <div class="l3"><span class="mn">ИНЖЕНЕРИЙН СУУРИН</span><span class="en"> ENIGNEERING CAMPUS</span></div>
+        <div class="l3"><span class="mn">ИНЖЕНЕРИЙН СУУРИН</span><span class="en">ENGINEERING CAMPUS</span></div>
       </div>
       <div class="h-sub">
         <span class="mn">МОНГОЛ УЛС &nbsp;·&nbsp; 2016 — 2056</span>
         <span class="en">MONGOLIA &nbsp;·&nbsp; 2016 — 2056</span>
       </div>
       <p class="h-desc">
-        <span class="mn">Монголын говьд AGI дээр суурилсан карбон кредит болон сэргээгдэх эрчим хүчний олон улсын сургууль, эрдэм шинжилгээ судалгааны хүрээлэнг байгуулах.</span>
+        <span class="mn">Монголын говьд SI дээр суурилсан карбон кредит болон сэргээгдэх эрчим хүчний олон улсын сургууль, эрдэм шинжилгээ судалгааны хүрээлэнг байгуулах.</span>
         <span class="en">Restoring the Gobi Desert through international research and monitoring. </span>
       </p>
     </div>
@@ -1961,8 +1861,8 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
         <div class="hud-cb hud-cb-bl"></div>
         <div class="hud-cb hud-cb-br"></div>
         <div class="hud-bar">
-          <span class="hud-bar-l">// <span class="mn">ШУУД МЭДЭЭЛЭЛ</span><span class="en">LIVE DATA FEED</span></span>
-          <span class="hud-bar-r"><span class="hud-bar-dot"></span><span class="mn">ИДЭВХТЭЙ</span><span class="en">ONLINE</span></span>
+          <span class="hud-bar-l">// <span class="mn">ГОЛ ҮЗҮҮЛЭЛТ</span><span class="en">KEY FIGURES</span></span>
+          <span class="hud-bar-r"><span class="hud-bar-dot"></span><span class="mn">2026 ОНЫ БАЙДЛААР · УРЬДЧИЛСАН ТООЦОО</span><span class="en">AS OF 2026 · PRELIMINARY ESTIMATE</span></span>
         </div>
         <div class="hud-data">
           <div class="hud-cell">
@@ -1971,13 +1871,13 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             <div class="hud-bar2"><div class="hud-fill" style="width:79%"></div></div>
           </div>
           <div class="hud-cell">
-            <div class="hud-val">114,906 t</div>
-            <div class="hud-key"><span class="mn">Биомасс</span><span class="en">Biomass</span></div>
+            <div class="hud-val">≈12.6 <span class="nc">t C</span></div>
+            <div class="hud-key"><span class="mn">Нүүрстөрөгч</span><span class="en">Carbon stock</span></div>
             <div class="hud-bar2"><div class="hud-fill" style="width:65%"></div></div>
           </div>
           <div class="hud-cell">
-            <div class="hud-val" id="co2-live">33,603 kg</div>
-            <div class="hud-key">CO₂ / <span class="mn">Жил</span><span class="en">Year</span></div>
+            <div class="hud-val">≈46 <span class="nc">tCO₂e</span></div>
+            <div class="hud-key"><span class="mn">Хуримтлагдсан шингээлт</span><span class="en">Accumulated removal</span></div>
             <div class="hud-bar2"><div class="hud-fill" style="width:45%"></div></div>
           </div>
           <div class="hud-cell">
@@ -1986,7 +1886,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             <div class="hud-bar2"><div class="hud-fill" style="width:55%"></div></div>
           </div>
           <div class="hud-cell">
-            <div class="hud-val">35 kWt</div>
+            <div class="hud-val">35 <span class="nc">kW</span></div>
             <div class="hud-key"><span class="mn">Нарны эрчим хүч</span><span class="en">Solar Energy</span></div>
             <div class="hud-bar2"><div class="hud-fill" style="width:35%"></div></div>
           </div>
@@ -2102,20 +2002,20 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 <div class="ticker">
   <div class="tk-track">
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">BE HUMAN ЛЭНД АРТ · 21,857 МОД ·  30,000 М²</span><span class="en">BE HUMAN LAND ART · 21,857 TREES ·  30,000 М²</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ART N TECH ·  36,000 МОД ·  38,970 М² ·  10 кВт</span><span class="en">ART N TECH ·  36,000 TREES ·  38,970 М² ·  10 kWt</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">MONGOLZ#1 ·  100,000 МОД ·  40,000 М² ·  20 кВт</span><span class="en">MONGOLZ#1 ·  100,000 TREES ·  40,000 М² ·  20 kWt</span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ART N TECH ·  36,000 МОД ·  38,970 М² ·  10 кВт</span><span class="en">ART N TECH ·  36,000 TREES ·  38,970 М² ·  10 <span class="nc">kW</span></span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">MONGOLZ#1 ·  100,000 МОД ·  40,000 М² ·  20 кВт</span><span class="en">MONGOLZ#1 ·  100,000 TREES ·  40,000 М² ·  20 <span class="nc">kW</span></span></span>
     <span class="tk-item"><span class="tk-sep">◈</span>NASA MODIS · SENTINEL-5P · SENTINEL-2</span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">НИЙТ БИОМАСС 114,906 ТОНН</span><span class="en">TOTAL BIOMASS 114,906 TONNES</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">CO₂ ШИНГЭЭЛТ 33,603,913 кг/жил</span><span class="en">CO₂ ABSORPTION 33,603,913 kg/year</span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">≈46 <span class="nc">tCO₂e</span> ХУРИМТЛАГДСАН ШИНГЭЭЛТ (≈12.6 <span class="nc">t C</span>) · 2026</span><span class="en">≈46 <span class="nc">tCO₂e</span> ACCUMULATED REMOVAL (≈12.6 <span class="nc">t C</span>) · 2026</span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">VERRA VCS · GOLD STANDARD — БҮРТГЭЛ ЯВЦАД</span><span class="en">VERRA VCS · GOLD STANDARD — REGISTRATION IN PROGRESS</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ДУСЛЫН УСАЛГААНЫ СИСТЕМ ·  18,000м ХООЛОЙ</span><span class="en">DRIP IRRIGATION SYSTEM ·  18,000m PIPE</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ХАЙЛААС ·  166,857 МОД ТАРЬСАН</span><span class="en">ULMUS PUMILA ·  166,857 TREES PLANTED</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ДОРНОГОВЬ АЙМАГ, ЭРДЭНЭ СУМ ·  УЛААНБААТАРААС 584 КМ</span><span class="en">DORNOGOVI ·  584 km FROM ULAANBAATAR</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">BE HUMAN ЛЭНД АРТ ·  21,857 МОД — 30,000 М²</span><span class="en">BE HUMAN LAND ART ·  21,857 TREES ·  30,000 М²</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">АRT N TECH ·  36,000 МОД ·  38,970 М² ·  10 кВт</span><span class="en">ART N TECH ·  36,000 TREES ·  38,970 М² ·  10 kWt</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">МONGOLZ#1 ·  100,000 МОД ·  40,000 М² ·  20 кВт</span><span class="en">MONGOLZ #1 · 100,000 TREES ·  40,000 М² ·  20 kWt</span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">АRT N TECH ·  36,000 МОД ·  38,970 М² ·  10 кВт</span><span class="en">ART N TECH ·  36,000 TREES ·  38,970 М² ·  10 <span class="nc">kW</span></span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">МONGOLZ#1 ·  100,000 МОД ·  40,000 М² ·  20 кВт</span><span class="en">MONGOLZ #1 · 100,000 TREES ·  40,000 М² ·  20 <span class="nc">kW</span></span></span>
     <span class="tk-item"><span class="tk-sep">◈</span>NASA MODIS · SENTINEL-5P · SENTINEL-2</span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">НИЙТ БИОМАСС 114,906 ТОНН</span><span class="en">TOTAL BIOMASS 114,906 TONNES</span></span>
-    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">CO₂ ШИНГЭЭЛТ 33,603,913 кг/жил</span><span class="en">CO₂ ABSORPTION 33,603,913 kg/year</span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">≈46 <span class="nc">tCO₂e</span> ХУРИМТЛАГДСАН ШИНГЭЭЛТ (≈12.6 <span class="nc">t C</span>) · 2026</span><span class="en">≈46 <span class="nc">tCO₂e</span> ACCUMULATED REMOVAL (≈12.6 <span class="nc">t C</span>) · 2026</span></span>
+    <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">VERRA VCS · GOLD STANDARD — БҮРТГЭЛ ЯВЦАД</span><span class="en">VERRA VCS · GOLD STANDARD — REGISTRATION IN PROGRESS</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ДУСЛЫН УСАЛГААНЫ СИСТЕМ · 18,000м ХООЛОЙ</span><span class="en">DRIP IRRIGATION SYSTEM · 18,000m PIPE</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ХАЙЛААС · 166,857 МОД ТАРЬСАН</span><span class="en">ULMUS PUMILA · 166,857 TREES PLANTED</span></span>
     <span class="tk-item"><span class="tk-sep">◈</span><span class="mn">ДОРНОГОВЬ АЙМАГ, ЭРДЭНЭ СУМ · УЛААНБААТАРААС 584 КМ</span><span class="en">DORNOGOVI · 584 km FROM ULAANBAATAR</span></span>
@@ -2127,151 +2027,67 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
 <section class="tl-s reveal" id="timeline">
   <div class="wrap">
 
-    <!-- ═════ 3 PILLARS / SYNERGY ═════ -->
-    <div class="pil-wrap">
-      <div class="pil-head">
+    <!-- ═════ 3 PILLARS ═════ -->
+    <div class="px pd" data-hl="">
+      <div class="px-head">
         <div>
-          <div class="pil-tag"><span class="mn"> Хөгжлийн схем</span><span class="en"> Development diagram  </span></div>
-          <div class="sl"><span class="mn">Хөгжлийн 3 тулгуур</span><span class="en">3 Pillars of Development</span></div>
-          <h2 class="st"><span class="mn">AGI · СЭРГЭЭГДЭХ ЭРЧИМ ХҮЧ · <em>КАРБОН КРЕДИТ</em></span><span class="en">AGI · SOLAR ENERGY · <em>CARBON CREDIT</em></span></h2>
+          <div class="sl"><span class="mn">Хөгжлийн 3 тулгуур</span><span class="en">Three pillars of development</span></div>
+          <h2 class="st"><span class="mn">SI · НАРНЫ ЭРЧИМ ХҮЧ · <em>КАРБОН</em></span><span class="en">SI · SOLAR ENERGY · <em>CARBON</em></span></h2>
         </div>
+        <p class="px-intro"><span class="mn">Гурван салбар тус тусдаа биш — нэг нь нөгөөгийнхөө үр дүнг тэжээдэг хаалттай гогцоо систем.</span><span class="en">The three sectors are not separate projects — each one feeds the next in a closed loop.</span></p>
       </div>
-
-      <!-- TRIANGLE DIAGRAM -->
-      <div class="pil-diagram">
-        <svg viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" aria-label="AGI · Solar · Carbon synergy">
-          <defs>
-            <linearGradient id="pil-edge-as" x1="350" y1="150" x2="170" y2="450" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#39AD48"/>
-              <stop offset="100%" stop-color="#F5C543"/>
-            </linearGradient>
-            <linearGradient id="pil-edge-ac" x1="350" y1="150" x2="530" y2="450" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#39AD48"/>
-              <stop offset="100%" stop-color="#00D4FF"/>
-            </linearGradient>
-            <linearGradient id="pil-edge-sc" x1="170" y1="490" x2="530" y2="490" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#F5C543"/>
-              <stop offset="100%" stop-color="#00D4FF"/>
-            </linearGradient>
-            <radialGradient id="pil-hub-bg">
-              <stop offset="0%" stop-color="#39AD48" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#39AD48" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="pil-glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-
-          <!-- Decorative outer orbital rings (counter-rotating) -->
-          <g class="pil-orbit" opacity="0.18">
-            <circle cx="350" cy="320" r="230" fill="none" stroke="#39AD48" stroke-width="0.8" stroke-dasharray="2 14"/>
-            <circle cx="350" cy="100" r="6" fill="none" stroke="#39AD48" stroke-width="1"/>
-          </g>
-          <g class="pil-orbit-rev" opacity="0.14">
-            <circle cx="350" cy="320" r="270" fill="none" stroke="#00D4FF" stroke-width="0.6" stroke-dasharray="1 22"/>
-          </g>
-
-          <!-- Edge hit zones (wider, transparent — for easier clicking) -->
-          <line x1="350" y1="150" x2="170" y2="450" class="pil-edge-hit" data-pil="agi-solar" tabindex="0" role="button" aria-label="AGI × SOLAR synergy"/>
-          <line x1="350" y1="150" x2="530" y2="450" class="pil-edge-hit" data-pil="agi-carbon" tabindex="0" role="button" aria-label="AGI × CARBON synergy"/>
-          <line x1="170" y1="490" x2="530" y2="490" class="pil-edge-hit" data-pil="solar-carbon" tabindex="0" role="button" aria-label="SOLAR × CARBON synergy"/>
-
-          <!-- Edges with flowing dash (visible) -->
-          <line x1="350" y1="150" x2="170" y2="450" stroke="url(#pil-edge-as)" stroke-width="2" opacity="0.75" class="pil-edge" data-pil-edge="agi-solar"/>
-          <line x1="350" y1="150" x2="530" y2="450" stroke="url(#pil-edge-ac)" stroke-width="2" opacity="0.75" class="pil-edge rev" data-pil-edge="agi-carbon"/>
-          <line x1="170" y1="490" x2="530" y2="490" stroke="url(#pil-edge-sc)" stroke-width="2" opacity="0.75" class="pil-edge" data-pil-edge="solar-carbon"/>
-
-          <!-- Edge labels -->
-          <g font-family="Montserrat, sans-serif" font-size="10" letter-spacing="2" font-weight="500">
-            <text x="195" y="305" fill="#F5C543" text-anchor="middle" transform="rotate(-55 195 305)" opacity="0.9">AGI × SOLAR</text>
-            <text x="505" y="305" fill="#00D4FF" text-anchor="middle" transform="rotate(55 505 305)" opacity="0.9">AGI × CARBON</text>
-            <text x="350" y="528" fill="rgba(232,244,255,0.6)" text-anchor="middle" opacity="0.9">SOLAR × CARBON</text>
-          </g>
-
-          <!-- Flowing beads along edges -->
-          <circle class="pil-bead b1" r="3" fill="#F5C543"/>
-          <circle class="pil-bead b2" r="3" fill="#00D4FF"/>
-          <circle class="pil-bead b3" r="3" fill="rgba(232,244,255,0.7)"/>
-          <circle class="pil-bead b1r" r="2.4" fill="#39AD48"/>
-          <circle class="pil-bead b2r" r="2.4" fill="#39AD48"/>
-          <circle class="pil-bead b3r" r="2.4" fill="#F5C543"/>
-
-          <!-- Center hub: SHAMBALA 2056 (clickable — closed loop) -->
-          <g data-pil="loop" tabindex="0" role="button" aria-label="Closed-loop synergy" style="color:#39AD48">
-            <circle cx="350" cy="320" r="105" fill="url(#pil-hub-bg)"/>
-            <circle class="pil-pulse" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
-            <circle class="pil-pulse d2" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
-            <circle class="pil-pulse d3" cx="350" cy="320" r="62" fill="none" stroke="#39AD48" stroke-width="1" opacity="0.6"/>
-            <circle cx="350" cy="320" r="62" fill="#020810" stroke="rgba(57,173,72,0.55)" stroke-width="1"/>
-            <text x="350" y="314" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="13" font-weight="700" fill="#E8F4FF" letter-spacing="3" style="pointer-events:none">SHAMBALA</text>
-            <text x="350" y="338" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="11" fill="#39AD48" letter-spacing="4" font-weight="700" style="pointer-events:none">2056</text>
-          </g>
-
-          <!-- Node: AGI (top) -->
-          <g class="pil-node-agi" data-pil="agi" tabindex="0" role="button" aria-label="AGI pillar" style="color:#39AD48">
-            <circle class="pil-node-ring" cx="350" cy="100" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
-            <circle cx="350" cy="100" r="68" fill="none" stroke="#39AD48" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
-            <text x="350" y="106" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="20" font-weight="700" fill="#39AD48" letter-spacing="3">AGI</text>
-          </g>
-
-          <!-- Node: SOLAR (bottom-left) -->
-          <g class="pil-node-solar" data-pil="solar" tabindex="0" role="button" aria-label="Solar pillar" style="color:#F5C543">
-            <circle class="pil-node-ring" cx="170" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
-            <circle cx="170" cy="490" r="68" fill="none" stroke="#F5C543" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
-            <text x="170" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="16" font-weight="700" fill="#F5C543" letter-spacing="3">SOLAR</text>
-            <text x="170" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn">ЭРЧИМ ХҮЧ</tspan><tspan class="en">ENERGY</tspan></text>
-          </g>
-
-          <!-- Node: CARBON (bottom-right) -->
-          <g class="pil-node-carbon" data-pil="carbon" tabindex="0" role="button" aria-label="Carbon pillar" style="color:#00D4FF">
-            <circle class="pil-node-ring" cx="530" cy="490" r="58" fill="#020810" stroke="currentColor" stroke-width="2"/>
-            <circle cx="530" cy="490" r="68" fill="none" stroke="#00D4FF" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.5"/>
-            <text x="530" y="486" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="15" font-weight="700" fill="#00D4FF" letter-spacing="2">CARBON</text>
-            <text x="530" y="505" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="8" fill="rgba(232,244,255,0.55)" letter-spacing="2"><tspan class="mn">ЗАХ ЗЭЭЛ</tspan><tspan class="en">MARKETS</tspan></text>
-          </g>
+      <div class="pd-stage">
+        <svg class="pd-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SI, Solar and Carbon closed-loop diagram">
+          <defs><marker id="pd-arrow-si" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="pd-head c-si" d="M0,0 L10,5 L0,10 z"/></marker><marker id="pd-arrow-solar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="pd-head c-solar" d="M0,0 L10,5 L0,10 z"/></marker><marker id="pd-arrow-carbon" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="pd-head c-carbon" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+          <path class="pd-edge e1 c-solar" d="M230,379 Q273,252 379,179" marker-end="url(#pd-arrow-solar)" data-e="e1"/><path class="pd-edge e2 c-si" d="M516,175 Q627,252 668,373" marker-end="url(#pd-arrow-si)" data-e="e2"/><path class="pd-edge e3 c-carbon" d="M618,476 Q450,523 288,478" marker-end="url(#pd-arrow-carbon)" data-e="e3"/><g class="pd-lbl e1" data-e="e1" tabindex="0" role="button" aria-label="CLEAN POWER">
+  <circle class="pd-badge c-solar" cx="289" cy="265" r="13"/><text class="pd-badge-n" x="289" y="270" text-anchor="middle">1</text>
+  <text class="pd-lt" x="265" y="259" text-anchor="end"><tspan class="mn">ЦЭВЭР ЭРЧИМ ХҮЧ</tspan><tspan class="en">CLEAN POWER</tspan></text>
+  <text class="pd-ls" x="265" y="278" text-anchor="end"><tspan class="mn">тооцоолол, дата төвийг тэжээнэ</tspan><tspan class="en">runs SI compute & data centre</tspan></text>
+</g><g class="pd-lbl e2" data-e="e2" tabindex="0" role="button" aria-label="dMRV MONITORING">
+  <circle class="pd-badge c-si" cx="609" cy="263" r="13"/><text class="pd-badge-n" x="609" y="267" text-anchor="middle">2</text>
+  <text class="pd-lt" x="633" y="257" text-anchor="start"><tspan class="mn"><tspan class="nc">dMRV</tspan> ХЯНАЛТ</tspan><tspan class="en"><tspan class="nc">dMRV</tspan> MONITORING</tspan></text>
+  <text class="pd-ls" x="633" y="276" text-anchor="start"><tspan class="mn">шингээлтийг хэмжиж тайлагнана</tspan><tspan class="en">measures & reports carbon removal</tspan></text>
+</g><g class="pd-lbl e3" data-e="e3" tabindex="0" role="button" aria-label="CARBON REVENUE">
+  <circle class="pd-badge c-carbon" cx="451" cy="500" r="13"/><text class="pd-badge-n" x="451" y="505" text-anchor="middle">3</text>
+  <text class="pd-lt" x="451" y="540" text-anchor="middle"><tspan class="mn">КАРБОНЫ ОРЛОГО</tspan><tspan class="en">CARBON REVENUE</tspan></text>
+  <text class="pd-ls" x="451" y="559" text-anchor="middle"><tspan class="mn">шинэ нарны хүчин чадлыг санхүүжүүлнэ</tspan><tspan class="en">funds new solar capacity</tspan></text>
+</g><g class="pd-node n-si" data-n="si" tabindex="0" role="button" aria-label="SI">
+  <circle class="pd-ring c-si" cx="450" cy="130" r="70"/>
+  <text class="pd-nt" x="450" y="134" text-anchor="middle"><tspan class="mn">SI</tspan><tspan class="en">SI</tspan></text>
+  <text class="pd-ns c-si" x="450" y="156" text-anchor="middle"><tspan class="mn">СУПЕР ОЮУН УХААН</tspan><tspan class="en">SUPERINTELLIGENCE</tspan></text>
+</g><g class="pd-node n-solar" data-n="solar" tabindex="0" role="button" aria-label="SOLAR">
+  <circle class="pd-ring c-solar" cx="205" cy="455" r="70"/>
+  <text class="pd-nt" x="205" y="459" text-anchor="middle"><tspan class="mn">НАР</tspan><tspan class="en">SOLAR</tspan></text>
+  <text class="pd-ns c-solar" x="205" y="481" text-anchor="middle"><tspan class="mn">ЭРЧИМ ХҮЧ</tspan><tspan class="en">RENEWABLE ENERGY</tspan></text>
+</g><g class="pd-node n-carbon" data-n="carbon" tabindex="0" role="button" aria-label="CARBON">
+  <circle class="pd-ring c-carbon" cx="695" cy="455" r="70"/>
+  <text class="pd-nt" x="695" y="459" text-anchor="middle"><tspan class="mn">КАРБОН</tspan><tspan class="en">CARBON</tspan></text>
+  <text class="pd-ns c-carbon" x="695" y="481" text-anchor="middle"><tspan class="mn">КАРБОН ЗАХ ЗЭЭЛ</tspan><tspan class="en">CARBON MARKETS</tspan></text>
+</g><g class="pd-hub">
+  <text class="pd-hub-t" x="450" y="343" text-anchor="middle">SHAMBALA 2056</text>
+  <text class="pd-hub-s" x="450" y="363" text-anchor="middle"><tspan class="mn">ХААЛТТАЙ ГОГЦОО</tspan><tspan class="en">CLOSED LOOP</tspan></text>
+</g>
         </svg>
       </div>
-
-      <!-- INTERACTIVE DETAIL PANEL -->
-      <!-- /INTERACTIVE DETAIL PANEL -->
-
-      <script>
-      (function(){
-        var stage=document.querySelector('.pil-wrap');
-        if(!stage) return;
-        var panel=stage.querySelector('.pil-detail');
-        var diagram=stage.querySelector('.pil-diagram');
-        if(!panel||!diagram) return;
-        function setActive(key){
-          if(!key) return;
-          var card=panel.querySelector('.pil-card-x[data-pil="'+key+'"]');
-          if(!card) return;
-          panel.querySelectorAll('.pil-card-x.active').forEach(function(c){c.classList.remove('active')});
-          card.classList.add('active');
-          panel.setAttribute('data-active',key);
-          diagram.querySelectorAll('[data-pil-active]').forEach(function(el){el.removeAttribute('data-pil-active')});
-          diagram.querySelectorAll('[data-pil="'+key+'"]').forEach(function(el){el.setAttribute('data-pil-active','true')});
-          var visEdge=diagram.querySelector('[data-pil-edge="'+key+'"]');
-          if(visEdge) visEdge.setAttribute('data-pil-active','true');
-        }
-        diagram.addEventListener('click',function(e){
-          var hot=e.target.closest('[data-pil]');
-          if(!hot||!hot.dataset.pil) return;
-          setActive(hot.dataset.pil);
-        });
-        diagram.addEventListener('keydown',function(e){
-          if(e.key!=='Enter'&&e.key!==' ') return;
-          var hot=e.target.closest('[data-pil]');
-          if(!hot||!hot.dataset.pil) return;
-          e.preventDefault();
-          setActive(hot.dataset.pil);
-        });
-      })();
-      </script>
-
+      <ol class="pd-legend">
+        <li class="pd-li" data-e="e1" tabindex="0"><span class="pd-li-n c-solar">1</span><span class="pd-li-pair"><span class="c-solar">SOLAR</span> → <span class="c-si">SI</span></span><span class="pd-li-t"><span class="mn">Нарны цэвэр эрчим хүч кампус, дата төв, SI тооцооллыг тэжээнэ.</span><span class="en">Clean solar power runs the campus, data centre and SI compute.</span></span></li>
+        <li class="pd-li" data-e="e2" tabindex="0"><span class="pd-li-n c-si">2</span><span class="pd-li-pair"><span class="c-si">SI</span> → <span class="c-carbon">CARBON</span></span><span class="pd-li-t"><span class="mn">SI хиймэл дагуулын өгөгдлөөр (<span class="nc">dMRV</span>) нүүрстөрөгчийн шингээлтийг ил тод хэмжиж тайлагнана.</span><span class="en">SI uses satellite data (<span class="nc">dMRV</span>) to measure and report carbon removal transparently.</span></span></li>
+        <li class="pd-li" data-e="e3" tabindex="0"><span class="pd-li-n c-carbon">3</span><span class="pd-li-pair"><span class="c-carbon">CARBON</span> → <span class="c-solar">SOLAR</span></span><span class="pd-li-t"><span class="mn">Карбон кредитийн орлого дараагийн нарны хүчин чадлыг санхүүжүүлнэ.</span><span class="en">Carbon-credit revenue funds the next phase of solar capacity.</span></span></li>
+      </ol>
     </div>
     <!-- ═════ /3 PILLARS ═════ -->
+    <script>
+    (function(){
+      var w=document.querySelector('.pd');if(!w)return;
+      var nodeEdges={si:'e1 e2',solar:'e1 e3',carbon:'e2 e3'};
+      function set(v){w.setAttribute('data-hl',v||'')}
+      w.querySelectorAll('[data-e],[data-n]').forEach(function(el){
+        var v=el.dataset.e||('n-'+el.dataset.n);
+        ['mouseenter','focus'].forEach(function(ev){el.addEventListener(ev,function(){set(v)})});
+        ['mouseleave','blur'].forEach(function(ev){el.addEventListener(ev,function(){set('')})});
+      });
+    })();
+    </script>
 
 
 <!-- ═════ AGI.html EMBED — full content from /AGI.html, finance section excluded ═════ -->
@@ -3459,7 +3275,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="tl-phase-id">III</div>
           <div class="tl-phase-years">2032 → 2040</div>
           <h4><span class="mn">Өргөтгөл ба сайжруулалт</span><span class="en">Expansion & Refinement</span></h4>
-          <p><span class="mn">1,000 МВт нарны станц, Smart Grid, AGI бодит хэрэглээ, 300 оюутны элсэлт.</span><span class="en">1,000 MW solar plant, Smart Grid, AGI deployment, 300 student enrollment.</span></p>
+          <p><span class="mn">1,000 МВт нарны станц, Smart Grid, SI бодит хэрэглээ, 300 оюутны элсэлт.</span><span class="en">1,000 MW solar plant, Smart Grid, SI deployment, 300 student enrollment.</span></p>
           <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
 
@@ -3475,7 +3291,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <div class="tl-phase-id">V</div>
           <div class="tl-phase-years">2048 → 2056</div>
           <h4><span class="mn">Олон улсын зах зээл</span><span class="en">International Market</span></h4>
-          <p><span class="mn">+10,000 МВт, AGI бие даасан судалгаа, 1,000 оюутны элсэлт, «Карбон Негатив» (Carbon Negative) технологиудыг олон улсын зах зээлд экспортлогч орон болох.</span><span class="en">+10,000 MW, autonomous AGI research, 1,000 student enrollment, exporter of «Carbon Negative» technologies to international markets.</span></p>
+          <p><span class="mn">+10,000 МВт, SI бие даасан судалгаа, 1,000 оюутны элсэлт, «Карбон Негатив» (Carbon Negative) технологиудыг олон улсын зах зээлд экспортлогч орон болох.</span><span class="en">+10,000 MW, autonomous SI research, 1,000 student enrollment, exporter of «Carbon Negative» technologies to international markets.</span></p>
           <div class="tl-phase-cue"><span class="tl-phase-cue-txt"><span class="mn">Дэлгэрэнгүй харах</span><span class="en">View details</span></span><span class="tl-phase-cue-arr">↓</span></div>
         </div>
       </div>
@@ -3499,7 +3315,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
         <h2>Үе шатны<br>тайлбар</h2>
       </div>
       <p class="section-head-desc">
-        Үе шат бүрийн дэд бүтэц, боловсрол, AGI, карбон зах зээлийн зорилт, гүйцэтгэлийн үндсэн үзүүлэлтүүдийг (KPI) тус тусад нь үзнэ үү.
+        Үе шат бүрийн дэд бүтэц, боловсрол, SI, карбон зах зээлийн зорилт, гүйцэтгэлийн үндсэн үзүүлэлтүүдийг (KPI) тус тусад нь үзнэ үү.
       </p>
     </div>
 
@@ -3548,7 +3364,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <p class="phase-intro"><span class="mn">Орчин үеийн, бие даасан, ногоон технологид суурилсан дэд бүтцийн бүтээн байгуулалт:</span><span class="en">Building modern, autonomous infrastructure powered by green technology:</span></p>
           <ul>
             <li><span class="mn"><strong>Сэргээгдэх эрчим хүч:</strong> 100 МВт хүчин чадалтай нарны цахилгаан станц (2027 онд эхний 50 МВт, 2032 онд дараагийн 50 МВт тус тус ашиглалтад орно).</span><span class="en"><strong>Renewable Energy:</strong> A 100 MW solar power plant (first 50 MW commissioned in 2027, the next 50 MW in 2032).</span></li>
-            <li><span class="mn"><strong>Эрчим хүчний нөөцлөлт:</strong> Цахилгаан тогтворжуулах систем бүхий 200 МВт·ц багтаамжтай батерейн агуулах.</span><span class="en"><strong>Energy Storage:</strong> A 200 MWh battery storage facility with grid-stabilization capability.</span></li>
+            <li><span class="mn"><strong>Эрчим хүчний нөөцлөлт:</strong> Цахилгаан тогтворжуулах систем бүхий 200 МВт·ц багтаамжтай батерейн агуулах.</span><span class="en"><strong>Energy Storage:</strong> A 200 <span class="nc">MWh</span> battery storage facility with grid-stabilization capability.</span></li>
             <li><span class="mn"><strong>Мэдээллийн технологи:</strong> 5 МВт ачаалал даах чадвар бүхий өөрийн Tier III зэрэглэлийн дата төв болон өндөр хурдны шилэн кабелийн сүлжээ.</span><span class="en"><strong>Information Technology:</strong> An in-house Tier III data centre supporting a 5 MW load, plus a high-speed fiber-optic network.</span></li>
           </ul>
           <h4><span class="mn">// 2. Боловсрол (Шамбала Технологийн Сургууль)</span><span class="en">// 2. Education (Shambala Technology School)</span></h4>
@@ -3557,7 +3373,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             <li><span class="mn"><strong>Кампус:</strong> Сургуулийн анхны хичээлийн байр, орчин үеийн лаборатори, оюутны дотуур байр.</span><span class="en"><strong>Campus:</strong> The school's first academic building, modern laboratories, and student dormitory.</span></li>
             <li><span class="mn"><strong>Бакалаврын 3 үндсэн хөтөлбөр:</strong> сэргээгдэх эрчим хүчний инженерчлэл, AI (хиймэл оюун ухаан), Карбон кредит ба зах зээл.</span><span class="en"><strong>Three Bachelor's Programs:</strong> Renewable Energy Engineering, AI (Artificial Intelligence), Carbon Credits & Markets.</span></li>
           </ul>
-          <h4><span class="mn">// 3. AGI хөгжүүлэлт</span><span class="en">// 3. AGI Development</span></h4>
+          <h4><span class="mn">// 3. SI хөгжүүлэлт</span><span class="en">// 3. SI Development</span></h4>
           <p class="phase-intro"><span class="mn">Цаг уур, эрчим хүчний асуудлыг шийдвэрлэхэд чиглэсэн хиймэл оюун ухааны судалгаа:</span><span class="en">AI research focused on solving climate and energy challenges:</span></p>
           <ul>
             <li><span class="mn"><strong>Судалгааны дэд бүтэц:</strong> 500 PFLOPS тооцоолох хүчин чадалтай GPU/TPU кластер бүхий машин сургалтын дэвшилтэт лаборатори.</span><span class="en"><strong>Research Infrastructure:</strong> An advanced machine-learning lab with a 500 PFLOPS GPU/TPU cluster.</span></li>
@@ -3567,7 +3383,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <p class="phase-intro"><span class="mn">Уур амьсгалын өөрчлөлтийн эсрэг олон улсын түвшний санаачилга:</span><span class="en">International-scale initiatives addressing climate change:</span></p>
           <ul>
             <li><span class="mn"><strong>Олон улсын баталгаажуулалт:</strong> Төслийг дэлхийн нэр хүндтэй Verra VCS болон Gold Standard стандартаар албан ёсоор бүртгүүлэх.</span><span class="en"><strong>International Certification:</strong> Formal registration of the project under the globally recognized Verra VCS and Gold Standard certifications.</span></li>
-            <li><span class="mn"><strong>Ухаалаг хяналт:</strong> Блокчэйн технологид суурилсан ил тод, найдвартай MRV (Monitoring, Reporting, Verification) платформ нэвтрүүлэх.</span><span class="en"><strong>Smart Monitoring:</strong> Deployment of a transparent, blockchain-based MRV (Monitoring, Reporting, Verification) platform.</span></li>
+            <li><span class="mn"><strong>Ухаалаг хяналт:</strong> Ил тод, найдвартай дижитал MRV (<span class="nc">dMRV</span> — Monitoring, Reporting, Verification) платформ нэвтрүүлэх.</span><span class="en"><strong>Smart Monitoring:</strong> Deployment of a transparent digital MRV (<span class="nc">dMRV</span> — Monitoring, Reporting, Verification) platform.</span></li>
             <li><span class="mn"><strong>Эдийн засгийн эргэлт:</strong> Жилд 500,000 тонн CO₂-той тэнцэх хэмжээний карбон кредитийг олон улсын зах зээлд нийлүүлэх.</span><span class="en"><strong>Revenue Generation:</strong> Supplying 500,000 tonnes of CO₂-equivalent carbon credits annually to international markets.</span></li>
           </ul>
         </div>
@@ -3600,7 +3416,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <p class="phase-intro"><span class="mn">Эрчим хүч, технологийн хүчин чадлыг нэмэгдүүлэх:</span><span class="en">Scaling up energy and technology capacity:</span></p>
           <ul>
             <li><span class="mn"><strong>Нарны эрчим хүч:</strong> Цахилгаан станцын хүчин чадлыг 10 дахин өсгөж, 1,000 МВт-д хүргэх.</span><span class="en"><strong>Solar Energy:</strong> Scaling the solar power plant 10-fold to 1,000 MW.</span></li>
-            <li><span class="mn"><strong>Ухаалаг сүлжээ (Smart Grid):</strong> Эрчим хүчний хуваарилалтыг бодит цаг хугацаанд оновчлох AGI-д суурилсан ухаалаг сүлжээг бүрэн нэвтрүүлэх.</span><span class="en"><strong>Smart Grid:</strong> Full rollout of an AGI-powered Smart Grid that optimizes energy distribution in real time.</span></li>
+            <li><span class="mn"><strong>Ухаалаг сүлжээ (Smart Grid):</strong> Эрчим хүчний хуваарилалтыг бодит цаг хугацаанд оновчлох SI-д суурилсан ухаалаг сүлжээг бүрэн нэвтрүүлэх.</span><span class="en"><strong>Smart Grid:</strong> Full rollout of an SI-powered Smart Grid that optimizes energy distribution in real time.</span></li>
             <li><span class="mn"><strong>Судалгааны кампус:</strong> 30 гаруй барилга байгууламж бүхий, нийт 50 га талбайг хамарсан орчин үеийн эрдэм шинжилгээ, инновацийн цогцолбор байгуулах.</span><span class="en"><strong>Research Campus:</strong> Building a modern 50-hectare research and innovation complex with 30+ buildings.</span></li>
           </ul>
           <h4><span class="mn">// 2. Боловсрол</span><span class="en">// 2. Education</span></h4>
@@ -3609,10 +3425,10 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             <li><span class="mn"><strong>Ахисан түвшний хөтөлбөр:</strong> Магистр болон докторын түвшний 10+ шинэ хөтөлбөр хэрэгжүүлэх.</span><span class="en"><strong>Advanced Programs:</strong> Launching 10+ new master's and doctoral programs.</span></li>
             <li><span class="mn"><strong>Олон улсын магадлан итгэмжлэл:</strong> Сургалтын хөтөлбөрүүдээ дэлхийн жишигт нийцүүлж, инженер технологийн ABET болон EUR-ACE олон улсын магадлан итгэмжлэлд хамруулах.</span><span class="en"><strong>International Accreditation:</strong> Aligning programs with global standards and securing ABET and EUR-ACE engineering accreditations.</span></li>
           </ul>
-          <h4><span class="mn">// 3. AGI бодит хэрэглээ</span><span class="en">// 3. AGI Deployment</span></h4>
+          <h4><span class="mn">// 3. SI бодит хэрэглээ</span><span class="en">// 3. SI Deployment</span></h4>
           <p class="phase-intro"><span class="mn">Хиймэл оюун ухааныг үйлдвэрлэл, бизнесийн процесст шууд интеграци хийх:</span><span class="en">Integrating AI directly into production and business processes:</span></p>
           <ul>
-            <li><span class="mn"><strong>Бүрэн автоматжуулалт:</strong> Цахилгаан станцын өдөр тутмын бүхий л үйл ажиллагааг (operations) AGI системээр удирдан оновчлох.</span><span class="en"><strong>Full Automation:</strong> All daily power-plant operations managed and optimized by the AGI system.</span></li>
+            <li><span class="mn"><strong>Бүрэн автоматжуулалт:</strong> Цахилгаан станцын өдөр тутмын бүхий л үйл ажиллагааг (operations) SI системээр удирдан оновчлох.</span><span class="en"><strong>Full Automation:</strong> All daily power-plant operations managed and optimized by the SI system.</span></li>
             <li><span class="mn"><strong>Өндөр нарийвчлалтай таамаглал:</strong> Цаг агаарын төлөв байдал болон эрчим хүчний эрэлт-нийлүүлэлтийн 72 цагийн урьдчилсан таамаглалыг 95%-иас дээш нарийвчлалтайгаар гаргах.</span><span class="en"><strong>High-Precision Forecasting:</strong> 72-hour weather and energy supply-demand forecasts produced at 95%+ accuracy.</span></li>
             <li><span class="mn"><strong>Ухаалаг арилжаа:</strong> Карбон зах зээл дээрх үнийн хэлбэлзэлд дүн шинжилгээ хийж, хамгийн ашигтайгаар борлуулах «Автомат арилжааны стратеги»-ийг нэвтрүүлэх.</span><span class="en"><strong>Smart Trading:</strong> Deploying an «Automated Trading Strategy» that analyzes carbon-market price movements to optimize sales.</span></li>
           </ul>
@@ -3653,7 +3469,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <p class="phase-intro"><span class="mn">бүс нутгийн түвшинд эрчим хүч, технологийн экспортлогч болох:</span><span class="en">Becoming a regional exporter of energy and technology:</span></p>
           <ul>
             <li><span class="mn"><strong>Мега эрчим хүч:</strong> Нарны цахилгаан станцын хүчин чадлыг 5,000 МВт хүртэл нэмэгдүүлж, эрчим хүч экспортлох чадамжтай болох.</span><span class="en"><strong>Mega Energy:</strong> Scaling the solar power plant to 5,000 MW, enabling energy exports.</span></li>
-            <li><span class="mn"><strong>Суперкомпьютер:</strong> AGI-ийн аварга загваруудыг сургах зориулалттай суперкомпьютерийн төвийг байгуулах.</span><span class="en"><strong>Supercomputer:</strong> Building a supercomputer centre dedicated to training large-scale AGI models.</span></li>
+            <li><span class="mn"><strong>Суперкомпьютер:</strong> SI-ийн аварга загваруудыг сургах зориулалттай суперкомпьютерийн төвийг байгуулах.</span><span class="en"><strong>Supercomputer:</strong> Building a supercomputer centre dedicated to training large-scale SI models.</span></li>
           </ul>
           <h4><span class="mn">// 2. Боловсрол</span><span class="en">// 2. Education</span></h4>
           <p class="phase-intro"><span class="mn">олон улсын технологийн боловсролын тэргүүлэх судалгааны төвүүдийн нэг болох:</span><span class="en">Becoming one of the world's leading technology-education and research centres:</span></p>
@@ -3661,11 +3477,11 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
             <li><span class="mn"><strong>Олон улсын кампус:</strong> Дэлхийн 30 гаруй улсаас өндөр шалгуураар тэнцсэн шилдэг 600 оюутан элсүүлэх.</span><span class="en"><strong>International Campus:</strong> Enrolling 600 top-tier students selected from 30+ countries through rigorous criteria.</span></li>
             <li><span class="mn"><strong>Шилдэг багш нар:</strong> салбарын экспертүүдийг урьж ажиллуулах «Зочин профессорын хөтөлбөр» хэрэгжүүлэх.</span><span class="en"><strong>Faculty:</strong> Running a «Visiting Professor Program» that brings industry experts to teach.</span></li>
           </ul>
-          <h4><span class="mn">// 3. AGI бүрэн нэвтрэлт</span><span class="en">// 3. AGI Full Integration</span></h4>
+          <h4><span class="mn">// 3. SI бүрэн нэвтрэлт</span><span class="en">// 3. SI Full Integration</span></h4>
           <p class="phase-intro"><span class="mn">Хиймэл оюун ухааныг инновацийн хөдөлгүүр болгон ашиглах:</span><span class="en">Leveraging AI as the engine of innovation:</span></p>
           <ul>
-            <li><span class="mn"><strong>Бүрэн бие даасан удирдлага:</strong> Цахилгаан станц болон дэд бүтцийн бүхий л процессыг AGI систем хөндлөнгийн оролцоогүйгээр бие даан 100% удирдах.</span><span class="en"><strong>Fully Autonomous Operations:</strong> AGI systems autonomously managing 100% of power-plant and infrastructure processes without external intervention.</span></li>
-            <li><span class="mn"><strong>Шинжлэх ухааны нээлт:</strong> Шинэ материал, технологийн судалгаа, шинжлэх ухааны нээлтүүдийг AGI-д түшиглэн хийдэг систем нэвтрүүлэх.</span><span class="en"><strong>Scientific Discovery:</strong> Deploying an AGI-driven system for materials research, technology development, and scientific discovery.</span></li>
+            <li><span class="mn"><strong>Бүрэн бие даасан удирдлага:</strong> Цахилгаан станц болон дэд бүтцийн бүхий л процессыг SI систем хөндлөнгийн оролцоогүйгээр бие даан 100% удирдах.</span><span class="en"><strong>Fully Autonomous Operations:</strong> SI systems autonomously managing 100% of power-plant and infrastructure processes without external intervention.</span></li>
+            <li><span class="mn"><strong>Шинжлэх ухааны нээлт:</strong> Шинэ материал, технологийн судалгаа, шинжлэх ухааны нээлтүүдийг SI-д түшиглэн хийдэг систем нэвтрүүлэх.</span><span class="en"><strong>Scientific Discovery:</strong> Deploying an SI-driven system for materials research, technology development, and scientific discovery.</span></li>
           </ul>
           <h4><span class="mn">// 4. Карбон зах зээл</span><span class="en">// 4. Carbon Markets</span></h4>
           <p class="phase-intro"><span class="mn">Уур амьсгалын өөрчлөлтийн эсрэг мега төслүүдийг хэрэгжүүлэх:</span><span class="en">Executing mega-projects against climate change:</span></p>
@@ -3704,7 +3520,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
           <p class="phase-intro"><span class="mn">Бүс нутгийн эрчим хүчний шилжилтийг эхлүүлэх:</span><span class="en">Driving the regional energy transition:</span></p>
           <ul>
             <li><span class="mn"><strong>Эрчим хүчний мега экспорт:</strong> Нарны цахилгаан станцын хүчин чадлыг 10,000+ МВт-д хүргэж, бүс нутагтаа ногоон эрчим хүчний экспортоор тэргүүлэгч болох.</span><span class="en"><strong>Energy Mega-Export:</strong> Scaling the solar power plant to 10,000+ MW and leading the region in green-energy exports.</span></li>
-            <li><span class="mn"><strong>AGI төв:</strong> AGI-ийн ёс зүй, аюулгүй байдлыг хангах олон улсын төвийг байгуулж, байнгын үйл ажиллагаанд оруулах.</span><span class="en"><strong>AGI Centre:</strong> Establishing a permanent international centre for AGI ethics and safety.</span></li>
+            <li><span class="mn"><strong>SI төв:</strong> SI-ийн ёс зүй, аюулгүй байдлыг хангах олон улсын төвийг байгуулж, байнгын үйл ажиллагаанд оруулах.</span><span class="en"><strong>SI Centre:</strong> Establishing a permanent international centre for superintelligence (SI) ethics, safety and governance.</span></li>
             <li><span class="mn"><strong>Уур амьсгалын технологи:</strong> Нүүрстөрөгчийн сөрөг буюу Carbon Negative технологийн судалгаа, хөгжүүлэлтийн төв байгуулах.</span><span class="en"><strong>Climate Technology:</strong> Building a research and development centre for Carbon Negative technologies.</span></li>
           </ul>
           <h4><span class="mn">// 2. Боловсрол</span><span class="en">// 2. Education</span></h4>
@@ -3884,10 +3700,10 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
   </div>
   <div class="partners-rows">
     <div class="cl-fade-wrap">
-      <div class="cl-track" id="cl-track-1"><div class="cl" title="NOMIN ELECTRONICS"><img src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div><div class="cl" title="CSGO SKINS"><img src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div><div class="cl" title="NOMIN ELECTRONICS"><img src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div><div class="cl" title="CSGO SKINS"><img src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div></div>
+      <div class="cl-track" id="cl-track-1"><div class="cl" title="NOMIN ELECTRONICS"><img loading="lazy" decoding="async" src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img loading="lazy" decoding="async" src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img loading="lazy" decoding="async" src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img loading="lazy" decoding="async" src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img loading="lazy" decoding="async" src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img loading="lazy" decoding="async" src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img loading="lazy" decoding="async" src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img loading="lazy" decoding="async" src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img loading="lazy" decoding="async" src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img loading="lazy" decoding="async" src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img loading="lazy" decoding="async" src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img loading="lazy" decoding="async" src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img loading="lazy" decoding="async" src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img loading="lazy" decoding="async" src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img loading="lazy" decoding="async" src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img loading="lazy" decoding="async" src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img loading="lazy" decoding="async" src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img loading="lazy" decoding="async" src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img loading="lazy" decoding="async" src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img loading="lazy" decoding="async" src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img loading="lazy" decoding="async" src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img loading="lazy" decoding="async" src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img loading="lazy" decoding="async" src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img loading="lazy" decoding="async" src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img loading="lazy" decoding="async" src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img loading="lazy" decoding="async" src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img loading="lazy" decoding="async" src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img loading="lazy" decoding="async" src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img loading="lazy" decoding="async" src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img loading="lazy" decoding="async" src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img loading="lazy" decoding="async" src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img loading="lazy" decoding="async" src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div><div class="cl" title="CSGO SKINS"><img loading="lazy" decoding="async" src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img loading="lazy" decoding="async" src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img loading="lazy" decoding="async" src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img loading="lazy" decoding="async" src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img loading="lazy" decoding="async" src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img loading="lazy" decoding="async" src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img loading="lazy" decoding="async" src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img loading="lazy" decoding="async" src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img loading="lazy" decoding="async" src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img loading="lazy" decoding="async" src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img loading="lazy" decoding="async" src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img loading="lazy" decoding="async" src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img loading="lazy" decoding="async" src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img loading="lazy" decoding="async" src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img loading="lazy" decoding="async" src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img loading="lazy" decoding="async" src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img loading="lazy" decoding="async" src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img loading="lazy" decoding="async" src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img loading="lazy" decoding="async" src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img loading="lazy" decoding="async" src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img loading="lazy" decoding="async" src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img loading="lazy" decoding="async" src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img loading="lazy" decoding="async" src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img loading="lazy" decoding="async" src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img loading="lazy" decoding="async" src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img loading="lazy" decoding="async" src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img loading="lazy" decoding="async" src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img loading="lazy" decoding="async" src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img loading="lazy" decoding="async" src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img loading="lazy" decoding="async" src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img loading="lazy" decoding="async" src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img loading="lazy" decoding="async" src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div><div class="cl" title="NOMIN ELECTRONICS"><img loading="lazy" decoding="async" src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img loading="lazy" decoding="async" src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img loading="lazy" decoding="async" src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img loading="lazy" decoding="async" src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img loading="lazy" decoding="async" src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img loading="lazy" decoding="async" src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img loading="lazy" decoding="async" src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img loading="lazy" decoding="async" src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img loading="lazy" decoding="async" src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img loading="lazy" decoding="async" src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img loading="lazy" decoding="async" src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img loading="lazy" decoding="async" src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img loading="lazy" decoding="async" src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img loading="lazy" decoding="async" src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img loading="lazy" decoding="async" src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img loading="lazy" decoding="async" src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img loading="lazy" decoding="async" src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img loading="lazy" decoding="async" src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img loading="lazy" decoding="async" src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img loading="lazy" decoding="async" src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img loading="lazy" decoding="async" src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img loading="lazy" decoding="async" src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img loading="lazy" decoding="async" src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img loading="lazy" decoding="async" src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img loading="lazy" decoding="async" src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img loading="lazy" decoding="async" src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img loading="lazy" decoding="async" src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img loading="lazy" decoding="async" src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img loading="lazy" decoding="async" src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img loading="lazy" decoding="async" src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img loading="lazy" decoding="async" src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img loading="lazy" decoding="async" src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div><div class="cl" title="CSGO SKINS"><img loading="lazy" decoding="async" src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img loading="lazy" decoding="async" src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img loading="lazy" decoding="async" src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img loading="lazy" decoding="async" src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img loading="lazy" decoding="async" src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img loading="lazy" decoding="async" src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img loading="lazy" decoding="async" src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img loading="lazy" decoding="async" src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img loading="lazy" decoding="async" src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img loading="lazy" decoding="async" src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img loading="lazy" decoding="async" src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img loading="lazy" decoding="async" src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img loading="lazy" decoding="async" src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img loading="lazy" decoding="async" src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img loading="lazy" decoding="async" src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img loading="lazy" decoding="async" src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img loading="lazy" decoding="async" src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img loading="lazy" decoding="async" src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img loading="lazy" decoding="async" src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img loading="lazy" decoding="async" src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img loading="lazy" decoding="async" src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img loading="lazy" decoding="async" src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img loading="lazy" decoding="async" src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img loading="lazy" decoding="async" src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img loading="lazy" decoding="async" src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img loading="lazy" decoding="async" src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img loading="lazy" decoding="async" src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img loading="lazy" decoding="async" src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img loading="lazy" decoding="async" src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img loading="lazy" decoding="async" src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img loading="lazy" decoding="async" src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img loading="lazy" decoding="async" src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div></div>
     </div>
     <div class="cl-fade-wrap">
-      <div class="cl-track cl-reverse" id="cl-track-2"><div class="cl" title="CSGO SKINS"><img src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div><div class="cl" title="NOMIN ELECTRONICS"><img src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div><div class="cl" title="CSGO SKINS"><img src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div><div class="cl" title="NOMIN ELECTRONICS"><img src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div></div>
+      <div class="cl-track cl-reverse" id="cl-track-2"><div class="cl" title="CSGO SKINS"><img loading="lazy" decoding="async" src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img loading="lazy" decoding="async" src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img loading="lazy" decoding="async" src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img loading="lazy" decoding="async" src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img loading="lazy" decoding="async" src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img loading="lazy" decoding="async" src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img loading="lazy" decoding="async" src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img loading="lazy" decoding="async" src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img loading="lazy" decoding="async" src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img loading="lazy" decoding="async" src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img loading="lazy" decoding="async" src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img loading="lazy" decoding="async" src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img loading="lazy" decoding="async" src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img loading="lazy" decoding="async" src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img loading="lazy" decoding="async" src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img loading="lazy" decoding="async" src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img loading="lazy" decoding="async" src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img loading="lazy" decoding="async" src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img loading="lazy" decoding="async" src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img loading="lazy" decoding="async" src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img loading="lazy" decoding="async" src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img loading="lazy" decoding="async" src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img loading="lazy" decoding="async" src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img loading="lazy" decoding="async" src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img loading="lazy" decoding="async" src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img loading="lazy" decoding="async" src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img loading="lazy" decoding="async" src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img loading="lazy" decoding="async" src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img loading="lazy" decoding="async" src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img loading="lazy" decoding="async" src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img loading="lazy" decoding="async" src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img loading="lazy" decoding="async" src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div><div class="cl" title="NOMIN ELECTRONICS"><img loading="lazy" decoding="async" src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img loading="lazy" decoding="async" src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img loading="lazy" decoding="async" src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img loading="lazy" decoding="async" src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img loading="lazy" decoding="async" src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img loading="lazy" decoding="async" src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img loading="lazy" decoding="async" src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img loading="lazy" decoding="async" src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img loading="lazy" decoding="async" src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img loading="lazy" decoding="async" src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img loading="lazy" decoding="async" src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img loading="lazy" decoding="async" src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img loading="lazy" decoding="async" src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img loading="lazy" decoding="async" src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img loading="lazy" decoding="async" src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img loading="lazy" decoding="async" src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img loading="lazy" decoding="async" src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img loading="lazy" decoding="async" src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img loading="lazy" decoding="async" src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img loading="lazy" decoding="async" src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img loading="lazy" decoding="async" src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img loading="lazy" decoding="async" src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img loading="lazy" decoding="async" src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img loading="lazy" decoding="async" src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img loading="lazy" decoding="async" src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img loading="lazy" decoding="async" src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img loading="lazy" decoding="async" src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img loading="lazy" decoding="async" src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img loading="lazy" decoding="async" src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img loading="lazy" decoding="async" src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img loading="lazy" decoding="async" src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img loading="lazy" decoding="async" src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div><div class="cl" title="CSGO SKINS"><img loading="lazy" decoding="async" src="logos/csgo_skins.webp" alt="CSGO SKINS"><span class="cl-name">CSGO SKINS</span></div><div class="cl" title="NAROPA INSTITUTE"><img loading="lazy" decoding="async" src="logos/naropa.webp" alt="NAROPA INSTITUTE"><span class="cl-name">NAROPA INSTITUTE</span></div><div class="cl" title="OIM"><img loading="lazy" decoding="async" src="logos/oum.webp" alt="OIM"><span class="cl-name">OIM</span></div><div class="cl" title="PIZZA HUT"><img loading="lazy" decoding="async" src="logos/pizza-hut.webp" alt="PIZZA HUT"><span class="cl-name">PIZZA HUT</span></div><div class="cl" title="PLASTIC CENTER"><img loading="lazy" decoding="async" src="logos/plastic_center.webp" alt="PLASTIC CENTER"><span class="cl-name">PLASTIC CENTER</span></div><div class="cl" title="RE/MAX MONGOLIA"><img loading="lazy" decoding="async" src="logos/remax.webp" alt="RE/MAX MONGOLIA"><span class="cl-name">RE/MAX MONGOLIA</span></div><div class="cl" title="RIO TINTO"><img loading="lazy" decoding="async" src="logos/riotinto.webp" alt="RIO TINTO"><span class="cl-name">RIO TINTO</span></div><div class="cl" title="SCC"><img loading="lazy" decoding="async" src="logos/scc.webp" alt="SCC"><span class="cl-name">SCC</span></div><div class="cl" title="STOREPAY"><img loading="lazy" decoding="async" src="logos/storepay.webp" alt="STOREPAY"><span class="cl-name">STOREPAY</span></div><div class="cl" title="TDB"><img loading="lazy" decoding="async" src="logos/tdb.webp" alt="TDB"><span class="cl-name">TDB</span></div><div class="cl" title="TIMBERLAND"><img loading="lazy" decoding="async" src="logos/timberland.webp" alt="TIMBERLAND"><span class="cl-name">TIMBERLAND</span></div><div class="cl" title="TOD OIMS"><img loading="lazy" decoding="async" src="logos/tod-oyms.webp" alt="TOD OIMS"><span class="cl-name">TOD OIMS</span></div><div class="cl" title="TOIROG"><img loading="lazy" decoding="async" src="logos/toirot.webp" alt="TOIROG"><span class="cl-name">TOIROG</span></div><div class="cl" title="TOKI"><img loading="lazy" decoding="async" src="logos/toki.webp" alt="TOKI"><span class="cl-name">TOKI</span></div><div class="cl" title="TREELINGS"><img loading="lazy" decoding="async" src="logos/treelings.webp" alt="TREELINGS"><span class="cl-name">TREELINGS</span></div><div class="cl" title="TSOBA HOUSE"><img loading="lazy" decoding="async" src="logos/tsoba.webp" alt="TSOBA HOUSE"><span class="cl-name">TSOBA HOUSE</span></div><div class="cl" title="TUMEN SHUUVUUT"><img loading="lazy" decoding="async" src="logos/tumen-shuvuut.webp" alt="TUMEN SHUUVUUT"><span class="cl-name">TUMEN SHUUVUUT</span></div><div class="cl" title="UB COMEDY"><img loading="lazy" decoding="async" src="logos/ub-comedy.webp" alt="UB COMEDY"><span class="cl-name">UB COMEDY</span></div><div class="cl" title="UB PRINT"><img loading="lazy" decoding="async" src="logos/ub_print.webp" alt="UB PRINT"><span class="cl-name">UB PRINT</span></div><div class="cl" title="ULZ FINANCE"><img loading="lazy" decoding="async" src="logos/ulz_finance.webp" alt="ULZ FINANCE"><span class="cl-name">ULZ FINANCE</span></div><div class="cl" title="ULZ GROUP"><img loading="lazy" decoding="async" src="logos/ulz-group.webp" alt="ULZ GROUP"><span class="cl-name">ULZ GROUP</span></div><div class="cl" title="ULZ GOL LLC"><img loading="lazy" decoding="async" src="logos/ulz-gol.webp" alt="ULZ GOL LLC"><span class="cl-name">ULZ GOL LLC</span></div><div class="cl" title="ULZ DRILLING"><img loading="lazy" decoding="async" src="logos/ulz-drilling.webp" alt="ULZ DRILLING"><span class="cl-name">ULZ DRILLING</span></div><div class="cl" title="ONGO NEMYE"><img loading="lazy" decoding="async" src="logos/onge-nemie.webp" alt="ONGO NEMYE"><span class="cl-name">ONGO NEMYE</span></div><div class="cl" title="YVES ROCHER"><img loading="lazy" decoding="async" src="logos/yves-rocher.webp" alt="YVES ROCHER"><span class="cl-name">YVES ROCHER</span></div><div class="cl" title="KHUUSGUL LLC"><img loading="lazy" decoding="async" src="logos/khoosogol.webp" alt="KHUUSGUL LLC"><span class="cl-name">KHUUSGUL LLC</span></div><div class="cl" title="M BANK"><img loading="lazy" decoding="async" src="logos/m_bank.webp" alt="M BANK"><span class="cl-name">M BANK</span></div><div class="cl" title="GOLDEN HAMMER"><img loading="lazy" decoding="async" src="logos/golden_hammer.webp" alt="GOLDEN HAMMER"><span class="cl-name">GOLDEN HAMMER</span></div><div class="cl" title="ACH TUSIIN TUKHAI ULGERUUD"><img loading="lazy" decoding="async" src="logos/ach-tus.webp" alt="ACH TUSIIN TUKHAI ULGERUUD"><span class="cl-name">ACH TUSIIN TUKHAI ULGERUUD</span></div><div class="cl" title="G&M STAR"><img loading="lazy" decoding="async" src="logos/gm_star.webp" alt="G&M STAR"><span class="cl-name">G&M STAR</span></div><div class="cl" title="LANTUUN DOHIO"><img loading="lazy" decoding="async" src="logos/lantuun_dohio.webp" alt="LANTUUN DOHIO"><span class="cl-name">LANTUUN DOHIO</span></div><div class="cl" title="HUMAN NETWORK"><img loading="lazy" decoding="async" src="logos/human_network.webp" alt="HUMAN NETWORK"><span class="cl-name">HUMAN NETWORK</span></div><div class="cl" title="NOMIN ELECTRONICS"><img loading="lazy" decoding="async" src="logos/nomin-electronics.svg" alt="NOMIN ELECTRONICS"><span class="cl-name">NOMIN ELECTRONICS</span></div><div class="cl" title="NOMIN HOLDING"><img loading="lazy" decoding="async" src="logos/nomin-holding.svg" alt="NOMIN HOLDING"><span class="cl-name">NOMIN HOLDING</span></div><div class="cl" title="NOMIN DAATGAL"><img loading="lazy" decoding="async" src="logos/nomin-daatgal.svg" alt="NOMIN DAATGAL"><span class="cl-name">NOMIN DAATGAL</span></div><div class="cl" title="NOMIN CARD"><img loading="lazy" decoding="async" src="logos/nomin-card.svg" alt="NOMIN CARD"><span class="cl-name">NOMIN CARD</span></div><div class="cl" title="NOMIN MOTORS"><img loading="lazy" decoding="async" src="logos/nomin-motors.svg" alt="NOMIN MOTORS"><span class="cl-name">NOMIN MOTORS</span></div><div class="cl" title="NOMIN UNITY"><img loading="lazy" decoding="async" src="logos/nomin-unity.webp" alt="NOMIN UNITY"><span class="cl-name">NOMIN UNITY</span></div><div class="cl" title="NOMIN HOMESTYLE"><img loading="lazy" decoding="async" src="logos/nomin_homestyle.webp" alt="NOMIN HOMESTYLE"><span class="cl-name">NOMIN HOMESTYLE</span></div><div class="cl" title="MONLOGISTICS HOLDING"><img loading="lazy" decoding="async" src="logos/monlogistics.webp" alt="MONLOGISTICS HOLDING"><span class="cl-name">MONLOGISTICS HOLDING</span></div><div class="cl" title="ARD ACTIVE"><img loading="lazy" decoding="async" src="logos/ard_active.webp" alt="ARD ACTIVE"><span class="cl-name">ARD ACTIVE</span></div><div class="cl" title="ARD BIT"><img loading="lazy" decoding="async" src="logos/ard-bit.webp" alt="ARD BIT"><span class="cl-name">ARD BIT</span></div><div class="cl" title="ARD CREDIT"><img loading="lazy" decoding="async" src="logos/ard-kredit.webp" alt="ARD CREDIT"><span class="cl-name">ARD CREDIT</span></div><div class="cl" title="ARD PENSION"><img loading="lazy" decoding="async" src="logos/ard-tatgavriyn.webp" alt="ARD PENSION"><span class="cl-name">ARD PENSION</span></div><div class="cl" title="BU PROPERTIES"><img loading="lazy" decoding="async" src="logos/bu-properties.webp" alt="BU PROPERTIES"><span class="cl-name">BU PROPERTIES</span></div><div class="cl" title="CALLPRO"><img loading="lazy" decoding="async" src="logos/callpro.webp" alt="CALLPRO"><span class="cl-name">CALLPRO</span></div><div class="cl" title="CHIHERLEG ZALUUS"><img loading="lazy" decoding="async" src="logos/chiherleg.webp" alt="CHIHERLEG ZALUUS"><span class="cl-name">CHIHERLEG ZALUUS</span></div><div class="cl" title="UNREAD"><img loading="lazy" decoding="async" src="logos/unread.webp" alt="UNREAD"><span class="cl-name">UNREAD</span></div><div class="cl" title="CRM"><img loading="lazy" decoding="async" src="logos/crm.webp" alt="CRM"><span class="cl-name">CRM</span></div><div class="cl" title="STARSCHASE"><img loading="lazy" decoding="async" src="logos/starschase.webp" alt="STARSCHASE"><span class="cl-name">STARSCHASE</span></div><div class="cl" title="EFES GROUP"><img loading="lazy" decoding="async" src="logos/efes_group.webp" alt="EFES GROUP"><span class="cl-name">EFES GROUP</span></div><div class="cl" title="EMBASSY OF ITALY IN ULAANBAATAR"><img loading="lazy" decoding="async" src="logos/italy.webp" alt="EMBASSY OF ITALY IN ULAANBAATAR"><span class="cl-name">ITALY</span></div><div class="cl" title="GGI"><img loading="lazy" decoding="async" src="logos/ggi.webp" alt="GGI"><span class="cl-name">GGI</span></div><div class="cl" title="GREEN DRILL"><img loading="lazy" decoding="async" src="logos/green-drill.webp" alt="GREEN DRILL"><span class="cl-name">GREEN DRILL</span></div><div class="cl" title="GREEN SOLAR"><img loading="lazy" decoding="async" src="logos/green-solar.webp" alt="GREEN SOLAR"><span class="cl-name">GREEN SOLAR</span></div><div class="cl" title="JACK'S COFFEE"><img loading="lazy" decoding="async" src="logos/jacks-coffee.webp" alt="JACK'S COFFEE"><span class="cl-name">JACK'S COFFEE</span></div><div class="cl" title="LANDBRIDGE"><img loading="lazy" decoding="async" src="logos/landbridge.webp" alt="LANDBRIDGE"><span class="cl-name">LANDBRIDGE</span></div><div class="cl" title="MIG DAATGAL"><img loading="lazy" decoding="async" src="logos/mg-daatgal.webp" alt="MIG DAATGAL"><span class="cl-name">MIG DAATGAL</span></div><div class="cl" title="MOLPEDIA"><img loading="lazy" decoding="async" src="logos/molpedia.webp" alt="MOLPEDIA"><span class="cl-name">MOLPEDIA</span></div><div class="cl" title="MSM"><img loading="lazy" decoding="async" src="logos/msm.webp" alt="MSM"><span class="cl-name">MSM</span></div><div class="cl" title="NARAN SHIGTEGEE"><img loading="lazy" decoding="async" src="logos/naran-shiptee.webp" alt="NARAN SHIGTEGEE"><span class="cl-name">NARAN SHIGTEGEE</span></div><div class="cl" title="ZOVKHON TUUND"><img loading="lazy" decoding="async" src="logos/zuvhuntuund.webp" alt="ZOVKHON TUUND"><span class="cl-name">ZOVKHON TUUND</span></div><div class="cl" title="UB CAB"><img loading="lazy" decoding="async" src="logos/ub_cab.webp" alt="UB CAB"><span class="cl-name">UB CAB</span></div><div class="cl" title="MONGOLZ"><img loading="lazy" decoding="async" src="logos/mongolz.webp" alt="MONGOLZ"><span class="cl-name">MONGOLZ</span></div></div>
     </div>
   </div>
 </section>
@@ -3918,7 +3734,7 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     </div>
   </div>
   <div class="fbot">
-    <p><span class="mn">© 2025 ШАМБАЛА 2056 ИНЖЕНЕРИЙН КАМПУС МОНГОЛ — БҮХ ЭРХ ХУУЛИАР ХАМГААЛАГДСАН</span><span class="en">© 2025 SHAMBALA 2056 ENGINEERING CAMPUS MONGOLIA — ALL RIGHTS RESERVED</span></p>
+    <p><span class="mn">© <span class="yr">2026</span> ШАМБАЛА 2056 ИНЖЕНЕРИЙН КАМПУС МОНГОЛ — БҮХ ЭРХ ХУУЛИАР ХАМГААЛАГДСАН</span><span class="en">© <span class="yr">2026</span> SHAMBALA 2056 ENGINEERING CAMPUS MONGOLIA — ALL RIGHTS RESERVED</span></p>
     <a href="https://www.google.com/maps/place/Shambala+2056+Engineering+Campus/@44.0756154,111.1924367,17z" target="_blank" rel="noopener" class="fcoords" style="text-decoration:none">44°04'N 111°11'E · GOBI DESERT · DORNOGOVI PROVINCE</a>
   </div>
 </footer>
@@ -4066,27 +3882,6 @@ html[data-theme="light"] .sec-mg{opacity:0.28}
     });
   },{threshold:0.5});
   document.querySelectorAll('.count-up').forEach(function(el){obs.observe(el)});
-})();
-
-/* ── Live CO₂ Ticker ─────────────────────────────────────────────────────── */
-(function(){
-  var el=document.getElementById('co2-live');
-  if(!el)return;
-  // 9395 kg/year (2026 min projection) = 9395000 g / 31557600 s
-  var gPerSec=9395000/31557600;
-  var now=new Date();
-  var startOfYear=new Date(now.getFullYear(),0,1);
-  var elapsed=(now-startOfYear)/1000;
-  var base=Math.round(elapsed*gPerSec);
-  var startG=base;
-  var startT=Date.now();
-  function tick(){
-    var g=startG+Math.round((Date.now()-startT)/1000*gPerSec);
-    var kg=(g/1000).toFixed(1);
-    el.textContent=parseFloat(kg).toLocaleString()+' kg';
-    setTimeout(tick,1000);
-  }
-  tick();
 })();
 
 /* ── Progress Bar Animation ──────────────────────────────────────────────── */
@@ -4379,6 +4174,8 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 (function(){
   var saved = localStorage.getItem('shambala-lang') || 'mn';
   document.documentElement.setAttribute('data-lang', saved);
+  document.documentElement.lang = saved;
+  document.querySelectorAll('.yr').forEach(function(e){ e.textContent = new Date().getFullYear(); });
   updateLangBtn(saved);
   function updateLangBtn(lang){
     var btn = document.getElementById('lang-btn');
@@ -4388,6 +4185,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     var cur = document.documentElement.getAttribute('data-lang') || 'mn';
     var next = cur === 'mn' ? 'en' : 'mn';
     document.documentElement.setAttribute('data-lang', next);
+    document.documentElement.lang = next;
     localStorage.setItem('shambala-lang', next);
     updateLangBtn(next);
   };
@@ -4433,7 +4231,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- BE HUMAN -->
     <div class="la-card">
       <div class="la-img-wrap">
-        <img src="assets/landart/la01.webp" alt="BE HUMAN LAND ART AERIAL">
+        <img loading="lazy" decoding="async" src="assets/landart/la01.webp" alt="BE HUMAN LAND ART AERIAL">
         <div class="la-img-fade"></div>
         <div class="la-img-topline"></div>
         <div class="la-phase-tag"><span class="mn">I ҮЕ · ДУУССАН</span><span class="en">PHASE I · COMPLETED</span></div>
@@ -4444,8 +4242,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="la-sg">
           <div><div class="la-sv">21,857</div><div class="la-sk"><span class="mn">Мод</span><span class="en">Trees</span></div></div>
           <div><div class="la-sv">30,000</div><div class="la-sk"><span class="mn">м² Талбай</span><span class="en">m² Area</span></div></div>
-          <div><div class="la-sv">5 kWt</div><div class="la-sk"><span class="mn">Нарны хүч</span><span class="en">Solar Power</span></div></div>
-          <div><div class="la-sv">43,409 t</div><div class="la-sk"><span class="mn">Биомасс</span><span class="en">Biomass</span></div></div>
+          <div><div class="la-sv">5 <span class="nc">kW</span></div><div class="la-sk"><span class="mn">Нарны хүч</span><span class="en">Solar Power</span></div></div>
+          <div><div class="la-sv">2021–22</div><div class="la-sk"><span class="mn">Тарьсан он</span><span class="en">Planted</span></div></div>
         </div>
         <div class="la-prog"><div class="la-prog-f animate-bar" data-width="100"></div></div>
       </div>
@@ -4454,7 +4252,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- ART N TECH -->
     <div class="la-card">
       <div class="la-img-wrap">
-        <img src="assets/landart/la02.webp" alt="ART N TECH LAND ART AERIAL">
+        <img loading="lazy" decoding="async" src="assets/landart/la02.webp" alt="ART N TECH LAND ART AERIAL">
         <div class="la-img-fade"></div>
         <div class="la-img-topline"></div>
         <div class="la-phase-tag"><span class="mn">II ҮЕ · ДУУССАН</span><span class="en">PHASE II · COMPLETED</span></div>
@@ -4465,8 +4263,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="la-sg">
           <div><div class="la-sv">36,000</div><div class="la-sk"><span class="mn">Мод</span><span class="en">Trees</span></div></div>
           <div><div class="la-sv">38,970</div><div class="la-sk"><span class="mn">м² Талбай</span><span class="en">m² Area</span></div></div>
-          <div><div class="la-sv">10 kWt</div><div class="la-sk"><span class="mn">Нарны хүч</span><span class="en">Solar Power</span></div></div>
-          <div><div class="la-sv">71,498 t</div><div class="la-sk"><span class="mn">Биомасс</span><span class="en">Biomass</span></div></div>
+          <div><div class="la-sv">10 <span class="nc">kW</span></div><div class="la-sk"><span class="mn">Нарны хүч</span><span class="en">Solar Power</span></div></div>
+          <div><div class="la-sv">2023</div><div class="la-sk"><span class="mn">Тарьсан он</span><span class="en">Planted</span></div></div>
         </div>
         <div class="la-prog"><div class="la-prog-f animate-bar" data-width="100"></div></div>
       </div>
@@ -4475,7 +4273,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- MONGOLZ #1 -->
     <div class="la-card">
       <div class="la-img-wrap">
-        <img src="assets/landart/la03.webp" alt="MONGOLZ #1 LAND ART">
+        <img loading="lazy" decoding="async" src="assets/landart/la03.webp" alt="MONGOLZ #1 LAND ART">
         <div class="la-img-fade"></div>
         <div class="la-img-topline"></div>
         <div class="la-phase-tag"><span class="mn">III ҮЕ · ИДЭВХТЭЙ</span><span class="en">PHASE III · ACTIVE</span></div>
@@ -4486,8 +4284,8 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="la-sg">
           <div><div class="la-sv">100,000</div><div class="la-sk"><span class="mn">Мод</span><span class="en">Trees</span></div></div>
           <div><div class="la-sv">40,000</div><div class="la-sk"><span class="mn">м² Талбай</span><span class="en">m² Area</span></div></div>
-          <div><div class="la-sv">20 kWt</div><div class="la-sk"><span class="mn">Нарны хүч</span><span class="en">Solar Power</span></div></div>
-          <div><div class="la-sv">19,860 t</div><div class="la-sk"><span class="mn">Ургамлын бүрхэвч</span><span class="en">Vegetation Cover</span></div></div>
+          <div><div class="la-sv">20 <span class="nc">kW</span></div><div class="la-sk"><span class="mn">Нарны хүч</span><span class="en">Solar Power</span></div></div>
+          <div><div class="la-sv">2024</div><div class="la-sk"><span class="mn">Тарьсан он</span><span class="en">Planted</span></div></div>
         </div>
         <div class="la-prog"><div class="la-prog-f animate-bar" data-width="70"></div></div>
       </div>
@@ -4525,7 +4323,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div class="step-panel active" data-phase="0">
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="assets/timeline/01.webp" alt="Step 01">
+          <img loading="lazy" decoding="async" class="step-img" src="assets/timeline/01.webp" alt="Step 01">
         </div>
         <div class="step-card-body">
           <div class="step-num">01</div>
@@ -4534,7 +4332,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="assets/timeline/02.webp" alt="Step 02">
+          <img loading="lazy" decoding="async" class="step-img" src="assets/timeline/02.webp" alt="Step 02">
         </div>
         <div class="step-card-body">
           <div class="step-num">02</div>
@@ -4543,7 +4341,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="assets/timeline/03.webp" alt="Step 03">
+          <img loading="lazy" decoding="async" class="step-img" src="assets/timeline/03.webp" alt="Step 03">
         </div>
         <div class="step-card-body">
           <div class="step-num">03</div>
@@ -4552,7 +4350,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="assets/timeline/04.webp" alt="Step 04">
+          <img loading="lazy" decoding="async" class="step-img" src="assets/timeline/04.webp" alt="Step 04">
         </div>
         <div class="step-card-body">
           <div class="step-num">04</div>
@@ -4563,7 +4361,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div class="step-panel" data-phase="1">
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/05.webp" alt="Step 05">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/05.webp" alt="Step 05">
         </div>
         <div class="step-card-body">
           <div class="step-num">05</div>
@@ -4572,7 +4370,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/06.webp" alt="Step 06">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/06.webp" alt="Step 06">
         </div>
         <div class="step-card-body">
           <div class="step-num">06</div>
@@ -4581,7 +4379,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/07.webp" alt="Step 07">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/07.webp" alt="Step 07">
         </div>
         <div class="step-card-body">
           <div class="step-num">07</div>
@@ -4590,7 +4388,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/08.webp" alt="Step 08">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/08.webp" alt="Step 08">
         </div>
         <div class="step-card-body">
           <div class="step-num">08</div>
@@ -4599,7 +4397,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/10.webp" alt="Step 09">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/10.webp" alt="Step 09">
         </div>
         <div class="step-card-body">
           <div class="step-num">09</div>
@@ -4610,7 +4408,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div class="step-panel" data-phase="2">
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/09.webp" alt="Step 10">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/09.webp" alt="Step 10">
         </div>
         <div class="step-card-body">
           <div class="step-num">10</div>
@@ -4619,7 +4417,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/11.webp" alt="Step 11">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/11.webp" alt="Step 11">
         </div>
         <div class="step-card-body">
           <div class="step-num">11</div>
@@ -4628,7 +4426,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/12.webp" alt="Step 12">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/12.webp" alt="Step 12">
         </div>
         <div class="step-card-body">
           <div class="step-num">12</div>
@@ -4637,7 +4435,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/13.webp" alt="Step 13">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/13.webp" alt="Step 13">
         </div>
         <div class="step-card-body">
           <div class="step-num">13</div>
@@ -4648,7 +4446,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <div class="step-panel" data-phase="3">
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img contain" src="" data-src="assets/timeline/14.webp" alt="Step 14">
+          <img loading="lazy" decoding="async" class="step-img contain" src="" data-src="assets/timeline/14.webp" alt="Step 14">
         </div>
         <div class="step-card-body">
           <div class="step-num">14</div>
@@ -4657,7 +4455,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/15.webp" alt="Step 15">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/15.webp" alt="Step 15">
         </div>
         <div class="step-card-body">
           <div class="step-num">15</div>
@@ -4666,7 +4464,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
       <div class="step-card">
         <div class="step-img-wrap">
-          <img class="step-img" src="" data-src="assets/timeline/16.webp" alt="Step 16">
+          <img loading="lazy" decoding="async" class="step-img" src="" data-src="assets/timeline/16.webp" alt="Step 16">
         </div>
         <div class="step-card-body">
           <div class="step-num">16</div>
@@ -4687,7 +4485,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div class="sl"><span class="mn">Хиймэл дагуулын хяналт</span><span class="en">Satellite Analysis</span></div>
         <h2 class="st"><span class="mn">ТООН <em>ҮЗҮҮЛЭЛТ</em></span><span class="en">NASA <em>DATA</em></span></h2>
       </div>
-      <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;color:var(--muted);max-width:260px;text-align:right;line-height:1.7"><span class="mn">2024 оноос NASA MODIS · Sentinel-5P · Sentinel-2 хиймэл дагуулаар модны өсөлтийг хянаж, Martensite Analytica хөндлөнгийн аудитаар ажиллаж байна</span><span class="en">Since 2024, tree monitoring conducted via NASA MODIS · Sentinel-5P · Sentinel-2 — independently audited by Martensite Analytica</span></p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;color:var(--muted);max-width:260px;text-align:right;line-height:1.7"><span class="mn">2024 оноос NASA MODIS · Sentinel-5P · Sentinel-2 хиймэл дагуулаар модны өсөлтийг хянаж, Martensite Analytica хөндлөнгийн үнэлгээ хийсэн (2019–2024)</span><span class="en">Since 2024, tree monitoring conducted via NASA MODIS · Sentinel-5P · Sentinel-2 — independently assessed by Martensite Analytica (2019–2024)</span></p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:2px">
       <div style="padding:20px 24px;background:var(--surface);border:1px solid var(--border)">
@@ -4708,7 +4506,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
       </div>
     </div>
     <div style="margin-bottom:32px;padding:12px 20px;background:var(--surface);border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-      <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted)"><span class="mn">ЭХ СУРВАЛЖ: MARTENSITE ANALYTICA- ХӨНДЛӨНГИЙН АУДИТ &nbsp;·&nbsp; </span><span class="en">// SOURCE: MARTENSITE ANALYTICA — INDEPENDENT AUDIT  &nbsp;·&nbsp; </span></div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--muted)"><span class="mn">ЭХ СУРВАЛЖ: MARTENSITE ANALYTICA — ХӨНДЛӨНГИЙН ҮНЭЛГЭЭ &nbsp;·&nbsp; </span><span class="en">// SOURCE: MARTENSITE ANALYTICA — INDEPENDENT ASSESSMENT  &nbsp;·&nbsp; </span></div>
       <a href="https://www.martensite.io/shambala" target="_blank" rel="noopener" style="font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.12em;color:var(--cyan);text-decoration:none;white-space:nowrap;flex-shrink:0;margin-left:20px"><span class="mn">БҮРЭН ТАЙЛАН ҮЗЭХ ↗</span><span class="en">VIEW FULL REPORT ↗</span></a>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px">
@@ -5193,7 +4991,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
     <!-- HEADER -->
     <div style="margin-bottom:60px">
       <div class="prod-cat-label">// <span class="mn">АРГА ХЭМЖЭЭ · НААДАМ</span><span class="en">EVENTS · FESTIVALS</span></div>
-      <h2 class="prod-cat-title"><span class="mn">АРГА <em style="color:var(--green)">ХЭМЖЭЭ</em></span><span class="en">UPCOMING <em style="color:var(--green)">EVENTS</em></span></h2>
+      <h2 class="prod-cat-title"><span class="mn">АРГА <em style="color:var(--green)">ХЭМЖЭЭ</em></span><span class="en">OUR <em style="color:var(--green)">EVENTS</em></span></h2>
     </div>
 
     <!-- ── CATEGORY 1: GO ZERO ── -->
@@ -5204,6 +5002,11 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(57,173,72,0.3),transparent)"></div>
       </div>
       <p style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:0.92rem;color:rgba(232,244,255,0.75);line-height:1.6;text-transform:none;margin-bottom:24px;max-width:780px"><span class="mn">Энэхүү арга хэмжээ нь хүлэмжийн хийг бууруулах асуудал шийдлийг энгийн ойлгомжтойгоор олон нийтэд хүргэх ба 2030 он хүртэл жил бүр зохион байгуулагдах арга хэмжээ юм.</span><span class="en">This event communicates greenhouse-gas reduction solutions to the public in a clear, accessible way — held annually through 2030.</span></p>
+      <div class="gz-next">
+        <span class="gz-next-tag"><span class="mn">Удахгүй болох</span><span class="en">Upcoming</span></span>
+        <span class="gz-next-title">GO ZERO 2026</span>
+        <span class="gz-next-date"><span class="mn">2026 · 11 · 27</span><span class="en">27 NOV 2026</span></span>
+      </div>
       <div class="gz-archive-grid">
         <button class="gz-archive-card" type="button" data-pdf="assets/gozero/go-zero-2022.pdf" data-title="GO ZERO 2022">
           <div class="gz-archive-thumb">
@@ -5246,7 +5049,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
         <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--cyan)">02 ·</div>
         <div style="font-family:'ChakraNums','DisplayFont',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.12em;color:var(--white)">ART N TECH FESTIVAL</div>
         <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(57,173,72,0.3),transparent)"></div>
-        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">2026 · 08 · 22</span><span class="en">22 AUG 2026</span></div>
+        <div style="font-family:'ChakraNums','Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;color:var(--muted)"><span class="mn">2026 · 08 · 22 · БОЛЖ ӨНГӨРСӨН</span><span class="en">HELD 22 AUG 2026</span></div>
       </div>
       <p class="prod-desc" style="margin-bottom:24px"><span class="mn">Монгол орны цөлжилттэй бус нутагт дэлхийн тогтвортой хөгжлийн зорилтуудын хүрээнд үндэсний соёл уламжлал, монгол хүний оюуны бүтээлийг инноваци, зохиогчийн эрхэд тулгуурлан эдийн засгийн эргэлтэд оруулж, соёлын үйлдвэрлэлийг хөгжүүлэх замаар монгол соёлын нөлөөг дэлхий нийтэд сурталчлан таниулахад оршино.</span><span class="en">Within Mongolia's non-desertified territories and the framework of the global Sustainable Development Goals, our mission is to bring national heritage and Mongolian intellectual creations into economic circulation through innovation and copyright, develop cultural production, and promote Mongolian cultural influence to the world.</span></p>
       <div class="prod-grid cols-2">
@@ -5363,7 +5166,7 @@ document.querySelectorAll('.prod-card,.pkg-wide').forEach(function(card){
   <div class="cta-inner">
     <div class="cta-h"><span class="mn">ГОВИЙН<br>СЭРГЭЛТЭД<br><em>НЭГДЭЦГЭЭЕ</em></span><span class="en">JOIN THE<br>GOBI<br><em>RESTORATION</em></span></div>
     <div class="cta-body">
-      <p><span class="mn">Shambala 2056-ийн корпорейт түнш болж, Монголын говийг ногоожуулах 36 жилийн зорилтод нэгдэнэ үү. ESG тайлагнал, хиймэл дагуулын хяналт болон хамтарсан контент — бүгд нэг багцад.</span><span class="en">Make your organisation a corporate partner of Shambala 2056 and contribute to the 36-year mission to halt desertification in Mongolia. Benefits include ESG reporting, satellite data, and co-branded content.</span></p>
+      <p><span class="mn">Shambala 2056-ийн корпорейт түнш болж, Монголын говийг ногоожуулах 40 жилийн зорилтод нэгдэнэ үү. ESG тайлагнал, хиймэл дагуулын хяналт болон хамтарсан контент — бүгд нэг багцад.</span><span class="en">Make your organisation a corporate partner of Shambala 2056 and contribute to the 40-year mission to halt desertification in Mongolia. Benefits include ESG reporting, satellite data, and co-branded content.</span></p>
       <div class="crows">
         <div class="cr"><span class="cr-i">✉</span>hello@shambala.today</div>
         <div class="cr"><span class="cr-i">☎</span>+976 9117 2710</div>
@@ -5815,32 +5618,7 @@ window.closeMobMenu = function(){
 
 </script>
 
-<!-- Owl Carousel -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
-$(function(){
-  var nowIndex = 5; // 2026 slide (0-based)
-  $('#yr-owl').owlCarousel({
-    items: 1,
-    loop: false,
-    margin: 0,
-    nav: true,
-    dots: true,
-    startPosition: nowIndex,
-    navText: [
-      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15,18 9,12 15,6"/></svg>',
-      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9,18 15,12 9,6"/></svg>'
-    ],
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
-    responsive:{
-      0:{items:1},
-      768:{items:1},
-      1024:{items:1}
-    }
-  });
-});
 // Film card: in-page playback (local file or YouTube embed)
 (function(){
   function play(card){
